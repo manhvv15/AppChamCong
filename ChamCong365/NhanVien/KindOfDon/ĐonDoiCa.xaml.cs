@@ -141,6 +141,7 @@ namespace ChamCong365.NhanVien.KindOfDon
 
                     listString.Add(idString + ",");
 
+
                 }
                 for (int i = 0; i < listString.Count; i++)
                 {
