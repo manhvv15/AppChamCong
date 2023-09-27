@@ -1,0 +1,214 @@
+﻿<Window  x:Class="ChamCong365.NhanVien.ChamCongBangTaiKhoanCongTy.Function.FunctionCompany"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChamCong365.NhanVien.ChamCongBangTaiKhoanCongTy.Function"
+        mc:Ignorable="d"
+        Title="FunctionCompany" >
+    <ScrollViewer Height="590" VerticalScrollBarVisibility="Hidden" x:Name="scroll" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" >
+        <StackPanel>
+            <StackPanel.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#043379" Offset="0.2"></GradientStop>
+                    <GradientStop Color="#5A6AE7" Offset="0.9"></GradientStop>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Border>
+                <TextBlock Text="CÁC CHỨC NĂNG CƠ BẢN CỦA CHẤM CÔNG" 
+                           HorizontalAlignment="Center" TextWrapping="Wrap"  FontWeight="DemiBold" Foreground="#FFFFFF" FontSize="35">
+
+                </TextBlock>
+            </Border>
+            <Border Margin="0 30 0 0">
+                <TextBlock Text="Chấm công bằng tài khoản công ty/ Chấm công bằng tài khoản công ty"
+                               HorizontalAlignment="Left" TextWrapping="Wrap"   FontSize="16" Foreground="#FFFFFF" ></TextBlock>
+            </Border>
+            <Grid Margin="0 30 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" x:Name="DienThoai31">
+                    <Image Source="/NhanVien/ChamCongBangTaiKhoanCongTy/image/MayTinh1.png" VerticalAlignment="Top">
+
+                    </Image>
+                </Border>
+                <Border Grid.Column="0" Visibility="Collapsed" x:Name="DienThoai32">
+                    <Image Source="/NhanVien/ChamCongBangTaiKhoanCongTy/image/MayTinh2.png" VerticalAlignment="Top">
+
+                    </Image>
+                </Border>
+                <Border Grid.Column="0" Visibility="Collapsed" x:Name="DienThoai33">
+                    <Image Source="/NhanVien/ChamCongBangTaiKhoanCongTy/image/MayTinh3.png" VerticalAlignment="Top">
+
+                    </Image>
+                </Border>
+                <Border Grid.Column="0" Visibility="Collapsed" x:Name="DienThoai34">
+                    <Image Source="/NhanVien/ChamCongBangTaiKhoanCongTy/image/MayTinh4.png" VerticalAlignment="Top">
+
+                    </Image>
+                </Border>
+                <Border Grid.Column="0" Visibility="Collapsed" x:Name="DienThoai35">
+                    <Image Source="/NhanVien/ChamCongBangTaiKhoanCongTy/image/MayTinh5.png" VerticalAlignment="Top">
+
+                    </Image>
+                </Border>
+                <Border Grid.Column="0" Visibility="Collapsed" x:Name="DienThoai36">
+                    <Image Source="/NhanVien/ChamCongBangTaiKhoanCongTy/image/MayTinh6.png" VerticalAlignment="Top">
+
+                    </Image>
+                </Border>
+                <StackPanel Grid.Column="1">
+                    <DockPanel>
+                        <Image Source="{StaticResource so1TrangDrawingImageKey}" Width="44"></Image>
+
+                        <TextBlock Text="CHẤM CÔNG BẰNG TÀI KHOẢN CÔNG TY" FontSize="20" Foreground="#FFFFFF" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0">
+
+                        </TextBlock>
+                    </DockPanel>
+                    <StackPanel Margin="0 20 0 0">
+                        <DockPanel x:Name="Buoc31Hien" MouseUp="Buoc31Hien_MouseUp" >
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 1:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Vào tài khoản nhà tuyển dụng , chọn “Ứng dụng ” rồi chọn “Chấm công”" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc32Hien" MouseUp="Buoc32Hien_MouseUp_1" >
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 2:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Chọn tiếp nút “CHẤM CÔNG” trên thanh Menu”" FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc32An" Visibility="Collapsed">
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 2:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Chọn tiếp nút “CHẤM CÔNG” trên thanh Menu”" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc33Hien" MouseUp="Buoc33Hien_MouseUp" >
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 3:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Sau đó chọn “BẮT ĐẦU””" FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc33An" Visibility="Collapsed">
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 3:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Sau đó chọn “BẮT ĐẦU””" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                       
+                        <DockPanel x:Name="Buoc34Hien" Margin="0 15 0 0" MouseUp="Buoc34Hien_MouseUp" >
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 4:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Đưa khuôn mặt của bạn vào khung hình nhận diện trong khoảng thời gian hệ thống để giây, để hệ thống tiến hành xác minh khuôn mặt rồi chọn “LÀ TÔI, TIẾP TỤC CHẤM CÔNG”" FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel x:Name="Buoc34An" Margin="0 15 0 0" Visibility="Collapsed">
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 4:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Đưa khuôn mặt của bạn vào khung hình nhận diện trong khoảng thời gian hệ thống để giây, để hệ thống tiến hành xác minh khuôn mặt rồi chọn “LÀ TÔI, TIẾP TỤC CHẤM CÔNG”" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                       
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc35Hien" MouseUp="Buoc35Hien_MouseUp" >
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 5:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Chọn đúng ca làm việc và chọn “ĐIỂM DANH”" FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc35An" Visibility="Collapsed">
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 5:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Chọn đúng ca làm việc và chọn “ĐIỂM DANH”" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc36Hien" MouseUp="Buoc36Hien_MouseUp" >
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 6:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Trang thái chấm công thành công là khi hệ thống hiển thị lên màn hình thông báo “ĐIỂM DANH THÀNH CÔNG”." FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0 15 0 0" x:Name="Buoc36An" Visibility="Collapsed">
+                            <Border Cursor="Hand" >
+                                <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Bước 6:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Trang thái chấm công thành công là khi hệ thống hiển thị lên màn hình thông báo “ĐIỂM DANH THÀNH CÔNG”." FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </DockPanel>
+
+
+
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+    
+</Window>

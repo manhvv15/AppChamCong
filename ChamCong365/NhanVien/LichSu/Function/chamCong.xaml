@@ -1,0 +1,237 @@
+﻿<Window x:Class="ChamCong365.NhanVien.LichSu.Function.chamCong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChamCong365.NhanVien.LichSu.Function"
+        mc:Ignorable="d"
+       Background="WhiteSmoke"
+        Width="1200">
+
+    <StackPanel HorizontalAlignment="Center">
+        <DockPanel>
+            <Border HorizontalAlignment="Left">
+                <TextBlock Text="Xin chào Vũ Văn Khá" FontSize="20" FontWeight="DemiBold" Foreground="#474747" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            </Border>
+            <Grid>
+                <Border Height="47" CornerRadius="25" Cursor="Hand" HorizontalAlignment="Right" Margin="0 0 290 0" MouseUp="Border_MouseUp">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#4C5BD4" Offset="0.1"></GradientStop>
+                            <GradientStop Color="#4AA7FF" Offset="0.9"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <DockPanel>
+                        <Image Source="{StaticResource User_ScanningDrawingImageKey}" Width="24" Margin="25 0 0 0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Cập nhật dữ liệu khuôn mặt" VerticalAlignment="Center" Margin="15 0 20 0" Foreground="#FFFFFF" FontSize="20"/>
+                    </DockPanel>
+                </Border>
+                <Border Height="47" CornerRadius="25" Margin="20 0 0 0" HorizontalAlignment="Right" Cursor="Hand" MouseUp="Border_MouseUp_1" >
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#4C5BD4" Offset="0.1"></GradientStop>
+                            <GradientStop Color="#4AA7FF" Offset="0.9"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <DockPanel>
+                        <Image Source="{StaticResource User_ScanningDrawingImageKey}" Width="24" Margin="25 0 0 0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Chấm công nhân viên" VerticalAlignment="Center" Margin="15 0 20 0" Foreground="#FFFFFF" FontSize="20"/>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </DockPanel>
+        <Grid Margin="0 20 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Height="80" Background="#FFFFFF" CornerRadius="15 15 15 15">
+                <DockPanel>
+                    <Image Source="{StaticResource Frame_1000010473__1_DrawingImageKey}" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"/>
+                    <TextBlock Width="128" Text="Số lần đi muộn trong tháng" FontSize="16" Foreground="#4C5BD4" Margin="10 0 0 0" VerticalAlignment="Center" FontWeight="DemiBold" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                    <Border Margin="0 0 0 0">
+                        <Line X1="0" Y1="0" X2="0" Y2="80" Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Line>
+                    </Border>
+                    <Border Width="69">
+                        <TextBlock Text="00 Lần" FontSize="16" FontWeight="DemiBold" Foreground="#474747" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                   
+                </DockPanel>
+            </Border>
+            <Border Grid.Column="1" Margin="20 0 0 0" Height="80" Background="#FFFFFF" CornerRadius="15 15 15 15">
+                <DockPanel>
+                    <Image Source="{StaticResource Frame_1000010473__2_DrawingImageKey}" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"/>
+                    <TextBlock Width="160" Text="Quản lí dữ liệu điểm danh theo tháng" FontSize="16" Foreground="#68AD23" Margin="10 0 0 0" VerticalAlignment="Center" FontWeight="DemiBold" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                    <Border Margin="0 0 0 0">
+                        <Line X1="0" Y1="0" X2="0" Y2="80" Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Line>
+                    </Border>
+                    <Border Width="69">
+                        <TextBlock Text="20 Lần" FontSize="16" FontWeight="DemiBold" Foreground="#474747" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+
+                </DockPanel>
+            </Border>
+            <Border  Grid.Column="2" Margin="20 0 0 0" Height="80" Background="#FFFFFF" CornerRadius="15 15 15 15">
+                <DockPanel>
+                    <Image Source="{StaticResource Frame_1000010473__3_DrawingImageKey}" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"/>
+                    <TextBlock Width="160" Text="Điểm danh không hợp lệ trong tháng" FontSize="16" Foreground="#FE6755" Margin="10 0 0 0" VerticalAlignment="Center" FontWeight="DemiBold" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                    <Border Margin="0 0 0 0">
+                        <Line X1="0" Y1="0" X2="0" Y2="80" Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Line>
+                    </Border>
+                    <Border Width="69">
+                        <TextBlock Text="03 Lần" FontSize="16" FontWeight="DemiBold" Foreground="#474747" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+
+                </DockPanel>
+            </Border>
+        </Grid>
+        <Grid Margin="0 30 0 0" Height="492">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--lich su cham cong trong tuan-->
+            <StackPanel>
+                <Border Height="44" Background="#4C5BD4" CornerRadius="10 10 0 0">
+                    <DockPanel HorizontalAlignment="Center">
+                        <Image Source="{StaticResource bar_chart_square_01DrawingImageKey}" Width="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="Lịch sử chấm công trong Tuần" FontSize="18" Margin="10 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1" Background="{DynamicResource #FFFFFF}" CornerRadius="10" MinHeight="450">
+                    <Grid x:Name="gridBD">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Số lần chấm công" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="1" Grid.ColumnSpan="8" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="5" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="4" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="3" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="2" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="1" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="5" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+
+                        <TextBlock Text="T2" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="1" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T3" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T4" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="3" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T5" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="4" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T6" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="5" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T7" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="6" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="CN" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="7" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #ebebeb}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #ebebeb}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #ebebeb}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #ebebeb}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #ebebeb}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #ebebeb}"></Rectangle>
+
+                        <Rectangle x:Name="DDT2" Grid.Column="1" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed" Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT3" Grid.Column="2" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT4" Grid.Column="3" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT5" Grid.Column="4" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT6" Grid.Column="5" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT7" Grid.Column="6" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDCN" Grid.Column="7" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="7" VerticalAlignment="Bottom" Margin="15 15 0 0" Fill="#333333"></Rectangle>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+            <!--cham cong gan nhat-->
+            <StackPanel Grid.Column="1" Margin="20 0 0 0">
+                <Border Height="44" Background="#4C5BD4" CornerRadius="10 10 0 0">
+                    <DockPanel HorizontalAlignment="Center">
+                        <Image Source="{StaticResource HistoryDrawingImageKey}" Width="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="Lịch sử chấm công gần nhất" FontSize="18" Margin="10 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+                <StackPanel Margin="10 20 0 0">
+                    <TextBlock Text="Vũ Văn Khá điểm danh thành công" FontSize="16" Foreground="#4C5BD4"/>
+                    <TextBlock Text="Ca Sáng 7TR " FontSize="16" Foreground="#474747"/>
+                    <DockPanel>
+                        <Image Source="{StaticResource alarm_clockDrawingImageKey}" Margin="0 0 10 0" Width="18" HorizontalAlignment="Left"/>
+                        <TextBlock Text="30/06/2023, 07:45:04" FontSize="16" Foreground="#474747"/>
+                    </DockPanel>
+                    <Line Margin="0 10 0 0" X1="0" Y1="0" X2="270" Y2="0" Stroke="#C4C4C4" StrokeThickness="1" ></Line>
+                </StackPanel>
+                <StackPanel Margin="10 20 0 0">
+                    <TextBlock Text="Vũ Văn Khá điểm danh thành công" FontSize="16" Foreground="#4C5BD4"/>
+                    <TextBlock Text="Ca Sáng 7TR " FontSize="16" Foreground="#474747"/>
+                    <DockPanel>
+                        <Image Source="{StaticResource alarm_clockDrawingImageKey}" Margin="0 0 10 0" Width="18" HorizontalAlignment="Left"/>
+                        <TextBlock Text="30/06/2023, 07:45:04" FontSize="16" Foreground="#474747"/>
+                    </DockPanel>
+                    <Line Margin="0 10 0 0" X1="0" Y1="0" X2="270" Y2="0" Stroke="#C4C4C4" StrokeThickness="1" ></Line>
+                </StackPanel>
+                <DataGrid Visibility="Collapsed" Margin="25 0 0 0" ColumnWidth="*" ItemsSource="{Binding listDiemDanh}" >
+                    <DataGrid.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Width="{Binding RelativeSource={RelativeSource AncestorType=DataGrid,Mode=FindAncestor},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource AncestorType=DataGrid,Mode=FindAncestor},Path=ActualHeight}" Background="White" CornerRadius="0 0 10 10"></Border>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </DataGrid.OpacityMask>
+                    <DataGrid.Style>
+                        <Style TargetType="DataGrid" BasedOn="{StaticResource DataGrid1}">
+                            <Setter Property="GridLinesVisibility" Value="None"/>
+                            <Setter Property="ColumnHeaderStyle">
+                                <Setter.Value>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="Height" Value="0"></Setter>
+                                    </Style>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGrid.Style>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding time}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding date}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </StackPanel>
+            
+        </Grid>
+    </StackPanel>
+
+</Window>

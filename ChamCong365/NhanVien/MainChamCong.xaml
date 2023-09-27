@@ -1,0 +1,297 @@
+﻿<Window x:Class="ChamCong365.NhanVien.MainChamCong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChamCong365.NhanVien"
+        mc:Ignorable="d"
+        MaxWidth="1920"
+        MinHeight="800"
+        MinWidth="800"
+        Background="WhiteSmoke"
+        ResizeMode="CanResizeWithGrip"
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch"
+        
+        AllowsTransparency="False"
+        WindowStartupLocation="CenterScreen"
+        SizeChanged="Window_SizeChangedChamCong" 
+        StateChanged="MainWindows_StateChangedChamcong"
+        x:Name="MainWindowChamCong"
+        Title="MainChamCong" Closing="MainWindowChamCong_Closing">
+
+    <Grid  x:Name="grShowPopup">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="69"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel  >
+                    <!--hearder Colesspa-->
+                    <Grid 
+                    x:Name="HearderColesspa" 
+                    Visibility="Collapsed"  
+                    Height="69" Background="#4C5BD4" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--SlineBar-->
+                        <Grid Grid.Column="0">
+                            <Border Cursor="Hand"
+                            Margin="20 0 0 0"
+                            x:Name="SlineBar" 
+                           
+                            HorizontalAlignment="Left" 
+                            Width="30" Height="30">
+                                <Image Source="{StaticResource SlineBarDrawingImage}"/>
+                            </Border>
+                        </Grid>
+                        <!--Logo-->
+                        <Grid Grid.Column="1">
+                            <Border Cursor="Hand"
+                            HorizontalAlignment="Center" 
+                            Width="129" Height="39">
+                                <Path Data="{DynamicResource Logo}" Fill="White"/>
+                            </Border>
+                        </Grid>
+                        <!--Notication-->
+                        <Grid Grid.Column="2">
+                            <DockPanel 
+                               x:Name="IChat" 
+                                Width="72" 
+                                Height="28" 
+                                HorizontalAlignment="Right"  
+                                VerticalAlignment="Center">
+                                <DockPanel>
+                                    <Border Cursor="Hand"
+                                     Width="30" 
+                                     Height="30">
+                                        <Image Source="{StaticResource iconChatDrawingImage}"   />
+                                    </Border>
+                                    <Border Cursor="Hand"
+                                     Width="50" >
+                                        <Image 
+                                        Source="{StaticResource iconNotycationDrawingImage}" 
+                                        Width="24" 
+                                        Height="24" 
+                                        HorizontalAlignment="Center" 
+                                        VerticalAlignment="Center" />
+                                    </Border>
+                                </DockPanel>
+                            </DockPanel>
+                        </Grid>
+                    </Grid>
+                    <!--hearder Visnity-->
+                    <Grid Grid.Row="0"
+                        x:Name="HearderVisibility" 
+                        Visibility="Visible" 
+                        Height="69" 
+                        Background="#4C5BD4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--Logo-->
+                        <Grid Grid.Column="0">
+                            <Border Cursor="Hand"
+                                Width="129"
+                                Margin="24 0 15 0" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center">
+                                <Path Data="{DynamicResource Logo}" Fill="White"/>
+                            </Border>
+                        </Grid>
+                        <!--Menu-->
+                        <Grid 
+                            Grid.Column="1"
+                            HorizontalAlignment="Right">
+                            <DockPanel>
+                                <DockPanel 
+                                   x:Name="LinkText" 
+                                   Width="281" Height="39" 
+                                   HorizontalAlignment="Left" >
+                                    <Border Cursor="Hand"
+                                        x:Name="Home" 
+                                        Width="92">
+                                        <TextBlock  
+                                            Style="{StaticResource TextBlockMenuHeader}"
+                                            Text="Trang chủ"/>
+                                    </Border>
+                                    <Border Cursor="Hand"
+                                        x:Name="Interests" 
+                                        Width="74" 
+                                        Height="39">
+                                        <TextBlock 
+                                            Text="Tin tức" 
+                                         Style="{StaticResource TextBlockMenuHeader}"/>
+                                    </Border>
+                                    <Border Cursor="Hand"
+                                        x:Name="Instruct" 
+                                        Width="99"  
+                                        Height="39">
+                                        <TextBlock   
+                                            Text=" Hướng dẫn" 
+                                            Style="{StaticResource TextBlockMenuHeader}"/>
+                                    </Border>
+                                </DockPanel>
+                                <DockPanel 
+                                    Width="100" 
+                                    Height="28" 
+                                    HorizontalAlignment="Left"  
+                                    VerticalAlignment="Center">
+                                    <Grid 
+                                        Width="35">
+                                        <Image Source="{StaticResource iconChatDrawingImage}"/>
+                                    </Grid>
+                                    <Border>
+                                        <TextBlock 
+                                            Style="{StaticResource TextBlockMenuHeader}"
+                                            Text="Chat" />
+                                    </Border>
+                                    <Border>
+                                        <Image 
+                                            Source="{StaticResource iconNotycationDrawingImage}" 
+                                            Width="18" Height="20"  />
+                                    </Border>
+                                </DockPanel>
+                                <DockPanel 
+                                   x:Name="Search" 
+                                   Width="337" Height="30" >
+                                    <Border  Cursor="Hand"
+                                        Background="#7C87E2"
+                                        VerticalAlignment="Center"
+                                        BorderBrush="Silver" 
+                                        BorderThickness="1" 
+                                        CornerRadius="15,15,15,15" >
+                                        <DockPanel>
+                                            <Border
+                                                x:Name="avatarAccount"
+                                                Width="30" Height="30" >
+                                                <Border.Background>
+                                                    <ImageBrush x:Name="ImgAvatar">
+
+                                                    </ImageBrush>
+                                                </Border.Background>
+                                            </Border>
+                                            <Border Width="280" Height="19">
+                                                <TextBlock 
+                                                    x:Name="txbNameAccount"
+                                                    Text="{Binding}"
+                                                    FontSize="16" 
+                                                    Foreground="White"/>
+                                            </Border>
+                                            <Border Cursor="Hand">
+                                                <Image 
+                                                    Source="{StaticResource iconPolygonDrawingImage}" 
+                                                    Width="13" Height="10"/>
+                                            </Border>
+                                        </DockPanel>
+                                    </Border>
+                                </DockPanel>
+                            </DockPanel>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" MouseUp="Grid_MouseUp" Height="40" >
+                    <Border Cursor="Hand"
+                       
+                        Margin="10"
+                        
+                        x:Name="bodBackto"
+                        HorizontalAlignment="Left" >
+                        <DockPanel Margin="0,3,0,-3">
+                            <Border 
+                                Margin="0 0 10 0"
+                                Width="15" Height="9">
+                                <Image Source="{StaticResource BackToBackDrawingImage}" Margin="0,-1,-1,-2"  />
+                            </Border>
+                            <Border>
+                                <TextBlock 
+                                    x:Name="txbBackToBack"
+                                    FontSize="16" 
+                                    Text="Quay lại" 
+                                    Foreground="#474747"
+                                    VerticalAlignment="Center">
+                                </TextBlock>
+                            </Border>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+                <Grid Height="45" 
+                    Margin="100 0 0 0"
+                    x:Name="LableFunction"
+                    Visibility="Collapsed"
+                    HorizontalAlignment="Left" 
+                    Grid.Row="1">
+                    <DockPanel >
+                        <Border>
+                            <TextBlock
+                                x:Name="txbLoadChamCong"
+                                FontSize="16"
+                                Foreground="#474747"/>
+                        </Border>
+
+                    </DockPanel>
+                </Grid>
+
+                <ScrollViewer  Grid.Row="2" x:Name="scrollMainChamCong">
+
+                    <Grid x:Name="dopBody" >
+
+                    </Grid>
+
+                </ScrollViewer>
+                <Border
+                HorizontalAlignment="Left"
+                x:Name="MenuCollapsed"       
+                Visibility="Collapsed" 
+                Margin="2 67 0 0" 
+                Background="White"  
+                Width="92"
+                BorderThickness="1"
+                CornerRadius="0 0 5 5"
+                BorderBrush="#4C5BD4">
+                    <StackPanel>
+                        <Border >
+                            <TextBlock 
+                            HorizontalAlignment="Left"
+                            Foreground="#474747"
+                            Style="{StaticResource TextBlockMenuHeader}"
+                            Text="Trang chủ"/>
+                        </Border>
+                        <Border
+                        x:Name="Interests2">
+                            <TextBlock 
+                            HorizontalAlignment="Left"
+                            Foreground="#474747"
+                            Text="Tin tức" 
+                            Style="{StaticResource TextBlockMenuHeader}"/>
+                        </Border>
+                        <Border 
+                        x:Name="Instruct3">
+                            <TextBlock  
+                            HorizontalAlignment="Left"
+                            Foreground="#474747"
+                            Text=" Hướng dẫn" 
+                            Style="{StaticResource TextBlockMenuHeader}"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+
+            </Grid>
+        </Grid>
+        <Grid x:Name="clearPopUp" Background="Gray" Opacity="0.5" Visibility="{Binding  ElementName=popup,Path=Visibility}" />
+        <Grid x:Name="popup"  Visibility="Collapsed"/>
+    </Grid>
+</Window>

@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="ChamCong365.Popup.CaiDatLuong.CaiDatNhapLuongCoBan.PopUpHoiTruocKhiXoaLCB"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.CaiDatLuong.CaiDatNhapLuongCoBan"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0">
+    <Grid>
+        <Rectangle Fill="#000000" Opacity="0.5" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"></Rectangle>
+        <Grid>
+            <Border 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                x:Name="bodXoaThongTin"
+                Width="450"
+                Background="White"
+                Height="203"
+                CornerRadius="10"
+                BorderThickness="1"
+                BorderBrush="#4C5BD4">
+                <StackPanel>
+                    <Image 
+                    Margin="0 15 0 0" 
+                    Width="50" 
+                    Source="{DynamicResource iconExitRedDrawingImage}"/>
+                    <Border Margin="0 20 0 20">
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"
+                            FontSize="16"
+                            Foreground="#474747"
+                            Text="Bạn chắc chắn muốn xóa không?"/>
+                    </Border>
+                    <DockPanel Margin="0 0 0 20" >
+                        <Border 
+                            Background="Transparent" 
+                            Cursor="Hand"
+                            x:Name="bodCancel"
+                            MouseLeftButtonUp="bodCancel_MouseLeftButtonUp"
+                            Margin="80 0 0 0"
+                            Width="129"
+                            Height="34"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            BorderBrush="#4C5BD4">
+                            <TextBlock x:Name="txbTextCancel"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                FontSize="18"
+                                Foreground="#4C5BD4"
+                                FontWeight="Medium"
+                                Text="Hủy" />
+                        </Border>
+                        <Border 
+                            Cursor="Hand"
+                            x:Name="bodXacNhanXoa"
+                            MouseLeftButtonUp="bodXacNhanXoa_MouseLeftButtonUp"
+                            Margin="0 0 80 0"
+                            HorizontalAlignment="Right"
+                            Width="129"
+                            Height="34"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            BorderBrush="#4C5BD4"
+                            Background="#4C5BD4">
+                            <TextBlock 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#FFFFFF"
+                            FontWeight="Medium"
+                            Text="Đồng ý" />
+                        </Border>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+            
+    </Grid>
+</UserControl>

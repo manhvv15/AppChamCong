@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="ChamCong365.Popup.funcCompanyManager.ListCandidatesPopups.ucDeleteCandidate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.funcCompanyManager.ListCandidatesPopups"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <Grid>
+        <Rectangle Fill="#474747" Opacity="0.7" MouseDown="Rectangle_MouseDown" />
+        <!--Add Candidates of candidates  -->
+        <Border
+            Panel.ZIndex="1"
+            x:Name="bodCreateCandidates"
+            Background="White"
+            CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="Gray"
+            Width="600"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Margin="0 300 0 0"
+        >
+            <StackPanel Width="602" Height="auto">
+                <Border
+                    Background="#4C5BD4"
+                    BorderThickness="1"
+                    CornerRadius="10 10 0 0"
+                    BorderBrush="#4C5BD4">
+                    <Grid
+                    
+                        Height="54">
+                        <TextBlock
+                            Margin="0 0 0 0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="White"
+                            Text="Xóa ứng viên" />
+                        <Image
+                            Margin="0 0 30 0"
+                            x:Name="btnExitCreate"
+                            MouseLeftButtonUp="bodExitPopup_MouseUp"
+                            HorizontalAlignment="Right"
+                            Width="14"
+                            Height="14"
+                            Source="{StaticResource iconExitDrawingImage}" />
+                    </Grid>
+                </Border>
+
+                <WrapPanel>
+                    <TextBlock
+                    Margin="20"
+                    FontFamily="Roboto"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    TextWrapping="Wrap"><Run Text="Bạn có chắc muốn xóa ứng viên này không?"/><LineBreak/><Run Text="Tất cả nội dung quy trình sẽ được lưu trữ ở &quot;DỮ LIỆU ĐÃ XÓA GẦN ĐÂY&quot; trong thời gian 5 ngày trước khi bị xóa vĩnh viễn."/></TextBlock>
+                </WrapPanel>
+
+                <Grid>
+                    <!--nút hủy-->
+                    <Border
+                        HorizontalAlignment="Center"
+                    Margin="0 20 200 20"
+                    Width="126"
+                    Height="34"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                        BorderBrush="#4C5BD4"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="DemiBold"
+                    TextBlock.Foreground="White">
+                        <TextBlock
+                            Foreground="#4C5BD4"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Hủy" />
+                    </Border>
+
+                    <!--nút thêm mới-->
+                    <Border
+                    Margin="200 20 0 20"
+                    Width="126"
+                    Height="34"
+                    Background="#FF5B4D"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="DemiBold"
+                    TextBlock.Foreground="White">
+                        <TextBlock
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Xóa" />
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+        </Border >
+
+    </Grid>
+</UserControl>

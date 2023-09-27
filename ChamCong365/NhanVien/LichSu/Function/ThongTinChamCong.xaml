@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="ChamCong365.NhanVien.LichSu.Function.ThongTinChamCong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.NhanVien.LichSu.Function"
+             mc:Ignorable="d" 
+            >
+    <Border x:Name="an"  Background="#FFFFFF" Width="537" Height="368" CornerRadius="30" VerticalAlignment="Top" HorizontalAlignment="Center" Visibility="Visible">
+        <StackPanel>
+            <Border Margin="0 50 0 0" Width="477" Height="106" CornerRadius="10" BorderThickness="1" BorderBrush="#4C5BD4">
+                <StackPanel VerticalAlignment="Center" Margin="0 20 0 0">
+                    <DockPanel>
+                        <Image Source="{StaticResource Group_1000007327DrawingImageKey}" Width="24" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        <TextBlock Text="Tọa độ : " FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Margin="20 0 0 0"></TextBlock>
+                        <TextBlock Text="20.984353, 105.8331514 " FontSize="16" FontWeight="DemiBold" Foreground="#4C5BD4" VerticalAlignment="Center" Margin="5 0 0 0"></TextBlock>
+
+                    </DockPanel>
+                    <DockPanel Margin="0 10 0 0">
+                        <Image Source="{StaticResource VectorDrawingImageKey}" Width="24" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        <TextBlock Text="IP Mạng : " FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Margin="20 0 0 0"></TextBlock>
+                        <TextBlock Text="210.245.75.51" FontSize="16" FontWeight="DemiBold" Foreground="#4C5BD4" VerticalAlignment="Center" Margin="5 0 0 0"></TextBlock>
+
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Border Width="339" Margin="0 -210 0 0" Height="42" Cursor="Hand" BorderThickness="2" BorderBrush="#4C5BD4" CornerRadius="20" HorizontalAlignment="Center"  >
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#4D5CD7" Offset="1" />
+                        <GradientStop Color="#6677FB" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <DockPanel>
+                    <Image Width="30" Margin="10 0 0 0" Source="{StaticResource Frame_1000010452DrawingImageKey}"/>
+                    <TextBlock Margin="10 0 0 0" Text="Thông tin chấm công" FontSize="16" Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                </DockPanel>
+
+            </Border>
+            <Border Margin="0 20 0 0" Width="477" Height="99" CornerRadius="10" BorderThickness="1" BorderBrush="#4C5BD4">
+                <Border Margin="10" Background="#F1F1F1">
+
+                    <DockPanel>
+                        <Image Margin="10 0 0 0" Source="{StaticResource checkDrawingImageKey}" Width="24"/>
+                        <Path Data="{DynamicResource tich}" />
+                        <TextBlock Text="Ca Sáng 7TR  Lương 10TR" FontSize="16" VerticalAlignment="Center"/>
+                        <TextBlock Margin="20 0 0 0" Text="08:00:00 - 11:30:00" FontSize="16" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+            </Border>
+            <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border Width="167" Height="42" Cursor="Hand" BorderThickness="2" BorderBrush="#4C5BD4" CornerRadius="20" HorizontalAlignment="Center"  >
+                    <TextBlock Text="Trang chủ" FontSize="16" Foreground="#4C5BD4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Margin="20 0 0 0" Width="167" Height="42" BorderThickness="2" BorderBrush="#4C5BD4" CornerRadius="20" HorizontalAlignment="Center">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#4D5CD7" Offset="1" />
+                            <GradientStop Color="#6677FB" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <TextBlock Text="Điểm danh" FontSize="16" Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+
+</UserControl>

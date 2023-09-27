@@ -1,0 +1,413 @@
+﻿<UserControl x:Class="ChamCong365.Body"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1200">
+    <Grid>
+        <DockPanel
+            Margin="20 0 20 0"
+            x:Name="dopBody" 
+            Background="White"
+                    Width="1160"
+                    Height="500">
+
+            <Grid>
+                <Grid 
+                                VerticalAlignment="Top"  
+                                Width="auto" Height="495" >
+                    <!--Menu Chức Năng-->
+                    <StackPanel 
+                                    x:Name="stpMenuFunction"
+                                    Background="White" 
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Top" >
+                        <!--Chấm Công-->
+                        <Grid 
+                                        Background="White" 
+                                        Width="408" Height="120">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border 
+                                            Style="{StaticResource BorderListFunction01}"
+                                            Background="#97C25F"
+                                            Grid.ColumnSpan="2">
+                            </Border>
+                            <Border 
+                                            Style="{StaticResource BorderListFunction02}"
+                                            Background="#EDF3FF">
+                                <TextBlock 
+                                            Text="Chấm Công" 
+                                            Margin="90 25 0 0">
+                                </TextBlock>
+                            </Border>
+                            <Border
+                                              Style="{StaticResource BorderListFunction03}">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="2,1" StartPoint="{DynamicResource LinearGradientBrushStartPoint1}">
+                                        <LinearGradientBrush.Transform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform AngleX="50" AngleY="20"/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.Transform>
+                                        <GradientStop Color="#97C25F"/>
+                                        <GradientStop Color="#7DA047" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border TextBlock.FontSize="36"
+                                            TextBlock.LineHeight="43"
+                                            TextBlock.FontWeight="Regular"
+                                            CornerRadius="50 50 50 50"
+                                            Background="White"
+                                            Margin="8,18,0,17" 
+                                            Width="85" Height="85"
+                                            HorizontalAlignment="Left">
+                                <TextBlock 
+                                            Text="1" 
+                                            Width="20" Height="52"/>
+                            </Border>
+                            <Border Height="50" Width="2" Margin="250 0 0 0">
+                                <Image Source="./Resource/Image/Vector.png"></Image>
+                            </Border>
+                            <Border Height="30" Width="30" Margin="325 0 0 0">
+                                <Image Source="./Resource/Image/Time.png"></Image>
+                            </Border>
+                        </Grid>
+                        <!--Quản lý công ty-->
+                        <Grid 
+                                    Background="White" 
+                                    Width="408" Height="120">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border 
+                                            Style="{StaticResource BorderListFunction01}"
+                                            Background="#E8811A"
+                                            Grid.ColumnSpan="2"
+                                            >
+                            </Border>
+                            <Border 
+                                             Style="{StaticResource BorderListFunction02}"
+                                            Background="#EDF3FF">
+                                <TextBlock  
+                                            Text="Quản lý công ty"    
+                                            Margin="90 25 0 0"></TextBlock>
+                            </Border>
+                            <Border 
+                                              Style="{StaticResource BorderListFunction03}">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="2,1" StartPoint="{DynamicResource LinearGradientBrushStartPoint1}">
+                                        <LinearGradientBrush.Transform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform AngleX="50" AngleY="20"/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.Transform>
+                                        <GradientStop Color="#FFA13B"/>
+                                        <GradientStop Color="#E8811A  " Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border TextBlock.FontSize="36"
+                                            TextBlock.LineHeight="43"
+                                            TextBlock.FontWeight="Regular"
+                                            CornerRadius="50 50 50 50"
+                                            Background="White"
+                                            Margin="8,18,0,17" 
+                                            Width="85" Height="85"
+                                            HorizontalAlignment="Left">
+                                <TextBlock 
+                                            Text="2" 
+                                            Width="20" Height="52"/>
+                            </Border>
+                            <Border Height="50" Width="2" Margin="250 0 0 0">
+                                <Image Source="./Resource/Image/Vector.png"></Image>
+                            </Border>
+                            <Border Height="30" Width="30" Margin="325 0 0 0">
+                                <Image Source="./Resource/Image/Word.png"></Image>
+                            </Border>
+                        </Grid>
+                        <!--Đề Xuất-->
+                        <Grid 
+                                    Background="White" 
+                                     Width="408" Height="120">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border
+                                            Style="{StaticResource BorderListFunction01}"
+                                            Background="#C1403A"
+                                            Grid.ColumnSpan="2">
+                            </Border>
+                            <Border 
+                                            Style="{StaticResource BorderListFunction02}"
+                                            Background="#EDF3FF">
+                                <TextBlock  
+                                            Text="Đề xuất" 
+                                            Margin="90 25 0 0">
+                                </TextBlock>
+                            </Border>
+                            <Border 
+                                              Style="{StaticResource BorderListFunction03}">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="2,1" StartPoint="{DynamicResource LinearGradientBrushStartPoint1}">
+                                        <LinearGradientBrush.Transform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform AngleX="50" AngleY="20"/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.Transform>
+                                        <GradientStop Color="#FF5B4D"/>
+                                        <GradientStop Color="#C1403A  " Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border TextBlock.FontSize="36"
+                                            TextBlock.LineHeight="43"
+                                            TextBlock.FontWeight="Regular"
+                                            CornerRadius="50 50 50 50"
+                                            Background="White"
+                                            Margin="8,18,0,17" 
+                                            Width="85" Height="85"
+                                            HorizontalAlignment="Left">
+                                <TextBlock Text="3" 
+                                            Width="20" Height="52"/>
+                            </Border>
+                            <Border Height="50" Width="2" Margin="250 0 0 0">
+                                <Image Source="./Resource/Image/Vector.png"></Image>
+                            </Border>
+                            <Border Height="30" Width="30" Margin="325 0 0 0">
+                                <Image Source="./Resource/Image/Taba.png"></Image>
+                            </Border>
+                        </Grid>
+                        <!--Cài đặt lương-->
+                        <Grid 
+                                    Background="White" 
+                                    Width="408" Height="120">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border 
+                                            Style="{StaticResource BorderListFunction01}"
+                                            Background="#8069FF"
+                                            Grid.ColumnSpan="2">
+                            </Border>
+                            <Border 
+                                            Style="{StaticResource BorderListFunction02}"
+                                            Background="#EDF3FF">
+                                <TextBlock  Text="Cài đặt lương" Margin="90 25 0 0"></TextBlock>
+                            </Border>
+                            <Border 
+                                            Style="{StaticResource BorderListFunction03}">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="2,1" StartPoint="{DynamicResource LinearGradientBrushStartPoint1}">
+                                        <LinearGradientBrush.Transform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform AngleX="50" AngleY="20"/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.Transform>
+                                        <GradientStop Color="#8069FF"/>
+                                        <GradientStop Color="#5E53C9" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Border 
+                                        TextBlock.FontSize="36"
+                                        TextBlock.LineHeight="43"
+                                        TextBlock.FontWeight="Regular"
+                                        CornerRadius="50 50 50 50"
+                                        Background="White"
+                                        Margin="8,18,0,17" 
+                                        Width="85" Height="85"
+                                        HorizontalAlignment="Left">
+                                <TextBlock 
+                                            Text="4" 
+                                            Width="20" Height="52"/>
+                            </Border>
+                            <Border Height="50" Width="2" Margin="250 0 0 0">
+                                <Image Source="./Resource/Image/Vector.png"></Image>
+                            </Border>
+                            <Border Height="30" Width="30" Margin="325 0 0 0">
+                                <Image Source="./Resource/Image/acssec.png"></Image>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+
+                    <!--Chức năng Chấm công-->
+                    <StackPanel 
+                                    x:Name="stpFunctionChamCong"
+                                    HorizontalAlignment="Right" 
+                                    Height="495" 
+                                    Width="640"  
+                                    Grid.RowSpan="2">
+                        <Border 
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Top" 
+                                        Width="211" Height="35">
+                            <TextBlock  
+                                            Text="3.Đề Xuất " 
+                                            FontWeight="DemiBold" 
+                                            Foreground="#474747" 
+                                            FontSize="30" LineHeight="35" 
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                        <Grid 
+                                        Height="410" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition  />
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid 
+                                            HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"
+                                        Grid.Row="0">
+                                <WrapPanel 
+                                                x:Name="wapbuttonSecurityWifi" 
+                                                MouseLeftButtonUp="wapbuttonucNhanVien_MouseLeftButtonUp">
+                                    <Border 
+                                                    HorizontalAlignment="left" 
+                                                    Height="44">
+                                        <Image 
+                                                       HorizontalAlignment="Left" 
+                                                       VerticalAlignment="Center" 
+                                                       Source="./Resource/Image/Number1.png"/>
+                                    </Border>
+                                    <Border >
+                                        <TextBlock 
+                                                        Style="{StaticResource ListFunctionChamCong}"
+                                                        Text="Cài đặt loại hình duyệt phép  "/>
+                                    </Border>
+                                    <Border  
+                                                    Height="44"  
+                                                    HorizontalAlignment="right">
+                                        <Image 
+                                                       HorizontalAlignment="Right" 
+                                                       VerticalAlignment="Center" 
+                                                       Source="./Resource/Image/Chamhoi.png"/>
+                                    </Border>
+                                </WrapPanel>
+                            </Grid>
+
+                            <Grid
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Center" 
+                                        Width ="440" 
+                                        Grid.Row="1">
+                                <WrapPanel 
+                                                x:Name="wapInstallTime" 
+                                                MouseUp="wapInstallTime_MouseUp">
+                                    <Border 
+                                                HorizontalAlignment="Left" 
+                                                Height="44">
+                                        <Image Source="./Resource/Image/Number2.png"/>
+                                    </Border>
+                                    <Border>
+                                        <TextBlock 
+                                                   Style="{StaticResource ListFunctionChamCong}"
+                                                   Text="Cài đặt thời gian duyệt đề xuất"/>
+                                    </Border>
+                                    <Border  
+                                                Height="44"  
+                                               
+                                                HorizontalAlignment="right">
+                                        <Image HorizontalAlignment="Right" 
+                                                       Source="./Resource/Image/Chamhoi.png"/>
+                                    </Border>
+                                </WrapPanel>
+                            </Grid>
+
+                            <Grid 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left" 
+                                        Width ="400" 
+                                        Grid.Row="2">
+                                <WrapPanel 
+                                        MouseUp="wapAdvancemoney_MouseUp"
+                                        x:Name="wapucAdvancemoney">
+                                    <Border HorizontalAlignment="Left" Height="44">
+                                        <Image Source="./Resource/Image/Number3.png"/>
+                                    </Border>
+                                    <Border>
+                                        <TextBlock 
+                                            Text="Tạm ứng tiền"
+                                                   Style="{StaticResource ListFunctionChamCong}"/>
+                                    </Border>
+                                    <Border  Height="44"  HorizontalAlignment="Right">
+                                        <Image Source="./Resource/Image/Chamhoi.png" RenderTransformOrigin="0.625,0.611"/>
+                                    </Border>
+                                </WrapPanel>
+                            </Grid>
+
+                            <Grid 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Grid.Row="3">
+                                <WrapPanel 
+                                    x:Name="wapUpdateFace"
+                                    MouseUp="wapUpdateFace_MouseUp">
+                                    <Border 
+                                                HorizontalAlignment="Left" 
+                                                Height="44">
+                                        <Image Source="./Resource/Image/Number4.png"/>
+                                    </Border>
+                                    <Border>
+                                        
+                                        <TextBlock 
+                                            Text="Sơ đồ tổ chức"
+                                                        Style="{StaticResource ListFunctionChamCong}"/>
+                                    </Border>
+                                </WrapPanel>
+                            </Grid>
+
+                            <Grid 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Grid.Row="4">
+                                <WrapPanel>
+                                    <Border HorizontalAlignment="Left" Height="44">
+                                        <Image Source="./Resource/Image/Number5.png"/>
+                                    </Border>
+                                    <Border>
+                                        <TextBlock 
+                                                        Style="{StaticResource ListFunctionChamCong}"
+                                                        Text="Nâng cao"/>
+                                    </Border>
+                                </WrapPanel>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</UserControl>
+    
+
+
+
+                                                       
+                               
+         

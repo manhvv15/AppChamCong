@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="ChamCong365.Popup.CaiDatLuong.CaiDatThue.PopUpThemMoiChinhSachThue"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.CaiDatLuong.CaiDatThue"
+             mc:Ignorable="d" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0">
+    <Grid>
+        <Rectangle x:Name="bor" Fill="#000000" Opacity="0.5" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"></Rectangle>
+        <Border Background="#ffffff" Width="600" CornerRadius="10" Height="420">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="54"></RowDefinition>
+                    <RowDefinition Height="85"></RowDefinition>
+                    <RowDefinition Height="170"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Background="#4c5bd4" Grid.Row="0" Height="54" CornerRadius="10,10,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textTieuDe" Text="Thêm mới chính sách thuế" Grid.Column="1" FontSize="20" Foreground="#ffffff" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <Border x:Name="btnClose" Background="#4c5bd4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="20" Height="20" MouseLeftButtonUp="btnClose_MouseLeftButtonUp">
+                            <Path Data="{DynamicResource iconClose}" Stroke="#ffffff" Stretch="Uniform"></Path>
+                        </Border>
+                    </Grid>
+                </Border>
+                <StackPanel Grid.Row="1">
+                    <DockPanel>
+                        <TextBlock Text="Tên chính sách thuế" FontSize="16" Foreground="#474747" Margin="15,15,0,0"></TextBlock>
+                        <TextBlock Text="*" HorizontalAlignment="Left" FontSize="16" Foreground="#ff3333" VerticalAlignment="Center" Margin="5,10,0,0"></TextBlock>
+                    </DockPanel>
+                    <!--<Border Height="42" BorderThickness="1" BorderBrush="#aaa" Margin="10,5,10,0" CornerRadius="5">
+                                    <DockPanel>
+                                        <TextBlock Text="Phạt đi muộn" FontSize="16" Foreground="#474747" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                                        <Path Data="{DynamicResource iconGoDown}" HorizontalAlignment="Right" Stroke="#474747" VerticalAlignment="Center" Margin="0,0,10,0"></Path>
+                                    </DockPanel>
+                                </Border>-->
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="10,5,10,0">
+                        <Grid Height="37">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*"/>
+                                <ColumnDefinition Width="312*"/>
+                                <ColumnDefinition Width="0*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="textTenThue" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-2" Padding="3,5,0,0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập tên thuế" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,11" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textTenThue, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="Miêu tả chính sách" FontSize="16" Foreground="#474747" Margin="15,15,0,0"></TextBlock>
+
+                    <!--<Border Height="42" BorderThickness="1" BorderBrush="#aaa" Margin="10,5,10,0" CornerRadius="5">
+                                    <DockPanel>
+                                        <TextBlock Text="Phạt đi muộn" FontSize="16" Foreground="#474747" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                                        <Path Data="{DynamicResource iconGoDown}" HorizontalAlignment="Right" Stroke="#474747" VerticalAlignment="Center" Margin="0,0,10,0"></Path>
+                                    </DockPanel>
+                                </Border>-->
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="10,5,10,0">
+                        <Grid Height="104">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*"/>
+                                <ColumnDefinition Width="312*"/>
+                                <ColumnDefinition Width="0*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Background="Transparent" Height="107" VerticalAlignment="Center" x:Name="textMieuTa" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-2" Padding="3,5,0,0" Grid.ColumnSpan="3" TextWrapping="Wrap"/>
+                            <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập miêu tả" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,5,-10,11" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textMieuTa, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <WrapPanel x:Name="btnThemCongThuc" Grid.Row="3" Background="Transparent" Cursor="Hand" HorizontalAlignment="Left" MouseLeftButtonUp="btnThemCongThuc_MouseLeftButtonUp">
+                    <TextBlock Text="Thiết lập công thức" Margin="10,10,0,0" FontSize="18" Foreground="#4c5bd4" FontWeight="DemiBold"></TextBlock>
+                    <Path Data="{DynamicResource iconBack}" Fill="#4c5bd4" VerticalAlignment="Center" Margin="5,10,0,0"></Path>
+                </WrapPanel>
+                <Border x:Name="btnLuu" Grid.Row="4" CornerRadius="10" Width="91" Height="34" Background="#4c5bd4" Cursor="Hand" Margin="0,0,0,10" MouseLeftButtonUp="btnLuu_MouseLeftButtonUp">
+                    <TextBlock Text="Lưu" FontSize="18" FontWeight="DemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

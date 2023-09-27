@@ -1,0 +1,31 @@
+﻿<Window x:Class="ChamCong365.NhanVien.Propose.Test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChamCong365.NhanVien.Propose"
+        mc:Ignorable="d"
+        Title="Test" Background="WhiteSmoke" Width="100">
+    <StackPanel>
+        <ListView x:Name="lsvList" HorizontalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch" Width="100">
+                        <Button HorizontalAlignment="Stretch" Content="Hello"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="listXetDuyet" Height="60" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Visible"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource Group_1000007307DrawingImageKey}" Margin="10 0 0 0" Width="80"/>
+                       
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+    
+</Window>

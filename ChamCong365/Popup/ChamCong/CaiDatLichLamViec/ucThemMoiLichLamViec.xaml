@@ -1,0 +1,278 @@
+﻿<UserControl x:Class="ChamCong365.Popup.ChamCong.CaiDatLichLamViec.ucThemMoiLichLamViec"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.ChamCong.CaiDatLichLamViec"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="ThemMoiLich" Loaded="ThemMoiLich_Loaded">
+        <Rectangle Fill="#000000" Opacity="0.5" MouseDown="Rectangle_MouseDown"/>
+        <Grid MaxWidth="600"
+              Height="520">
+            <Border x:Name="bodAddLich" 
+                HorizontalAlignment="Center" 
+                CornerRadius="10"
+                Background="#FFFFFF">
+                <StackPanel>
+                    <Border 
+                        Height="54"
+                        CornerRadius="10 10 0 0"
+                        Background="#4C5BD4">
+                        <DockPanel 
+                            Width="550"
+                            Background="#4C5BD4">
+                            <TextBlock
+                                Margin="170 0 0 0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#FFFFFF"
+                                Text="Thêm mới lịch làm việc"/>
+                            <Path 
+                                x:Name="ExitCreateCalendarWork"
+                                MouseUp="ExitCreateCalendarWork_MouseUp"
+                                HorizontalAlignment="Right" 
+                                Width="14" 
+                                Height="14" 
+                                Data="{StaticResource iconExit}" Stroke="#FFFFFF" StrokeThickness="2" Stretch="Fill"/>
+                        </DockPanel>
+                    </Border>
+                    <StackPanel FocusManager.FocusedElement="{Binding ElementName=tbInputName}" Height="78" Margin="20">
+                        <TextBlock Margin="5" Foreground="#474747" FontSize="16" FontWeight="Regular" Height="22">
+                        <Run Text="Tên lịch làm việc"/>
+                        <Run Foreground="#FF5B4D" Text=" *"/>
+                        </TextBlock>
+                        <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0">
+                            <Grid Height="37">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="37*"/>
+                                    <ColumnDefinition Width="312*"/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="tb_TenLichLV" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,7,-3,-2" Padding="3,3,0,0" Grid.ColumnSpan="3"/>
+                                <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập tên" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,11" Grid.ColumnSpan="3">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=tb_TenLichLV, Path=Text}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+
+                    </StackPanel>
+                    <StackPanel Margin="20 0 20 0" Height="71">
+                        <TextBlock Margin="5" Foreground="#474747" FontSize="16" FontWeight="Regular" Height="22">
+                            <Run Text="Chọn lịch làm việc"/>
+                            <Run Foreground="#FF5B4D" Text=" *"/>
+                        </TextBlock>
+                        <Border 
+                        x:Name="bodSelectLich"
+                        MouseLeftButtonUp="Image_MouseLeftButtonUp_SelectLich"
+                        Style="{DynamicResource BorderSelected}"
+                        Width="557" 
+                        Height="39" BorderBrush="#aaa">
+                            <DockPanel>
+                                <TextBlock Foreground="#474747"
+                                VerticalAlignment="Center"
+                                FontWeight="Regular"
+                                FontSize="16"
+                                Margin="5 0 0 0"
+                                x:Name="txbSelectLich" 
+                                Width="516"/>
+                                <Path
+                                    Width="14" Height="14" 
+                                    Data ="{StaticResource iconControlBottom}" Stroke="#474747" StrokeThickness="2"/>
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="20 20 20 0" Height="71">
+                        <TextBlock Margin="5" Foreground="#474747" FontSize="16" FontWeight="Regular" Height="22">
+                            <Run Text="Tháng áp dụng"/>
+                            <Run Foreground="#FF5B4D" Text=" *"/>
+                        </TextBlock>
+                        <Border BorderBrush="#aaa"
+                            x:Name="bodOpenCalendarMonth"
+                            MouseUp="bodOpenCalendar_MouseUp"
+                            Style="{DynamicResource BorderSelected}"
+                            Width="557" 
+                            Height="39">
+                            <DockPanel>
+                                <TextBlock 
+                                FontWeight="Regular"
+                                FontSize="16"
+                                Margin="5 0 0 0"
+                                Foreground="#474747"
+                                VerticalAlignment="Center"
+                                x:Name="txbSelectedMonth"
+                                Width="516" 
+                                Text=" Chọn tháng"/>
+                                <Path 
+                                    Width="20" Height="20" 
+                                    Data="{DynamicResource iconCalendar}" Fill="#474747"/>
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="20 20 20 0" Height="71">
+                        <TextBlock Margin="5" Foreground="#474747" FontSize="16" FontWeight="Regular" Height="22">
+                            <Run Text="Ngày bắt đầu làm việc"/>
+                            <Run Foreground="#FF5B4D" Text=" *"/>
+                        </TextBlock>
+                        <Border x:Name="bodOpenCalendarDay" BorderBrush="#aaa"
+                            MouseUp="bodOpenCalendarDay_MouseUp"
+                             Style="{DynamicResource BorderSelected}"
+                            Width="557" 
+                            Height="39">
+                            <DockPanel>
+                                <TextBlock Foreground="#474747"
+                                    FontWeight="Regular"
+                                    FontSize="16"
+                                    Margin="5 0 0 0"
+                                   
+                                    VerticalAlignment="Center"
+                                    x:Name="txbSelectedDay"
+                                    Width="516" 
+                                    Text=" Chọn ngày"/>
+                                <Path 
+                                    Width="20" Height="20" 
+                                    Data="{DynamicResource iconCalendar}" Fill="#474747"/>
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+                    <Border 
+                    MouseLeftButtonUp="bodContinue_MouseLeftButtonUp"
+                    Margin="0 20 0 20"
+                    Width="126"
+                    Height="34"
+                    Background="#4C5BD4"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="Medium"
+                    TextBlock.Foreground="#FFFFFF">
+                        <TextBlock 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Tiếp tục"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Border
+                Background="White"
+                x:Name="bodLich"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Visibility="Collapsed"
+                CornerRadius="0 0 5 5"
+                BorderThickness="1"
+                BorderBrush="#9F9F9F"
+                Height="96"
+                Width="188" Margin="23,236,0,0">
+                <ListView 
+                    BorderThickness="0" 
+                    FontWeight="Regular" 
+                    Foreground="#474747" 
+                    Height="auto" x:Name="lsvLich" 
+                    FontSize="16" 
+                    SelectionChanged="lsvLich_SelectionChanged" Margin="0,0,0,5"/>
+            </Border>
+            <!--Lịch Tháng-->
+            <Border
+                CornerRadius="0 0 10 10"
+                Background="#FFFFFF"
+                BorderThickness="1"
+                BorderBrush="#666666"
+                x:Name="bodCalendarMonth"
+                Visibility="Collapsed"
+                Margin="25,327,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="250" 
+                Height="auto">
+                <StackPanel Margin="0 5 0 0" >
+                    <StackPanel  Width="240">
+                        <Border Height="22" Background="#F1F1F1" BorderThickness="1 1 1 0"
+                                BorderBrush="#666666">
+                            <TextBlock x:Name="txbYearTop" MouseLeftButtonUp="txbYearTop_MouseLeftButtonUp" Margin="10 0 0 0"  Foreground="#474747" FontSize="16" FontWeight="Regular" />
+                        </Border>
+                        <Border x:Name="bodSelectMonth" Height="22" Background="#F1F1F1" BorderThickness="1"
+                                BorderBrush="#666666">
+                            <TextBlock x:Name="txbYearBottom" MouseLeftButtonUp="txbYearBottom_MouseLeftButtonUp" Margin="10 0 0 0" Foreground="#474747" FontSize="16" FontWeight="Regular" />
+                        </Border>
+                    </StackPanel>
+                    <WrapPanel x:Name="wapLoadMonth"
+                               Height="auto">
+
+                    </WrapPanel>
+                    <DockPanel Margin="0 10 0 10">
+                        <TextBlock x:Name="txbDeleteMonth" MouseLeftButtonUp="txbDeleteMonth_MouseLeftButtonUp" Margin="10 0 0 0" Foreground="#4C5BD4" FontSize="16" FontWeight="Regular" Text="Xóa"/>
+                        <TextBlock x:Name="txbNowMonth" MouseLeftButtonUp="txbNowMonth_MouseLeftButtonUp"  Margin="0 0 10 0" Foreground="#4C5BD4" FontSize="16" FontWeight="Regular" HorizontalAlignment="Right" Text="Tháng Này"/>
+                    </DockPanel>
+                </StackPanel>
+
+            </Border>
+            <!--Lịch Ngày-->
+            <Border
+                BorderThickness="1"
+                Background="#FFFFFF"
+                BorderBrush="#9F9F9F"
+                CornerRadius="5"
+                x:Name="bodCalendarDay"
+                Visibility="Collapsed"
+                Margin="20,145,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="245" 
+                MaxHeight="325">
+                <StackPanel>
+                    <DockPanel Margin="0 10 0 10">
+                        <WrapPanel >
+                            <TextBlock Foreground="#474747" FontSize="16" FontWeight="DemiBold">
+                            <Run x:Name ="txbLoadNumMonth"/>
+                            <Run x:Name ="txbLoadNumYear"/>
+                            </TextBlock>
+                            <Path VerticalAlignment="Center" HorizontalAlignment="Center" Data="{StaticResource iconNextBottom}" Fill="#474747"/>
+                        </WrapPanel>
+                        <DockPanel Width="50" HorizontalAlignment="Right">
+                            <Path x:Name="imgNexBottom" MouseLeftButtonUp="imgNexBottom_MouseLeftButtonUp"  Height="30" Width="25" Data="{StaticResource iconDowrow}" Fill="#474747"/>
+                            <Path x:Name="imgNextop" MouseLeftButtonUp="imgNextop_MouseLeftButtonUp" Height="30" Width="25" Data="{StaticResource iconArrow}" Fill="#474747"/>
+                        </DockPanel>
+                    </DockPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="35"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="0" Text="CN"/>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="1" Text="T2"/>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="2" Text="T3"/>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="3" Text="T4"/>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="4" Text="T5"/>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="5" Text="T6"/>
+                        <TextBlock HorizontalAlignment="Center" Grid.Column="6" Text="T7"/>
+                    </Grid>
+                    <WrapPanel 
+                            Height="auto"
+                            x:Name="loadFistDaySmall">
+                    </WrapPanel>
+                    <DockPanel Margin="10">
+                        <TextBlock Foreground="#4C5BD4" HorizontalAlignment="Left" Text="Xóa"/>
+                        <TextBlock Foreground="#4C5BD4" HorizontalAlignment="Right" Text="Hôm nay"/>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

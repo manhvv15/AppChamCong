@@ -1,0 +1,2350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F167F5E-BFC4-42ED-9CB4-44AC9741A683}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ChamCong365</RootNamespace>
+    <AssemblyName>ChamCong365</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=6.2.7.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.2.7\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=110.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.110.2.0\lib\net471\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.2\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="APIs\API.cs" />
+    <Compile Include="APIs\Compa.cs" />
+    <Compile Include="APIs\ExtensionCallAPIFunction.cs" />
+    <Compile Include="Common\NgDuyet.xaml.cs">
+      <DependentUpon>NgDuyet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\NguoiTheoDoi.xaml.cs">
+      <DependentUpon>NguoiTheoDoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Extention.cs" />
+    <Compile Include="Core\MathConvert.cs" />
+    <Compile Include="fucDeXuat\Body.xaml.cs">
+      <DependentUpon>Body.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\frmDeXuatNghiPhepQuaMotCap.xaml.cs">
+      <DependentUpon>frmDeXuatNghiPhepQuaMotCap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\frmDeXuatNghiPhepQuaNhieuCap.xaml.cs">
+      <DependentUpon>frmDeXuatNghiPhepQuaNhieuCap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\ucAdvancemoney.xaml.cs">
+      <DependentUpon>ucAdvancemoney.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\ucInstallTime.xaml.cs">
+      <DependentUpon>ucInstallTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\ucListStaffTimeKeep.xaml.cs">
+      <DependentUpon>ucListStaffTimeKeep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\ucListStaffNoTimeKeep.xaml.cs">
+      <DependentUpon>ucListStaffNoTimeKeep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\ucListStaff.xaml.cs">
+      <DependentUpon>ucListStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\ucNhanVien.xaml.cs">
+      <DependentUpon>ucNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fucDeXuat\ucOrganizationalDiagram.xaml.cs">
+      <DependentUpon>ucOrganizationalDiagram.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\AddNewStaffTabList\ucDetailNewStaff.xaml.cs">
+      <DependentUpon>ucDetailNewStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\AddNewStaffTabList\ucEditNewStaff.xaml.cs">
+      <DependentUpon>ucEditNewStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\AddNewStaffTabList\ucListAllStaff.xaml.cs">
+      <DependentUpon>ucListAllStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\AddNewStaffTabList\ucListWaitingStaff.xaml.cs">
+      <DependentUpon>ucListWaitingStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucDetailDepartment.xaml.cs">
+      <DependentUpon>ucDetailDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucDetailNhom.xaml.cs">
+      <DependentUpon>ucDetailNhom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucDetailTo.xaml.cs">
+      <DependentUpon>ucDetailTo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListDpartment.xaml.cs">
+      <DependentUpon>ucListDpartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListGiamBienChe.xaml.cs">
+      <DependentUpon>ucListGiamBienChe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListGroup.xaml.cs">
+      <DependentUpon>ucListGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListLuanChuyen.xaml.cs">
+      <DependentUpon>ucListLuanChuyen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListNghiViec.xaml.cs">
+      <DependentUpon>ucListNghiViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListTo.xaml.cs">
+      <DependentUpon>ucListTo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucCandidatesList.xaml.cs">
+      <DependentUpon>ucCandidatesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucChildCompanyManager.xaml.cs">
+      <DependentUpon>ucChildCompanyManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucDepartmentManager.xaml.cs">
+      <DependentUpon>ucDepartmentManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucDetailCandidate.xaml.cs">
+      <DependentUpon>ucDetailCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucFunctionCompanyManager.xaml.cs">
+      <DependentUpon>ucFunctionCompanyManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucInstallAddNewStaff.xaml.cs">
+      <DependentUpon>ucInstallAddNewStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucShiftWorkManager.xaml.cs">
+      <DependentUpon>ucShiftWorkManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Function\clsEx.cs" />
+    <Compile Include="Function\clsExPortExcel.cs" />
+    <Compile Include="Login\LoginCompany.xaml.cs">
+      <DependentUpon>LoginCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginEmployee.xaml.cs">
+      <DependentUpon>LoginEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ucChooseLoginOptions.xaml.cs">
+      <DependentUpon>ucChooseLoginOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ucChooseSignUpOptions.xaml.cs">
+      <DependentUpon>ucChooseSignUpOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongBangQR.xaml.cs">
+      <DependentUpon>ChamCongBangQR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongBangQRRR\Function\ChamCong365.xaml.cs">
+      <DependentUpon>ChamCong365.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongBangQRRR\Function\Chat365.xaml.cs">
+      <DependentUpon>Chat365.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongBangQRRR\Function\listChamCong.xaml.cs">
+      <DependentUpon>listChamCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongBangQRRR\Function\PC365NhanVien.xaml.cs">
+      <DependentUpon>PC365NhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongBangTaiKhoanCongTy\Function\FunctionCompany.xaml.cs">
+      <DependentUpon>FunctionCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongBangTaiKhoanCongTy\Function\listCompany.xaml.cs">
+      <DependentUpon>listCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongKhuonMat\Function\KhuonMat365.xaml.cs">
+      <DependentUpon>KhuonMat365.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongKhuonMat\Function\KhuonMatChat365.xaml.cs">
+      <DependentUpon>KhuonMatChat365.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongKhuonMat\Function\KhuonMatPC365.xaml.cs">
+      <DependentUpon>KhuonMatPC365.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\ChamCongKhuonMat\Function\listKhuonMat.xaml.cs">
+      <DependentUpon>listKhuonMat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\DetailOfDon\donXinNghiPhep.xaml.cs">
+      <DependentUpon>donXinNghiPhep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatBoNhiem.xaml.cs">
+      <DependentUpon>DeXuatBoNhiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatCongCong.xaml.cs">
+      <DependentUpon>DeXuatCongCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatCongTienTruTien.xaml.cs">
+      <DependentUpon>DeXuatCongTienTruTien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatDangKiPhongHop.xaml.cs">
+      <DependentUpon>DeXuatDangKiPhongHop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatDangKiSuDungXeCong.xaml.cs">
+      <DependentUpon>DeXuatDangKiSuDungXeCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatHoaHongDoanhThu.xaml.cs">
+      <DependentUpon>DeXuatHoaHongDoanhThu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatKhieuNai.xaml.cs">
+      <DependentUpon>DeXuatKhieuNai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatLichLamViec.xaml.cs">
+      <DependentUpon>DeXuatLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatLuanChuyenCongTac.xaml.cs">
+      <DependentUpon>DeXuatLuanChuyenCongTac.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatNhapNgayNhanLuong.xaml.cs">
+      <DependentUpon>DeXuatNhapNgayNhanLuong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatSuaChuaCoSoVatChat.xaml.cs">
+      <DependentUpon>DeXuatSuaChuaCoSoVatChat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatThamGiaDuAn.xaml.cs">
+      <DependentUpon>DeXuatThamGiaDuAn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatThanhToan.xaml.cs">
+      <DependentUpon>DeXuatThanhToan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatXinCheDoThaiSan.xaml.cs">
+      <DependentUpon>DeXuatXinCheDoThaiSan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatXinDiMuonVeSom.xaml.cs">
+      <DependentUpon>DeXuatXinDiMuonVeSom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatXinTaiTaiLieu.xaml.cs">
+      <DependentUpon>DeXuatXinTaiTaiLieu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DeXuatXinTangCa.xaml.cs">
+      <DependentUpon>DeXuatXinTangCa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DonTamUng.xaml.cs">
+      <DependentUpon>DonTamUng.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DonXinCapPhatTaiSan.xaml.cs">
+      <DependentUpon>DonXinCapPhatTaiSan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DonXinPhepRaNgoai.xaml.cs">
+      <DependentUpon>DonXinPhepRaNgoai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DonXinTangLuong.xaml.cs">
+      <DependentUpon>DonXinTangLuong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\DonXinThoiViec.xaml.cs">
+      <DependentUpon>DonXinThoiViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\LichLamViec\NgDuyetVaTheoDoi.xaml.cs">
+      <DependentUpon>NgDuyetVaTheoDoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\LichLamViec\NguoiTheoDoi.xaml.cs">
+      <DependentUpon>NguoiTheoDoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\LichLamViec\NguoiXetDuyet.xaml.cs">
+      <DependentUpon>NguoiXetDuyet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\LichLamViec\PopupThemLichLamViec.xaml.cs">
+      <DependentUpon>PopupThemLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\LichLamViec\TaiLieuDinhKem.xaml.cs">
+      <DependentUpon>TaiLieuDinhKem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\LichLamViec\TaoDeXuatThanhCong.xaml.cs">
+      <DependentUpon>TaoDeXuatThanhCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\NghiPhep.xaml.cs">
+      <DependentUpon>NghiPhep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\KindOfDon\ĐonDoiCa.xaml.cs">
+      <DependentUpon>ĐonDoiCa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\capNhatThanhCong.xaml.cs">
+      <DependentUpon>capNhatThanhCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\capNhatThatBai.xaml.cs">
+      <DependentUpon>capNhatThatBai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\chamCong.xaml.cs">
+      <DependentUpon>chamCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\ChamCongHoanTat.xaml.cs">
+      <DependentUpon>ChamCongHoanTat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\ChamCongNhanVien.xaml.cs">
+      <DependentUpon>ChamCongNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\ChamCongThanhCong.xaml.cs">
+      <DependentUpon>ChamCongThanhCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\ChupAnh.xaml.cs">
+      <DependentUpon>ChupAnh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\KhuonMatError.xaml.cs">
+      <DependentUpon>KhuonMatError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\listHistory.xaml.cs">
+      <DependentUpon>listHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\LuongCoBan.xaml.cs">
+      <DependentUpon>LuongCoBan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\LuongDieuChinh.xaml.cs">
+      <DependentUpon>LuongDieuChinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\LuongHienTai.xaml.cs">
+      <DependentUpon>LuongHienTai.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\ThongTinChamCong.xaml.cs">
+      <DependentUpon>ThongTinChamCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\LichSu\Function\UpdateKhuonMat.xaml.cs">
+      <DependentUpon>UpdateKhuonMat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\MainChamCong.xaml.cs">
+      <DependentUpon>MainChamCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\MainTestxaml.xaml.cs">
+      <DependentUpon>MainTestxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\DangTheoDoi.xaml.cs">
+      <DependentUpon>DangTheoDoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\DeXuatCuaToi.xaml.cs">
+      <DependentUpon>DeXuatCuaToi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\GuiDenToi.xaml.cs">
+      <DependentUpon>GuiDenToi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\listPropose.xaml.cs">
+      <DependentUpon>listPropose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\listTess.xaml.cs">
+      <DependentUpon>listTess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\LoaiDeXuat.xaml.cs">
+      <DependentUpon>LoaiDeXuat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\T123.xaml.cs">
+      <DependentUpon>T123.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Propose\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Tool\DatePicker.xaml.cs">
+      <DependentUpon>DatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien\Tool\Test1.xaml.cs">
+      <DependentUpon>Test1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OOP\CaiDatDiMuonVeSom\clsDSDiMuonVeSom.cs" />
+    <Compile Include="OOP\CaiDatLuong\BaoHiem\clsAddBH.cs" />
+    <Compile Include="OOP\CaiDatLuong\BaoHiem\clsDSBaoHiem.cs" />
+    <Compile Include="OOP\CaiDatLuong\BaoHiem\clsDSNhanVienBH.cs" />
+    <Compile Include="OOP\CaiDatLuong\BaoHiem\clsDSNhanVienBHList.cs" />
+    <Compile Include="OOP\CaiDatLuong\BaoHiem\clsNSuChuaThietLap.cs" />
+    <Compile Include="OOP\CaiDatLuong\BaoHiem\clsNSuDaThietLap.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatDiMuonVeSom\clsAddLateEaly.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatDiMuonVeSom\clsAddNghiSaiQD.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatDiMuonVeSom\clsDSCaiDatNghiSaiQD.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatDiMuonVeSom\clsDSNguoiDiMuonVeSom.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatDiMuonVeSom\clsNghiSaiQD.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatDiMuonVeSom\cls_Profile.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatDiMuonVeSom\DSPhatDiMuonVeSom.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatLuongCB\APIUser.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatLuongCB\API_ChiTietNV.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatLuongCB\clsLuongBaoHiem.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatLuongCB\clsLuongCoBan.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatLuongCB\Error.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatLuongCB\HoSoNV.cs" />
+    <Compile Include="OOP\CaiDatLuong\CaiDatLuongCB\UserFromServer.cs" />
+    <Compile Include="OOP\CaiDatLuong\clsShift.cs" />
+    <Compile Include="OOP\CaiDatLuong\CongCong\clsDSCongCong.cs" />
+    <Compile Include="OOP\CaiDatLuong\PhucLoi\AddPCShift.cs" />
+    <Compile Include="OOP\CaiDatLuong\PhucLoi\AddPhucLoi.cs" />
+    <Compile Include="OOP\CaiDatLuong\PhucLoi\clsAddNVinPL.cs" />
+    <Compile Include="OOP\CaiDatLuong\PhucLoi\clsDSPhucLoi.cs" />
+    <Compile Include="OOP\CaiDatLuong\PhucLoi\clsNVTrongPL.cs" />
+    <Compile Include="OOP\CaiDatLuong\Tax\clsAddTax.cs" />
+    <Compile Include="OOP\CaiDatLuong\Tax\clsNSDaTL.cs" />
+    <Compile Include="OOP\CaiDatLuong\Tax\clsNSuChuaTL.cs" />
+    <Compile Include="OOP\CaiDatLuong\Tax\clsStaffInTax.cs" />
+    <Compile Include="OOP\CaiDatLuong\Tax\clsTax.cs" />
+    <Compile Include="OOP\CaiDatLuong\ThuongPhat\clsAddTP.cs" />
+    <Compile Include="OOP\CaiDatLuong\ThuongPhat\clsDSThuongPhat.cs" />
+    <Compile Include="OOP\ClsCaLamViec.cs" />
+    <Compile Include="OOP\clsChinhSachThue.cs" />
+    <Compile Include="OOP\clsNhanVienThuocCongTy.cs" />
+    <Compile Include="OOP\clsPhongBanThuocCongTy.cs" />
+    <Compile Include="OOP\DeXuat\clsThoiGianDuyetDX.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Company.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\CreateCandidateEntity.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Department.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\DescriptionEntities.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\DXSettingEntities.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Employee.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\GiamBienChe.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Group.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\ListCandidate.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\ListItemCombobox.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\ListProcess.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\ListRecruitmentNew.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\organizationalStructure.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\OrgStructureEmployee.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Position.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Provision.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\QuitJobNew.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Shift.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\Team.cs" />
+    <Compile Include="OOP\funcQuanLyCongTy\TranferJob.cs" />
+    <Compile Include="OOP\Login\InfoCom.cs" />
+    <Compile Include="OOP\Login\InfoComTL.cs" />
+    <Compile Include="OOP\Login\InfoEp.cs" />
+    <Compile Include="OOP\Login\LoginCom.cs" />
+    <Compile Include="OOP\Login\LoginEP.cs" />
+    <Compile Include="OOP\NhanVien\DonDeXuat\API_UserInfor.cs" />
+    <Compile Include="OOP\NhanVien\DonDeXuat\CaLamViec.cs" />
+    <Compile Include="OOP\NhanVien\DonDeXuat\CaLamViecById.cs" />
+    <Compile Include="OOP\NhanVien\DonDeXuat\DonDoiCa.cs" />
+    <Compile Include="OOP\NhanVien\DonDeXuat\DonNghiPhep.cs" />
+    <Compile Include="OOP\NhanVien\DonDeXuat\GetDonGuiDi.cs" />
+    <Compile Include="OOP\NhanVien\DonDeXuat\XetDuyetVaTheoDoi.cs" />
+    <Compile Include="OOP\NhanVien\ToiGuiDi\DeXuatToiGuiDi.cs" />
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\PopUpHoiTruocKhiXoaBaoHiem.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaBaoHiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucBaoHiemMoi.xaml.cs">
+      <DependentUpon>ucBaoHiemMoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucChinhSuaBaoHiemNhom.xaml.cs">
+      <DependentUpon>ucChinhSuaBaoHiemNhom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucChinhSuaBHNhanVien.xaml.cs">
+      <DependentUpon>ucChinhSuaBHNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucChinhSuaBHNhanVienTheoTien.xaml.cs">
+      <DependentUpon>ucChinhSuaBHNhanVienTheoTien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucDanhSachBHNhanVien.xaml.cs">
+      <DependentUpon>ucDanhSachBHNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucDanhSachNhanVienBH.xaml.cs">
+      <DependentUpon>ucDanhSachNhanVienBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucDanhSachNhomBH.xaml.cs">
+      <DependentUpon>ucDanhSachNhomBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucLoaiBaoHiem.xaml.cs">
+      <DependentUpon>ucLoaiBaoHiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucNhapMoiChinhSachBH.xaml.cs">
+      <DependentUpon>ucNhapMoiChinhSachBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemMoiChinhSachBH.xaml.cs">
+      <DependentUpon>ucThemMoiChinhSachBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemNhanVienBaoHiem.xaml.cs">
+      <DependentUpon>ucThemNhanVienBaoHiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemNhanVienVaoNhomBH.xaml.cs">
+      <DependentUpon>ucThemNhanVienVaoNhomBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemNhomBaoHiem.xaml.cs">
+      <DependentUpon>ucThemNhomBaoHiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThoiGianApDungBHNhanVien.xaml.cs">
+      <DependentUpon>ucThoiGianApDungBHNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThoiGianApDungChoNhomBH.xaml.cs">
+      <DependentUpon>ucThoiGianApDungChoNhomBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucXoaBaoHiemNhanVien.xaml.cs">
+      <DependentUpon>ucXoaBaoHiemNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucXoaNhomBaoHiem.xaml.cs">
+      <DependentUpon>ucXoaNhomBaoHiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuChuaThietLap\ucDanhSachNhanVienChuaThietLapBH.xaml.cs">
+      <DependentUpon>ucDanhSachNhanVienChuaThietLapBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuChuaThietLap\ucThietLapBHNhanVien.xaml.cs">
+      <DependentUpon>ucThietLapBHNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuDaThietLap\ucDanhSachNhanVienDaThietLapBH.xaml.cs">
+      <DependentUpon>ucDanhSachNhanVienDaThietLapBH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuDaThietLap\ucXoaBaoHiemNhanSu.xaml.cs">
+      <DependentUpon>ucXoaBaoHiemNhanSu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\PopUpHoiTruocKhiXoaLCB.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaLCB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucChinhSuaHopDong.xaml.cs">
+      <DependentUpon>ucChinhSuaHopDong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucChinhSuaLuongCoBan.xaml.cs">
+      <DependentUpon>ucChinhSuaLuongCoBan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucHoSoNhanVien.xaml.cs">
+      <DependentUpon>ucHoSoNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucThemFileLuong.xaml.cs">
+      <DependentUpon>ucThemFileLuong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucThemHopDongNhanVien.xaml.cs">
+      <DependentUpon>ucThemHopDongNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucThemLuongCoBan.xaml.cs">
+      <DependentUpon>ucThemLuongCoBan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucChinhSuaNVPhucLoi.xaml.cs">
+      <DependentUpon>ucChinhSuaNVPhucLoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucChinhSuaPhucLoi.xaml.cs">
+      <DependentUpon>ucChinhSuaPhucLoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucDanhSachNVHuongPhucLoi.xaml.cs">
+      <DependentUpon>ucDanhSachNVHuongPhucLoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucThemMoiPhucLoi.xaml.cs">
+      <DependentUpon>ucThemMoiPhucLoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucThemNVHuongPhucLoi.xaml.cs">
+      <DependentUpon>ucThemNVHuongPhucLoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucXoaPhucLoi.xaml.cs">
+      <DependentUpon>ucXoaPhucLoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucXoaPhucLoiCuaNhanVien.xaml.cs">
+      <DependentUpon>ucXoaPhucLoiCuaNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpAddStaffInTax.xaml.cs">
+      <DependentUpon>PopUpAddStaffInTax.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpChinhSuaThueNhanVien.xaml.cs">
+      <DependentUpon>PopUpChinhSuaThueNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpDanhSachNVTrongThue.xaml.cs">
+      <DependentUpon>PopUpDanhSachNVTrongThue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpHoiTruocKhiXoaCaiDatThue.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaCaiDatThue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpHoiTruocKhiXoaCSThue.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaCSThue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpTGApDung.xaml.cs">
+      <DependentUpon>PopUpTGApDung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpThemMoiChinhSachThue.xaml.cs">
+      <DependentUpon>PopUpThemMoiChinhSachThue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpThietLapCongThuc.xaml.cs">
+      <DependentUpon>PopUpThietLapCongThuc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CaiDatThue\PopUpThietLapThueNhanVien.xaml.cs">
+      <DependentUpon>PopUpThietLapThueNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\CongCong\ucXoaCongCong.xaml.cs">
+      <DependentUpon>ucXoaCongCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpChiTietMucPhatNghiSaiQD.xaml.cs">
+      <DependentUpon>PopUpChiTietMucPhatNghiSaiQD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpHoiTruocKhiXoaMucPhat.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaMucPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpThongBaoSuaXoaMucPhatThanhCong.xaml.cs">
+      <DependentUpon>PopUpThongBaoSuaXoaMucPhatThanhCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpChinhSuaMucPhat.xaml.cs">
+      <DependentUpon>PopUpChinhSuaMucPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpXoaMucPhat.xaml.cs">
+      <DependentUpon>PopUpXoaMucPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhuCap\PopUpHoiTruocKhiXoaPhuCapPCTheoCa.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaPhuCapPCTheoCa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhuCap\PopUpThemMoiChinhSuaPhuCap.xaml.cs">
+      <DependentUpon>PopUpThemMoiChinhSuaPhuCap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhuCap\PopUpThemMoiChinhSuaPhuCapTheoCa.xaml.cs">
+      <DependentUpon>PopUpThemMoiChinhSuaPhuCapTheoCa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\ThuongPhat\PopUpAddTP.xaml.cs">
+      <DependentUpon>PopUpAddTP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\ThuongPhat\PopUpChiTietThuongNV.xaml.cs">
+      <DependentUpon>PopUpChiTietThuongNV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\ThuongPhat\PopUpHoiTruocKhiXoaThuongPhat.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaThuongPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\ThuongPhat\PopUpThemMoiThuongPhat.xaml.cs">
+      <DependentUpon>PopUpThemMoiThuongPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatCongChuan\ucXacNhanCongChuan.xaml.cs">
+      <DependentUpon>ucXacNhanCongChuan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucChinhSuaLichLamViec.xaml.cs">
+      <DependentUpon>ucChinhSuaLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucChuyenTiepChonCaLamViec.xaml.cs">
+      <DependentUpon>ucChuyenTiepChonCaLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucChuyenTiepThemMoiLich.xaml.cs">
+      <DependentUpon>ucChuyenTiepThemMoiLich.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucDanhSachNhanVien.xaml.cs">
+      <DependentUpon>ucDanhSachNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucSaoChepLichLamViec.xaml.cs">
+      <DependentUpon>ucSaoChepLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucThemFileNhanVien.xaml.cs">
+      <DependentUpon>ucThemFileNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucThemMoiLichLamViec.xaml.cs">
+      <DependentUpon>ucThemMoiLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucThemMoiNhanVien.xaml.cs">
+      <DependentUpon>ucThemMoiNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucXoaLichLamViec.xaml.cs">
+      <DependentUpon>ucXoaLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatLichLamViec\ucXoaNhanVien.xaml.cs">
+      <DependentUpon>ucXoaNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatWifi\ucCapNhatIP.xaml.cs">
+      <DependentUpon>ucCapNhatIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatWifi\ucCapNhatWifi.xaml.cs">
+      <DependentUpon>ucCapNhatWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatWifi\ucDanhSachIP.xaml.cs">
+      <DependentUpon>ucDanhSachIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatWifi\ucDanhSachWii.xaml.cs">
+      <DependentUpon>ucDanhSachWii.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatWifi\ucThemDiaChiIP.xaml.cs">
+      <DependentUpon>ucThemDiaChiIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\CaiDatWifi\ucThemMoiWifi.xaml.cs">
+      <DependentUpon>ucThemMoiWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\ucDelete.xaml.cs">
+      <DependentUpon>ucDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\ucHienThiDuLieuNgay.xaml.cs">
+      <DependentUpon>ucHienThiDuLieuNgay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\ucHienThiNgayDauTien.xaml.cs">
+      <DependentUpon>ucHienThiNgayDauTien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\ChamCong\ucHienThiThang.xaml.cs">
+      <DependentUpon>ucHienThiThang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucCalendar.xaml.cs">
+      <DependentUpon>ucCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucLoadMonths.xaml.cs">
+      <DependentUpon>ucLoadMonths.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucMonthApply.xaml.cs">
+      <DependentUpon>ucMonthApply.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\CaiDatThoiGian\PopUpThongBao.xaml.cs">
+      <DependentUpon>PopUpThongBao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\LoadingSpinner\LoadingSpinner.xaml.cs">
+      <DependentUpon>LoadingSpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\LoaiHinhDuyetPhep\PopUpChonNhanVien.xaml.cs">
+      <DependentUpon>PopUpChonNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\OrganisationalStructureDiagram\ucEditDetailDepartment.xaml.cs">
+      <DependentUpon>ucEditDetailDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\OrganisationalStructureDiagram\ucEditDetailGroup.xaml.cs">
+      <DependentUpon>ucEditDetailGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\OrganisationalStructureDiagram\ucEditDetailNest.xaml.cs">
+      <DependentUpon>ucEditDetailNest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\OrganisationalStructureDiagram\ucShowDetail.xaml.cs">
+      <DependentUpon>ucShowDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DeXuat\TamUngTien\PopUpHoiTruocKhiDuyet.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiDuyet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\AddNewStaffPopups\ucAddNewStaff.xaml.cs">
+      <DependentUpon>ucAddNewStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\AddNewStaffPopups\ucDeleteNewStaff.xaml.cs">
+      <DependentUpon>ucDeleteNewStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\AddNewStaffPopups\ucSetRole.xaml.cs">
+      <DependentUpon>ucSetRole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\AddNewStaffPopups\ucUpdateNewStaff.xaml.cs">
+      <DependentUpon>ucUpdateNewStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ChildCompanyPopups\createChildCompany.xaml.cs">
+      <DependentUpon>createChildCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ChildCompanyPopups\updateChildCompany.xaml.cs">
+      <DependentUpon>updateChildCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DatePicker\DatePicker.xaml.cs">
+      <DependentUpon>DatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucAddSaffFToGroup.xaml.cs">
+      <DependentUpon>ucAddSaffFToGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateDepartment.xaml.cs">
+      <DependentUpon>ucCreateDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateGiamBienChe.xaml.cs">
+      <DependentUpon>ucCreateGiamBienChe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateLuanChuyen.xaml.cs">
+      <DependentUpon>ucCreateLuanChuyen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateNghiViec.xaml.cs">
+      <DependentUpon>ucCreateNghiViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateNhom.xaml.cs">
+      <DependentUpon>ucCreateNhom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateTo.xaml.cs">
+      <DependentUpon>ucCreateTo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteDepartment.xaml.cs">
+      <DependentUpon>ucDeleteDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteGiamBienChe.xaml.cs">
+      <DependentUpon>ucDeleteGiamBienChe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteLuanChuyen.xaml.cs">
+      <DependentUpon>ucDeleteLuanChuyen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteNghiViec.xaml.cs">
+      <DependentUpon>ucDeleteNghiViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteNhom.xaml.cs">
+      <DependentUpon>ucDeleteNhom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteStaff.xaml.cs">
+      <DependentUpon>ucDeleteStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteTo.xaml.cs">
+      <DependentUpon>ucDeleteTo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateDepartment.xaml.cs">
+      <DependentUpon>ucUpdateDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateGiamBienChe.xaml.cs">
+      <DependentUpon>ucUpdateGiamBienChe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateLuanChuyen.xaml.cs">
+      <DependentUpon>ucUpdateLuanChuyen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateNghiViec.xaml.cs">
+      <DependentUpon>ucUpdateNghiViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateNhom.xaml.cs">
+      <DependentUpon>ucUpdateNhom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateTo.xaml.cs">
+      <DependentUpon>ucUpdateTo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ListCandidatesPopups\ucAddCandidate.xaml.cs">
+      <DependentUpon>ucAddCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ListCandidatesPopups\ucCreateStage.xaml.cs">
+      <DependentUpon>ucCreateStage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ListCandidatesPopups\ucDeleteCandidate.xaml.cs">
+      <DependentUpon>ucDeleteCandidate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ListCandidatesPopups\ucDeleteStage.xaml.cs">
+      <DependentUpon>ucDeleteStage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ListCandidatesPopups\ucUpdateStage.xaml.cs">
+      <DependentUpon>ucUpdateStage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ShiftWorkPopups\ucCreateShiftWork.xaml.cs">
+      <DependentUpon>ucCreateShiftWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ShiftWorkPopups\ucDeleteShiftWork.xaml.cs">
+      <DependentUpon>ucDeleteShiftWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ShiftWorkPopups\ucUpdateShiftWork.xaml.cs">
+      <DependentUpon>ucUpdateShiftWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ucCreateSuccess.xaml.cs">
+      <DependentUpon>ucCreateSuccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ucUpdateSuccess.xaml.cs">
+      <DependentUpon>ucUpdateSuccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopUpHoiTruocKhiDangXuat.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiDangXuat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCoppyCalendarWork.xaml.cs">
+      <DependentUpon>ucCoppyCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateAddressIP.xaml.cs">
+      <DependentUpon>ucCreateAddressIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateCalendarWork.xaml.cs">
+      <DependentUpon>ucCreateCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateFileSaff.xaml.cs">
+      <DependentUpon>ucCreateFileSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateSaff.xaml.cs">
+      <DependentUpon>ucCreateSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateWifi.xaml.cs">
+      <DependentUpon>ucCreateWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucDelete.xaml.cs">
+      <DependentUpon>ucDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucDeleteCalendarWork.xaml.cs">
+      <DependentUpon>ucDeleteCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucDeleteSaff.xaml.cs">
+      <DependentUpon>ucDeleteSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucListIP.xaml.cs">
+      <DependentUpon>ucListIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucListSaff.xaml.cs">
+      <DependentUpon>ucListSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucListWifi.xaml.cs">
+      <DependentUpon>ucListWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucLoadDaySmall.xaml.cs">
+      <DependentUpon>ucLoadDaySmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucLoadFirstDaySmall.xaml.cs">
+      <DependentUpon>ucLoadFirstDaySmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucLoadMonth.xaml.cs">
+      <DependentUpon>ucLoadMonth.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucNextCreateCalendarWork.xaml.cs">
+      <DependentUpon>ucNextCreateCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucSelectShift.xaml.cs">
+      <DependentUpon>ucSelectShift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucUpdateIP.xaml.cs">
+      <DependentUpon>ucUpdateIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucUpdateWifi.xaml.cs">
+      <DependentUpon>ucUpdateWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\TimePicker\timePicker.xaml.cs">
+      <DependentUpon>timePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucEditCalendarWork.xaml.cs">
+      <DependentUpon>ucEditCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucFirstDay.xaml.cs">
+      <DependentUpon>ucFirstDay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucLoadDays.xaml.cs">
+      <DependentUpon>ucLoadDays.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\CaiDatThue\frmChinhSachThue.xaml.cs">
+      <DependentUpon>frmChinhSachThue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\CaiDatThue\frmDanhSachNhanSuChuaThietLap.xaml.cs">
+      <DependentUpon>frmDanhSachNhanSuChuaThietLap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\CaiDatThue\frmDanhSachNhanSuDaThietLap.xaml.cs">
+      <DependentUpon>frmDanhSachNhanSuDaThietLap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmCaiDatDiMuonVeSom.xaml.cs">
+      <DependentUpon>frmCaiDatDiMuonVeSom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmDanhSachNghiSaiQuyDinh.xaml.cs">
+      <DependentUpon>frmDanhSachNghiSaiQuyDinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmDSDiMuonVeSom.xaml.cs">
+      <DependentUpon>frmDSDiMuonVeSom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmNghiSaiQuyDinh.xaml.cs">
+      <DependentUpon>frmNghiSaiQuyDinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\frmCaiDatThietLapPhatDiMuonVeSom.xaml.cs">
+      <DependentUpon>frmCaiDatThietLapPhatDiMuonVeSom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\frmCaiDatThue.xaml.cs">
+      <DependentUpon>frmCaiDatThue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\frmDanhSachPhuCap.xaml.cs">
+      <DependentUpon>frmDanhSachPhuCap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\frmThuongPhat.xaml.cs">
+      <DependentUpon>frmThuongPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucCaiDatBaoHiem.xaml.cs">
+      <DependentUpon>ucCaiDatBaoHiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucCaiDatLuongCoBan.xaml.cs">
+      <DependentUpon>ucCaiDatLuongCoBan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucCaiDatPhucLoi.xaml.cs">
+      <DependentUpon>ucCaiDatPhucLoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucCongCong.xaml.cs">
+      <DependentUpon>ucCongCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucListSalarySettings.xaml.cs">
+      <DependentUpon>ucListSalarySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucCaiDatBaoMatWifi.xaml.cs">
+      <DependentUpon>ucCaiDatBaoMatWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucCaiDatCongChuan.xaml.cs">
+      <DependentUpon>ucCaiDatCongChuan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucCaiDatLichLamViec.xaml.cs">
+      <DependentUpon>ucCaiDatLichLamViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucCapNhatKhuonMat.xaml.cs">
+      <DependentUpon>ucCapNhatKhuonMat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucDanhSachChucNangChamCong.xaml.cs">
+      <DependentUpon>ucDanhSachChucNangChamCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucDuyetThietBiMoi.xaml.cs">
+      <DependentUpon>ucDuyetThietBiMoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucXuatCong.xaml.cs">
+      <DependentUpon>ucXuatCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucBodyHome.xaml.cs">
+      <DependentUpon>ucBodyHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\PickersViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Page Include="Common\NgDuyet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\NguoiTheoDoi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fucDeXuat\Body.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="fucDeXuat\frmDeXuatNghiPhepQuaMotCap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fucDeXuat\frmDeXuatNghiPhepQuaNhieuCap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fucDeXuat\ucAdvancemoney.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="fucDeXuat\ucInstallTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="fucDeXuat\ucListStaffTimeKeep.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="fucDeXuat\ucListStaffNoTimeKeep.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="fucDeXuat\ucListStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="fucDeXuat\ucNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="fucDeXuat\ucOrganizationalDiagram.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\AddNewStaffTabList\ucDetailNewStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\AddNewStaffTabList\ucEditNewStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\AddNewStaffTabList\ucListAllStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\AddNewStaffTabList\ucListWaitingStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucDetailDepartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucDetailNhom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucDetailTo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListDpartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListGiamBienChe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListLuanChuyen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListNghiViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\DepartmentManagerTabList\ucListTo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucCandidatesList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucChildCompanyManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucDepartmentManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucDetailCandidate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucFunctionCompanyManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucInstallAddNewStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucShiftWorkManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login\LoginCompany.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login\LoginEmployee.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login\ucChooseLoginOptions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login\ucChooseSignUpOptions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NhanVien\ChamCongBangQR.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongBangQRRR\Function\ChamCong365.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongBangQRRR\Function\Chat365.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongBangQRRR\Function\listChamCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongBangQRRR\Function\PC365NhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongBangTaiKhoanCongTy\Function\FunctionCompany.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongBangTaiKhoanCongTy\Function\listCompany.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongKhuonMat\Function\KhuonMat365.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongKhuonMat\Function\KhuonMatChat365.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongKhuonMat\Function\KhuonMatPC365.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\ChamCongKhuonMat\Function\listKhuonMat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\DetailOfDon\donXinNghiPhep.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatBoNhiem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatCongCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatCongTienTruTien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatDangKiPhongHop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatDangKiSuDungXeCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatHoaHongDoanhThu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatKhieuNai.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatLichLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatLuanChuyenCongTac.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatNhapNgayNhanLuong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatSuaChuaCoSoVatChat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatThamGiaDuAn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatThanhToan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatXinCheDoThaiSan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatXinDiMuonVeSom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatXinTaiTaiLieu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DeXuatXinTangCa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DonTamUng.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DonXinCapPhatTaiSan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DonXinPhepRaNgoai.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DonXinTangLuong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\DonXinThoiViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\LichLamViec\NgDuyetVaTheoDoi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\LichLamViec\NguoiTheoDoi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\LichLamViec\NguoiXetDuyet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\LichLamViec\PopupThemLichLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\LichLamViec\TaiLieuDinhKem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\LichLamViec\TaoDeXuatThanhCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\NghiPhep.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\KindOfDon\ĐonDoiCa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\capNhatThanhCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\capNhatThatBai.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\chamCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\ChamCongHoanTat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\ChamCongNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\ChamCongThanhCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\ChupAnh.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\KhuonMatError.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\listHistory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\LuongCoBan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\LuongDieuChinh.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\LuongHienTai.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\ThongTinChamCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\LichSu\Function\UpdateKhuonMat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\MainChamCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\MainTestxaml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\DangTheoDoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\DeXuatCuaToi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\GuiDenToi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\listPropose.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\listTess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\LoaiDeXuat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\T123.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Propose\Test.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Tool\DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Tool\Test1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NhanVien\Tool\TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\PopUpHoiTruocKhiXoaBaoHiem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucBaoHiemMoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucChinhSuaBaoHiemNhom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucChinhSuaBHNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucChinhSuaBHNhanVienTheoTien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucDanhSachBHNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucDanhSachNhanVienBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucDanhSachNhomBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucLoaiBaoHiem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucNhapMoiChinhSachBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemMoiChinhSachBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemNhanVienBaoHiem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemNhanVienVaoNhomBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThemNhomBaoHiem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThoiGianApDungBHNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucThoiGianApDungChoNhomBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucXoaBaoHiemNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\ChinhSachBaoHiem\ucXoaNhomBaoHiem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuChuaThietLap\ucDanhSachNhanVienChuaThietLapBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuChuaThietLap\ucThietLapBHNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuDaThietLap\ucDanhSachNhanVienDaThietLapBH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatBaoHiem\NhanSuDaThietLap\ucXoaBaoHiemNhanSu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\PopUpHoiTruocKhiXoaLCB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucChinhSuaHopDong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucChinhSuaLuongCoBan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucHoSoNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucThemFileLuong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucThemHopDongNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatNhapLuongCoBan\ucThemLuongCoBan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucChinhSuaNVPhucLoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucChinhSuaPhucLoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucDanhSachNVHuongPhucLoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucThemMoiPhucLoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucThemNVHuongPhucLoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucXoaPhucLoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatPhucLoi\ucXoaPhucLoiCuaNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpAddStaffInTax.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpChinhSuaThueNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpDanhSachNVTrongThue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpHoiTruocKhiXoaCaiDatThue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpHoiTruocKhiXoaCSThue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpTGApDung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpThemMoiChinhSachThue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpThietLapCongThuc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CaiDatThue\PopUpThietLapThueNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\CongCong\ucXoaCongCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpChiTietMucPhatNghiSaiQD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpHoiTruocKhiXoaMucPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpThongBaoSuaXoaMucPhatThanhCong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpChinhSuaMucPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpXoaMucPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhuCap\PopUpHoiTruocKhiXoaPhuCapPCTheoCa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhuCap\PopUpThemMoiChinhSuaPhuCap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhuCap\PopUpThemMoiChinhSuaPhuCapTheoCa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\ThuongPhat\PopUpAddTP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\ThuongPhat\PopUpChiTietThuongNV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\ThuongPhat\PopUpHoiTruocKhiXoaThuongPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\ThuongPhat\PopUpThemMoiThuongPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatCongChuan\ucXacNhanCongChuan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucChinhSuaLichLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucChuyenTiepChonCaLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucChuyenTiepThemMoiLich.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucDanhSachNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucSaoChepLichLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucThemFileNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucThemMoiLichLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucThemMoiNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucXoaLichLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatLichLamViec\ucXoaNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatWifi\ucCapNhatIP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatWifi\ucCapNhatWifi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatWifi\ucDanhSachIP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatWifi\ucDanhSachWii.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatWifi\ucThemDiaChiIP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\CaiDatWifi\ucThemMoiWifi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\ucDelete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\ucHienThiDuLieuNgay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\ucHienThiNgayDauTien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\ChamCong\ucHienThiThang.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\DatePicker\ucCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucLoadMonths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucMonthApply.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DeXuat\CaiDatThoiGian\PopUpThongBao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DeXuat\LoadingSpinner\LoadingSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DeXuat\LoaiHinhDuyetPhep\PopUpChonNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DeXuat\OrganisationalStructureDiagram\ucEditDetailDepartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\DeXuat\OrganisationalStructureDiagram\ucEditDetailGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\DeXuat\OrganisationalStructureDiagram\ucEditDetailNest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\DeXuat\OrganisationalStructureDiagram\ucShowDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\DeXuat\TamUngTien\PopUpHoiTruocKhiDuyet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\AddNewStaffPopups\ucAddNewStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\AddNewStaffPopups\ucDeleteNewStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\AddNewStaffPopups\ucSetRole.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\AddNewStaffPopups\ucUpdateNewStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ChildCompanyPopups\createChildCompany.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ChildCompanyPopups\updateChildCompany.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DatePicker\DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucAddSaffFToGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateDepartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateGiamBienChe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateLuanChuyen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateNghiViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateNhom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucCreateTo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteDepartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteGiamBienChe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteLuanChuyen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteNghiViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteNhom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucDeleteTo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateDepartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateGiamBienChe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateLuanChuyen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateNghiViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateNhom.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\DepartmentManagerPopups\ucUpdateTo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ListCandidatesPopups\ucAddCandidate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ListCandidatesPopups\ucCreateStage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ListCandidatesPopups\ucDeleteCandidate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ListCandidatesPopups\ucDeleteStage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ListCandidatesPopups\ucUpdateStage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ShiftWorkPopups\ucCreateShiftWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ShiftWorkPopups\ucDeleteShiftWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ShiftWorkPopups\ucUpdateShiftWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ucCreateSuccess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ucUpdateSuccess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopUpHoiTruocKhiDangXuat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCoppyCalendarWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateAddressIP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateCalendarWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateFileSaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateSaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateWifi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucDelete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucDeleteCalendarWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucDeleteSaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucListIP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucListSaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucListWifi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucLoadDaySmall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucLoadFirstDaySmall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucLoadMonth.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucNextCreateCalendarWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucSelectShift.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucUpdateIP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucUpdateWifi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\TimePicker\timePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\DatePicker\ucEditCalendarWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucFirstDay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucLoadDays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\Combobox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\DateTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\DefaultColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\iconChamCong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\iconQuanLyCongTy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\PathXAML\Scroll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\SetStyleDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalarySettings\CaiDatThue\frmChinhSachThue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\CaiDatThue\frmDanhSachNhanSuChuaThietLap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\CaiDatThue\frmDanhSachNhanSuDaThietLap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmCaiDatDiMuonVeSom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmDanhSachNghiSaiQuyDinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmDSDiMuonVeSom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmNghiSaiQuyDinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\frmCaiDatThietLapPhatDiMuonVeSom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\frmCaiDatThue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\frmDanhSachPhuCap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\frmThuongPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\ucCaiDatBaoHiem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalarySettings\ucCaiDatLuongCoBan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalarySettings\ucCaiDatPhucLoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalarySettings\ucCongCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalarySettings\ucListSalarySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeKeeping\ucCaiDatBaoMatWifi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeKeeping\ucCaiDatCongChuan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeKeeping\ucCaiDatLichLamViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeKeeping\ucCapNhatKhuonMat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeKeeping\ucDanhSachChucNangChamCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeKeeping\ucDuyetThietBiMoi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TimeKeeping\ucXuatCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ucBodyHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resource\TempExcel\FileExcelMau.xltx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NhanVien\ChamCongSetting\Function\" />
+    <Folder Include="NhanVien\ChamCongSetting\Image\" />
+    <Folder Include="Paging\" />
+    <Folder Include="Popup\ChamCong\CapNhapKhuonMat\" />
+    <Folder Include="Popup\ChamCong\DuyetThietBiMoi\" />
+    <Folder Include="Popup\ChamCong\XuatCong\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\BacgoundInfoSaff.png" />
+    <Resource Include="Resource\image\BackgroundCalendar.png" />
+    <Resource Include="Resource\image\check-circle.png" />
+    <Resource Include="Resource\image\CompanyLogo.png" />
+    <Resource Include="Resource\image\Ellipse 1125.png" />
+    <Resource Include="Resource\image\Giờ.png" />
+    <Resource Include="Resource\image\icons8_clock_2 1.png" />
+    <Resource Include="Resource\image\icons8_Plus 1.jpg" />
+    <Resource Include="Resource\image\icons8_Plus.png" />
+    <Resource Include="Resource\image\KyTo.jpg" />
+    <Resource Include="Resource\image\llll.jpg" />
+    <Resource Include="Resource\image\switch 2.png" />
+    <Resource Include="Resource\image\VectorDown.png" />
+    <Resource Include="Resource\image\Word.png" />
+    <Resource Include="Resource\image\WorkShift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\bgr_lon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\Status_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\Group 632585.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\chamcongQR.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai1.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai11.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai12.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai13.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai14.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai2.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai31.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai32.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\DienThoai33.png" />
+    <Resource Include="NhanVien\ChamCongBangQRRR\Image\QR.png" />
+    <Resource Include="NhanVien\ChamCongBangTaiKhoanCongTy\Image\MayTinh1.png" />
+    <Resource Include="NhanVien\ChamCongBangTaiKhoanCongTy\Image\MayTinh2.png" />
+    <Resource Include="NhanVien\ChamCongBangTaiKhoanCongTy\Image\MayTinh3.png" />
+    <Resource Include="NhanVien\ChamCongBangTaiKhoanCongTy\Image\MayTinh4.png" />
+    <Resource Include="NhanVien\ChamCongBangTaiKhoanCongTy\Image\MayTinh5.png" />
+    <Resource Include="NhanVien\ChamCongBangTaiKhoanCongTy\Image\MayTinh6.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\DienThoai11.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha11.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha12.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha13.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha21.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha22.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha23.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha24.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha31.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha32.png" />
+    <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha33.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\BoNhiem.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\CongCong.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\CongTac.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\DuAn.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\HoaHong.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\KhieuNai.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\LamViec.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\NghiPhep.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\NhanLuong.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\PhongHop.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\RaNgoai.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\TaiLieu.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\TaiSan.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\TangCa.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\TangLuong.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\ThaiSan.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\ThanhToan.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\ThoiViec.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\Tien.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\UngTien.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\VatChat.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\VeSom.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\XeCong.png" />
+    <Resource Include="NhanVien\KindOfDon\Image\ĐoiCa.png" />
+    <Resource Include="NhanVien\LichSu\Image\capnhatkhuonmat.png" />
+    <Resource Include="NhanVien\LichSu\Image\DangTheoDoi.png" />
+    <Resource Include="NhanVien\LichSu\Image\gai.png" />
+    <Resource Include="NhanVien\LichSu\Image\GuiDenToi.png" />
+    <Resource Include="NhanVien\LichSu\Image\LuongAn.png" />
+    <Resource Include="NhanVien\LichSu\Image\LuongHien.png" />
+    <Resource Include="NhanVien\LichSu\Image\ToiGuiDi.png" />
+    <Resource Include="NhanVien\Propose\C1.png" />
+    <Resource Include="NhanVien\Propose\C6.png" />
+    <Resource Include="NhanVien\Propose\C60.png" />
+    <Resource Include="NhanVien\Propose\Trang.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

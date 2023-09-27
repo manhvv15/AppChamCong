@@ -1,0 +1,54 @@
+﻿<UserControl
+    x:Class="ChamCong365.Popup.DeXuat.OrganisationalStructureDiagram.ucShowDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="2000"
+    d:DesignWidth="2000"
+    mc:Ignorable="d">
+    <Grid>
+        <Rectangle
+            Fill="#474747"
+            MouseDown="Rectangle_MouseDown"
+            Opacity="0.7" />
+
+        <StackPanel MaxWidth="800" Margin="0,300,0,0">
+            <Border
+                Height="50"
+                VerticalAlignment="Top"
+                Background="{StaticResource #4C5BD4}"
+                CornerRadius="8,8,0,0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    Foreground="White"
+                    Text="Thông tin mô tả chi tiết" />
+            </Border>
+            <Border
+                VerticalAlignment="Bottom"
+                Background="{StaticResource #FFFFFF}"
+                CornerRadius="0,0,8,8">
+                <StackPanel>
+                    <Grid Margin="20" HorizontalAlignment="Stretch">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" />
+                        </Grid>
+                        <Border
+                            Height="600"
+                            HorizontalAlignment="Stretch"
+                            BorderBrush="{StaticResource #474747}"
+                            BorderThickness="0"
+                            CornerRadius="4">
+                            <TextBlock x:Name="txbDescription" FontSize="16" TextWrapping="Wrap" ></TextBlock>
+                        </Border>
+                    </Grid>
+
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

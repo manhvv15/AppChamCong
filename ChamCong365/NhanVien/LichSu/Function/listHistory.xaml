@@ -1,0 +1,22 @@
+﻿<Window x:Class="ChamCong365.NhanVien.LichSu.Function.listHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChamCong365.NhanVien.LichSu.Function"
+        mc:Ignorable="d"
+        Background="WhiteSmoke">
+    <StackPanel>
+        <Border Margin="0 10 0 0">
+            <TextBlock Text="6. LỊCH SỬ" FontSize="30" FontWeight="DemiBold" Foreground="#474747"/>
+        </Border>
+        <DockPanel Cursor="Hand" Margin="0 30 0 0" MouseUp="DockPanel_MouseUp" >
+            <Image Source="{StaticResource icon1DrawingImage}" Width="44" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Text="Chấm công" FontWeight="DemiBold" FontSize="20" Foreground="#474747" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        </DockPanel>
+        <DockPanel Cursor="Hand" Margin="0 20 0 0" MouseUp="DockPanel_MouseUp_1" >
+            <Image Source="{StaticResource icon2DrawingImage}" Width="44" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Text="Lương hiện tại" FontWeight="DemiBold" FontSize="20" Foreground="#474747" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        </DockPanel>
+    </StackPanel>
+</Window>

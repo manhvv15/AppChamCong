@@ -1,0 +1,29 @@
+﻿<Page x:Class="ChamCong365.NhanVien.Tool.Test1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChamCong365.NhanVien.Tool"
+      mc:Ignorable="d" 
+       xmlns:Tool="clr-namespace:ChamCong365.NhanVien.Tool"
+         Background="WhiteSmoke"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Test1">
+
+    
+    <StackPanel>
+        <Border Margin="0 5 0 0" Height="39" CornerRadius="3" BorderThickness="1" BorderBrush="{DynamicResource #DDDDDD}">
+            <Grid>
+                <TextBlock x:Name="textThang" Margin="15 0 0 0" Text="--------- ----" Foreground="{DynamicResource #777777}" VerticalAlignment="Center" FontSize="16"/>
+                <Border Background="Transparent" MouseLeftButtonDown="Select_thang" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Path Data="{DynamicResource iconLich}"  VerticalAlignment="Center" Stroke="Black" HorizontalAlignment="Center" Margin="0 0 10 0"/>
+                </Border>
+            </Grid>
+        </Border>
+        <ListView Margin="0 50 0 0" ItemsSource="{Binding cl}" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0"></ListView>
+        <Border Margin="0 5 0 0" Height="43" CornerRadius="3" BorderThickness="1" BorderBrush="{DynamicResource #DDDDDD}">
+            <Tool:DatePicker x:Name="DatePicker" FontSize="16" Foreground="{DynamicResource #777777}"/>
+        </Border>
+
+    </StackPanel>
+</Page>
