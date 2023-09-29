@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.IO;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -545,14 +546,14 @@ namespace ChamCong365.NhanVien.KindOfDon
                 DateTime ngayKetThucDate = DateTime.Parse(ngayKetThuc);
                 string ngayKetThucFormat = ngayKetThucDate.ToString("yyyy-MM-ddTHH:mm:ss.fff+00:00");
                 // // content.Add(new StringContent("{\"nghi_phep\": [[\"2023-12-04T00:00:00.000+00:00\",\"2023-12-05T00:00:00.000+00:00\",\"2\"]]}"), "noi_dung");
-               
+
                 StringBuilder jsonStringBuilder = new StringBuilder();
                 jsonStringBuilder.Append("{\"nghi_phep\": [[");
                 jsonStringBuilder.Append($"\"{ngayBatDauFormat}\", \"{ngayKetThucFormat}\", \"2\"");
                 jsonStringBuilder.Append("]]}");
                 content.Add(new StringContent(jsonStringBuilder.ToString()), "noi_dung");
                 content.Add(new StringContent(textNhapLiDo.Text), "ly_do");
-
+                content.Add(new StreamContent(File.OpenRead(tepDinhKem.Text)), "fileKem", tepDinhKem.Text);
                 request.Content = content;
                 var response = await client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
@@ -705,20 +706,43 @@ namespace ChamCong365.NhanVien.KindOfDon
         private void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Thiết lập các tùy chọn của OpenFileDialog
-            openFileDialog.Title = "Chọn tệp";
-            openFileDialog.Filter = "Tất cả các tệp|*.*";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openFileDialog.Filter = "Tất cả các tệp (*.*)|*.*"; // Lọc tất cả các tệp
+            openFileDialog.Title = "Chọn một tệp";
 
             if (openFileDialog.ShowDialog() == true)
             {
-                // Lấy đường dẫn tệp đã chọn
-                string selectedFilePath = openFileDialog.FileName;
+                try
+                {
+                    string filePath = openFileDialog.FileName;
 
-                // Xử lý tệp ở đây (ví dụ: hiển thị tên tệp lên một TextBlock)
-                tepDinhKem.Text = selectedFilePath;
+                    // Đọc tệp vào một mảng byte
+                    byte[] fileBytes = File.ReadAllBytes(filePath);
+
+                    // Hiển thị thông báo nếu cần
+                   // MessageBox.Show("Tệp đã được đọc thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Tạo một hộp thoại lưu tệp
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.FileName = System.IO.Path.GetFileName(filePath); // Sử dụng tên tệp gốc
+                    saveFileDialog.Filter = "Tất cả các tệp (*.*)|*.*"; // Lọc tất cả các tệp
+
+                    if (saveFileDialog.ShowDialog() == true)
+                    {
+                        string savePath = saveFileDialog.FileName;
+
+                        // Lưu tệp đã đọc vào đường dẫn được chọn
+                        File.WriteAllBytes(savePath, fileBytes);
+                        tepDinhKem.Text = savePath;
+                        // Hiển thị thông báo tải về thành công
+                        //MessageBox.Show("Tệp đã được tải về thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+
         }
         private bool shouldProcessEvent = true;
         private void lsvNguoiXetDuyet_SelectionChanged(object sender, SelectionChangedEventArgs e)
