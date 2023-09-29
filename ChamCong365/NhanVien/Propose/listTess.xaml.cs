@@ -478,7 +478,7 @@ namespace ChamCong365.NhanVien.Propose
 
         private void TaoDeXuat11_MouseUp_1(object sender, MouseButtonEventArgs e)
         {
-            NghiPhep uc = new NghiPhep(Main,ListNg);
+            NghiPhep uc = new NghiPhep(Main);
             Main.dopBody.Children.Clear();
             object Content = uc.Content;
             uc.Content = null;

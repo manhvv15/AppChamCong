@@ -30,6 +30,7 @@ using static ChamCong365.OOP.CaiDatLuong.CongCong.clsDSCongCong;
 using static ChamCong365.OOP.NhanVien.DonDeXuat.CaLamViec;
 using static ChamCong365.OOP.NhanVien.DonDeXuat.XetDuyetVaTheoDoi;
 using static ChamCong365.OOP.NhanVien.ToiGuiDi.DeXuatToiGuiDi;
+using ChamCong365.NhanVien.KindOfDon.LichLamViec;
 
 namespace ChamCong365.NhanVien.KindOfDon
 {
@@ -78,7 +79,7 @@ namespace ChamCong365.NhanVien.KindOfDon
         List<string> listCaNghi = new List<string>();
         List<NguoiXetDuyet> listNguoiXetDuyet = new List<NguoiXetDuyet>();
         List<NguoiTheoDoi> listNguoiTheoDoi = new List<NguoiTheoDoi>();
-        public NghiPhep(MainChamCong main, ChamCong365.NhanVien.KindOfDon.LichLamViec.NguoiXetDuyet listNg)
+        public NghiPhep(MainChamCong main)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -90,7 +91,7 @@ namespace ChamCong365.NhanVien.KindOfDon
             getDataCaLamViec();
             getData1();
             getIdNgXeDuyet();
-            ListNg = listNg;
+
         }
 
         private void LoadChonLoai()
@@ -553,14 +554,18 @@ namespace ChamCong365.NhanVien.KindOfDon
                 jsonStringBuilder.Append("]]}");
                 content.Add(new StringContent(jsonStringBuilder.ToString()), "noi_dung");
                 content.Add(new StringContent(textNhapLiDo.Text), "ly_do");
-                content.Add(new StreamContent(File.OpenRead(tepDinhKem.Text)), "fileKem", tepDinhKem.Text);
+                content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
                 request.Content = content;
                 var response = await client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("hrr");
+                    TaoDeXuatThanhCong uc = new TaoDeXuatThanhCong(Main);
+                    object Content = uc.Content;
+                    uc.Content = null;
+                    Main.dopBody.Children.Add(Content as UIElement);
+
                 }
             }
             catch (Exception ex)
@@ -703,46 +708,30 @@ namespace ChamCong365.NhanVien.KindOfDon
             public string FileName { get; set; }
         }
         private List<FileLuong> lstFileL = new List<FileLuong>();
-        private void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Tất cả các tệp (*.*)|*.*"; // Lọc tất cả các tệp
-            openFileDialog.Title = "Chọn một tệp";
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
 
             if (openFileDialog.ShowDialog() == true)
             {
+                string filePath = openFileDialog.FileName;
+
                 try
                 {
-                    string filePath = openFileDialog.FileName;
-
-                    // Đọc tệp vào một mảng byte
-                    byte[] fileBytes = File.ReadAllBytes(filePath);
-
-                    // Hiển thị thông báo nếu cần
-                   // MessageBox.Show("Tệp đã được đọc thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    // Tạo một hộp thoại lưu tệp
-                    SaveFileDialog saveFileDialog = new SaveFileDialog();
-                    saveFileDialog.FileName = System.IO.Path.GetFileName(filePath); // Sử dụng tên tệp gốc
-                    saveFileDialog.Filter = "Tất cả các tệp (*.*)|*.*"; // Lọc tất cả các tệp
-
-                    if (saveFileDialog.ShowDialog() == true)
-                    {
-                        string savePath = saveFileDialog.FileName;
-
-                        // Lưu tệp đã đọc vào đường dẫn được chọn
-                        File.WriteAllBytes(savePath, fileBytes);
-                        tepDinhKem.Text = savePath;
-                        // Hiển thị thông báo tải về thành công
-                        //MessageBox.Show("Tệp đã được tải về thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                  //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                     tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            }
 
+            }
         }
         private bool shouldProcessEvent = true;
         private void lsvNguoiXetDuyet_SelectionChanged(object sender, SelectionChangedEventArgs e)

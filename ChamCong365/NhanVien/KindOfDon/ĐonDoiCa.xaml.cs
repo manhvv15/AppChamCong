@@ -3,7 +3,11 @@ using ChamCong365.NhanVien.Propose;
 using ChamCong365.OOP;
 using ChamCong365.OOP.NhanVien.DonDeXuat;
 using Newtonsoft.Json;
+using Microsoft.Win32;
 using System;
+using System.IO;
+using System.Windows;
+using System.Windows.Controls;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -12,8 +16,6 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -21,6 +23,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+
 
 using static ChamCong365.OOP.NhanVien.DonDeXuat.CaLamViecById;
 using static ChamCong365.OOP.NhanVien.DonDeXuat.XetDuyetVaTheoDoi;
@@ -106,20 +110,20 @@ namespace ChamCong365.NhanVien.KindOfDon
 
             }
         }
-       
-            public static long ConvertToEpochTime(string dateString)
-            {
-                // Define the format of the input date string
-                string format = "dd/MM/yyyy";
 
-                // Parse the input date string using the specified format
-                DateTime date = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
+        public static long ConvertToEpochTime(string dateString)
+        {
+            // Define the format of the input date string
+            string format = "dd/MM/yyyy";
 
-                // Calculate the number of seconds since Unix epoch (January 1, 1970)
-                TimeSpan timeSpan = date - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                return (long)timeSpan.TotalSeconds;
-            }
-        
+            // Parse the input date string using the specified format
+            DateTime date = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
+
+            // Calculate the number of seconds since Unix epoch (January 1, 1970)
+            TimeSpan timeSpan = date - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return (long)timeSpan.TotalSeconds;
+        }
+
         private async void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             try
@@ -169,10 +173,10 @@ namespace ChamCong365.NhanVien.KindOfDon
                 DateTime ngayCanDoiDate = DateTime.Parse(ngayCanDoi);
                 string ngayCanDoiDateFormat = ngayCanDoiDate.ToString("dd/MM/yyyy");
                 long epochTime1 = ConvertToEpochTime(ngayCanDoiDateFormat);
-                content.Add(new StringContent(Convert.ToString(epochTime1)), "ngay_muon_doi");                              
+                content.Add(new StringContent(Convert.ToString(epochTime1)), "ngay_muon_doi");
                 content.Add(new StringContent(""), "ca_muon_doi");
 
-                // content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");
+                content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
                 request.Content = content;
                 var response = await client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
@@ -533,6 +537,31 @@ namespace ChamCong365.NhanVien.KindOfDon
             if (ca != null)
             {
                 textChonCa1.Text = ca.shift_name;
+            }
+        }
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                    //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                    tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
             }
         }
     }

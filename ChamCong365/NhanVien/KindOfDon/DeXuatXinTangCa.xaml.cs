@@ -8,6 +8,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.IO;
+using Microsoft.Win32;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -371,8 +373,7 @@ namespace ChamCong365.NhanVien.KindOfDon
                 content.Add(new StringContent(Convert.ToString(idTheoDoi)), "id_user_theo_doi");
                 content.Add(new StringContent(textNhapLyDo.Text), "ly_do");
                 content.Add(new StringContent("234567234567"), "time_tc");
-
-                // content.Add(new StreamContent(File.OpenRead("/C:/Users/FPTSHOP/Desktop/anh bai tap/găng tay.jfif")), "file_kem", "/C:/Users/FPTSHOP/Desktop/anh bai tap/găng tay.jfif");
+                content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
                 content.Add(new StringContent("67"), "shift_id");
                 request.Content = content;
                 var response = await client.SendAsync(request);
@@ -390,6 +391,31 @@ namespace ChamCong365.NhanVien.KindOfDon
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                    //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                    tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
             }
         }
     }
