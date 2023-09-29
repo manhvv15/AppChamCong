@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.IO;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -29,6 +30,7 @@ using static ChamCong365.OOP.CaiDatLuong.CongCong.clsDSCongCong;
 using static ChamCong365.OOP.NhanVien.DonDeXuat.CaLamViec;
 using static ChamCong365.OOP.NhanVien.DonDeXuat.XetDuyetVaTheoDoi;
 using static ChamCong365.OOP.NhanVien.ToiGuiDi.DeXuatToiGuiDi;
+using ChamCong365.NhanVien.KindOfDon.LichLamViec;
 
 namespace ChamCong365.NhanVien.KindOfDon
 {
@@ -77,7 +79,7 @@ namespace ChamCong365.NhanVien.KindOfDon
         List<string> listCaNghi = new List<string>();
         List<NguoiXetDuyet> listNguoiXetDuyet = new List<NguoiXetDuyet>();
         List<NguoiTheoDoi> listNguoiTheoDoi = new List<NguoiTheoDoi>();
-        public NghiPhep(MainChamCong main, ChamCong365.NhanVien.KindOfDon.LichLamViec.NguoiXetDuyet listNg)
+        public NghiPhep(MainChamCong main)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -89,7 +91,7 @@ namespace ChamCong365.NhanVien.KindOfDon
             getDataCaLamViec();
             getData1();
             getIdNgXeDuyet();
-            ListNg = listNg;
+
         }
 
         private void LoadChonLoai()
@@ -545,21 +547,25 @@ namespace ChamCong365.NhanVien.KindOfDon
                 DateTime ngayKetThucDate = DateTime.Parse(ngayKetThuc);
                 string ngayKetThucFormat = ngayKetThucDate.ToString("yyyy-MM-ddTHH:mm:ss.fff+00:00");
                 // // content.Add(new StringContent("{\"nghi_phep\": [[\"2023-12-04T00:00:00.000+00:00\",\"2023-12-05T00:00:00.000+00:00\",\"2\"]]}"), "noi_dung");
-               
+
                 StringBuilder jsonStringBuilder = new StringBuilder();
                 jsonStringBuilder.Append("{\"nghi_phep\": [[");
                 jsonStringBuilder.Append($"\"{ngayBatDauFormat}\", \"{ngayKetThucFormat}\", \"2\"");
                 jsonStringBuilder.Append("]]}");
                 content.Add(new StringContent(jsonStringBuilder.ToString()), "noi_dung");
                 content.Add(new StringContent(textNhapLiDo.Text), "ly_do");
-
+                content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
                 request.Content = content;
                 var response = await client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("hrr");
+                    TaoDeXuatThanhCong uc = new TaoDeXuatThanhCong(Main);
+                    object Content = uc.Content;
+                    uc.Content = null;
+                    Main.dopBody.Children.Add(Content as UIElement);
+
                 }
             }
             catch (Exception ex)
@@ -702,22 +708,29 @@ namespace ChamCong365.NhanVien.KindOfDon
             public string FileName { get; set; }
         }
         private List<FileLuong> lstFileL = new List<FileLuong>();
-        private void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Thiết lập các tùy chọn của OpenFileDialog
-            openFileDialog.Title = "Chọn tệp";
-            openFileDialog.Filter = "Tất cả các tệp|*.*";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
 
             if (openFileDialog.ShowDialog() == true)
             {
-                // Lấy đường dẫn tệp đã chọn
-                string selectedFilePath = openFileDialog.FileName;
+                string filePath = openFileDialog.FileName;
 
-                // Xử lý tệp ở đây (ví dụ: hiển thị tên tệp lên một TextBlock)
-                tepDinhKem.Text = selectedFilePath;
+                try
+                {
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                  //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                     tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
             }
         }
         private bool shouldProcessEvent = true;

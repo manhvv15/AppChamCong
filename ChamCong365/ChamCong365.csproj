@@ -1335,24 +1335,24 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="NhanVien\KindOfDon\LichLamViec\NgDuyetVaTheoDoi.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="NhanVien\KindOfDon\LichLamViec\NguoiTheoDoi.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="NhanVien\KindOfDon\LichLamViec\NguoiXetDuyet.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="NhanVien\KindOfDon\LichLamViec\PopupThemLichLamViec.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="NhanVien\KindOfDon\LichLamViec\TaiLieuDinhKem.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="NhanVien\KindOfDon\LichLamViec\TaoDeXuatThanhCong.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -2303,6 +2303,19 @@
     <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha31.png" />
     <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha32.png" />
     <Resource Include="NhanVien\ChamCongKhuonMat\Image\VuVanKha33.png" />
+    <Resource Include="NhanVien\LichSu\Image\capnhatkhuonmat.png" />
+    <Resource Include="NhanVien\LichSu\Image\DangTheoDoi.png" />
+    <Resource Include="NhanVien\LichSu\Image\gai.png" />
+    <Resource Include="NhanVien\LichSu\Image\GuiDenToi.png" />
+    <Resource Include="NhanVien\LichSu\Image\LuongAn.png" />
+    <Resource Include="NhanVien\LichSu\Image\LuongHien.png" />
+    <Resource Include="NhanVien\LichSu\Image\ToiGuiDi.png" />
+    <Resource Include="NhanVien\Propose\C1.png" />
+    <Resource Include="NhanVien\Propose\C6.png" />
+    <Resource Include="NhanVien\Propose\C60.png" />
+    <Resource Include="NhanVien\Propose\Trang.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="NhanVien\KindOfDon\Image\BoNhiem.png" />
     <Resource Include="NhanVien\KindOfDon\Image\CongCong.png" />
     <Resource Include="NhanVien\KindOfDon\Image\CongTac.png" />
@@ -2327,17 +2340,6 @@
     <Resource Include="NhanVien\KindOfDon\Image\VeSom.png" />
     <Resource Include="NhanVien\KindOfDon\Image\XeCong.png" />
     <Resource Include="NhanVien\KindOfDon\Image\ĐoiCa.png" />
-    <Resource Include="NhanVien\LichSu\Image\capnhatkhuonmat.png" />
-    <Resource Include="NhanVien\LichSu\Image\DangTheoDoi.png" />
-    <Resource Include="NhanVien\LichSu\Image\gai.png" />
-    <Resource Include="NhanVien\LichSu\Image\GuiDenToi.png" />
-    <Resource Include="NhanVien\LichSu\Image\LuongAn.png" />
-    <Resource Include="NhanVien\LichSu\Image\LuongHien.png" />
-    <Resource Include="NhanVien\LichSu\Image\ToiGuiDi.png" />
-    <Resource Include="NhanVien\Propose\C1.png" />
-    <Resource Include="NhanVien\Propose\C6.png" />
-    <Resource Include="NhanVien\Propose\C60.png" />
-    <Resource Include="NhanVien\Propose\Trang.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

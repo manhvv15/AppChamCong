@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.IO;
+using Microsoft.Win32;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -433,7 +435,7 @@ namespace ChamCong365.NhanVien.KindOfDon
                 content.Add(new StringContent("713"), "pb_nguoi_lc");
                 content.Add(new StringContent("Ha noi"), "noi_cong_tac");
                 content.Add(new StringContent("Tp HCM"), "noi_chuyen_den");
-               // content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");
+                content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
                 request.Content = content;
                 var response = await client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
@@ -452,6 +454,31 @@ namespace ChamCong365.NhanVien.KindOfDon
                 MessageBox.Show(ex.Message);
             }
 
+        }
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                    //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                    tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
         }
     }
 }

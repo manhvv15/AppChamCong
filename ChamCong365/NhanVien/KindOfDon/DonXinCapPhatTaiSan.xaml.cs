@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+
+using System.IO;
+using Microsoft.Win32;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -88,9 +91,9 @@ namespace ChamCong365.NhanVien.KindOfDon
             idTheoDoi = ((ListUsersTheoDoi)lsvNguoiTheoDoi.SelectedItem).idQLC;
             content.Add(new StringContent(Convert.ToString(idTheoDoi)), "id_user_theo_doi");
             content.Add(new StringContent(textNhapLiDo.Text), "ly_do");
-            content.Add(new StringContent("56"), "danh_sach_tai_san");
-            content.Add(new StringContent("10"), "so_luong_tai_san");
-          //  content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");
+            content.Add(new StringContent(textNhapTen.Text), "danh_sach_tai_san");
+            content.Add(new StringContent(textNhapSoLuong.Text), "so_luong_tai_san");
+            content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
             request.Content = content;
             var response = await client.SendAsync(request);
             response.EnsureSuccessStatusCode();
@@ -337,6 +340,31 @@ namespace ChamCong365.NhanVien.KindOfDon
             if (textSearchNguoiTheoDoi.Text == "")
             {
                 lsvNguoiTheoDoi.ItemsSource = listUsersTheoDoi1;
+            }
+        }
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                    //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                    tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
             }
         }
     }

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
@@ -79,7 +80,18 @@ namespace ChamCong365.NhanVien.KindOfDon
             uc.Content = null;
             Main.dopBody.Children.Add(Content as UIElement);
         }
+        public static long ConvertToEpochTime(string dateString)
+        {
+            // Define the format of the input date string
+            string format = "dd/MM/yyyy";
 
+            // Parse the input date string using the specified format
+            DateTime date = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
+
+            // Calculate the number of seconds since Unix epoch (January 1, 1970)
+            TimeSpan timeSpan = date - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return (long)timeSpan.TotalSeconds;
+        }
         private async void Border_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
             try
@@ -115,8 +127,13 @@ namespace ChamCong365.NhanVien.KindOfDon
                 idTheoDoi = ((ListUsersTheoDoi)lsvNguoiTheoDoi.SelectedItem).idQLC;
                 content.Add(new StringContent(Convert.ToString(idTheoDoi)), "id_user_theo_doi");
                 content.Add(new StringContent(textNhapLiDo.Text), "ly_do");
-                content.Add(new StringContent("23423435"), "ngaybatdau_tv");
-                // content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");
+
+                string ngayBatDau = NgayBatDau.Text;
+                DateTime ngayBatDauDate = DateTime.Parse(ngayBatDau);
+                string ngayBatDauFormat = ngayBatDauDate.ToString("dd/MM/yyyy");
+                long epochTime = ConvertToEpochTime(ngayBatDauFormat);
+                content.Add(new StringContent(Convert.ToString(epochTime)), "ngaybatdau_tv");
+               
                 content.Add(new StringContent("4"), "ca_bdnghi");
                 //content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");
                 request.Content = content;
@@ -409,7 +426,12 @@ namespace ChamCong365.NhanVien.KindOfDon
                 idTheoDoi = ((ListUsersTheoDoi)lsvNguoiTheoDoi.SelectedItem).idQLC;
                 content.Add(new StringContent(Convert.ToString(idTheoDoi)), "id_user_theo_doi");
                 content.Add(new StringContent(textNhapLiDo.Text), "ly_do");
-                content.Add(new StringContent("23423435"), "ngaybatdau_tv");
+                string ngayBatDau = NgayBatDau.Text;
+                DateTime ngayBatDauDate = DateTime.Parse(ngayBatDau);
+                string ngayBatDauFormat = ngayBatDauDate.ToString("dd/MM/yyyy");
+                long epochTime = ConvertToEpochTime(ngayBatDauFormat);
+                content.Add(new StringContent(Convert.ToString(epochTime)), "ngaybatdau_tv");
+                //content.Add(new StringContent("23423435"), "ngaybatdau_tv");
                 // content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");
                 content.Add(new StringContent("4"), "ca_bdnghi");
                 //content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");

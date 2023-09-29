@@ -21,6 +21,9 @@ using Newtonsoft.Json;
 using static ChamCong365.OOP.NhanVien.DonDeXuat.XetDuyetVaTheoDoi;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Microsoft.Win32;
+using System.IO;
+using System.Globalization;
 
 namespace ChamCong365.NhanVien.KindOfDon
 {
@@ -136,7 +139,18 @@ namespace ChamCong365.NhanVien.KindOfDon
 
         }
 
+        public static long ConvertToEpochTime(string dateString)
+        {
+            // Define the format of the input date string
+            string format = "dd/MM/yyyy";
 
+            // Parse the input date string using the specified format
+            DateTime date = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
+
+            // Calculate the number of seconds since Unix epoch (January 1, 1970)
+            TimeSpan timeSpan = date - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            return (long)timeSpan.TotalSeconds;
+        }
         private async void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
 
@@ -170,9 +184,15 @@ namespace ChamCong365.NhanVien.KindOfDon
             idTheoDoi = ((ListUsersTheoDoi)lsvNguoiTheoDoi.SelectedItem).idQLC;
             content.Add(new StringContent(Convert.ToString(idTheoDoi)), "id_user_theo_doi");
             content.Add(new StringContent(textNhapLiDo.Text), "ly_do");
-            content.Add(new StringContent("500000"), "tien_tam_ung");
-            content.Add(new StringContent("345456784567"), "ngay_tam_ung");
-            // content.Add(new StreamContent(File.OpenRead("")), "fileKem", "");
+            content.Add(new StringContent(textNhapMoney.Text), "tien_tam_ung");
+           // content.Add(new StringContent(Int32.Parse(textNhapMoney.Text)), "tien_tam_ung");
+            string ngayBatDau = NgayBatDau.Text;
+            DateTime ngayBatDauDate = DateTime.Parse(ngayBatDau);
+            string ngayBatDauFormat = ngayBatDauDate.ToString("dd/MM/yyyy");
+            long epochTime = ConvertToEpochTime(ngayBatDauFormat);
+            content.Add(new StringContent(Convert.ToString(epochTime)), "ngay_tam_ung");
+            //content.Add(new StringContent("345456784567"), "ngay_tam_ung");
+            content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
             request.Content = content;
             var response = await client.SendAsync(request);
             response.EnsureSuccessStatusCode();
@@ -344,6 +364,31 @@ namespace ChamCong365.NhanVien.KindOfDon
                     borNguoiXetDuyet.Visibility = Visibility.Collapsed;
 
                 }
+            }
+        }
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                    //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                    tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
             }
         }
     }

@@ -13,6 +13,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.IO;
+using Microsoft.Win32;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -278,7 +280,31 @@ namespace ChamCong365.NhanVien.KindOfDon
             uc.Content = null;
             Main.dopBody.Children.Add(Content as UIElement);
         }
+        string TenTep = "";
+        public void Border_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Tất cả các tệp|*.*"; // Lọc tất cả các tệp
 
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Đọc nội dung của tệp bằng File.ReadAllText
+                    string fileContent = File.ReadAllText(filePath);
+                    //  tepDinhKem.Text = filePath;
+                    TenTep = filePath;
+                    tepDinhKem.Text = System.IO.Path.GetFileName(filePath); ;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi đọc tệp: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+        }
         private async void Border_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
             try
@@ -314,7 +340,7 @@ namespace ChamCong365.NhanVien.KindOfDon
                 content.Add(new StringContent(Convert.ToString(idTheoDoi)), "id_user_theo_doi");
                 content.Add(new StringContent(textNhapLyDo.Text), "ly_do");
 
-                // content.Add(new StreamContent(File.OpenRead("/C:/Users/FPTSHOP/Desktop/anh bai tap/images (2).jfif")), "file_kem", "/C:/Users/FPTSHOP/Desktop/anh bai tap/images (2).jfif");
+                content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
 
                 content.Add(new StringContent("1690732140000"), "time_xnc");
                 content.Add(new StringContent("1"), "ca_xnc");
