@@ -315,7 +315,7 @@ namespace ChamCong365.NhanVien.KindOfDon
                 idTheoDoi = ((ListUsersTheoDoi)lsvNguoiTheoDoi.SelectedItem).idQLC;
                 content.Add(new StringContent(Convert.ToString(idTheoDoi)), "id_user_theo_doi");
                 content.Add(new StringContent(textNhapLyDo.Text), "ly_do");
-                content.Add(new StringContent("5000000"), "so_tien_tt");
+                content.Add(new StringContent(textNhapMoney.Text), "so_tien_tt");
                 content.Add(new StreamContent(File.OpenRead(TenTep)), "fileKem", tepDinhKem.Text);
                 request.Content = content;
                 var response = await client.SendAsync(request);
