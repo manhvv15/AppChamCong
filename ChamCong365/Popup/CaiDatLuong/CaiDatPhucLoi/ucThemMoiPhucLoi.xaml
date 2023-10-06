@@ -1,0 +1,381 @@
+﻿<UserControl x:Class="ChamCong365.Popup.CaiDatLuong.CaiDatPhucLoi.ucThemMoiPhucLoi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.CaiDatLuong.CaiDatPhucLoi"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Fill="#000000" Opacity="0.5" MouseDown="Rectangle_MouseDown"/>
+        <Grid Width="690" Height="612">
+            <Border Background="#FFFFFF"  CornerRadius="10 10 10 10" >
+                <Grid>
+                    <StackPanel>
+                        <Border 
+                        CornerRadius="10 10 0 0"
+                        Background="#4C5BD4">
+                            <DockPanel 
+                            Width="660"
+                            Height="54">
+                                <TextBlock x:Name="textTieuDe"
+                                Margin="250 0 0 0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#FFFFFF"
+                                Text="Thêm mới phúc lợi"/>
+                                <Border  x:Name="bodThoat"
+                                     MouseLeftButtonUp="bodThoat_MouseLeftButtonUp"
+                                     Background="Transparent"
+                                     Cursor="Hand"
+                                      HorizontalAlignment="Right" 
+                                Width="14" 
+                                Height="14" >
+                                    <Path Data="{StaticResource iconExit}" Stroke="#FFFFFF" StrokeThickness="2" Margin="-3,-3,0,0" Stretch="Fill"/>
+                                </Border>
+
+                            </DockPanel>
+                        </Border>
+                        <StackPanel Margin="20">
+                            <StackPanel>
+                                <TextBlock  HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}">
+                            <Run Text="Tên phúc lợi "/>
+                            <Run Foreground="#FF5B4D" Text="*"/>
+                                </TextBlock>
+                                <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0">
+                                    <Grid Height="37">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="37*"/>
+                                            <ColumnDefinition Width="312*"/>
+                                            <ColumnDefinition Width="30"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="textNhapTenPL" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-2" Padding="3,5,0,0" Grid.ColumnSpan="3"/>
+                                        <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập tên phúc lợi" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,11" Grid.ColumnSpan="3">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=textNhapTenPL, Path=Text}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <!--<TextBlock Text="VNĐ" Grid.Column="3" VerticalAlignment="Center" Foreground="#474747"></TextBlock>-->
+                                    </Grid>
+                                </Border>
+
+                            </StackPanel>
+                            <StackPanel Margin="0 20 0 20">
+                                <TextBlock  HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}">
+                            <Run Text="Tiền phúc lợi "/>
+                            <Run Foreground="#FF5B4D" Text="*"/>
+                                </TextBlock>
+                                <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0">
+                                    <Grid Height="37">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="37*"/>
+                                            <ColumnDefinition Width="312*"/>
+                                            <ColumnDefinition Width="30"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="textNhapSoTienPL" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-2" Padding="3,5,0,0" Grid.ColumnSpan="3"/>
+                                        <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập số tiền phúc lợi" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,11" Grid.ColumnSpan="3">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=textNhapSoTienPL, Path=Text}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock Text="VNĐ" Grid.Column="3" VerticalAlignment="Center" Foreground="#474747"></TextBlock>
+                                    </Grid>
+                                </Border>
+
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock  HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}">
+                                <Run Text="Chọn Loại"/>
+                                <Run Foreground="#FF5B4D" Text="*"/>
+                                </TextBlock>
+                                <ComboBox x:Name="cboTypeTN" Style="{DynamicResource Combobox1}" Margin="0,5,0,0" BorderThickness="1" FontSize="16">
+                                    <ComboBoxItem Content="Thu nhập chịu thuế" FontSize="16"></ComboBoxItem>
+                                    <ComboBoxItem Content="Thu nhập miễn thuế" FontSize="16"></ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+                            <DockPanel Margin="0 20 0 20">
+                                <StackPanel>
+                                    <TextBlock  HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}">
+                                    <Run Text="Áp dụng từ tháng "/>
+                                    <Run Foreground="#FF5B4D" Text="*"/>
+                                    </TextBlock>
+                                    <Border x:Name="borTGBatDau" Background="Transparent" MouseLeftButtonUp="borTGBatDau_MouseLeftButtonUp" Cursor="Hand"  Margin="0 5 0 0" HorizontalAlignment="Left" Width="310" Height="42" Style="{StaticResource BorderTextPopup}">
+                                        <DockPanel>
+                                            <TextBlock x:Name="textHienThiTGBatDau" Margin="5 0 0 0" Text="---- --- ----" MaxWidth="290" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}"/>
+                                            <Path Width="20" Height="20" Margin="0 0 10 0" HorizontalAlignment="Right" Data="{DynamicResource iconCalendar}" Fill="#474747"/>
+                                        </DockPanel>
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Right">
+                                    <TextBlock Text="Đến tháng (Không bắt buộc)" HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}"/>
+                                    <Border Background="Transparent" x:Name="borTGKetThuc" MouseLeftButtonUp="borTGKetThuc_MouseLeftButtonUp" Cursor="Hand"  Margin="0 5 0 0" HorizontalAlignment="Left" Width="310" Height="42" Style="{StaticResource BorderTextPopup}">
+                                        <DockPanel>
+                                            <TextBlock x:Name="textHienThiTGKetThuc" Margin="5 0 0 0" Text="---- --- ----" MaxWidth="290" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}"/>
+                                            <Path Width="20" Height="20" Margin="0 0 10 0" HorizontalAlignment="Right" Data="{DynamicResource iconCalendar}" Fill="#474747"/>
+                                        </DockPanel>
+                                    </Border>
+                                </StackPanel>
+                            </DockPanel>
+                            <StackPanel>
+                                <TextBlock Text="Ghi chú" HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}" />
+                                <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0" Height="100">
+                                    <Grid Height="37" VerticalAlignment="Top">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="37*"/>
+                                            <ColumnDefinition Width="312*"/>
+                                            <ColumnDefinition Width="30"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="textNhapGhiChu" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-2" Padding="3,5,0,0" Grid.ColumnSpan="3"/>
+                                        <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập ghi chú" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,11" Grid.ColumnSpan="3">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=textNhapGhiChu, Path=Text}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <!--<TextBlock Text="VNĐ" Grid.Column="3" VerticalAlignment="Center" Foreground="#474747"></TextBlock>-->
+                                    </Grid>
+                                </Border>
+
+                            </StackPanel>
+                            <DockPanel>
+                                <Border  x:Name="bodCancel" MouseLeftButtonUp="bodCancel_MouseLeftButtonUp" MouseEnter="bodCancel_MouseEnter" MouseLeave="bodCancel_MouseLeave" BorderBrush="#4C5BD4" BorderThickness="1" Background="#ffffff"  Margin="150 20 0 0" Width="137" Height="34" Style="{DynamicResource BorderButon}" Cursor="Hand">
+                                    <TextBlock x:Name="txbHuyBo" Foreground="#4C5BD4" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Hủy bỏ"/>
+                                </Border>
+                                <Border x:Name="bodThemMoiPhucLoi" MouseEnter="bodThemMoiPhucLoi_MouseEnter" MouseLeave="bodThemMoiPhucLoi_MouseLeave"  Margin="0 20 150 0" HorizontalAlignment="Right"  Width="137" Height="34" Style="{DynamicResource BorderButon}" Cursor="Hand" MouseLeftButtonUp="bodThemMoiPhucLoi_MouseLeftButtonUp">
+                                    <TextBlock x:Name="textDieuKien" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Thêm mới"/>
+                                </Border>
+                            </DockPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+                    <Border Cursor="Hand"  HorizontalAlignment="Left" Margin="20 399 0 0" Background="#FFFFFF" x:Name="bodlistInsurance" Visibility="Collapsed" Width="530" Height="128" Style="{DynamicResource BorderTextPopup}">
+                        <ListView BorderThickness="0" Width="500" FontSize="16" Foreground="#474747"  x:Name="lsvLoadInsurance" SelectionChanged="lsvLoadInsurance_SelectionChanged" />
+                    </Border>
+                </Grid>
+            </Border>
+            <!--Lịch Tháng Ap Dung-->
+            <Grid Background="Transparent" x:Name="closePopup" Opacity="0.5" MouseLeftButtonUp="closePopup_MouseLeftButtonUp" Visibility="Collapsed"></Grid>
+            <Border x:Name="borNamBatDauAD" Width="215" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,12" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Visibility="Collapsed">
+                <StackPanel>
+
+                    <Border x:Name="NamTruocBD" Grid.Row="0" Height="30" Background="#aaa" BorderThickness="0,0,0,0.5" BorderBrush="#000000" MouseLeftButtonUp="NamTruocBD_MouseLeftButtonUp">
+                        <TextBlock x:Name="textNamTruocBD" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                    </Border>
+                    <StackPanel Background="#ffffff" x:Name="DSThangNamTruocBatDau">
+                        <WrapPanel>
+                            <Border x:Name="Thang1NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang1NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 1" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang2NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang2NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 2" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang3NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang3NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 3" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang4NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang4NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 4" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang5NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang5NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 5" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang6NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang6NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 6" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang7NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang7NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 7" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+
+                            <Border x:Name="Thang8NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang8NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 8" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang9NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang9NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 9" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang10NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang10NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 10" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang11NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang11NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 11" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang12NamTruocBD" Background="Transparent" MouseLeftButtonUp="Thang12NamTruocBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 12" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                        </WrapPanel>
+                        <DockPanel>
+                            <TextBlock Text="Xoá" Foreground="#4c5bd4" FontSize="16" Margin="8,0,0,0"></TextBlock>
+                            <TextBlock x:Name="btnChonThangNayNamTruocBD" Text="Tháng này" Foreground="#4c5bd4" FontSize="16" HorizontalAlignment="Right" Margin="0,0,8,0" MouseLeftButtonUp="btnChonThangNayNamTruocBD_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
+                        </DockPanel>
+                    </StackPanel>
+                    <Border x:Name="NamSauBD" Grid.Row="0" Height="30" Background="#aaa" BorderThickness="0,0.5,0,0" BorderBrush="#474747" MouseLeftButtonUp="NamSauBD_MouseLeftButtonUp">
+                        <TextBlock x:Name="textNamHienTaiBD" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                    </Border>
+                    <StackPanel Background="#ffffff"  Visibility="Collapsed" x:Name="DSThangNamSauBatDau">
+                        <WrapPanel>
+                            <Border x:Name="Thang1NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang1NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 1" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang2NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang2NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 2" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang3NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang3NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 3" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang4NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang4NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 4" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang5NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang5NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 5" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang6NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang6NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 6" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang7NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang7NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 7" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang8NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang8NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 8" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang9NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang9NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 9" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang10NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang10NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 10" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang11NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang11NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 11" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang12NamSauBD" Background="Transparent" MouseLeftButtonUp="Thang12NamSauBD_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 12" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                        </WrapPanel>
+                        <DockPanel>
+                            <TextBlock Text="Xoá" Foreground="#4c5bd4" FontSize="16" Margin="8,0,0,0"></TextBlock>
+                            <TextBlock x:Name="btnChonThangNayNamSauBD" Text="Tháng này" Foreground="#4c5bd4" FontSize="16" HorizontalAlignment="Right" Margin="0,0,8,0" MouseLeftButtonUp="btnChonThangNayNamSauBD_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
+                        </DockPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border x:Name="borNamKT" Width="215" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,114,12" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Visibility="Collapsed">
+                <StackPanel>
+
+                    <Border x:Name="borNamTruocKT" Grid.Row="0" Height="30" Background="#aaa" BorderThickness="0,0,0,0.5" BorderBrush="#000000" MouseLeftButtonUp="borNamTruocKT_MouseLeftButtonUp">
+                        <TextBlock x:Name="textNamTruocKT" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                    </Border>
+                    <StackPanel Background="#ffffff" x:Name="DSThangNamTruocKT">
+                        <WrapPanel>
+                            <Border x:Name="Thang1NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang1NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 1" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang2NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang2NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 2" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang3NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang3NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 3" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang4NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang4NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 4" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang5NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang5NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 5" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang6NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang6NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 6" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang7NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang7NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 7" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang8NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang8NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 8" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang9NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang9NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 9" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang10NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang10NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 10" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang11NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang11NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 11" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang12NamTruocKT" Background="Transparent" MouseLeftButtonUp="Thang12NamTruocKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 12" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                        </WrapPanel>
+                        <DockPanel>
+                            <TextBlock Text="Xoá" Foreground="#4c5bd4" FontSize="16" Margin="8,0,0,0"></TextBlock>
+                            <TextBlock x:Name="textHienThiThangNayNamTruocKT" Text="Tháng này" Foreground="#4c5bd4" FontSize="16" HorizontalAlignment="Right" Margin="0,0,8,0" MouseLeftButtonUp="textHienThiThangNayNamTruocKT_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
+                        </DockPanel>
+                    </StackPanel>
+                    <Border x:Name="borNamHienTaiKT" Grid.Row="0" Height="30" Background="#aaa" BorderThickness="0,0.5,0,0" BorderBrush="#474747" MouseLeftButtonUp="borNamHienTaiKT_MouseLeftButtonUp">
+                        <TextBlock x:Name="textNamHienTaiKT" FontSize="16" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                    </Border>
+                    <StackPanel Background="#ffffff"  Visibility="Collapsed" x:Name="DSThangNamSauKT">
+                        <WrapPanel>
+                            <Border x:Name="Thang1NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang1NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 1" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang2NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang2NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 2" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang3NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang3NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 3" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang4NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang4NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 4" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang5NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang5NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 5" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang6NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang6NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 6" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang7NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang7NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 7" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang8NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang8NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 8" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang9NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang9NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 9" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang10NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang10NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 10" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang11NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang11NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 11" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                            <Border x:Name="Thang12NamSauKT" Background="Transparent" MouseLeftButtonUp="Thang12NamSauKT_MouseLeftButtonUp">
+                                <TextBlock Text="Thg 12" FontSize="16" Margin="5"></TextBlock>
+                            </Border>
+                        </WrapPanel>
+                        <DockPanel>
+                            <TextBlock Text="Xoá" Foreground="#4c5bd4" FontSize="16" Margin="8,0,0,0"></TextBlock>
+                            <TextBlock x:Name="textThangNayNamHienTaiKT" Text="Tháng này" Foreground="#4c5bd4" FontSize="16" HorizontalAlignment="Right" Margin="0,0,8,0" MouseLeftButtonUp="textThangNayNamHienTaiKT_MouseLeftButtonUp" Cursor="Hand"></TextBlock>
+                        </DockPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+        
+    </Grid>
+</UserControl>

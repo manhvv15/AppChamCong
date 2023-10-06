@@ -1,0 +1,293 @@
+﻿<Window
+    x:Class="ChamCong365.NhanVien.Propose.DeXuatCuaToi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.NhanVien.Propose"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="DeXuatCuaToi"
+    MaxWidth="1200"
+    Background="WhiteSmoke"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock
+                    Width="300"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="22"
+                    FontWeight="DemiBold"
+                    Foreground="#4C5BD4"
+                    Text="Hôm nay,Ngày 16/06/2023" />
+
+                <Grid>
+                    <Border
+                        Width="193"
+                        Height="43"
+                        Margin="0,0,230,0"
+                        HorizontalAlignment="Right"
+                        CornerRadius="15"
+                        Cursor="Hand"
+                        MouseUp="Border_MouseUp">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Offset="0" Color="#4C5BD4" />
+                                <GradientStop Offset="0.8" Color="#4AA7FF" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Foreground="#FFFFFF"
+                            Text="Tạo Đề Xuất" />
+
+
+                    </Border>
+                    <Border
+                        Width="193"
+                        Height="43"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Right"
+                        CornerRadius="15"
+                        Cursor="Hand"
+                        MouseUp="Border_MouseUp_1">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Offset="0" Color="#4C5BD4" />
+                                <GradientStop Offset="0.8" Color="#4AA7FF" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Foreground="#FFFFFF"
+                            Text="Đề xuất của tôi" />
+
+
+                    </Border>
+                </Grid>
+
+            </DockPanel>
+            <Grid Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Height="198"
+                    Background="#FFFFFF"
+                    CornerRadius="10 10 0 0">
+                    <StackPanel>
+                        <TextBlock
+                            x:Name="txbTotaldx"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="40"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Tổng số đề xuất" />
+                        <TextBlock
+                            Margin="0,15,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Hoàn thành: 70%" />
+
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Height="198"
+                    Margin="10,0,0,0"
+                    Background="#FFFFFF"
+                    CornerRadius="10 10 0 0">
+                    <StackPanel>
+                        <TextBlock
+                            x:Name="txbDxChoDuyet"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="40"
+                            FontWeight="DemiBold"
+                            Foreground="#FFA13B"
+                            Text="" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Đề xuất đang chờ duyệt"
+                            TextWrapping="Wrap" />
+
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="2"
+                    Height="198"
+                    Margin="10,0,0,0"
+                    Background="#FFFFFF"
+                    CornerRadius="10 10 0 0">
+                    <StackPanel>
+                        <TextBlock
+                            x:Name="txbDxCanduyet"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="40"
+                            FontWeight="DemiBold"
+                            Foreground="#4AA7FF"
+                            Text="" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Đề xuất cần duyệt" />
+
+                    </StackPanel>
+                </Border>
+                <Border
+                    Grid.Column="3"
+                    Height="198"
+                    Margin="10,0,0,0"
+                    Background="#FFFFFF"
+                    CornerRadius="10 10 0 0">
+                    <StackPanel>
+                        <TextBlock
+                            x:Name="txbDxduyet"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="40"
+                            FontWeight="DemiBold"
+                            Foreground="#70BE28"
+                            Text="" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Đề xuất gửi đi" />
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Border Height="46" Margin="0,10,0,0">
+                <TextBlock
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="22"
+                    FontWeight="DemiBold"
+                    Foreground="#4C5BD4"
+                    Text="Đề xuất gần đây" />
+            </Border>
+            <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <ListView
+                    x:Name="lsvDeXuatGanDay"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Border Cursor="Hand" MouseUp="DetailDeXuat_MouseUp"
+                                            Height="126"
+                                            Margin="0,10,15,0"
+                                            Background="#FFFFFF"
+                                            BorderThickness="1"
+                                            CornerRadius="10">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image
+                                                    Height="50"
+                                                    Margin="10,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Source="{StaticResource PackageDrawingImageKey}" />
+                                                <StackPanel Margin="10,0,0,0">
+                                                    <TextBlock
+                                                        Margin="0,10,0,0"
+                                                        FontSize="18"
+                                                        FontWeight="DemiBold"
+                                                        Foreground="#474747"
+                                                        Text="{Binding name_dx}" />
+                                                    <TextBlock
+                                                        Margin="0,10,0,0"
+                                                        FontSize="18"
+                                                        FontWeight="DemiBold"
+                                                        Foreground="#474747"
+                                                        Text="{Binding type_dx_string}" />
+                                                    <DockPanel Margin="0,10,0,0">
+                                                        <Image HorizontalAlignment="Left" Source="{StaticResource info_circleDrawingImageKey}">
+                                                            <Image.Style>
+                                                                <Style TargetType="{x:Type Image}">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding Type_duyet}" Value="0">
+                                                                            <Setter Property="Visibility" Value="Visible" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Image.Style>
+                                                        </Image>
+                                                        <Image HorizontalAlignment="Left" Source="{StaticResource Frame_1000010112__1_DrawingImageKey}">
+                                                            <Image.Style>
+                                                                <Style TargetType="{x:Type Image}">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding Type_duyet}" Value="5">
+                                                                            <Setter Property="Visibility" Value="Visible" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Image.Style>
+                                                        </Image>
+                                                        <TextBlock
+                                                            Width="120"
+                                                            Margin="5,0,20,0"
+                                                            VerticalAlignment="Center"
+                                                            FontSize="16"
+                                                            Foreground="#474747"
+                                                            Text="{Binding type_duyet}" />
+                                                        <TextBlock
+                                                            VerticalAlignment="Center"
+                                                            FontSize="16"
+                                                            Foreground="#9F9F9F"
+                                                            Text="{Binding time_create}" />
+                                                    </DockPanel>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

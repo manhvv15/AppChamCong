@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="ChamCong365.Popup.PopupTimeKeeping.ucCreateSaff"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.PopupTimeKeeping"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Fill="#474747" Opacity="0.7" MouseDown="Rectangle_MouseDown"/>
+        <!--Thêm mới nhân viên-->
+        <Border
+                x:Name="bodAddSaff"
+                BorderBrush="Blue"
+                Background="White"
+                BorderThickness="1"
+                CornerRadius="10"
+                Width="700"
+                Height="438">
+            <StackPanel>
+                <Border 
+                    Background="#4C5BD4"
+                    Width="700"
+                    Height="54"
+                    CornerRadius="10 10 0 0">
+                    <DockPanel>
+                        <TextBlock 
+                            x:Name="bodExitCreateSaff"
+                            MouseUp="bodExitCreateSaff_MouseUp"
+                            Margin="250 0 0 0"
+                            VerticalAlignment="Center"
+                            Text="Thêm mới nhân viên"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="#FFFFFF"/>
+                        <Image 
+                            x:Name="ExitCreateSaff"
+                            MouseUp="ExitCreateSaff_MouseUp"
+                            Margin="0 0 20 0"
+                            HorizontalAlignment="Right"
+                            Width="14" 
+                            Source="{DynamicResource iconExitDrawingImage}"/>
+                    </DockPanel>
+                </Border>
+                <Border 
+                    CornerRadius="5"
+                    BorderThickness="1"
+                    BorderBrush="#C4C4C4"
+                    Margin="0 20 0 0"
+                    Width="660"
+                    Height="44">
+                    <DockPanel>
+                        <Image Margin="10 0 0 0" 
+                               Width="24" Height="24" 
+                               Source="{DynamicResource iconSearchMoreDrawingImage}"/>
+                        <TextBox 
+                            FontSize="16"
+                            FontWeight="Regular"
+                            VerticalContentAlignment="Center"
+                            BorderThickness="0"
+                            MaxWidth="600"
+                            Height="25"/>
+                    </DockPanel>
+                </Border>
+                <DockPanel Margin="0 20 0 20">
+                    <Border 
+                        Margin="20 0 0 0"
+                        HorizontalAlignment="Left"
+                        BorderThickness="0 0 0 1"
+                        BorderBrush="#C4C4C4"
+                        Height="44"
+                        Width="443">
+                        <Border 
+                            BorderBrush="#4C5BD4"
+                            BorderThickness="0 0 0 2"
+                            HorizontalAlignment="Left">
+                            <TextBlock 
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Text="Nhân viên"
+                                FontWeight="Medium"
+                                Foreground="#4C5BD4"
+                                FontSize="18"/>
+                        </Border>
+                    </Border>
+                    <Border 
+                        MouseUp="bodButonAddFileSaff_MouseUp"
+                        x:Name="bodButonAddFileSaff"
+                        CornerRadius="10"
+                        Background="#4C5BD4"
+                        Margin="0 0 20 0"
+                        HorizontalAlignment="Right"
+                        Width="184"
+                        Height="44">
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Add file nhân viên"
+                            FontWeight="Medium"
+                            Foreground="#FFFFFF"
+                            FontSize="18"/>
+                    </Border>
+                </DockPanel>
+                <ListView 
+                    MaxHeight="160"
+                    x:Name="lsvListSaff">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel Margin="20 20 20 0">
+                                    <DockPanel MaxWidth="660" Margin="0 0 0 10">
+                                        <Border x:Name="bodCheckBoxSaffAll"
+                                            CornerRadius="5"
+                                            BorderThickness="2"
+                                            BorderBrush="#9F9F9F"
+                                            Width="24" Height="24"
+                                            Background="White">
+                                            <Image Source="{DynamicResource iconNikeDrawingImage}"/>
+                                        </Border>
+                                        <Border 
+                                            Margin="20 0 20 0"
+                                            CornerRadius="50"
+                                            Width="46" Height="46">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding ImageSaff}"></ImageBrush>
+                                            </Border.Background>
+                                        </Border>
+                                        <StackPanel>
+                                            <TextBlock
+                                                FontSize="18"
+                                                FontWeight="DemiBold"
+                                                Foreground="#4C5BD4"
+                                                Text="{Binding NameSaff}"
+                                                Height="21"/>
+                                            <TextBlock
+                                                FontSize="16"
+                                                FontWeight="DemiBold"
+                                                Foreground="#474747"
+                                                Text="{Binding IdSaff}"
+                                                Height="21"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                    <Rectangle 
+                                        Width="600"
+                                        VerticalAlignment="Bottom" 
+                                        Height="1" StrokeDashArray="2" 
+                                        Stroke="#9F9F9F" StrokeThickness="1" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Border 
+                    Margin="0 20 0 0"
+                    CornerRadius="10"
+                    Background="#4C5BD4"
+                    Width="102"
+                    Height="44">
+                    <TextBlock 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Chọn"
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#FFFFFF"/>
+                </Border>
+            </StackPanel>
+
+        </Border>
+    </Grid>
+</UserControl>

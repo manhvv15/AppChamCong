@@ -1,0 +1,820 @@
+﻿<UserControl
+    x:Class="ChamCong365.Popup.funcCompanyManager.ucUpdateGiamBienChe"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.Popup.funcCompanyManager"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="1200"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
+        <Grid>
+            <Rectangle
+                Fill="#474747"
+                MouseDown="Rectangle_MouseDown"
+                Opacity="0.7" />
+            <Grid
+                x:Name="gridAddLuanChuyen"
+                HorizontalAlignment="Center"
+                VerticalAlignment="top">
+                <Border
+                    Margin="200,0,200,0"
+                    HorizontalAlignment="Center"
+                    Background="White"
+                    Style="{StaticResource Boder}">
+
+                    <StackPanel>
+                        <Border Background="#4C5BD4" CornerRadius="10 10 0 0">
+                            <Grid
+                                Height="50"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                Background="#4C5BD4">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="DemiBold"
+                                    Foreground="White"
+                                    Text="chỉnh sửa giảm biên chế" />
+                                <Image
+                                    Width="14"
+                                    Height="14"
+                                    HorizontalAlignment="Right"
+                                    MouseUp="bodExitPopup_MouseUp"
+                                    Source="{StaticResource iconExitDrawingImage}" />
+                            </Grid>
+                        </Border>
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <DockPanel>
+                                <TextBlock
+                                    Height="19"
+                                    Margin="20,0,0,10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="DemiBold"
+                                    Foreground="#474747"
+                                    Text="Tên nhân viên " />
+
+                                <TextBlock Foreground="red">*</TextBlock>
+                            </DockPanel>
+                            <Border
+                                x:Name="bodSelectStaffName"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodSelectStaffName_MouseLeftButtonUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectStaffName"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"
+                                        Text="Chọn tên nhân viên" />
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconControlBottomDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <DockPanel>
+
+                                <TextBlock
+                                    Height="19"
+                                    Margin="20,0,0,10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="DemiBold"
+                                    Foreground="#474747"
+                                    Text="Phòng ban hiện tại " />
+                                <TextBlock Foreground="red">*</TextBlock>
+                            </DockPanel>
+                            <Border
+                                x:Name="bodSelectCurrentDepartment"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodSelectCurrentDepartment_MouseLeftButtonUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectCurrentDepartment"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"
+                                        Text="Chọn phòng ban" />
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconControlBottomDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <DockPanel>
+                                <TextBlock
+                                    Height="19"
+                                    Margin="20,0,0,10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="DemiBold"
+                                    Foreground="#474747"
+                                    Text="Chức vụ hiện tại " />
+
+                                <TextBlock Foreground="red">*</TextBlock>
+                            </DockPanel>
+                            <Border
+                                x:Name="bodSelectCurrentPosition"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodSelectCurrentPosition_MouseLeftButtonUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectCurrentPosition"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"
+                                        Text="Chọn chức vụ" />
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconControlBottomDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <TextBlock
+                                Height="19"
+                                Margin="20,0,0,10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747">
+                                Đơn vị công tác hiện tại<Run Foreground="red">*</Run></TextBlock>
+                            <Border
+                                x:Name="bodSelectOldCompany"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodSelectOldCompany_MouseLeftButtonUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectOldCompany"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"
+                                        Text="Chọn công ty" />
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconControlBottomDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Height="73" Margin="0,20,0,0">
+
+
+
+                            <TextBlock
+                                Grid.Row="0"
+                                Margin="20,0,0,8"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747">
+                                Thời gian bắt đầu nghỉ<Run Foreground="red">*</Run></TextBlock>
+
+                            <Border
+                                x:Name="bodSelectCalendarDay"
+                                Grid.Row="1"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodOpenCalendarDay_MouseUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectCalendarDay"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"><Run Language="vi-vn" Text="dd/mm/yyyy" /></TextBlock>
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconsCalendarDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+
+
+                        </StackPanel>
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <TextBlock
+                                Height="19"
+                                Margin="20,0,0,10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747">
+                                Chọn ca nghỉ<Run Foreground="red">*</Run></TextBlock>
+                            <Border
+                                x:Name="bodSelectShift"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodSelectShift_MouseLeftButtonUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectShift"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"
+                                        Text="Chọn ca nghỉ" />
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconControlBottomDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <TextBlock
+                                Height="19"
+                                Margin="20,0,0,10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747">
+                                Hình thức<Run Foreground="red">*</Run></TextBlock>
+                            <Border
+                                x:Name="bodSelectType"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodSelectType_MouseLeftButtonUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectType"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"
+                                        Text="Chọn hình thức" />
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconControlBottomDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <TextBlock
+                                Height="19"
+                                Margin="20,0,0,10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Quy định " />
+                            <Border
+                                x:Name="bodSelectRule"
+                                Height="44"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                HorizontalAlignment="Stretch"
+                                MouseLeftButtonUp="bodSelectRule_MouseLeftButtonUp"
+                                Style="{StaticResource BorderSelected}">
+
+                                <DockPanel>
+                                    <TextBlock
+                                        x:Name="txbSelectRule"
+                                        VerticalAlignment="Center"
+                                        Foreground="#ACACAC"
+                                        Style="{StaticResource TextBlockLable}"
+                                        Text="Chọn quy định" />
+                                    <Image
+                                        Width="15"
+                                        Margin="0,0,5,0"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconControlBottomDrawingImage}" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Height="auto" Margin="0,20,0,0">
+                            <TextBlock
+                                Height="19"
+                                Margin="20,0,0,10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747">
+                                Ghi chú
+                            </TextBlock>
+                            <Border
+                                Height="200"
+                                MaxWidth="760"
+                                Margin="20,0,20,0"
+                                Style="{StaticResource BorderSelected}">
+                                <DockPanel>
+                                    <RichTextBox
+                                        Height="200"
+                                        MinWidth="500"
+                                        VerticalAlignment="top"
+                                        Foreground="#474747" />
+                                </DockPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <Grid Margin="20">
+                            <Border
+                                Width="129"
+                                Height="34"
+                                Margin="0,0,200,0"
+                                VerticalAlignment="Center"
+                                BorderBrush="#4C5BD4"
+                                BorderThickness="1"
+                                CornerRadius="10"
+                                MouseLeftButtonUp="bodExitPopup_MouseUp">
+                                <TextBlock
+                                    x:Name="txbCancel"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="DemiBold"
+                                    Foreground="#4C5BD4"
+                                    Text="Hủy" />
+                            </Border>
+                            <Border
+                                Width="129"
+                                Height="34"
+                                Margin="200,0,0,0"
+                                HorizontalAlignment="Center"
+                                Background="#4C5BD4"
+                                BorderBrush="#4C5BD4"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="DemiBold"
+                                    Foreground="White"
+                                    Text="Cập nhật" />
+                            </Border>
+                        </Grid>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid
+                MaxWidth="800"
+                Margin="200,0,200,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Background="Transparent">
+
+                <!--  Collapsed chọn tên nhân viên  -->
+                <Border
+                    x:Name="bodListStaffNameCollapsed"
+                    Grid.Column="0"
+                    Width="{Binding Path=Width, ElementName=bodSelectStaffName}"
+                    Height="auto"
+                    Margin="20,142,20,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <TextBox x:Name="txtSelectStaffName" Style="{StaticResource TextBoxListViewSeleted}" />
+                        <ListView
+                            x:Name="lsvStaffName"
+                            Grid.Row="1"
+                            MaxHeight="160"
+                            Padding="10,0,10,0"
+                            BorderThickness="1"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            SelectionChanged="lsvStaffName_SelectionChanged" />
+                    </Grid>
+                </Border>
+                <!--  Collapsed chọn phòng ban hiện tại  -->
+                <Border
+                    x:Name="bodListCurrentDepartmentCollapsed"
+                    Grid.Column="0"
+                    Width="{Binding Path=Width, ElementName=bodSelectCurrentDepartment}"
+                    Height="auto"
+                    Margin="20,235,20,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <TextBlock
+                            x:Name="txtSelectCurrentDepartment"
+                            Grid.Row="0"
+                            Height="32"
+                            Margin="10,0,10,0"
+                            Style="{StaticResource TextBlockLable}"
+                            Text="Chọn phòng ban" />
+                        <ListView
+                            x:Name="lsvCurrentDepartment"
+                            Grid.Row="1"
+                            MaxHeight="160"
+                            Padding="10,0,10,0"
+                            BorderThickness="1"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            SelectionChanged="lsvCurrentDepartment_SelectionChanged" />
+                    </Grid>
+                </Border>
+                <!--  Collapsed chọn chức vụ hiện tại  -->
+                <Border
+                    x:Name="bodListCurrentPositionCollapsed"
+                    Grid.Column="0"
+                    Width="{Binding Path=Width, ElementName=bodSelectCurrentPosition}"
+                    Height="auto"
+                    Margin="20,330,20,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <TextBlock
+                            x:Name="txtSelectCurrentPosition"
+                            Grid.Row="0"
+                            Height="32"
+                            Margin="10,0,10,0"
+                            Style="{StaticResource TextBlockLable}"
+                            Text="Chọn chức vụ" />
+                        <ListView
+                            x:Name="lsvCurrentPosition"
+                            Grid.Row="1"
+                            MaxHeight="160"
+                            Padding="10,0,10,0"
+                            BorderThickness="1"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            SelectionChanged="lsvCurrentPosition_SelectionChanged" />
+                    </Grid>
+                </Border>
+                <!--  Collapsed chọn công ty hiện tại  -->
+                <Border
+                    x:Name="bodListOldCompanyCollapsed"
+                    Grid.Column="0"
+                    Width="{Binding Path=Width, ElementName=bodSelectOldCompany}"
+                    Height="auto"
+                    Margin="20,420,20,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <TextBlock
+                            x:Name="txtSelectOldCompany"
+                            Grid.Row="0"
+                            Height="32"
+                            Margin="10,0,10,0"
+                            Style="{StaticResource TextBlockLable}"
+                            Text="Chọn công ty" />
+                        <ListView
+                            x:Name="lsvOldCompany"
+                            Grid.Row="1"
+                            MaxHeight="160"
+                            Padding="10,0,10,0"
+                            BorderThickness="1"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            SelectionChanged="lsvOldCompany_SelectionChanged" />
+                    </Grid>
+                </Border>
+                <!--  Collapsed chọn ca nghỉ  -->
+                <Border
+                    x:Name="bodListShiftCollapsed"
+                    Grid.Column="0"
+                    Width="{Binding Path=Width, ElementName=bodSelectShift}"
+                    Height="auto"
+                    Margin="20,610,20,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <TextBlock
+                            x:Name="txtSelectShift"
+                            Grid.Row="0"
+                            Height="32"
+                            Margin="10,0,10,0"
+                            Style="{StaticResource TextBlockLable}"
+                            Text="Chọn ca nghỉ" />
+                        <ListView
+                            x:Name="lsvShift"
+                            Grid.Row="1"
+                            MaxHeight="160"
+                            Padding="10,0,10,0"
+                            BorderThickness="1"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            SelectionChanged="lsvShift_SelectionChanged" />
+                    </Grid>
+                </Border>
+                <!--  Collapsed chọn hình thưc  -->
+                <Border
+                    x:Name="bodListTypeCollapsed"
+                    Grid.Column="0"
+                    Width="{Binding Path=Width, ElementName=bodSelectType}"
+                    Height="auto"
+                    Margin="20,700,20,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <TextBlock
+                            x:Name="txtSelectType"
+                            Grid.Row="0"
+                            Height="32"
+                            Margin="10,0,10,0"
+                            Style="{StaticResource TextBlockLable}"
+                            Text="Chọn hình thức" />
+                        <ListView
+                            x:Name="lsvType"
+                            Grid.Row="1"
+                            MaxHeight="160"
+                            Padding="10,0,10,0"
+                            BorderThickness="1"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            SelectionChanged="lsvType_SelectionChanged" />
+                    </Grid>
+                </Border>
+                <!--  Collapsed chọn quy định  -->
+                <Border
+                    x:Name="bodListRuleCollapsed"
+                    Grid.Column="0"
+                    Width="{Binding Path=Width, ElementName=bodSelectRule}"
+                    Height="auto"
+                    Margin="20,792,20,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="Black"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <TextBlock
+                            x:Name="txtSelectRule"
+                            Grid.Row="0"
+                            Height="32"
+                            Margin="10,0,10,0"
+                            Style="{StaticResource TextBlockLable}"
+                            Text="Chọn quy định" />
+                        <ListView
+                            x:Name="lsvRule"
+                            Grid.Row="1"
+                            MaxHeight="160"
+                            Padding="10,0,10,0"
+                            BorderThickness="1"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            SelectionChanged="lsvRule_SelectionChanged" />
+                    </Grid>
+                </Border>
+                <!--  Collapsed lịch chọn ngày  -->
+                <!--  Lịch Ngày  -->
+                <Border
+                    x:Name="bodCalendarDay"
+                    Width="245"
+                    MaxHeight="325"
+                    Margin="20,516,20,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#FFFFFF"
+                    BorderBrush="#9F9F9F"
+                    BorderThickness="1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <StackPanel Background="White">
+                            <DockPanel Margin="0,10,0,10">
+
+                                <WrapPanel>
+                                    <TextBlock
+                                        FontSize="16"
+                                        FontWeight="DemiBold"
+                                        Foreground="#474747">
+                                        <Run x:Name="txbLoadNumMonth" />
+                                        <Run x:Name="txbLoadNumYear" />
+                                    </TextBlock>
+                                    <Image
+                                        Width="14"
+                                        Height="9"
+                                        VerticalAlignment="Center"
+                                        Source="{StaticResource iconNextBotomDrawingImage}" />
+                                </WrapPanel>
+                                <DockPanel Width="35" HorizontalAlignment="Right">
+                                    <Image
+                                        x:Name="imgNextop"
+                                        Width="15"
+                                        Height="30"
+                                        MouseLeftButtonUp="imgNextop_MouseLeftButtonUp"
+                                        Source="{StaticResource iconArrowUpDrawingImage}" />
+                                    <Image
+                                        x:Name="imgNexBottom"
+                                        Width="15"
+                                        Height="30"
+                                        MouseLeftButtonUp="imgNexBottom_MouseLeftButtonUp"
+                                        Source="{StaticResource iconArrowDownDrawingImage}" />
+                                </DockPanel>
+                            </DockPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                    <ColumnDefinition Width="35" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Center"
+                                    Text="CN" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    Text="T2" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Center"
+                                    Text="T3" />
+                                <TextBlock
+                                    Grid.Column="3"
+                                    HorizontalAlignment="Center"
+                                    Text="T4" />
+                                <TextBlock
+                                    Grid.Column="4"
+                                    HorizontalAlignment="Center"
+                                    Text="T5" />
+                                <TextBlock
+                                    Grid.Column="5"
+                                    HorizontalAlignment="Center"
+                                    Text="T6" />
+                                <TextBlock
+                                    Grid.Column="6"
+                                    HorizontalAlignment="Center"
+                                    Text="T7" />
+                            </Grid>
+                            <WrapPanel x:Name="loadFistDaySmall" Height="auto" />
+                            <DockPanel Margin="10">
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    Foreground="#4C5BD4"
+                                    Text="Xóa" />
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    Foreground="#4C5BD4"
+                                    Text="Hôm nay" />
+                            </DockPanel>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

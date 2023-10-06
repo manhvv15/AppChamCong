@@ -1,0 +1,235 @@
+﻿<Window x:Class="ChamCong365.NhanVien.ChamCongBangQRRR.Function.Chat365"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChamCong365.NhanVien.ChamCongBangQRRR.Function"
+        mc:Ignorable="d" MaxWidth="1920" 
+        >
+   
+        <StackPanel>
+            <StackPanel.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#043379" Offset="0.2"></GradientStop>
+                    <GradientStop Color="#5A6AE7" Offset="0.9"></GradientStop>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Border HorizontalAlignment="Center">
+                <TextBlock Text="CÁC CHỨC NĂNG CƠ BẢN CỦA CHẤM CÔNG" 
+                           FontWeight="DemiBold"
+                           FontSize="35px"
+                           LineHeight="41.02px" HorizontalAlignment="Center" 
+                               TextWrapping="Wrap"        
+                           Foreground="White"  VerticalAlignment="Top" 
+                                   x:Name="txtCoBan">
+                </TextBlock>
+            </Border>
+            <Border  HorizontalAlignment="Left" Margin="20 30 0 0">
+
+                <TextBlock Text="Chấm công bằng QR / Chat365"
+                           FontSize="16px"
+                               HorizontalAlignment="Center"
+                           TextAlignment="Center"                          
+                           Foreground="White"
+                               TextWrapping="Wrap" >
+                </TextBlock>
+
+            </Border>
+            <Border  Margin="0 30 0 0" >
+                <Grid  HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Cursor="Hand" Grid.Column="0" CornerRadius="20" Height="58" MouseUp="Border_MouseUp">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#FFFFFF" Offset="0.2"></GradientStop>
+
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <DockPanel>
+                            <Image Source="/NhanVien/ChamCongBangQRRR/Image/chamcongQR.png" HorizontalAlignment="Left" VerticalAlignment="Center" Width="44" Margin="20 0 0 0">
+
+                            </Image>
+                            <TextBlock Text="Chamcong365          "  VerticalAlignment="Center" TextWrapping="Wrap" FontSize="20px" Margin="10 0 0 0" LineHeight="23.44" HorizontalAlignment="Left">
+
+                            </TextBlock>
+                        </DockPanel>
+                    </Border>
+                    <Border Cursor="Hand" Grid.Column="1" CornerRadius="20" Height="58" Margin="20 0 0 0" MouseUp="Border_MouseUp_1">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#FFC460" Offset="0.2"></GradientStop>
+
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <DockPanel>
+                            <Image Source="{StaticResource t_Group_1000002707DrawingImage}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="44" Margin="20 0 0 0"></Image>
+                            <TextBlock Text="Chat365                   " FontSize="20" Foreground="#4C5BD4"
+                        HorizontalAlignment="Left"  Margin="10 0 0 0"  VerticalAlignment="Center" TextWrapping="Wrap">
+
+                            </TextBlock>
+                        </DockPanel>
+
+                    </Border>
+                    <Border Cursor="Hand" Grid.Column="2" CornerRadius="20" Height="58" Margin="20 0 0 0" MouseUp="Border_MouseUp_2">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#FFFFFF" Offset="0.2"></GradientStop>
+
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <DockPanel>
+                            <Image Source="{StaticResource Frame_633668DrawingImageKey}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="44" Margin="20 0 0 0"></Image>
+                            <TextBlock Text="PC365 NHAN VIEN   " FontSize="20" Foreground="#4C5BD4"
+                        HorizontalAlignment="Left"  Margin="10 0 0 0"  VerticalAlignment="Center" TextWrapping="Wrap">
+
+                            </TextBlock>
+                        </DockPanel>
+
+                    </Border>
+
+                </Grid>
+            </Border>
+            <Grid Margin="0 30 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4.2*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.6*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock
+                            Text="BƯỚC 1: TẢI APP CHAT 365 TẠI ĐÂY"
+                            FontSize="25px" LineHeight="34" TextAlignment="Center"
+                            TextWrapping="Wrap" Foreground="#FFFFFF" FontWeight="DemiBold">
+
+                    </TextBlock>
+                    <Border  HorizontalAlignment="Center" Padding="0 70 0 0">
+                        <Image Source="/NhanVien/ChamCongBangQRRR/Image/QR.png" MaxHeight="120"/>
+                    </Border>
+
+                </StackPanel>
+                <Border x:Name="DienThoai21" Grid.Column="1" Padding="15 0 15 0" >
+
+                    <Image Source="/NhanVien/ChamCongBangQRRR/Image/DienThoai11.png" VerticalAlignment="Top"></Image>
+
+                </Border>
+                <Border x:Name="DienThoai22" Grid.Column="1" Padding="15 0 15 0" Visibility="Collapsed" >
+
+                    <Image Source="/NhanVien/ChamCongBangQRRR/Image/DienThoai12.png" VerticalAlignment="Top"></Image>
+
+                </Border>
+                <Border x:Name="DienThoai23" Grid.Column="1" Padding="15 0 15 0" Visibility="Collapsed" >
+
+                    <Image Source="/NhanVien/ChamCongBangQRRR/Image/DienThoai13.png" VerticalAlignment="Top"></Image>
+
+                </Border>
+                <Border x:Name="DienThoai24" Grid.Column="1" Padding="15 0 15 0" Visibility="Collapsed" >
+
+                    <Image Source="/NhanVien/ChamCongBangQRRR/Image/DienThoai14.png" VerticalAlignment="Top"></Image>
+
+                </Border>
+                <StackPanel Grid.Column="2">
+                    <Border>
+                        <TextBlock Text="BƯỚC 2: ĐĂNG NHẬP APP VÀ THỰC HIỆN CÁC BƯỚC" 
+                                   FontSize="25px" LineHeight="34px" Foreground="#FFFFFF"
+                                   TextWrapping="Wrap" FontWeight="DemiBold" >
+
+                        </TextBlock>
+                    </Border>
+                    <DockPanel x:Name="Buoc11Hien" MouseUp="Buoc11Hien_MouseUp"  >
+                        <Border Cursor="Hand" >
+                            <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Bước 1:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Tại trang chủ chọn tiện ích, trong mục công cụ của tiện ích chọn “CHẤM CÔNG”" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        </Border>
+                    </DockPanel>
+                    <DockPanel Margin="0 15 0 0" x:Name="Buoc12Hien" MouseUp="Buoc12Hien_MouseUp"  >
+                        <Border Cursor="Hand" >
+                            <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Bước 2:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Chọn “Mã QR” và xem vị trí và wifi có đủ điều kiện để chấm công không" FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        </Border>
+                    </DockPanel>
+                    <DockPanel Margin="0 15 0 0" x:Name="Buoc12An" Visibility="Collapsed">
+                        <Border Cursor="Hand" >
+                            <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Bước 2:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Chọn “Mã QR” và xem vị trí và wifi có đủ điều kiện để chấm công không" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        </Border>
+                    </DockPanel>
+                    <DockPanel Margin="0 15 0 0" x:Name="Buoc13Hien" MouseUp="Buoc13Hien_MouseUp" >
+                        <Border Cursor="Hand" >
+                            <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Bước 3:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Đưa điện thoại vào khung QR đợi nhận diện rồi đối chiếu các điều kiện về thông tin vị trí và wifi xem đã chuẩn chưa, sau đó lựa chọn “CA ĐIỂM DANH” phù hợp nhất. Ấn “ĐIỂM DANH”" FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        </Border>
+                    </DockPanel>
+                    <DockPanel Margin="0 15 0 0" x:Name="Buoc13An" Visibility="Collapsed">
+                        <Border Cursor="Hand" >
+                            <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Bước 3:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Đưa điện thoại vào khung QR đợi nhận diện rồi đối chiếu các điều kiện về thông tin vị trí và wifi xem đã chuẩn chưa, sau đó lựa chọn “CA ĐIỂM DANH” phù hợp nhất. Ấn “ĐIỂM DANH”" FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        </Border>
+                    </DockPanel>
+                    <DockPanel Margin="0 15 0 0" x:Name="Buoc14Hien" MouseUp="Buoc14Hien_MouseUp"  >
+                        <Border Cursor="Hand" >
+                            <Image Source="{StaticResource HinhTronTrangDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Bước 4:" FontSize="20" Margin="10 0 0 0" Foreground="#FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Nếu chấm công thành công, sẽ có màn hình thông báo Điểm danh thành công màu xanh, còn nếu chấm công thất bại, sẽ có thông báo màu đỏ trên màn hình, hãy chọn CHẤM CÔNG LẠI." FontSize="20" Foreground="#FFFFFF"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        </Border>
+                    </DockPanel>
+                    <DockPanel Margin="0 15 0 0" x:Name="Buoc14An" Visibility="Collapsed">
+                        <Border Cursor="Hand" >
+                            <Image Source="{StaticResource hinhtronDrawingImageKey}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Bước 4:" FontSize="20" Margin="10 0 0 0" Foreground="#FED851" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <Border>
+                            <TextBlock Text="Nếu chấm công thành công, sẽ có màn hình thông báo Điểm danh thành công màu xanh, còn nếu chấm công thất bại, sẽ có thông báo màu đỏ trên màn hình, hãy chọn CHẤM CÔNG LẠI." FontSize="20" Foreground="#FED851"
+                                                   Margin="10 0 0 0"  HorizontalAlignment="Left"      TextWrapping="Wrap" VerticalAlignment="Center"/>
+                        </Border>
+                    </DockPanel>
+                </StackPanel>
+
+            </Grid>
+
+
+        </StackPanel>
+    
+   
+</Window>

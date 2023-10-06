@@ -1,0 +1,336 @@
+﻿<Page x:Class="ChamCong365.Popup.CaiDatLuong.ChinhSachBaoHiem.ucLoaiBaoHiem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.ListTabInsurance"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <Border VerticalAlignment="Top">
+                <Border x:Name="btnThemChinhSachBaoHiem" Grid.Column="1" Background="#42D778" Width="134" Height="43" CornerRadius="5" Margin="0,10,10,0" HorizontalAlignment="Right" Cursor="Hand" MouseLeftButtonUp="btnThemChinhSachBaoHiem_MouseLeftButtonUp" VerticalAlignment="Top">
+                    <DockPanel HorizontalAlignment="Center" Margin="0,0,7,0">
+                        <TextBlock Text="+" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Foreground="#ffffff" FontSize="25"></TextBlock>
+                        <TextBlock Text="Thêm mới" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#ffffff"></TextBlock>
+
+                    </DockPanel>
+                </Border>
+            </Border>
+
+            <WrapPanel Margin="0,5,0,120">
+                <Border CornerRadius="10" Width="373" Height="270" Background="#ffffff" Margin="20,20,5,0" BorderThickness="1" BorderBrush="#4c5bd4">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                    </Border.Effect>
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"></RowDefinition>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0">
+                            <TextBlock x:Name="textNhapTBH" Text="Nhập tiền bảo hiểm" FontSize="18" FontWeight="DemiBold" Foreground="#4c5bd4" Margin="10,10,0,0"></TextBlock>
+                            <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+                                <Grid>
+                                    <Menu Background="{DynamicResource #FFFFFF}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <MenuItem FontSize="15" Background="{DynamicResource #FFFFFF}" Foreground="{DynamicResource #4C5BD4}" BorderThickness="0" FontWeight="DemiBold" >
+                                            <MenuItem.Icon>
+                                                <Border Height="26" Width="26" x:Name="btnTuyChinh" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Background="Transparent">
+                                                    <Grid>
+                                                        <Path Data="{DynamicResource iconChiTiet}" Stroke="#474747" Width="32" Height="32" Margin="1,0,0,0"></Path>
+                                                        <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="1.5,7,14,4"></Border>
+                                                        <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="8.5,0,8.5,8"></Border>
+                                                        <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="18,4,3,0"></Border>
+                                                    </Grid>
+                                                </Border>
+                                            </MenuItem.Icon>
+                                            <MenuItem Height="40" x:Name="btnThemNhanVien" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="DemiBold" Click="btnThemNhanVien_Click">
+                                                <MenuItem.Icon>
+                                                    <Border Width="15" Height="15">
+                                                        <Grid>
+                                                            <Path Data="{DynamicResource iconThemNV}" Stroke="{DynamicResource #474747}" StrokeThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill"></Path>
+                                                            <Border Width="6" Height="6" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="0,0,2,7"></Border>
+
+                                                        </Grid>
+                                                    </Border>
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+                                            <MenuItem x:Name="btnDanhSachNV" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0" Height="35" FontWeight="DemiBold" Foreground="#474747" Click="btnDanhSachNV_Click">
+                                                <MenuItem.Icon>
+                                                    <Border Width="14" Height="16">
+                                                        <Grid>
+                                                            <Border Background="Transparent" BorderThickness="2" BorderBrush="#474747" CornerRadius="2"></Border>
+                                                            <Path Data="{DynamicResource iconDSNhanVien}" Stroke="#474747" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Margin="3"></Path>
+
+                                                        </Grid>
+                                                    </Border>
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+                                        </MenuItem>
+                                    </Menu>
+
+                                    <!--<Path Data="{DynamicResource iconChiTiet}" Stroke="#474747"></Path>-->
+
+                                </Grid>
+                            </Border>
+                        </DockPanel>
+                        <StackPanel Grid.Row="1">
+                            <DockPanel Margin="10,0,0,0">
+                                <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                            </DockPanel>
+                            <TextBlock Text="Nhập trực tiếp tiền bảo hiểm cho nhân viên" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                        </StackPanel>
+                        <Border Width="200" Height="41" CornerRadius="10" Grid.Row="2" Background="#4c5bd4" VerticalAlignment="Top" Cursor="Hand">
+                            
+                            <TextBlock Text="Nhập tiền bảo hiểm" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#ffffff"></TextBlock>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border CornerRadius="10" Width="373" Height="270" Background="#ffffff" Margin="20,20,5,0" BorderThickness="1" BorderBrush="#4c5bd4">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                    </Border.Effect>
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0">
+                            <TextBlock x:Name="textBHXHLuongCB" Text="BHXH Tính theo lương cơ bản" FontSize="18" FontWeight="DemiBold" Foreground="#4c5bd4" Margin="10,10,0,0"></TextBlock>
+                            <Menu Background="{DynamicResource #FFFFFF}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <MenuItem FontSize="15" Background="{DynamicResource #FFFFFF}" Foreground="{DynamicResource #4C5BD4}" BorderThickness="0" FontWeight="DemiBold" >
+                                    <MenuItem.Icon>
+                                        <Border Height="26" Width="26" x:Name="btnTuyChinh2" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Background="Transparent">
+                                            <Grid>
+                                                <Path Data="{DynamicResource iconChiTiet}" Stroke="#474747" Width="32" Height="32" Margin="1,0,0,0"></Path>
+                                                <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="1.5,7,14,4"></Border>
+                                                <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="8.5,0,8.5,8"></Border>
+                                                <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="18,4,3,0"></Border>
+                                            </Grid>
+                                        </Border>
+                                    </MenuItem.Icon>
+                                    <MenuItem Height="40" x:Name="btnThemNVBHXHLuongCB" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="DemiBold" Click="btnThemNVBHXHLuongCB_Click">
+                                        <MenuItem.Icon>
+                                            <Border Width="15" Height="15">
+                                                <Grid>
+                                                    <Path Data="{DynamicResource iconThemNV}" Stroke="{DynamicResource #474747}" StrokeThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill"></Path>
+                                                    <Border Width="6" Height="6" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="0,0,2,7"></Border>
+
+                                                </Grid>
+                                            </Border>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem x:Name="btnDanhSachNVBHXHLuongCB" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0" Height="35" FontWeight="DemiBold" Foreground="#474747" Click="btnDanhSachNVBHXHLuongCB_Click">
+                                        <MenuItem.Icon>
+                                            <Border Width="14" Height="16">
+                                                <Grid>
+                                                    <Border Background="Transparent" BorderThickness="2" BorderBrush="#474747" CornerRadius="2"></Border>
+                                                    <Path Data="{DynamicResource iconDSNhanVien}" Stroke="#474747" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Margin="3"></Path>
+
+                                                </Grid>
+                                            </Border>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </MenuItem>
+                            </Menu>
+
+                        </DockPanel>
+                        <StackPanel Grid.Row="1">
+                            <DockPanel Margin="10,0,0,0">
+                                <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                            </DockPanel>
+                            <TextBlock Text="Bảo hiểm xã hội được tính theo mức lương cơ bản mà công ty chi trả cho cá nhân đó." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2">
+                            <DockPanel Margin="10,0,0,0">
+                                <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                <TextBlock Text="Công thức tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                            </DockPanel>
+                            <TextBlock Text="Lương cơ bản * 10,5%" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border CornerRadius="10" Width="373" Height="270" Background="#ffffff" Margin="20,20,5,0" BorderThickness="1" BorderBrush="#4c5bd4">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                    </Border.Effect>
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0">
+                            <TextBlock x:Name="textBHXHLuongNhap" Text="BHXH Tính theo lương nhập vào" FontSize="18" FontWeight="DemiBold" Foreground="#4c5bd4" Margin="10,10,0,0"></TextBlock>
+                            <Menu Background="{DynamicResource #FFFFFF}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <MenuItem FontSize="15" Background="{DynamicResource #FFFFFF}" Foreground="{DynamicResource #4C5BD4}" BorderThickness="0" FontWeight="DemiBold" >
+                                    <MenuItem.Icon>
+                                        <Border Height="26" Width="26" x:Name="btnTuyChinh3" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Background="Transparent">
+                                            <Grid>
+                                                <Path Data="{DynamicResource iconChiTiet}" Stroke="#474747" Width="32" Height="32" Margin="1,0,0,0"></Path>
+                                                <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="1.5,7,14,4"></Border>
+                                                <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="8.5,0,8.5,8"></Border>
+                                                <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="18,4,3,0"></Border>
+                                            </Grid>
+                                        </Border>
+                                    </MenuItem.Icon>
+                                    <MenuItem Height="40" x:Name="btnThemNVBHXHLuongNhap" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="DemiBold" Click="btnThemNVBHXHLuongNhap_Click">
+                                        <MenuItem.Icon>
+                                            <Border Width="15" Height="15">
+                                                <Grid>
+                                                    <Path Data="{DynamicResource iconThemNV}" Stroke="{DynamicResource #474747}" StrokeThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill"></Path>
+                                                    <Border Width="6" Height="6" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="0,0,2,7"></Border>
+
+                                                </Grid>
+                                            </Border>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem x:Name="btnDanhSachNVBHXHTheoLuongNhap" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0" Height="35" FontWeight="DemiBold" Foreground="#474747" Click="btnDanhSachNVBHXHTheoLuongNhap_Click">
+                                        <MenuItem.Icon>
+                                            <Border Width="14" Height="16">
+                                                <Grid>
+                                                    <Border Background="Transparent" BorderThickness="2" BorderBrush="#474747" CornerRadius="2"></Border>
+                                                    <Path Data="{DynamicResource iconDSNhanVien}" Stroke="#474747" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Margin="3"></Path>
+
+                                                </Grid>
+                                            </Border>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </MenuItem>
+                            </Menu>
+
+                        </DockPanel>
+                        <StackPanel Grid.Row="1">
+                            <DockPanel Margin="10,0,0,0">
+                                <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                            </DockPanel>
+                            <TextBlock Text="Bảo hiểm xã hội sẽ tính theo mức lương của từng cá nhân do công ty nhập vào (có thể là mức tối thiểu vùng)" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2">
+                            <DockPanel Margin="10,0,0,0">
+                                <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                <TextBlock Text="Công thức tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                            </DockPanel>
+                            <TextBlock Text="Lương cơ bản * 10,5%" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <ListView x:Name="lsvDSBaoHiem" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Margin="15,0,0,0" PreviewMouseWheel="lsvChinhSachThue_PreviewMouseWheel" Background="Transparent">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Border CornerRadius="10" Width="373" Background="#ffffff" Margin="5,20,20,5" BorderThickness="1" BorderBrush="#4c5bd4">
+                                            <Border.Effect>
+                                                <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                            </Border.Effect>
+                                            <StackPanel Margin="10">
+                                                <!--<Grid.RowDefinitions>
+                                                    <RowDefinition Height="45"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>-->
+                                                <DockPanel Grid.Row="0">
+                                                    <TextBlock Text="{Binding cl_name}" FontSize="18" FontWeight="DemiBold" Foreground="#4c5bd4" Margin="10,10,0,0"></TextBlock>
+                                                    <!--<Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+                                                        <Grid>
+                                                            <Path Data="{DynamicResource iconChiTiet}" Stroke="#474747"></Path>
+                                                            <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="3,12,17,4"></Border>
+                                                            <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="10.5,0,9.5,2"></Border>
+                                                            <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="17,13,3,3"></Border>
+                                                        </Grid>
+                                                        
+                                                    </Border>-->
+                                                    <Menu Background="{DynamicResource #FFFFFF}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                        <MenuItem FontSize="15" Background="{DynamicResource #FFFFFF}" Foreground="{DynamicResource #4C5BD4}" BorderThickness="0" FontWeight="DemiBold" >
+                                                            <MenuItem.Icon>
+                                                                <Border Height="26" Width="26" x:Name="btnTuyChinh" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Background="Transparent">
+                                                                    <Grid>
+                                                                        <Path Data="{DynamicResource iconChiTiet}" Stroke="#474747" Width="32" Height="32" Margin="1,0,0,0"></Path>
+                                                                        <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="1.5,7,14,4"></Border>
+                                                                        <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="8.5,0,8.5,8"></Border>
+                                                                        <Border Width="4" Height="4" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="18,4,3,0"></Border>
+                                                                    </Grid>
+                                                                </Border>
+                                                            </MenuItem.Icon>
+                                                            <MenuItem Height="40" x:Name="btnThemNV" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="DemiBold" Click="btnThemNV_Click">
+                                                                <MenuItem.Icon>
+                                                                    <Border Width="15" Height="15">
+                                                                        <Grid>
+                                                                            <Path Data="{DynamicResource iconThemNV}" Stroke="{DynamicResource #474747}" StrokeThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill"></Path>
+                                                                            <Border Width="6" Height="6" CornerRadius="1000" BorderThickness="1" BorderBrush="#474747" Margin="0,0,2,7"></Border>
+
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                            <MenuItem x:Name="btnDanhSachNV" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0" Height="35" FontWeight="DemiBold" Foreground="#474747" Click="btnDanhSachNV_Click_1">
+                                                                <MenuItem.Icon>
+                                                                    <Border Width="14" Height="16">
+                                                                        <Grid>
+                                                                            <Border Background="Transparent" BorderThickness="2" BorderBrush="#474747" CornerRadius="2"></Border>
+                                                                            <Path Data="{DynamicResource iconDSNhanVien}" Stroke="#474747" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Margin="3"></Path>
+
+                                                                        </Grid>
+                                                                    </Border>
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                            <MenuItem x:Name="btnSua" Header="Chỉnh sửa" FontSize="15" Background="#FFFFFF" BorderThickness="0" Height="35" FontWeight="DemiBold" Foreground="#474747" Click="btnSua_Click">
+                                                                <MenuItem.Icon>
+                                                                    <Border Width="16" Height="16">
+                                                                        <Path Data="{DynamicResource iconChinhSua2}" Stroke="#474747" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill"></Path>
+
+                                                                    </Border>
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                            <MenuItem x:Name="btnXoa" Header="Xoá" FontSize="15" Background="#FFFFFF" BorderThickness="0" Height="35" FontWeight="DemiBold" Foreground="#474747" Click="btnXoa_Click">
+                                                                <MenuItem.Icon>
+                                                                    <Border Width="16" Height="16">
+                                                                        <Path Data="{DynamicResource iconXoa}" Stroke="#474747" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill"></Path>
+
+                                                                    </Border>
+                                                                </MenuItem.Icon>
+                                                            </MenuItem>
+                                                        </MenuItem>
+                                                    </Menu>
+
+                                                </DockPanel>
+                                                <StackPanel Grid.Row="1" Margin="0,20,0,0">
+                                                    <DockPanel Margin="10,0,0,0">
+                                                        <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                                        <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                    </DockPanel>
+                                                    <TextBlock Text="{Binding cl_note}" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Grid.Row="2">
+                                                    <DockPanel Margin="10,0,0,0">
+                                                        <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                                        <TextBlock Text="Cách tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                    </DockPanel>
+                                                    <TextBlock Text="{Binding calculation_formula}" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Page>

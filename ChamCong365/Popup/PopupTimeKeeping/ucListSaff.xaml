@@ -1,0 +1,219 @@
+﻿<UserControl x:Class="ChamCong365.Popup.PopupTimeKeeping.ucListSaff"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.PopupTimeKeeping"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Fill="#474747" Opacity="0.7" MouseDown="Rectangle_MouseDown"/>
+        <!--Danh sách nhân viên-->
+        <Border x:Name="bodListSaffSmall" 
+            MaxWidth="1000"
+            MaxHeight="440"
+            Visibility="Visible"
+            Style="{StaticResource BorderMessageBox}">
+            <StackPanel
+                Margin="20">
+                <StackPanel 
+                    Height="79">
+                    <TextBlock 
+                        x:Name="txbHeaderListSaff"
+                        Margin="0 0 0 10"
+                        Style="{DynamicResource ListFunctionChamCong}"
+                        Text="{Binding Path=Text, ElementName=txbCalendarMonth}"/>
+                    <TextBlock 
+                        FontSize="18"
+                        Foreground="#666666"
+                        Text="Danh sách nhân viên"/>
+                </StackPanel>
+                <!--Lable List nhân viên-->
+                <Border
+                    Margin="0 0 0 20"
+                    BorderBrush="#9F9F9F"
+                    BorderThickness="0 0 0 1"
+                    Height="44"
+                    Width="960"
+                    HorizontalAlignment="Left">
+                    <Border  
+                        HorizontalAlignment="Left"
+                        BorderBrush="#4C5BD4"
+                        BorderThickness="0 0 0 2"
+                        MaxWidth="120">
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="DemiBold"
+                            Foreground="#4C5BD4">
+                        <Run Text="Nhân viên "/>
+                        <Run x:Name="txbCountSaff"/>
+                    </TextBlock>
+                    </Border>
+                </Border>
+                <!--List nhân viên-->
+                <WrapPanel 
+                    Height="200">
+                    <Border CornerRadius="10 10 0 0"
+                            Background="#4C5BD4"
+                            Height="43">
+                        <DockPanel VerticalAlignment="Center">
+                            <Border Width="50">
+                                <TextBlock 
+                                   Text="Anh"
+                                    Style="{DynamicResource TextBlockBlue}"
+                                   Foreground="White"/>
+                            </Border>
+                            <Border Width="212">
+                                <TextBlock 
+                                   Text="Họ và tên"
+                                   Style="{DynamicResource TextBlockBlue}"
+                                   Foreground="White"/>
+                            </Border>
+                            <Border Width="212">
+                                <TextBlock 
+                                   Text="Phòng ban"
+                                  Style="{DynamicResource TextBlockBlue}"
+                                   Foreground="White"/>
+                            </Border>
+                            <Border Width="212">
+                                <TextBlock 
+                                   Text="Số điện Thoại"
+                                  Style="{DynamicResource TextBlockBlue}"
+                                   Foreground="White"/>
+                            </Border>
+                            <Border Width="212">
+                                <TextBlock 
+                                   Text="Email"
+                                    Style="{DynamicResource TextBlockBlue}"
+                                   Foreground="White"/>
+                            </Border>
+                            <Border Width="70">
+                                <TextBlock 
+                                   Text="Xóa"
+                                   Style="{DynamicResource TextBlockBlue}"
+                                   Foreground="White"/>
+                            </Border>
+                        </DockPanel>
+                    </Border>
+                    <ListView
+                        Height="140"
+                        BorderThickness="1"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                        x:Name="lsvListSaffSmall">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ScrollViewer>
+                                    <Grid Height="66">
+                                        <DockPanel>
+                                            <Border Width="50" 
+                                                VerticalAlignment="Center"
+                                                CornerRadius="50"
+                                                Height="50">
+                                                <Border.Background>
+                                                    <ImageBrush 
+                                                ImageSource="{Binding ImageSaff}">
+                                                    </ImageBrush>
+                                                </Border.Background>
+                                            </Border>
+                                            <StackPanel Width="212">
+                                                <TextBlock
+                                                    Margin="20 0 0 5"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    FontSize="18"
+                                                    Foreground="#4C5BD4"
+                                                    Text="{Binding NameSaff}"
+                                                    Height="23"/>
+                                                <TextBlock
+                                                    Margin="20 0 0 5"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Bottom"
+                                                    FontSize="16" 
+                                                    Foreground="#474747"
+                                                    Text="{Binding IdSaff}"
+                                                    Height="23"/>
+                                            </StackPanel>
+                                            <Border Width="212">
+                                                <TextBlock 
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center"
+                                                     FontSize="16"
+                                                     Foreground="#4C5BD4"
+                                                     Text=""
+                                                     Height="21"/>
+                                            </Border>
+                                            <Border Width="212">
+                                                <TextBlock 
+                                                 VerticalAlignment="Center"
+                                                 HorizontalAlignment="Center"
+                                                 FontSize="18"
+                                                 Foreground="#474747"
+                                                 Text="{Binding NumPhoneSaff}"
+                                                 Height="21"/>
+                                            </Border>
+                                            <Border Width="212">
+                                                <TextBlock 
+                                                 VerticalAlignment="Center"
+                                                 HorizontalAlignment="Center"
+                                                 FontSize="16"
+                                                 Foreground="#474747"
+                                                 Text="{Binding EmailSaff}"
+                                                 Height="21"/>
+                                            </Border>
+                                            <Border Width="50"
+                                                    x:Name="bodDeleteSaffOnList"
+                                                    MouseUp="bodDeleteSaffOnList_MouseUp">
+                                                <Image 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                Width="24" Height="24" 
+                                                Source="{DynamicResource iconDeleteDrawingImage}"/>
+                                            </Border>
+                                        </DockPanel>
+                                        <Rectangle 
+                                            Width="960"
+                                            VerticalAlignment="Bottom" 
+                                            Height="1" StrokeDashArray="2" 
+                                            Stroke="#474747" StrokeThickness="1" />
+                                    </Grid>
+                                </ScrollViewer>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </WrapPanel>
+                <!--Number Page-->
+                <DockPanel
+                    HorizontalAlignment="Center"
+                    Width="125" Height="29">
+                    <Border 
+                        HorizontalAlignment="Right"
+                        Width="29" Height="29"
+                        Style="{StaticResource BorderButon}">
+                        <TextBlock 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="1"/>
+                    </Border>
+                    <Border 
+                   Margin="5 0 5 0"
+                    Width="29" Height="29"
+                    Style="{StaticResource Boder}">
+                        <TextBlock 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="2"/>
+                    </Border>
+                    <Border 
+                    Width="51" Height="29"
+                    Style="{StaticResource Boder}">
+                        <TextBlock  
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Tiếp"/>
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

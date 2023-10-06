@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="textDiemDanh">Điểm danh</system:String>
+    <system:String x:Key="textDangKyKhuonMat">Đăng ký khuôn mặt</system:String>
+    <system:String x:Key="text_ChamCong_Title">Vui lòng hướng khuôn mặt theo khung xuất hiện trên màn hình.</system:String>
+    <system:String x:Key="text_DangKyMat_Title">Vui lòng hướng khuôn mặt theo khung trên màn hình, nhìn thẳng và xoay nhẹ sang 2 bên để nhận được kết quả tốt nhất</system:String>
+    <system:String x:Key="text_ChamCong_Button">Bắt đầu</system:String>
+    <system:String x:Key="textThongTinChamCong">Thông tin chấm công</system:String>
+    <system:String x:Key="textDiemDanhThatBai">Điểm danh thất bại</system:String>
+    <system:String x:Key="textDiemDanhThanhCong">Điểm danh thành công</system:String>
+    <system:String x:Key="textTrangChu">Trang chủ</system:String>
+    <system:String x:Key="textTiepTucDiemDanh">Tiếp tục điểm danh</system:String>
+    <system:String x:Key="textDiemDanhLai">Thử lại</system:String>
+    <system:String x:Key="textDangKyKhuonMatThanhCong">Đăng ký khuôn mặt thành công</system:String>
+    <system:String x:Key="textXinChaoBanCoPhaiLa">Xin chào bạn có phải là</system:String>
+    <system:String x:Key="textLaToiTTChamCong">Là tôi, tiếp tục chấm công</system:String>
+    <system:String x:Key="textKhongPhaiToi">Không phải tôi</system:String>
+    <system:String x:Key="textKhongNhanDienDuoc">Dữ liệu khuôn mặt không hợp lệ! Vui lòng chấm công lại hoặc liên hệ với kỹ thuật để biết thêm !</system:String>
+    <system:String x:Key="textIPMang">IP Mạng</system:String>
+    <system:String x:Key="textToaDo">Tọa độ</system:String>
+    <system:String x:Key="textDauTich">✓</system:String>
+</ResourceDictionary>

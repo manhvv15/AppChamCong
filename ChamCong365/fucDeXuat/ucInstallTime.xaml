@@ -1,0 +1,344 @@
+﻿<UserControl x:Class="ChamCong365.ucInstallTime"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:control="clr-namespace:ChamCong365.Popup.TimePicker"
+             xmlns:local="clr-namespace:ChamCong365"
+             mc:Ignorable="d">
+
+    <Grid Background="#ffffff">
+        <StackPanel Margin="0,0,0,7">
+            <StackPanel Margin="10,15,10,0">
+                <TextBlock Text="Thời gian duyệt đề xuất đột xuất" FontSize="20" Foreground="#474747" FontWeight="DemiBold"></TextBlock>
+                <DockPanel Margin="0,15,0,0">
+                    <Grid>
+                        <Border Background="Transparent" x:Name="btnOnDXDX" MouseLeftButtonUp="btnOnDXDX_MouseLeftButtonUp" Cursor="Hand">
+                            <Path Data="{DynamicResource iconOn}" Fill="#29B66E"></Path>
+                        </Border>
+                        <Border Background="Transparent" Visibility="Collapsed" x:Name="btnOffDXDX" MouseLeftButtonUp="btnOffDXDX_MouseLeftButtonUp" Cursor="Hand">
+                            <Path Data="{DynamicResource iconOff}" Fill="#C4C4C4"></Path>
+                        </Border>
+                    </Grid>
+                    <TextBlock Text="Thời gian duyệt đề xuất đột xuất" Foreground="#474747" FontSize="16" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
+                </DockPanel>
+            </StackPanel>
+            <StackPanel Margin="10,15,10,0" x:Name="spnDXDX">
+                <TextBlock Text="Danh sách ca làm việc" FontSize="16" FontWeight="DemiBold" Foreground="#4c5bd4" Margin="0,5,0,5"></TextBlock>
+                <ListView x:Name="lsvCaLV" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" Margin="0,0,0,0" PreviewMouseWheel="lsvCaLV_PreviewMouseWheel">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=Page,Mode=FindAncestor},Path=ActualWidth}"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <StackPanel Height="90" Width="300" Margin="15,0,0,0">
+                                            <DockPanel>
+                                                <TextBlock FontSize="16" Foreground="#474747" FontWeight="DemiBold" Text="{Binding shift_name}" TextWrapping="Wrap"></TextBlock>
+                                                <TextBlock FontSize="16" Foreground="#474747" Text=" (" FontWeight="DemiBold" TextWrapping="Wrap"></TextBlock>
+                                                <TextBlock FontSize="16" Foreground="#474747" FontWeight="DemiBold" Text="{Binding start_time}" TextWrapping="Wrap"></TextBlock>
+                                                <TextBlock FontSize="16" Foreground="#474747" Text=")" FontWeight="DemiBold" TextWrapping="Wrap"></TextBlock>
+                                            </DockPanel>
+                                            <TextBlock FontSize="16" Foreground="#474747" Text="Thời gian duyệt trước" FontWeight="DemiBold"></TextBlock>
+                                            <Border x:Name="borTG" Height="35" BorderThickness="1" BorderBrush="#aaa" CornerRadius="5" Background="Transparent" MouseLeftButtonUp="borTG_MouseLeftButtonUp">
+                                                <DockPanel VerticalAlignment="Center" Margin="5,0,0,0">
+                                                    <TextBlock Text="{Binding hour_agree_propose}" FontSize="16"></TextBlock>
+                                                    <TextBlock Text=":" FontSize="16"></TextBlock>
+                                                    <TextBlock Text="{Binding minute_agree_propose}" FontSize="16"></TextBlock>
+                                                </DockPanel>
+                                            </Border>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <Border x:Name="btnCaiDatDotXuat" Width="134" Height="41" CornerRadius="10" Background="#4c5bd4" HorizontalAlignment="Left" Margin="0,10,0,0" MouseLeftButtonUp="btnCaiDatDotXuat_MouseLeftButtonUp" Cursor="Hand">
+                    <TextBlock Text="Cập nhật" FontSize="18" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                </Border>
+                <TextBlock Text="Đề xuất nghỉ đột xuất áp dụng đối với những trường hợp không có dự kiến từ trước mà xảy ra mang tính đột xuất, bất ngờ như: Nghỉ ốm, nghỉ người nhà mất, tai nạn...." FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                <TextBlock Text="Thời gian duyệt đề xuất đột xuất là mốc thời gian mà các lãnh đạo cần duyệt phép cho nhân viên trước thời điểm vào ca. Nếu sau mốc thời gian này, đề xuất mà không được duyệt, hệ thống tính lương sẽ ghi nhận nhân viên nghỉ sai quy định. Ví dụ: Cài đặt trước 8 giờ sáng đối với ca sáng, thì lãnh đạo phải duyệt phép cho nhân viên trước 8h sáng. Nếu sau 8 giờ mới duyệt thì lệnh duyệt không được phần mềm tính lương công nhận." FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                <DockPanel>
+                    <TextBlock Text="- Lưu ý: " FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#ff3333"></TextBlock>
+                    <TextBlock Text="chỗ này nếu để trống, tức là không cài đặt thời gian thì lãnh đạo có thể duyệt phép bất cứ khi nào." FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                </DockPanel>
+            </StackPanel>
+            <ItemsControl x:Name="lsvTGDuyetDX" Background="Transparent" BorderThickness="0" Visibility="Visible">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Width="{Binding ElementName=lsvTGDuyetDX,Path=Width}"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Margin="10,25,10,0">
+                                <TextBlock Text="{Binding name_cate_dx}" FontSize="20" Foreground="#474747" FontWeight="DemiBold"></TextBlock>
+                                <DockPanel Margin="0,15,0,5">
+                                    <Grid>
+                                        <Border Background="Transparent" x:Name="btnOnDX" MouseLeftButtonUp="btnOnDX_MouseLeftButtonUp" Cursor="Hand">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding on_off}" Value="1">
+                                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Path Data="{DynamicResource iconOn}" Fill="#29B66E"></Path>
+                                        </Border>
+                                        <Border Background="Transparent" x:Name="btnOffDX" MouseLeftButtonUp="btnOffDX_MouseLeftButtonUp" Cursor="Hand">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding on_off}" Value="1">
+                                                            <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Path Data="{DynamicResource iconOff}" Fill="#C4C4C4"></Path>
+                                        </Border>
+                                    </Grid>
+                                    <DockPanel VerticalAlignment="Center" Margin="5,0,0,0">
+                                        <TextBlock Text="Thời gian duyệt " FontSize="16" Foreground="#474747"></TextBlock>
+                                        <TextBlock Text="{Binding name_cate_dx_lo}" FontSize="16" Foreground="#474747"></TextBlock>
+
+                                    </DockPanel>
+                                </DockPanel>
+                            </StackPanel>
+                            <StackPanel Margin="10,5,10,0" x:Name="spnDXCoKeHoach">
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding on_off}" Value="1">
+                                                <Setter Property="Visibility" Value="Visible"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                                <DockPanel>
+                                    <TextBlock Text="Thời gian duyệt " FontSize="16" FontWeight="DemiBold" Foreground="#474747"></TextBlock>
+                                    <TextBlock Text="{Binding name_cate_dx_lo}" FontSize="16" FontWeight="DemiBold" Foreground="#474747"></TextBlock>
+
+                                </DockPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" CornerRadius="3" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0">
+                                        <DockPanel>
+                                            <Grid Height="37">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="37*"/>
+                                                    <ColumnDefinition Width="312*"/>
+                                                    <ColumnDefinition Width="0*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBox Text="{Binding time}" Width="500" Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="textTGDuyetDXCCH" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-4" Padding="3,5,0,0" Grid.ColumnSpan="3" TextChanged="textTGDuyetDXCCH_TextChanged"/>
+                                                <TextBlock FontSize="15" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="Nhập giờ" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,9" Grid.ColumnSpan="3">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ElementName=textTGDuyetDXCCH, Path=Text}" Value="">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+                                            <TextBlock Text="Giờ" FontSize="16" VerticalAlignment="Center" Foreground="#aaa" HorizontalAlignment="Right" Margin="0,0,5,0"></TextBlock>
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <TextBlock x:Name="textTBCoKH" Text="Bạn cần phải nhập thời gian! " FontSize="16" Foreground="#ff3333" Visibility="Collapsed"></TextBlock>
+                                <Border x:Name="btnCapNhatTGDeXuatCoKH" Width="134" Height="41" CornerRadius="10" Background="#4c5bd4" HorizontalAlignment="Left" Margin="0,10,0,0" MouseLeftButtonUp="btnCapNhatTGDeXuatCoKH_MouseLeftButtonUp" Cursor="Hand">
+                                    <TextBlock Text="Cập nhật" FontSize="18" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Border>
+                                <StackPanel>
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text1}" Value="">
+                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <TextBlock Text="{Binding Text1}" FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                                    <TextBlock Text="{Binding Text2}" FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                                    <DockPanel>
+                                        <TextBlock Text="{Binding Text3}" FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#ff3333"></TextBlock>
+                                        <TextBlock Text="{Binding Text4}" FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                                    </DockPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!--<ListView x:Name="lsvTGDuyetDX" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvTGDuyetDX_PreviewMouseWheel" BorderThickness="0">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=Page,Mode=FindAncestor},Path=ActualHeight}"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <StackPanel>
+                                    <StackPanel Margin="10,0,10,0">
+                                        <TextBlock Text="{Binding name_cate_dx}" FontSize="20" Foreground="#474747" FontWeight="DemiBold"></TextBlock>
+                                        <DockPanel Margin="0,15,0,0">
+                                            <Grid>
+                                                <Border Background="Transparent" x:Name="btnOnDX" MouseLeftButtonUp="btnOnDX_MouseLeftButtonUp" Cursor="Hand">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding on_off}" Value="1">
+                                                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <Path Data="{DynamicResource iconOn}" Fill="#29B66E"></Path>
+                                                </Border>
+                                                <Border Background="Transparent" x:Name="btnOffDX" MouseLeftButtonUp="btnOffDX_MouseLeftButtonUp" Cursor="Hand">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding on_off}" Value="1">
+                                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <Path Data="{DynamicResource iconOff}" Fill="#C4C4C4"></Path>
+                                                </Border>
+                                            </Grid>
+                                            <DockPanel VerticalAlignment="Center" Margin="5,0,0,0">
+                                                <TextBlock Text="Thời gian duyệt " FontSize="16" Foreground="#474747"></TextBlock>
+                                                <TextBlock Text="{Binding name_cate_dx_lo}" FontSize="16" Foreground="#474747"></TextBlock>
+
+                                            </DockPanel>
+                                        </DockPanel>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,15,10,0" x:Name="spnDXCoKeHoach">
+                                        <StackPanel.Style>
+                                            <Style TargetType="StackPanel">
+                                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding on_off}" Value="1">
+                                                        <Setter Property="Visibility" Value="Visible"></Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Style>
+                                        <DockPanel>
+                                            <TextBlock Text="Thời gian duyệt " FontSize="16" FontWeight="DemiBold" Foreground="#474747"></TextBlock>
+                                            <TextBlock Text="{Binding name_cate_dx_lo}" FontSize="16" FontWeight="DemiBold" Foreground="#474747"></TextBlock>
+
+                                        </DockPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="0" CornerRadius="3" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0">
+                                                <DockPanel>
+                                                    <Grid Height="37">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="37*"/>
+                                                            <ColumnDefinition Width="312*"/>
+                                                            <ColumnDefinition Width="0*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBox Text="{Binding time}" Width="500" Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="textTGDuyetDXCCH" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-4" Padding="3,5,0,0" Grid.ColumnSpan="3"/>
+                                                        <TextBlock FontSize="15" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="Nhập giờ" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,9" Grid.ColumnSpan="3">
+                                                            <TextBlock.Style>
+                                                                <Style TargetType="TextBlock">
+                                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding ElementName=textTGDuyetDXCCH, Path=Text}" Value="">
+                                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBlock.Style>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                    <TextBlock Text="Giờ" FontSize="16" VerticalAlignment="Center" Foreground="#aaa" HorizontalAlignment="Right" Margin="0,0,5,0"></TextBlock>
+                                                </DockPanel>
+
+
+                                            </Border>
+
+                                        </Grid>
+                                        <TextBlock x:Name="textTBCoKH" Text="Bạn cần phải nhập thời gian! " FontSize="16" Foreground="#ff3333" Visibility="Collapsed"></TextBlock>
+                                        <Border x:Name="btnCapNhatTGDeXuatCoKH" Width="134" Height="41" CornerRadius="10" Background="#4c5bd4" HorizontalAlignment="Left" Margin="0,10,0,0" MouseLeftButtonUp="btnCapNhatTGDeXuatCoKH_MouseLeftButtonUp" Cursor="Hand">
+                                            <TextBlock Text="Cập nhật" FontSize="18" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                        </Border>
+                                        <TextBlock Text="- Đề xuất nghỉ có kế hoạch là đề xuất được tạo bởi nhân viên với những lý do như nghỉ cưới, nghỉ đi học, nghỉ đi du lịch,... Trong đó người tạo chủ động báo trước với trưởng phòng để sắp xếp công việc" FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                                        <TextBlock Text="- Thời gian duyệt đề xuất có kế hoạch là khoảng thời gian tối đa để lãnh đạo duyệt phép cho nhân viên kể từ thời điểm nhân viên tạo đề xuất xin nghỉ phép có kế hoạch. Nếu vượt quá khoảng thời gian này mà đề xuất không được lãnh đạo duyệt, hệ thống tính lương sẽ xét đó vào diện nghỉ sai quy định" FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                                        <DockPanel>
+                                            <TextBlock Text="- Lưu ý: " FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#ff3333"></TextBlock>
+                                            <TextBlock Text="chỗ này nếu để trống, tức là không cài đặt thời gian thì lãnh đạo có thể duyệt phép bất cứ khi nào" FontSize="16" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#474747"></TextBlock>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>-->
+
+        </StackPanel>
+        <Grid x:Name="popup" Visibility="Collapsed" MouseLeftButtonUp="popup_MouseLeftButtonUp" Background="Transparent"/>
+
+        <Border x:Name="borTGTr" Visibility="Collapsed">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.3"></DropShadowEffect>
+            </Border.Effect>
+            <Border  Background="White"  Width="75" Height="150">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                        <ColumnDefinition Width="5"></ColumnDefinition>
+                        <ColumnDefinition Width="35"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ListView FontSize="16" x:Name="lsv" PreviewMouseWheel="lsv_PreviewMouseWheel" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0"  Foreground="#000000" SelectionChanged="lsv_SelectionChanged">
+                        
+                        
+                    </ListView>
+                    <Border Grid.Column="1"></Border>
+                    <ListView FontSize="16" x:Name="lsv1" PreviewMouseWheel="lsv1_PreviewMouseWheel" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Foreground="#000000" SelectionChanged="lsv1_SelectionChanged">
+
+                    </ListView>
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+
+
+</UserControl>

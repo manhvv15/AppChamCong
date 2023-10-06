@@ -1,0 +1,572 @@
+﻿<UserControl
+    x:Class="ChamCong365.fucDeXuat.ucDetailAdvancemoney"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.fucDeXuat"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="2000"
+    d:DesignWidth="3000"
+    mc:Ignorable="d">
+    <Grid
+        Width="1200"
+        Margin="0,20,0,0"
+        HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Border Background="#FFFFFF" BorderThickness="1">
+            <StackPanel>
+                <Border
+                    Height="60"
+                    Background="#4C5BD4"
+                    CornerRadius="10 10 0 0"
+                    Cursor="Hand">
+                    <DockPanel>
+                        <Path
+                            Margin="10,0,20,0"
+                            VerticalAlignment="Center"
+                            Data="{DynamicResource sangTrai}"
+                            Fill="#FFFFFF"
+                            MouseUp="Border_MouseUp" />
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Foreground="#FFFFFF"
+                            MouseUp="Border_MouseUp"
+                            Text="Trở lại danh sách" />
+                        <Image
+                            Width="30"
+                            Margin="0,0,20,0"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource Print_lightDrawingImageKey}" />
+                    </DockPanel>
+                </Border>
+                <Grid Margin="10,15,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Border>
+                            <TextBlock
+                                FontSize="22"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Đề xuất tạm ứng"
+                                TextWrapping="Wrap" />
+                        </Border>
+                        <Border Margin="0,20,0,0">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Thông tin đề xuất" />
+                        </Border>
+                        <StackPanel Margin="0,5,0,0">
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Người tạo: " />
+                                <TextBlock
+                                    x:Name="txbNguoiTao"
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Nhóm đề xuất: " />
+                                <TextBlock
+                                    x:Name="txbNhomDx"
+                                    FontSize="16"
+                                    Foreground="#4C5BD4"
+                                    Text="Đơn tạm ứng" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Thời gian tạo: " />
+                                <TextBlock
+                                    x:Name="txbCreatedDate"
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+
+
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Cập nhật : " />
+                                <TextBlock
+                                    x:Name="txbCapNhat"
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="tháng trước " />
+                            </DockPanel>
+                        </StackPanel>
+                        <Border Margin="0,10,0,0">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Thông tin chung" />
+                        </Border>
+                        <StackPanel Margin="0,5,0,0">
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="1.Họ và tên : " />
+                                <TextBlock
+                                    x:Name="txbHoVaTen"
+                                    FontSize="16"
+                                    Foreground="#4C5BD4"
+                                    Text="" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="2.Số tiền tạm ứng : " />
+                                <TextBlock
+                                    x:Name="txbSoTienTamUng"
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="3.Ngày tạm ứng : " />
+                                <TextBlock
+                                    x:Name="txbNgayTamUng"
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="4.Lý do tạm ứng: " />
+                                <TextBlock
+                                    x:Name="txbLyDo"
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="" />
+                            </DockPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+                    <!--  Trang thai  -->
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <Border
+                            Width="170"
+                            Height="44"
+                            HorizontalAlignment="Right"
+                            BorderBrush="#70BE28"
+                            BorderThickness="1"
+                            CornerRadius="15">
+                            <DockPanel>
+                                <Image
+                                    Width="24"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Source="{StaticResource check_verified_03DrawingImageKey}" />
+                                <TextBlock
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#70BE28"
+                                    Text="Đã chấp thuận" />
+                            </DockPanel>
+                        </Border>
+                        <Border
+                            x:Name="borDaDuyet"
+                            Width="200"
+                            Height="44"
+                            Margin="0,10"
+                            HorizontalAlignment="Right"
+                            BorderBrush="#70BE28"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Visibility="Collapsed">
+                            <DockPanel>
+                                <Image
+                                    Width="24"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Source="{StaticResource check_verified_03DrawingImageKey}" />
+                                <TextBlock
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#70BE28"
+                                    Text="Đã được tạm ứng" />
+                            </DockPanel>
+                        </Border>
+                        <Border
+                            x:Name="btnDuyet"
+                            Height="44"
+                            Margin="0,10"
+                            HorizontalAlignment="Right"
+                            Background="#70BE28"
+                            BorderBrush="#70BE28"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Cursor="Hand"
+                            Visibility="Collapsed">
+                            <DockPanel>
+                                <Path
+                                    Width="24"
+                                    Height="24"
+                                    Margin="10,0,0,0"
+                                    Data="{StaticResource Iconcheck}"
+                                    Stretch="Fill"
+                                    Stroke="White"
+                                    StrokeLineJoin="Round"
+                                    StrokeStartLineCap="Round"
+                                    StrokeThickness="2" />
+
+                                <TextBlock
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="White"
+                                    Text="Xác nhận được tạm ứng" />
+                            </DockPanel>
+                        </Border>
+                        <Border
+                            x:Name="Btn_HuyDuyet"
+                            Height="44"
+                            HorizontalAlignment="Right"
+                            BorderBrush="#DA302A"
+                            BorderThickness="1"
+                            CornerRadius="15"
+                            Cursor="Hand"
+                            Visibility="Collapsed">
+                            <DockPanel Margin="10,0,10,0" HorizontalAlignment="Center">
+                                <Image Width="24" Source="{StaticResource alert_triangleDrawingImageKey}" />
+                                <TextBlock
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="DemiBold"
+                                    Foreground="#DA302A"
+                                    Text="Hủy duyệt !" />
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Margin="15,0,0,0"
+            Background="#FFFF">
+            <StackPanel>
+                <Border
+                    Height="60"
+                    Background="#4C5BD4"
+                    CornerRadius="10 10 0 0"
+                    Cursor="Hand"
+                    MouseUp="Border_MouseUp">
+                    <DockPanel>
+                        <Image
+                            Width="24"
+                            Margin="10,0,10,0"
+                            VerticalAlignment="Center"
+                            Source="{StaticResource alert_circleDrawingImageKey}" />
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Foreground="#FFFFFF"
+                            Text="Thông tin đề xuất" />
+
+                    </DockPanel>
+                </Border>
+
+                <Border Margin="10,20,0,0">
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Kiểu phê duyệt" />
+                </Border>
+                <DockPanel Margin="10,10,0,0">
+
+                    <Path
+                        Width="12"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Left"
+                        Data="{StaticResource Rectangle 96}"
+                        Stretch="Fill"
+                        Stroke="#4C5BD4" />
+                    <TextBlock
+                        x:Name="txbKieuDuyet"
+                        FontSize="16"
+                        Foreground="#4C5BD4">
+                        Phê duyệt lần lượt
+                    </TextBlock>
+                </DockPanel>
+                <Grid Margin="0,10,0,0" Visibility="Visible">
+                    <Rectangle
+                        RadiusX="10"
+                        RadiusY="10 "
+                        Stroke="Black"
+                        StrokeDashArray="1"
+                        StrokeThickness="1" />
+                </Grid>
+
+
+
+                <Border Margin="10,20,0,0">
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Lãnh đạo duyệt" />
+                </Border>
+                <ListView
+                    x:Name="lsvLanhDaoDuyet"
+                    Background="Transparent"
+                    BorderThickness="0">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <Border>
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel Margin="10,10,0,0">
+                                <Image
+                                    Width="60"
+                                    HorizontalAlignment="Left"
+                                    Source="{Binding avatarUser}" />
+                                <StackPanel Margin="10,0,0,0">
+                                    <TextBlock
+                                        x:Name="txbManagerName"
+                                        FontSize="16"
+                                        FontWeight="DemiBold"
+                                        Foreground="#4C5BD4"
+                                        Text="{Binding userName}" />
+                                    <TextBlock
+                                        x:Name="txbManagerId"
+                                        FontSize="16"
+                                        FontWeight="DemiBold"
+                                        Foreground="#474747"
+                                        Text="{Binding idQLC}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <Grid Margin="0,10,0,0" Visibility="Visible">
+                    <Rectangle
+                        RadiusX="10"
+                        RadiusY="10 "
+                        Stroke="Black"
+                        StrokeDashArray="1"
+                        StrokeThickness="1" />
+                </Grid>
+                <!--  NGuoi theo doi  -->
+                <Border Margin="10,20,0,0">
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Người theo dõi" />
+                </Border>
+                <ListView
+                    x:Name="lsvNguoiTheoDoi"
+                    Background="Transparent"
+                    BorderThickness="0">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <Border>
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel Margin="10,10,0,0">
+                                <Image
+                                    Width="60"
+                                    HorizontalAlignment="Left"
+                                    Source="{Binding avatarUser}" />
+                                <StackPanel Margin="10,0,0,0">
+                                    <TextBlock
+                                        x:Name="txbManagerName"
+                                        FontSize="16"
+                                        FontWeight="DemiBold"
+                                        Foreground="#4C5BD4"
+                                        Text="{Binding userName}" />
+                                    <TextBlock
+                                        x:Name="txbManagerId"
+                                        FontSize="16"
+                                        FontWeight="DemiBold"
+                                        Foreground="#474747"
+                                        Text="{Binding idQLC}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid Margin="0,10,0,0" Visibility="Visible">
+                    <Rectangle
+                        RadiusX="10"
+                        RadiusY="10 "
+                        Stroke="Black"
+                        StrokeDashArray="1"
+                        StrokeThickness="1" />
+                </Grid>
+                <!--  Trang thai de xuat  -->
+                <Border Margin="10,20,0,0">
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Trạng thái đề xuất" />
+                </Border>
+
+                <StackPanel Margin="10,20,0,0">
+                    <ListView
+                        x:Name="lsvLichSuDuyet"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <Border>
+                                                <ContentPresenter />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel Margin="10">
+                                    <Image
+                                        Height="24"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Source="{StaticResource Add_round_duotone_lineDrawingImageKey}">
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="1">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                    <Image
+                                        Height="24"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Source="{StaticResource share_05DrawingImageKey}">
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="2">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                    <Path
+                                        Width="24"
+                                        Height="24"
+                                        Data="{StaticResource check-verified-03}"
+                                        Stretch="Fill"
+                                        Stroke="#97C25F"
+                                        StrokeThickness="3">
+                                        <Path.Style>
+                                            <Style TargetType="{x:Type Path}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="3">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Path.Style>
+                                    </Path>
+                                    <WrapPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                        <TextBlock
+                                            x:Name="txbStatusCreateTime"
+                                            Margin="0,0,5,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding time}" />
+                                        <TextBlock
+                                            x:Name="txbStatusNguoiTao"
+                                            Margin="0,0,5,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#4C5BD4"
+                                            Text="{Binding ng_duyet}" />
+                                        <TextBlock
+                                            Margin="0,0,5,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding type_duyet}" />
+                                    </WrapPanel>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</UserControl>

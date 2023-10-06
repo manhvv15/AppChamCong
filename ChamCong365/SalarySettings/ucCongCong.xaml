@@ -1,0 +1,569 @@
+﻿<UserControl x:Class="ChamCong365.SalarySettings.ucCongCong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.SalarySettings"
+             mc:Ignorable="d">
+    <Grid x:Name="grCongCong" >
+        <Border Background="#FFFFFF"
+            CornerRadius="10"
+            BorderBrush="#FFFFFF" Grid.RowSpan="2">
+            <StackPanel Margin="20" >
+                <TextBlock Text="Danh sách nhân viên ghi nhân cộng công" FontSize="20" FontWeight="Medium" Foreground="#474747"/>
+                <WrapPanel Margin="0 20 0 0" HorizontalAlignment="Left" Height="34">
+                    <WrapPanel>
+                        <Border Cursor="Hand" Background="Transparent" x:Name="borHienThiThang" MouseLeftButtonUp="borHienThiThang_MouseLeftButtonUp"  Width="274" Style="{DynamicResource BorderSelected}"  >
+                            <DockPanel >
+                                <TextBlock VerticalAlignment="Center" Margin="10 0 0 0" x:Name="textHienThiThang" Foreground="#474747" FontSize="16" FontWeight="Regular"/>
+                                <Path Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Right" Data="{DynamicResource iconSearchMore}" Fill="#5B5B5B"/>
+                            </DockPanel>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Margin="20 0 20 0">
+                        <Border Cursor="Hand" Background="Transparent" x:Name="borHienThiNam" MouseLeftButtonUp="borHienThiNam_MouseLeftButtonUp" Width="274" Style="{DynamicResource BorderSelected}"  >
+                            <DockPanel>
+                                <TextBlock x:Name="textHienThiNam" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="#474747" FontSize="16" FontWeight="Regular"/>
+                                <Path Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Right" Data="{DynamicResource iconSearchMore}" Fill="#5B5B5B"/>
+                            </DockPanel>
+                        </Border>
+                    </WrapPanel>
+                    <Border x:Name="bodThongKe" Cursor="Hand"  Width="126" Height="34" Style="{DynamicResource BorderButon}" MouseLeftButtonUp="bodThongKe_MouseLeftButtonUp">
+                        <TextBlock Text="Thống kê"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFFFFF" FontSize="16" FontWeight="Regular"/>
+                    </Border>
+                </WrapPanel>
+
+                <DataGrid  Margin="0 20 0 20" ScrollViewer.HorizontalScrollBarVisibility="Visible"  Style="{DynamicResource DataGrid1}" Name="dgvCongCong" PreviewMouseWheel="dgvCongCong_PreviewMouseWheel">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="80" Header="STT">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            x:Name="txbSTT"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="100" Header="ID">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                                TextAlignment="Center"
+                                                TextWrapping="Wrap"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding idQLC}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="200" Header="Họ và tên">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                                TextAlignment="Center"
+                                                TextWrapping="Wrap"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding userName}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="280" Header="Phòng ban">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock
+                                                 TextAlignment="Center"
+                                                TextWrapping="Wrap" 
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding dep_name}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="180" Header="Chức vụ">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                                 TextAlignment="Center"
+                                            TextWrapping="Wrap"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding ChucVu}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="220" Header="Ca ghi Nhận Công">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                                 TextAlignment="Center"
+                                            TextWrapping="Wrap"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding noi_dung.xac_nhan_cong.ca_xnc}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="220" Header="Thời gian ghi nhận công">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                             TextAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding ThoiGianNhanCong}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="200" Header="Ngày ghi nhận công">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                                 TextAlignment="Center"
+                                            TextWrapping="Wrap"
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"
+                                                 FontSize="16"
+                                                 Foreground="#474747"
+                                                 Text="{Binding noi_dung.xac_nhan_cong.time_xnc}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="180" Header="Người xét duyệt">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                                 TextAlignment="Center"
+                                                TextWrapping="Wrap"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding name_user_duyet}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="300" Header="Ghi chú">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <TextBlock 
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding noi_dung.xac_nhan_cong.ly_do}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--<DataGridTemplateColumn  Width="4.17*" >
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <DockPanel Cursor="Hand" Background="Transparent">
+                                            <TextBlock  Margin="0 0 10 0" Text="Cộng Công"/>
+                                            <CheckBox x:Name="XacNhanCongCongTatCa" IsThreeState="True"  Checked="XacNhanCongCongTatCa_Checked" Unchecked="XacNhanCongCongTatCa_Unchecked"  VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Cursor="Hand" Background="Transparent">
+                                            <CheckBox x:Name="XacNhanCongCongChoNhanVien" Checked="XacNhanCongCongChoNhanVien_Checked" Unchecked="XacNhanCongCongChoNhanVien_Unchecked" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>-->
+                        <DataGridTemplateColumn Width="100" Header="Xóa">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Cursor="Hand" Background="Transparent" x:Name="bodXoaCongCong" MouseLeftButtonUp="bodXoaCongCong_MouseLeftButtonUp">
+                                        <Path VerticalAlignment="Center" HorizontalAlignment="Center" Data="{DynamicResource iconDeletePathRed}" Stroke="#FF5B4D"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid>
+                    <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center" x:Name="docPhanTrang">
+
+                        <Border x:Name="borPageDau" Width="45" Height="29" CornerRadius="5" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borPageDau_MouseLeftButtonUp">
+                            <TextBlock Text="Đầu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+                        <Border x:Name="borLui1" Width="29" Height="29" CornerRadius="5" Margin="5,0,0,0" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borLui1_MouseLeftButtonUp">
+                            <Path Data="{DynamicResource iconArrowLeft}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                        </Border>
+                        <Border x:Name="borPage1" Width="29" Height="29" CornerRadius="5" Background="#4c5bd4" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage1_MouseLeftButtonUp">
+                            <TextBlock x:Name="textPage1" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#ffffff"></TextBlock>
+                        </Border>
+                        <Border x:Name="borPage2" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage2_MouseLeftButtonUp">
+                            <TextBlock x:Name="textPage2" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+                        <Border x:Name="borPage3" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage3_MouseLeftButtonUp">
+                            <TextBlock x:Name="textPage3" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+                        <Border x:Name="borLen1" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borLen1_MouseLeftButtonUp">
+                            <Path Data="{DynamicResource iconArrowRight}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                        </Border>
+
+                        <Border x:Name="borPageCuoi" Width="45" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPageCuoi_MouseLeftButtonUp">
+                            <TextBlock Text="Cuối" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+
+                    </DockPanel>
+                    <!--<DockPanel Margin="0,10,0,10" HorizontalAlignment="Center" x:Name="docPhanTrangS" Visibility="Collapsed">
+
+                        <Border x:Name="borPageDauS" Width="45" Height="29" CornerRadius="5" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" Background="Transparent" MouseLeftButtonUp="borPageDauS_MouseLeftButtonUp">
+                            <TextBlock Text="Đầu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+                        <Border x:Name="borLui1S" Width="29" Height="29" CornerRadius="5" Margin="5,0,0,0" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borLui1S_MouseLeftButtonUp">
+                            <Path Data="{DynamicResource iconArrowLeft}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                        </Border>
+                        <Border x:Name="borPage1S" Width="29" Height="29" CornerRadius="5" Background="#4c5bd4" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage1S_MouseLeftButtonUp">
+                            <TextBlock x:Name="textPage1S" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#ffffff"></TextBlock>
+                        </Border>
+                        <Border x:Name="borPage2S" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage2S_MouseLeftButtonUp">
+                            <TextBlock x:Name="textPage2S" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+                        <Border x:Name="borPage3S" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage3S_MouseLeftButtonUp">
+                            <TextBlock x:Name="textPage3S" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+                        <Border x:Name="borLen1S" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borLen1S_MouseLeftButtonUp">
+                            <Path Data="{DynamicResource iconArrowRight}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                        </Border>
+
+                        <Border x:Name="borPageCuoiS" Width="45" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPageCuoiS_MouseLeftButtonUp">
+                            <TextBlock Text="Cuối" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                        </Border>
+
+                    </DockPanel>-->
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Grid x:Name="popup" Visibility="Collapsed" MouseLeftButtonUp="popup_MouseLeftButtonUp" Background="Transparent"/>
+
+        <!--Chọn Tháng-->
+        <Border Background="#ffffff" x:Name="borThang" Width="274" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,101,309,0" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="textSearchThang" Grid.Row="0" Background="#ffffff" BorderThickness="1" BorderBrush="#000000" FontSize="16" Margin="3" TextChanged="textSearchThang_TextChanged">
+                </TextBox>
+                <ScrollViewer x:Name="scrollThang" Grid.Row="1" Height="120">
+                    <ListView IsTabStop="False" x:Name="lsvThang" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvThang_PreviewMouseWheel">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border x:Name="borThang" MouseLeftButtonDown="borThang_MouseLeftButtonDown">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Background" Value="Transparent"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+
+                                                    </Style>
+
+                                                </Border.Style>
+                                                <TextBlock FontSize="16" Text="{Binding thang}" Margin="5,5,0,5">
+
+                                                </TextBlock>
+
+                                            </Border>
+
+                                            <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </ScrollViewer>
+            </Grid>
+        </Border>
+        <Border x:Name="borNam" Width="274" BorderThickness="1" BorderBrush="#474747" VerticalAlignment="Top" CornerRadius="0,0,5,5" Background="#ffffff" HorizontalAlignment="Left" Margin="314,101,161,0" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox BorderThickness="1" BorderBrush="#000000" x:Name="textSearchNam" Grid.Row="0" Background="#ffffff" FontSize="16" Margin="3" TextChanged="textSearchNam_TextChanged">
+                </TextBox>
+                <ScrollViewer x:Name="scrollNam" Grid.Row="1" Height="120">
+                    <ListView x:Name="lsvNam" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvNam_PreviewMouseWheel">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border HorizontalAlignment="Stretch" x:Name="borNam" MouseLeftButtonDown="borNam_MouseLeftButtonDown">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Background" Value="Transparent"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <TextBlock FontSize="16" Text="{Binding nam}" Margin="5,5,0,5">
+
+                                                </TextBlock>
+
+                                            </Border>
+
+                                            <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </ScrollViewer>
+            </Grid>
+        </Border>
+        <!--Cộng Công Tất Cả-->
+        <!--<Border 
+            Visibility="Collapsed"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0 350 0 0"
+            x:Name="bodXacNhanCongCongTatCa"
+            Width="420"
+            Background="White"
+            Height="132"
+            CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="#4C5BD4"  Grid.Row="1">
+            <StackPanel>
+                <Border Margin="0 20 0 20">
+                    <TextBlock 
+                       HorizontalAlignment="Center"
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Bạn có chắc chắn muốn chọn tất cả để cộng công nhân viên"/>
+                </Border>
+                <DockPanel Margin="0 0 0 20" >
+                    <Border 
+                        Background="Transparent" 
+                        Cursor="Hand"
+                        x:Name="bodCancel"
+                        MouseDown="bodCancel_MouseDown"
+                        MouseEnter="bodCancel_MouseEnter"
+                        MouseLeave="bodCancel_MouseLeave"
+                        Margin="60 0 0 0"
+                        Width="129"
+                        Height="34"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        BorderBrush="#4C5BD4">
+                        <TextBlock x:Name="txbTextCancel"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#4C5BD4"
+                            FontWeight="Medium"
+                            Text="Hủy" />
+                    </Border>
+                    <Border 
+                        Cursor="Hand"
+                        x:Name="bodXacNhanCongCong"
+                        MouseLeftButtonUp="bodXacNhanCongCong_MouseLeftButtonUp"
+                        Margin="0 0 60 0"
+                        HorizontalAlignment="Right"
+                        Width="129"
+                        Height="34"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        BorderBrush="#4C5BD4"
+                            Background="#4C5BD4">
+                        <TextBlock 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#FFFFFF"
+                            FontWeight="Medium"
+                            Text="Đồng ý" />
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+        </Border>-->
+        <!--Xác nhận đã cộng công Tất cả-->
+        <!--<Border 
+            Visibility="Collapsed"
+            HorizontalAlignment="Center"
+            x:Name="bodXacNhanDaCongCongTatCa"
+            Width="420"
+            Background="#FFFFFF"
+            Height="113"
+            CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="#4C5BD4" Margin="0,124,0,234" Grid.Row="1">
+            <StackPanel>
+                <Border Margin="0 20 0 20">
+                    <TextBlock 
+                       HorizontalAlignment="Center"
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Tất cả nhân viên đã được cộng công"/>
+                </Border>
+                <Border 
+                        Cursor="Hand"
+                        x:Name="bodXacNhanDaCongCong"
+                        MouseLeftButtonUp="bodXacNhanDaCongCong_MouseLeftButtonUp"
+                        HorizontalAlignment="Center"
+                        Width="64"
+                        Height="34"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        BorderBrush="#4C5BD4"
+                            Background="#4C5BD4">
+                    <TextBlock 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#FFFFFF"
+                            FontWeight="Medium"
+                            Text="OK" />
+                </Border>
+            </StackPanel>
+        </Border>-->
+        <!--Cộng công cho từng nhân viên-->
+        <!--<Border 
+            Visibility="Collapsed"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0 350 0 0"
+            x:Name="bodXacNhanCongCongnNv"
+            Width="420"
+            Background="White"
+            Height="132"
+            CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="#4C5BD4"  Grid.Row="1">
+            <StackPanel>
+                <Border Margin="0 20 0 20">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747">
+                        <Run Text="Bạn có chắc muốn cộng công cho nhân viên"/>
+                        <Run x:Name="txbTenNvDuocCongCong"/>
+                    </TextBlock>
+                </Border>
+                <DockPanel Margin="0 0 0 20" >
+                    <Border 
+                        Background="Transparent" 
+                        Cursor="Hand"
+                        x:Name="bodThoatChonNv"
+                        MouseDown="bodThoatChonNv_MouseDown"
+                        MouseEnter="bodThoatChonNv_MouseEnter"
+                        MouseLeave="bodThoatChonNv_MouseLeave"
+                        Margin="60 0 0 0"
+                        Width="129"
+                        Height="34"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        BorderBrush="#4C5BD4">
+                        <TextBlock x:Name="txbThoatChonNv"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#4C5BD4"
+                            FontWeight="Medium"
+                            Text="Hủy" />
+                    </Border>
+                    <Border 
+                        Cursor="Hand"
+                        x:Name="bodXacNhan"
+                        MouseLeftButtonUp="bodXacNhan_MouseLeftButtonUp"
+                        Margin="0 0 60 0"
+                        HorizontalAlignment="Right"
+                        Width="129"
+                        Height="34"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        BorderBrush="#4C5BD4"
+                            Background="#4C5BD4">
+                        <TextBlock 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#FFFFFF"
+                            FontWeight="Medium"
+                            Text="Đồng ý" />
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+        </Border>-->
+    </Grid>
+</UserControl>

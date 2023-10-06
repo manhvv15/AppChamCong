@@ -1,0 +1,168 @@
+﻿<UserControl
+    x:Class="ChamCong365.funcQuanLyCongTy.AddNewStaffTabList.ucDetailNewStaff"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.funcQuanLyCongTy.AddNewStaffTabList"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <Border
+            Background="White"
+            BorderBrush="#FFFFFF"
+            CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="8"
+                    Opacity="0.5"
+                    ShadowDepth="0.2" />
+            </Border.Effect>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Width="200"
+                    Height="200"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    CornerRadius="200">
+                    <Border.Background>
+                        <ImageBrush x:Name="imgAvata" ImageSource="/Resource/image/KyTo.jpg" />
+                    </Border.Background>
+                </Border>
+                <Border
+                    Grid.Column="0"
+                    Width="200"
+                    Margin="0,220,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        Foreground="#474747">
+                        ID -
+                        <TextBlock x:Name="txbID" />
+                    </TextBlock>
+                </Border>
+                <StackPanel Grid.Column="1">
+                    <TextBlock
+                        x:Name="txbEpName"
+                        Margin="0,0,0,10"
+                        FontFamily="Roboto"
+                        FontSize="22"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Nguyễn Thị Hồng Anh
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,15"
+                        FontFamily="Roboto"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Công ty:
+                        <TextBlock x:Name="txbComName" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Phòng ban: <Run x:Name="txbDepartmentName" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Kinh nghiệm làm việc: <Run x:Name="txbExperience" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Ngày bắt đầu làm việc: <Run x:Name="txbStartWorkingTime" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Địa chỉ email: <Run x:Name="txbEmail" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Số điện thoại: <Run x:Name="txbPhone" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Ngày sinh: <Run x:Name="txbBirthDay" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Giới tính: <Run x:Name="txbGender" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Trình độ học vấn: <Run x:Name="txbEducation" FontWeight="Normal" />
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,0,0,30"
+                        FontFamily="Roboto"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#474747">
+                        Tình trạng hôn nhân: <Run x:Name="txbMarried" FontWeight="Normal" />
+                    </TextBlock>
+                    <Border
+                        x:Name="bodEditNewStaff"
+                        Height="44"
+                        HorizontalAlignment="Left"
+                        Background="white"
+                        BorderBrush="#4C5BD4"
+                        BorderThickness="1"
+                        CornerRadius="15 15 15 15"
+                        MouseUp="bodEditNewStaff_MouseUp"
+                        TextBlock.FontSize="18"
+                        TextBlock.FontWeight="DemiBold"
+                        TextBlock.Foreground="#4C5BD4">
+                        <TextBlock
+                            Margin="30,0,30,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Chỉnh sửa thông tin" />
+                    </Border>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

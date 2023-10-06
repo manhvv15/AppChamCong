@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="ChamCong365.Popup.PopupTimeKeeping.ucLoadMonth"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.PopupTimeKeeping"
+             mc:Ignorable="d">
+    <Grid>
+        <Border x:Name="bodLoadMonth" Margin="5"  Width="50" Height="25"  MouseLeftButtonUp="bodLoadMonth_MouseLeftButtonUp" MouseEnter="bodLoadMonth_MouseEnter" MouseLeave="bodLoadMonth_MouseLeave">
+            <TextBlock x:Name="txbLoadMonth" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#474747" FontSize="16" FontWeight="Regular" />
+        </Border>
+    </Grid>
+</UserControl>

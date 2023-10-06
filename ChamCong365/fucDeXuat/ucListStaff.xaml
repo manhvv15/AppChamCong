@@ -1,0 +1,1144 @@
+﻿<UserControl
+    x:Class="ChamCong365.fucDeXuat.ucListStaff"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.fucDeXuat"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <!--  phần tìm kiếm  -->
+
+            <!--  Listview danh sách nhân viên  -->
+            <Grid
+                Grid.Row="2"
+                Margin="0,20,0,20"
+                HorizontalAlignment="Center">
+                <Border
+                    x:Name="borExportExcel"
+                    Width="209"
+                    Height="44"
+                    BorderBrush="#4C5BD4"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    Cursor="Hand"
+                    MouseUp="borExportExcel_MouseUp">
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image
+                            Width="24"
+                            Height="24"
+                            Margin="0,0,20,0"
+                            Source="{DynamicResource iconExcelDrawingImage}" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="#4C5BD4"
+                            Text="Xuất excel" />
+                    </WrapPanel>
+                </Border>
+            </Grid>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                <Grid>
+
+                    <StackPanel>
+                        <!--  Header danh sách Luân Chuyển  -->
+                        <Grid
+                            Width="3228"
+                            Height="44"
+                            VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="86" />
+                                <ColumnDefinition Width="86" />
+                                <ColumnDefinition Width="358" />
+                                <ColumnDefinition Width="369" />
+                                <ColumnDefinition Width="215" />
+                                <ColumnDefinition Width="215" />
+                                <ColumnDefinition Width="215" />
+                                <ColumnDefinition Width="287" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="166" />
+                                <ColumnDefinition Width="206" />
+                                <ColumnDefinition Width="343" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="173" />
+                                <ColumnDefinition Width="261" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <Border
+                                Grid.Column="0"
+                                Background="#4C5BD4"
+                                BorderBrush="#4C5BD4"
+                                BorderThickness="1"
+                                CornerRadius="5 0 0 0">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Text="STT" />
+                            </Border>
+
+                            <Border
+                                Grid.Column="1"
+                                BorderBrush="White"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="ID" />
+                            </Border>
+
+                            <Border Grid.Column="2" Style="{StaticResource DpmentBorderListView}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Họ và tên" />
+                            </Border>
+
+                            <Border Grid.Column="3" Style="{StaticResource DpmentBorderListView}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Công ty" />
+                            </Border>
+                            <Border
+                                x:Name="bodSelectPhongBan"
+                                Grid.Column="4"
+                                MouseUp="bodSelectPhongBan_MouseUp"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <Grid>
+
+
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Roboto"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Phòng ban" />
+                                    <Image
+                                        x:Name="ImgSelectPhongBan"
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconDropBoxDownDrawingImage}" />
+                                </Grid>
+                            </Border>
+                            <Border
+                                x:Name="bodSelectTo"
+                                Grid.Column="5"
+                                MouseUp="bodSelecTo_MouseUp"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <Grid>
+
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Roboto"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Tổ" />
+                                    <Image
+                                        x:Name="ImgSelectTo"
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconDropBoxDownDrawingImage}" />
+                                </Grid>
+                            </Border>
+                            <Border
+                                x:Name="bodSelectNhom"
+                                Grid.Column="6"
+                                MouseUp="bodSelecNhom_MouseUp"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <Grid>
+
+
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Roboto"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Nhóm" />
+                                    <Image
+                                        x:Name="ImgSelectNhom"
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconDropBoxDownDrawingImage}" />
+                                </Grid>
+                            </Border>
+                            <Border
+                                x:Name="bodSelectChucVu"
+                                Grid.Column="7"
+                                MouseUp="bodSelecChucVu_MouseUp"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <Grid>
+
+
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Roboto"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Chức vụ" />
+                                    <Image
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconDropBoxDownDrawingImage}" />
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Column="8" Style="{StaticResource DpmentBorderListView}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Giới tính" />
+                            </Border>
+
+                            <Border
+                                x:Name="bodSelectNgaySinh"
+                                Grid.Column="9"
+                                MouseUp="bodSelectNgaySinh_MouseUp"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <Grid>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Roboto"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Ngày sinh" />
+                                    <Image
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconDropBoxDownDrawingImage}" />
+                                </Grid>
+                            </Border>
+                            <Border
+                                x:Name="bodSelectHonNhan"
+                                Grid.Column="10"
+                                MouseUp="bodSelectHonNhan_MouseUp"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <Grid>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Roboto"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Text="Tình trạng hôn nhân" />
+                                    <Image
+                                        Margin="10"
+                                        HorizontalAlignment="Right"
+                                        Source="{StaticResource iconDropBoxDownDrawingImage}" />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="11" Style="{StaticResource DpmentBorderListView}">
+
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Thông tin liên hệ" />
+
+                            </Border>
+                            <Border Grid.Column="12" Style="{StaticResource DpmentBorderListView}">
+
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Ngày bắt đầu làm việc" />
+
+                            </Border>
+                            <Border Grid.Column="13" Style="{StaticResource DpmentBorderListView}">
+
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Trình độ học vấn" />
+
+                            </Border>
+                            <Border
+                                Grid.Column="14"
+                                CornerRadius="0 5 0 0"
+                                Style="{StaticResource DpmentBorderListView}">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Roboto"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="Kinh nghiệm làm việc" />
+                            </Border>
+
+                        </Grid>
+                        <Border
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="0 0 5 5">
+                            <ListView
+                                x:Name="lsvAllStaff"
+                                Height="auto"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                    <Border Margin="-3,0,-3,0">
+                                                        <ContentPresenter />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid
+                                            Width="3228"
+                                            Height="44"
+                                            VerticalAlignment="Top">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="86" />
+                                                <ColumnDefinition Width="86" />
+                                                <ColumnDefinition Width="358" />
+                                                <ColumnDefinition Width="369" />
+                                                <ColumnDefinition Width="215" />
+                                                <ColumnDefinition Width="215" />
+                                                <ColumnDefinition Width="215" />
+                                                <ColumnDefinition Width="287" />
+                                                <ColumnDefinition Width="80" />
+                                                <ColumnDefinition Width="166" />
+                                                <ColumnDefinition Width="206" />
+                                                <ColumnDefinition Width="343" />
+                                                <ColumnDefinition Width="180" />
+                                                <ColumnDefinition Width="173" />
+                                                <ColumnDefinition Width="261" />
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <Border
+                                                Grid.Column="0"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding STT}" />
+                                            </Border>
+
+                                            <Border
+                                                Grid.Column="1"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding idQLC}" />
+                                            </Border>
+
+                                            <Border
+                                                Grid.Column="2"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding userName}" />
+                                            </Border>
+
+                                            <Border
+                                                Grid.Column="3"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding Company}" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="4"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding Department}" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="5"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding Team}" />
+                                            </Border>
+
+                                            <Border
+                                                Grid.Column="6"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding Group}" />
+                                            </Border>
+
+                                            <Border
+                                                Grid.Column="7"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding positionName}" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="8"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding ep_gender}" />
+                                            </Border>
+
+                                            <Border
+                                                Grid.Column="9"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding ep_birthday}" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="10"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding ep_married}" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="11"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5"
+                                                TextBlock.FontSize="16">
+
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <Run Text="{Binding phoneTK}" /></TextBlock>
+
+                                            </Border>
+
+                                            <Border
+                                                Grid.Column="12"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding ep_start_working_time}" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="13"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding ep_education}" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="14"
+                                                BorderBrush="#CCCCCC"
+                                                BorderThickness="0.5">
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="16"
+                                                    Foreground="#474747"
+                                                    Text="{Binding ep_experience}" />
+                                            </Border>
+
+
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Border>
+                    </StackPanel>
+                    <Grid
+                        Width="3228"
+                        Margin="0,44,0,0"
+                        VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="86" />
+                            <ColumnDefinition Width="86" />
+                            <ColumnDefinition Width="358" />
+                            <ColumnDefinition Width="369" />
+                            <ColumnDefinition Width="215" />
+                            <ColumnDefinition Width="215" />
+                            <ColumnDefinition Width="215" />
+                            <ColumnDefinition Width="287" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="166" />
+                            <ColumnDefinition Width="206" />
+                            <ColumnDefinition Width="343" />
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="173" />
+                            <ColumnDefinition Width="261" />
+                        </Grid.ColumnDefinitions>
+                        <!--
+                            Border
+                            Lisview Collapsed Select Tổ
+                        -->
+                        <Border
+                            x:Name="bodListPhongbanCollapsed"
+                            Grid.Column="4"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                            Background="White"
+                            BorderBrush="#474747"
+                            BorderThickness="1,0,1,1"
+                            CornerRadius="0 0 5 5"
+                            Visibility="Collapsed">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--    -->
+                                <Rectangle
+                                    Margin="-2000"
+                                    Fill="Transparent"
+                                    MouseDown="SelectPopUpClose_MouseDown" />
+                                <TextBox
+                                    x:Name="txtSelectPhongban"
+                                    Grid.Row="0"
+                                    Style="{StaticResource TextBoxListViewSeleted}" />
+                                <ListView
+                                    x:Name="lsvPhongban"
+                                    Grid.Row="1"
+                                    Height="100"
+                                    BorderThickness="1"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    SelectionChanged="lsvPhongBan_SelectionChanged">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border>
+                                                            <Border.Style>
+                                                                <Style TargetType="Border">
+                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+
+                                                                </Style>
+
+                                                            </Border.Style>
+                                                            <TextBlock
+                                                                Margin="5,5,0,5"
+                                                                FontSize="16"
+                                                                Text="{Binding dep_name}" />
+
+                                                        </Border>
+
+                                                        <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                        </Border>
+
+                        <Border
+                            x:Name="bodListToCollapsed"
+                            Grid.Column="5"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                            Background="White"
+                            BorderBrush="#474747"
+                            BorderThickness="1,0,1,1"
+                            CornerRadius="0 0 5 5"
+                            Visibility="Collapsed">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--    -->
+                                <Rectangle
+                                    Margin="-2000"
+                                    Fill="Transparent"
+                                    MouseDown="SelectPopUpClose_MouseDown" />
+                                <TextBox
+                                    x:Name="txtSelectTo"
+                                    Grid.Row="0"
+                                    Style="{StaticResource TextBoxListViewSeleted}" />
+                                <ListView
+                                    x:Name="lsvTo"
+                                    Grid.Row="1"
+                                    Height="100"
+                                    BorderThickness="1"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    SelectionChanged="lsvTo_SelectionChanged">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border>
+                                                            <Border.Style>
+                                                                <Style TargetType="Border">
+                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+
+                                                                </Style>
+
+                                                            </Border.Style>
+                                                            <TextBlock
+                                                                Margin="5,5,0,5"
+                                                                FontSize="16"
+                                                                Text="{Binding team_name}" />
+
+                                                        </Border>
+
+                                                        <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                        </Border>
+                        <Border
+                            x:Name="bodListNhomCollapsed"
+                            Grid.Column="6"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                            Background="White"
+                            BorderBrush="#474747"
+                            BorderThickness="1,0,1,1"
+                            CornerRadius="0 0 5 5"
+                            Visibility="Collapsed">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--    -->
+                                <Rectangle
+                                    Margin="-2000"
+                                    Fill="Transparent"
+                                    MouseDown="SelectPopUpClose_MouseDown" />
+                                <TextBox
+                                    x:Name="txtSelectNhom"
+                                    Grid.Row="0"
+                                    Style="{StaticResource TextBoxListViewSeleted}" />
+                                <ListView
+                                    x:Name="lsvNhom"
+                                    Grid.Row="1"
+                                    Height="100"
+                                    BorderThickness="1"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    SelectionChanged="lsvNhom_SelectionChanged">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border>
+                                                            <Border.Style>
+                                                                <Style TargetType="Border">
+                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+
+                                                                </Style>
+
+                                                            </Border.Style>
+                                                            <TextBlock
+                                                                Margin="5,5,0,5"
+                                                                FontSize="16"
+                                                                Text="{Binding gr_name}" />
+
+                                                        </Border>
+
+                                                        <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                        </Border>
+                        <Border
+                            x:Name="bodListChucVuCollapsed"
+                            Grid.Column="7"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                            Background="White"
+                            BorderBrush="#474747"
+                            BorderThickness="1,0,1,1"
+                            CornerRadius="0 0 5 5"
+                            Visibility="Collapsed">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--    -->
+                                <Rectangle
+                                    Margin="-2000"
+                                    Fill="Transparent"
+                                    MouseDown="SelectPopUpClose_MouseDown" />
+                                <TextBox
+                                    x:Name="txtSelectChucVu"
+                                    Grid.Row="0"
+                                    Style="{StaticResource TextBoxListViewSeleted}" />
+                                <ListView
+                                    x:Name="lsvChucVu"
+                                    Grid.Row="1"
+                                    Height="100"
+                                    BorderThickness="1"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    SelectionChanged="lsvChucVu_SelectionChanged">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border>
+                                                            <Border.Style>
+                                                                <Style TargetType="Border">
+                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+
+                                                                </Style>
+
+                                                            </Border.Style>
+                                                            <TextBlock
+                                                                Margin="5,5,0,5"
+                                                                FontSize="16"
+                                                                Text="{Binding positionName}" />
+
+                                                        </Border>
+
+                                                        <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                        </Border>
+                        <Border
+                            x:Name="bodListNgaySinhCollapsed"
+                            Grid.Column="9"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                            Background="White"
+                            BorderBrush="#474747"
+                            BorderThickness="1,0,1,1"
+                            CornerRadius="0 0 5 5"
+                            Visibility="Collapsed">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--    -->
+                                <Rectangle
+                                    Margin="-2000"
+                                    Fill="Transparent"
+                                    MouseDown="SelectPopUpClose_MouseDown" />
+                                <TextBox
+                                    x:Name="txtSelectNgaySinh"
+                                    Grid.Row="0"
+                                    Style="{StaticResource TextBoxListViewSeleted}" />
+                                <ListView
+                                    x:Name="lsvNgaySinh"
+                                    Grid.Row="1"
+                                    Height="100"
+                                    BorderThickness="1"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    SelectionChanged="lsvNamSinh_SelectionChanged">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border>
+                                                            <Border.Style>
+                                                                <Style TargetType="Border">
+                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+
+                                                                </Style>
+
+                                                            </Border.Style>
+                                                            <TextBlock
+                                                                Margin="5,5,0,5"
+                                                                FontSize="16"
+                                                                Text="{Binding value}" />
+
+                                                        </Border>
+
+                                                        <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                        </Border>
+                        <Border
+                            x:Name="bodListHonNhanCollapsed"
+                            Grid.Column="10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                            Background="White"
+                            BorderBrush="#474747"
+                            BorderThickness="1,0,1,1"
+                            CornerRadius="0 0 5 5"
+                            Visibility="Collapsed">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--    -->
+                                <Rectangle
+                                    Margin="-2000"
+                                    Fill="Transparent"
+                                    MouseDown="SelectPopUpClose_MouseDown" />
+                                <TextBox
+                                    x:Name="txtSelectHonNhan"
+                                    Grid.Row="0"
+                                    Style="{StaticResource TextBoxListViewSeleted}" />
+                                <ListView
+                                    x:Name="lsvHonNhan"
+                                    Grid.Row="1"
+                                    Height="100"
+                                    BorderThickness="1"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    SelectionChanged="lsvHonNhan_SelectionChanged">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border>
+                                                            <Border.Style>
+                                                                <Style TargetType="Border">
+                                                                    <Setter Property="Background" Value="Transparent" />
+                                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                                    <Style.Triggers>
+                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                                        </Trigger>
+                                                                    </Style.Triggers>
+
+                                                                </Style>
+
+                                                            </Border.Style>
+                                                            <TextBlock
+                                                                Margin="5,5,0,5"
+                                                                FontSize="16"
+                                                                Text="{Binding value}" />
+
+                                                        </Border>
+
+                                                        <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+            <!--  phần phân trang  -->
+            <DockPanel Margin="0,10,20,10" HorizontalAlignment="Right">
+
+                <Border
+                    x:Name="borPageDau"
+                    Width="45"
+                    Height="29"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPageDau_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Đầu" />
+                </Border>
+                <Border
+                    x:Name="borLui1"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borLui1_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <Path
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource iconArrowLeft}"
+                        Fill="#474747" />
+                </Border>
+                <Border
+                    x:Name="borPage1"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#4c5bd4"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPage1_MouseLeftButtonUp"
+                    Visibility="Hidden">
+                    <TextBlock
+                        x:Name="textPage1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#ffffff"
+                        Text="1" />
+                </Border>
+                <Border
+                    x:Name="borPage2"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPage2_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        x:Name="textPage2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="2" />
+                </Border>
+                <Border
+                    x:Name="borPage3"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPage3_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        x:Name="textPage3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="3" />
+                </Border>
+                <Border
+                    x:Name="borLen1"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borLen1_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <Path
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource iconArrowRight}"
+                        Fill="#474747" />
+                </Border>
+
+                <Border
+                    x:Name="borPageCuoi"
+                    Width="45"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPageCuoi_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Cuối" />
+                </Border>
+
+            </DockPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

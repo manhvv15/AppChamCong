@@ -1,0 +1,80 @@
+<UserControl x:Class="ChamCong365.TimeKeeping.ucCaiDatBaoMatWifi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.TimeKeeping"
+             mc:Ignorable="d" >
+
+    <Grid  x:Name="bodSecurityWifi">
+        <Border  
+                Background="#FFFFFF"
+                CornerRadius="10"
+                BorderBrush="#FFFFFF">
+            <StackPanel Margin="20">
+                <!--List tiêu đề-->
+                <WrapPanel Margin="0 0 0 20">
+                    <Border x:Name="bodTextWifi"
+                           BorderThickness="0 0 0 4"
+                           Cursor="Hand"
+                           Background="Transparent"
+                           BorderBrush="#4C5BD4"
+                           Width="55"
+                           MouseLeftButtonUp="Border_MouseLeftButtonUp_Wifi" >
+                        <TextBlock
+                             FontWeight="Medium"
+                             HorizontalAlignment="Stretch"
+                             x:Name="txbTextWifi"
+                             Style="{StaticResource ListFunctionChamCong}"
+                             Text="Wifi"/>
+                    </Border>
+                    <Border Width="60"
+                            Cursor="Hand"
+                            x:Name="bodViTri"
+                            MouseLeftButtonUp="bodViTri_MouseLeftButtonUp">
+                        <TextBlock 
+                            x:Name="txbViTri"
+                            FontWeight="Medium"
+                            HorizontalAlignment="Stretch"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Vị trí"/>
+                    </Border>
+                    <Border x:Name="bodTextIP"
+                            Width="50"
+                            BorderThickness=" 0 0 0 0"
+                            Cursor="Hand"
+                            BorderBrush="#4C5BD4"
+                            HorizontalAlignment="Left"
+                            MouseLeftButtonUp="Border_MouseLeftButtonUp_Ip">
+                        <TextBlock 
+                             FontWeight="Medium"
+                             HorizontalAlignment="Center"
+                             x:Name="txbTextIP"
+                             Style="{StaticResource ListFunctionChamCong}"
+                             Text="IP"  Margin="0,0,0,0"/>
+                    </Border>
+                    <Border x:Name="bodCamXuc" 
+                           BorderThickness="0 0 0 0"
+                           Cursor="Hand"
+                           HorizontalAlignment="Left"
+                           Background="Transparent"
+                           BorderBrush="#4C5BD4"
+                           MouseLeftButtonUp="bodCamXuc_MouseLeftButtonUp" >
+                        <TextBlock
+                             FontWeight="Medium"
+                             HorizontalAlignment="Stretch"
+                             x:Name="txtCamXuc"
+                             Style="{StaticResource ListFunctionChamCong}"
+                             Text="Cảm xúc"/>
+                    </Border>
+                </WrapPanel>
+                <Rectangle  Stroke="#DDDDDD" Style="{StaticResource Rectangle}"/>
+                <!--Button-->
+                <Grid Grid.Row="1"
+                        x:Name="grLoadListWifiIp">
+
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

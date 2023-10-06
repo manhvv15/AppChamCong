@@ -1,0 +1,103 @@
+﻿<UserControl
+    x:Class="ChamCong365.NhanVien.DetailOfDon.ucDetailSuDungXeCong"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.NhanVien.DetailOfDon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel>
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="1. Họ và tên : " />
+            <TextBlock
+                x:Name="txb1"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </DockPanel>
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="2. Ngày bắt đầu sử dụng xe: " />
+            <TextBlock
+                x:Name="txb2"
+                FontSize="16"
+                Foreground="#666666" />
+        </DockPanel>
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="3. Ngày kết thúc sử dụng xe: " />
+            <TextBlock
+                x:Name="txb3"
+                FontSize="16"
+                Foreground="#666666"
+                Text="" />
+        </DockPanel>
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="4. Số lượng xe: " />
+            <TextBlock
+                x:Name="txb4"
+                FontSize="16"
+                Foreground="#666666"
+                Text="" />
+        </DockPanel>
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="5. Giờ đi: " />
+            <TextBlock
+                x:Name="txb5"
+                FontSize="16"
+                Foreground="#666666"
+                Text="" />
+        </DockPanel>
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="6. Giờ đến: " />
+            <TextBlock
+                x:Name="txb6"
+                FontSize="16"
+                Foreground="#666666"
+                Text="" />
+        </DockPanel>
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="7. Lý do đề xuất sử dụng xe công: 4. Lý do đề xuất nghỉ thai sản: " />
+            <TextBlock
+                x:Name="txb7"
+                FontSize="16"
+                Foreground="#666666"
+                Text="" />
+        </DockPanel>
+
+        <DockPanel>
+            <TextBlock
+                FontSize="16"
+                Foreground="#666666"
+                Text="File đính kèm: " />
+            <TextBlock
+                x:Name="txbFile"
+                Cursor="Hand"
+                FontSize="16"
+                Foreground="Blue"
+                MouseUp="LinkToFile"
+                Text="File" />
+        </DockPanel>
+    </StackPanel>
+</UserControl>

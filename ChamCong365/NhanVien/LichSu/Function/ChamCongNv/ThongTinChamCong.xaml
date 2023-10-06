@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="ChamCong365.NhanVien.LichSu.Function.ThongTinChamCong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.NhanVien.LichSu.Function"
+             mc:Ignorable="d"  Height="auto" Width="500">
+
+    <Grid>
+        <Border Background="White" CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="0" Opacity=".5" BlurRadius="10"></DropShadowEffect>
+            </Border.Effect>
+        </Border>
+        <Border CornerRadius="10" Background="{DynamicResource #FFFFFF}">
+            <Grid Margin="20 30">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Background="Transparent" Cursor="Hand" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonDown="ClosePopup">
+                    <Path Data="{DynamicResource iconClose}" Fill="{DynamicResource #474747}"/>
+                </Border>
+                <Grid Grid.Row="1" Margin="0 20">
+                    <Border Margin="0 0 0 0" Width="460" BorderThickness="1" BorderBrush="{DynamicResource #4C5BD4}" CornerRadius="10">
+                        <StackPanel Margin="20 40 20 10" Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Path Data="{DynamicResource iconToaDo}" Fill="{DynamicResource #4C5BD4}"/>
+                                <TextBlock Margin="15 0 0 0" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource #474747}">
+                                    <Run Text="{DynamicResource textToaDo}"/>
+                                    <Run Text=":"/>
+                                </TextBlock>
+                                <TextBlock Margin="10 0 0 0"  FontSize="16" Foreground="{DynamicResource #4C5BD4}">
+                                    <Run Text="{Binding LatitudeNv}"></Run>
+                                    <Run Text=","></Run>
+                                    <Run Text="{Binding LongituteNv}"></Run>
+                                </TextBlock>
+
+                            </StackPanel>
+                            <StackPanel Margin="0 16 0 0" Orientation="Horizontal">
+                                <Path Data="{DynamicResource iconIPMang}" Fill="{DynamicResource #4C5BD4}"/>
+                                <TextBlock Margin="15 0 0 0"  FontSize="16" FontWeight="Bold" Foreground="#474747">
+                                    <Run Text="{DynamicResource textIPMang}"/>
+                                    <Run Text=":"/>
+                                </TextBlock>
+                                <TextBlock Margin="10 0 0 0" Text="{Binding IpWifi}" FontSize="16" Foreground="{DynamicResource #4C5BD4}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="0 -115 0 0" Width="386" Height="42" CornerRadius="20" Background="{DynamicResource #4C5BD4}">
+                        <StackPanel Margin="10 0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Path Data="{DynamicResource iconINgieng}" Fill="{DynamicResource #FFFFFF}"></Path>
+                            <TextBlock Margin="10 0" Text="{DynamicResource textThongTinChamCong}" Foreground="{DynamicResource #FFFFFF}" VerticalAlignment="Center" FontSize="16"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <Border CornerRadius="5" Grid.Row="2" Width="460" Background="Transparent" BorderThickness="1" BorderBrush="{DynamicResource #4C5BD4}">
+                    <StackPanel>
+                        <ListView x:Name="ListViewShift" BorderThickness="0"  Background="Transparent" MaxHeight="120" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <Grid Margin="10"  Cursor="Hand" Background="Transparent">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width=".3*"/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock x:Name="isChoose" Visibility="Hidden" Text="{DynamicResource textDauTich}" FontSize="20" Foreground="{DynamicResource #4C5BD4}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    <TextBlock Grid.Column="1" x:Name="ShiftName" Text="{Binding shift_name}" FontSize="16" Foreground="{DynamicResource #474747}" TextWrapping="Wrap"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                                    <TextBlock Grid.Column="2" x:Name="ShiftTime" FontSize="16" Foreground="{DynamicResource #474747}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                    <Run Text="{Binding start_time}"></Run>
+                                                    <Run Text="-"></Run>
+                                                    <Run Text="{Binding end_time}"></Run>
+                                                    </TextBlock>
+                                                </Grid>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Visibility" TargetName="isChoose" Value="Visible"></Setter>
+                                                        <Setter Property="Foreground" TargetName="ShiftName" Value="{DynamicResource #4C5BD4}"></Setter>
+                                                        <Setter Property="Foreground" TargetName="ShiftTime" Value="{DynamicResource #4C5BD4}"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                        <TextBlock x:Name="ShiftNone" Margin="10 0 0 0" Text="Bạn không có ca làm việc vào ca này" Visibility="Collapsed" FontSize="16" Foreground="{DynamicResource #4C5BD4}" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                </Border>
+                <StackPanel Margin="0 20 0 0" Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Border BorderThickness="1" Background="{DynamicResource #FFFFFF}" BorderBrush="{DynamicResource #4C5BD4}" Width="190" CornerRadius="10" Height="40" Cursor="Hand" MouseLeftButtonDown="TrangChu_MouseLeftButtonDown">
+                        <TextBlock Text="{DynamicResource textTrangChu}" TextAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="18" Foreground="{DynamicResource #4C5BD4}" VerticalAlignment="Center"/>
+                    </Border>
+                    <Border Margin="40 0 0 0" BorderThickness="0" Background="{DynamicResource #4C5BD4}" BorderBrush="{DynamicResource #4C5BD4}" Width="190" CornerRadius="10" Height="40" Cursor="Hand" MouseLeftButtonDown="Attendence_MouseLeftButtonDown">
+                        <TextBlock Text="{DynamicResource textDiemDanh}" TextAlignment="Center" HorizontalAlignment="Center" FontWeight="Medium" FontSize="18" Foreground="{DynamicResource #FFFFFF}" VerticalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Frame x:Name="Popup" Visibility="Collapsed" NavigationUIVisibility="Hidden" VerticalAlignment="Center" BorderThickness="0"></Frame>
+    </Grid>
+    <!--<Border x:Name="an"  Background="#FFFFFF" Width="537" Height="368" CornerRadius="30" VerticalAlignment="Top" HorizontalAlignment="Center" Visibility="Visible">
+        <StackPanel>
+            <Border Margin="0 50 0 0" Width="477" Height="106" CornerRadius="10" BorderThickness="1" BorderBrush="#4C5BD4">
+                <StackPanel VerticalAlignment="Center" Margin="0 20 0 0">
+                    <DockPanel>
+                        <Image Source="{StaticResource Group_1000007327DrawingImageKey}" Width="24" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        <TextBlock Text="Tọa độ : " FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Margin="20 0 0 0"></TextBlock>
+                        <TextBlock Text="20.984353, 105.8331514 " FontSize="16" FontWeight="DemiBold" Foreground="#4C5BD4" VerticalAlignment="Center" Margin="5 0 0 0"></TextBlock>
+
+                    </DockPanel>
+                    <DockPanel Margin="0 10 0 0">
+                        <Image Source="{StaticResource VectorDrawingImageKey}" Width="24" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        <TextBlock Text="IP Mạng : " FontSize="16" FontWeight="DemiBold" VerticalAlignment="Center" Margin="20 0 0 0"></TextBlock>
+                        <TextBlock Text="210.245.75.51" FontSize="16" FontWeight="DemiBold" Foreground="#4C5BD4" VerticalAlignment="Center" Margin="5 0 0 0"></TextBlock>
+
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Border Width="339" Margin="0 -210 0 0" Height="42" Cursor="Hand" BorderThickness="2" BorderBrush="#4C5BD4" CornerRadius="20" HorizontalAlignment="Center"  >
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#4D5CD7" Offset="1" />
+                        <GradientStop Color="#6677FB" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <DockPanel>
+                    <Image Width="30" Margin="10 0 0 0" Source="{StaticResource Frame_1000010452DrawingImageKey}"/>
+                    <TextBlock Margin="10 0 0 0" Text="Thông tin chấm công" FontSize="16" Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                </DockPanel>
+
+            </Border>
+            <Border Margin="0 20 0 0" Width="477" Height="99" CornerRadius="10" BorderThickness="1" BorderBrush="#4C5BD4">
+                <Border Margin="10" Background="#F1F1F1">
+
+                    <DockPanel>
+                        <Path Margin="10 0 0 0" Data="{DynamicResource iconCheck1}" Fill="#4D5CD7" Width="23" Height="20" Stretch="Fill"/>
+                        <Path Data="{DynamicResource tich}" />
+                        <TextBlock Text="Ca Sáng 7TR  Lương 10TR" FontSize="16" VerticalAlignment="Center"/>
+                        <TextBlock Margin="20 0 0 0" Text="08:00:00 - 11:30:00" FontSize="16" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+            </Border>
+            <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border Width="167" Height="42" Cursor="Hand" BorderThickness="2" BorderBrush="#4C5BD4" CornerRadius="20" HorizontalAlignment="Center"  >
+                    <TextBlock Text="Trang chủ" FontSize="16" Foreground="#4C5BD4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+                <Border Margin="20 0 0 0" Width="167" Height="42" BorderThickness="2" BorderBrush="#4C5BD4" CornerRadius="20" HorizontalAlignment="Center">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#4D5CD7" Offset="1" />
+                            <GradientStop Color="#6677FB" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <TextBlock Text="Điểm danh" FontSize="16" Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>-->
+
+</UserControl>

@@ -1,0 +1,249 @@
+﻿<UserControl x:Class="ChamCong365.TimeKeeping.ucCaiDatCongChuan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.TimeKeeping"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d">
+
+    <Border Background="#FFFFFF"
+           CornerRadius="10"
+           BorderBrush="#FFFFFF">
+        <Grid Margin="0 0 0 20">
+            <StackPanel
+                x:Name="dobStandardInstallation">
+            <Border 
+                Margin="20"
+                CornerRadius="5">
+                <StackPanel>
+                    <WrapPanel >
+                        <Border>
+                            <TextBlock
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Công chuẩn tháng "/>
+                        </Border>
+                        <Border>
+                            <TextBlock 
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="{Binding}"/>
+                        </Border>
+                    </WrapPanel>
+                    <Rectangle Style="{StaticResource Rectangle}"/>
+                        <WrapPanel
+                            Margin="0 20 0 0"
+                            HorizontalAlignment="Right">
+                            <!--Select year-->
+                            <Border 
+                                x:Name="bodHienThiNam"
+                                Background="Transparent"
+                                Style="{StaticResource BorderSelected}"
+                                MouseLeftButtonUp="bodHienThiNam_MouseLeftButtonUp"
+                                Width="190">
+                                <DockPanel Height="32">
+                                    <TextBlock 
+                                        VerticalAlignment="Center"
+                                        Margin="10 0 0 0"
+                                        x:Name="txbSelectYear"/>
+                                    <Path 
+                                Margin="0 0 5 0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Data="{StaticResource iconSearchMore}" Fill="#474747"/>
+                                </DockPanel>
+                            </Border>
+                            <!--Select Month-->
+                            <Border
+                                x:Name="bodHienThiThang"
+                                Width="190"
+                                Cursor="Hand"
+                                Background="Transparent"
+                                Margin="10 0 0 0"
+                                Style="{StaticResource BorderSelected}"
+                                MouseLeftButtonUp="bodHienThiThang_MouseLeftButtonUp">
+                                <DockPanel Height="32" VerticalAlignment="Top">
+                                    <TextBlock 
+                                    VerticalAlignment="Center"
+                                    Margin="10 0 0 0"
+                                    x:Name="txbSelectMonth"/>
+                                    <Path 
+                                        Margin="0 0 5 0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Data="{StaticResource iconSearchMore}" Fill="#474747"/>
+                                </DockPanel>
+                            </Border>
+                        </WrapPanel>
+                    <!--Mô Tả-->
+                    <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                            Margin="0 20 10 0"
+                            Style="{DynamicResource BorderTextPopup}">
+                            <StackPanel>
+                                <WrapPanel 
+                                    Margin="20 10 0 0"
+                                    Height="24">
+                                        <Path Margin="0 0 5 0" Data="{StaticResource iconMoTa}" Stroke="#474747" StrokeThickness="2" />
+                                    <TextBlock 
+                                        FontWeight="DemiBold"
+                                        Text="Mô tả"
+                                        Style="{StaticResource TextBlockLable}"/>
+                                </WrapPanel>
+                                    <StackPanel 
+                                    Margin="10 20 10 20">
+                                        <TextBlock 
+                                        Margin="10 0 0 0"
+                                        TextAlignment="Justify"
+                                        Text="Cài đặt số ngày công tiêu chuẩn để tính lương cho toàn bộ nhân viên của công ty trong tháng đó."
+                                        Style="{StaticResource TextBlockLable}"/>
+                                        <TextBlock 
+                                        Margin="10 0 0 0"
+                                        TextAlignment="Justify"
+                                        Text="Định dạng nhập là số nguyên dương hoặc số thập phân."
+                                    Style="{StaticResource TextBlockLable}"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="20 0 20 0">
+                                        <Border  CornerRadius="5" Style="{DynamicResource  BorderSelected}"  Margin="0,5,0,0">
+                                            <Grid MinHeight="44">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="37*"/>
+                                                    <ColumnDefinition Width="312*"/>
+                                                    <ColumnDefinition Width="0*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBox Background="Transparent" Margin="5 0 0 10" VerticalAlignment="Center" x:Name="txbNumberStandard" FontSize="16" Foreground="{DynamicResource #474747}"  BorderThickness="0" Grid.ColumnSpan="3"/>
+                                                <TextBlock FontSize="16" Margin="5 0 0 10" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập sô công chuẩn" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="3">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ElementName=txbNumberStandard, Path=Text}" Value="">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+                                        </Border>
+                                        <TextBlock Height="42" x:Name="txtValidateCongChuan" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="16" FontWeight="Regular" Foreground="#FF5B4D" />
+                                    </StackPanel>
+                                    <Border 
+                                    x:Name="bodSaveStandanrd"
+                                    MouseUp="bodSaveStandanrd_MouseUp"
+                                    Style="{StaticResource BorderButon}"
+                                    Margin="20 0 20 20"
+                                    HorizontalAlignment="Stretch"
+                                    Height="44">
+                                        <TextBlock 
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="Lưu công chuẩn"/>
+                                    </Border>
+                                </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+          
+        </StackPanel>
+            <Grid x:Name="popup" Visibility="Collapsed" MouseLeftButtonUp="popup_MouseLeftButtonUp" Background="Transparent"/>
+            <!--Boder Lisview Visibility Collapsed Year-->
+            <Border x:Name="borNam" Width="188" BorderThickness="1" BorderBrush="#474747" VerticalAlignment="Top" CornerRadius="5" Background="#ffffff" HorizontalAlignment="Right" Margin="0,102,220.5,0" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="120"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox BorderThickness="1" BorderBrush="#474747" x:Name="textSearchNam"  Grid.Row="0" Background="#ffffff" FontSize="16" Margin="3" TextChanged="textSearchNam_TextChanged">
+                    </TextBox>
+                    <ScrollViewer x:Name="scrollNam" Grid.Row="1" Height="120">
+                        <ListView x:Name="lsvNam" Margin="5 0 0 5" SelectionChanged="LoadCongChuan" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvNam_PreviewMouseWheel">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <Border HorizontalAlignment="Stretch" x:Name="borNam" MouseLeftButtonDown="borNam_MouseLeftButtonDown">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock FontSize="16" Text="{Binding nam}" Margin="5,5,0,5">
+                                                    </TextBlock>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <!--Boder Lisview Visibility Collapsed Month-->
+            <Border Background="#ffffff" x:Name="borThang" Width="188" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,102,21,0" BorderThickness="1" BorderBrush="#474747" CornerRadius="5" Visibility="Collapsed" Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="120"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="textSearchThang" Grid.Row="0" Background="#ffffff" BorderThickness="1" BorderBrush="#000000" FontSize="16" Margin="3" TextChanged="textSearchThang_TextChanged">
+                    </TextBox>
+                    <ScrollViewer x:Name="scrollThang" Grid.Row="1" Height="120">
+                        <ListView IsTabStop="False" Margin="5 0 0 5" x:Name="lsvThang" SelectionChanged="LoadCongChuan" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvThang_PreviewMouseWheel">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <Border x:Name="borThang" MouseLeftButtonDown="borThang_MouseLeftButtonDown">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock FontSize="16" Text="{Binding thang}" Margin="5,5,0,5">
+                                                    </TextBlock>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

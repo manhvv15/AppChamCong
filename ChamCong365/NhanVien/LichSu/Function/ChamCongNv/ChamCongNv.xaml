@@ -1,0 +1,245 @@
+﻿<Window x:Class="ChamCong365.NhanVien.LichSu.Function.ChamCongNv"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChamCong365.NhanVien.LichSu.Function"
+        mc:Ignorable="d"
+       Background="WhiteSmoke">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Border HorizontalAlignment="Left">
+                <TextBlock FontSize="20" FontWeight="DemiBold" Foreground="#474747" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Run Text="Xin chào: "/>
+                    <Run x:Name="txtNameSaff"/>
+                </TextBlock>
+            </Border>
+            <Grid>
+                <Border Height="47" CornerRadius="25" Cursor="Hand" HorizontalAlignment="Right" Margin="0 0 290 0" MouseUp="Border_MouseUp">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#4C5BD4" Offset="0.1"></GradientStop>
+                            <GradientStop Color="#4AA7FF" Offset="0.9"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <DockPanel>
+                        <Image Source="{StaticResource User_ScanningDrawingImageKey}" Width="24" Margin="25 0 0 0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Cập nhật dữ liệu khuôn mặt" VerticalAlignment="Center" Margin="15 0 20 0" Foreground="#FFFFFF" FontSize="20"/>
+                    </DockPanel>
+                </Border>
+                <Border Height="47" CornerRadius="25" Margin="20 0 0 0" HorizontalAlignment="Right" Cursor="Hand" MouseUp="Border_MouseUp_1" >
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#4C5BD4" Offset="0.1"></GradientStop>
+                            <GradientStop Color="#4AA7FF" Offset="0.9"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <DockPanel>
+                        <Image Source="{StaticResource User_ScanningDrawingImageKey}" Width="24" Margin="25 0 0 0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Chấm công nhân viên" VerticalAlignment="Center" Margin="15 0 20 0" Foreground="#FFFFFF" FontSize="20"/>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </DockPanel>
+        <Grid Grid.Row="1" Margin="10 20 0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Height="80" Background="#FFFFFF" CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Margin="10 0 0 0">
+                        <Image Source="{StaticResource Frame_1000010473__1_DrawingImageKey}" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Column="1" Margin="20 0 20 0">
+                        <TextBlock  Text="Số lần đi muộn trong tháng" FontSize="16" Foreground="#4C5BD4"  VerticalAlignment="Center" FontWeight="Medium" TextWrapping="Wrap" />
+                    </Border>
+                    <DockPanel Grid.Column="2">
+                        <Line X1="0" Y1="0" X2="0" Y2="80" Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Line>
+                        <TextBlock Text="00 Lần" x:Name="tblDDLate" FontSize="16" FontWeight="Medium" Foreground="#474747" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Grid>
+            </Border>
+            <Border Grid.Column="1" Height="80" Background="#FFFFFF" CornerRadius="15" Margin="20 0 20 0">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Margin="10 0 0 0">
+                        <Image Source="{StaticResource Frame_1000010473__2_DrawingImageKey}" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Column="1" Margin="20 0 20 0">
+                        <TextBlock  Text="Quản lí dữ liệu điểm danh theo tháng" FontSize="16" Foreground="#68AD23" VerticalAlignment="Center" FontWeight="Medium" TextWrapping="Wrap" />
+                    </Border>
+                    <DockPanel Grid.Column="2">
+                        <Line X1="0" Y1="0" X2="0" Y2="80" Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Line>
+                        <TextBlock Text="00 Lần" x:Name="tblDDMonth" FontSize="16" FontWeight="Medium" Foreground="#474747" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Grid>
+            </Border>
+            <Border Grid.Column="2" Height="80" Background="#FFFFFF" CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Margin="10 0 0 0">
+                        <Image Source="{StaticResource Frame_1000010473__3_DrawingImageKey}" VerticalAlignment="Center" />
+                    </Border>
+                    <Border Grid.Column="1" Margin="20 0 20 0">
+                        <TextBlock  Text="Điểm danh không hợp lệ trong tháng" FontSize="16" Foreground="#FE6755"  VerticalAlignment="Center" FontWeight="Medium" TextWrapping="Wrap" />
+                    </Border>
+                    <DockPanel Grid.Column="2">
+                        <Line X1="0" Y1="0" X2="0" Y2="80" Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Line>
+                        <TextBlock Text="00 Lần" x:Name="tblDDError" FontSize="16" FontWeight="Medium" Foreground="#474747" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </DockPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2" Margin="0 30 0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--lich su cham cong trong tuan-->
+            <Border Grid.Column="0" CornerRadius="10" Background="{DynamicResource #FFFFFF}">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel>
+                    <Border Height="44" Background="#4C5BD4" CornerRadius="10 10 0 0">
+                    <DockPanel HorizontalAlignment="Center">
+                        <Image Source="{StaticResource bar_chart_square_01DrawingImageKey}" Width="24" VerticalAlignment="Center"/>
+                        <TextBlock Text="Lịch sử chấm công trong Tuần" FontSize="18" Margin="10 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+                    <Grid x:Name="gridBD" MinHeight="450">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Số lần chấm công" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="1" Grid.ColumnSpan="8" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Text="5" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="4" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="3" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="2" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="1" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="4" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                        <TextBlock Text="0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="0" Grid.Row="5" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+
+                        <TextBlock Text="T2" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="1" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T3" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T4" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="3" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T5" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="4" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T6" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="5" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="T7" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="6" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="CN" Margin="30 0 0 0" FontSize="16" Foreground="{DynamicResource #474747}" Grid.Column="7" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="#ebebeb"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="#ebebeb"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="#ebebeb"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="#ebebeb"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="#ebebeb"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="{DynamicResource #CCCCCC}"></Rectangle>
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="7" VerticalAlignment="Center" Margin="15 0 0 0" Fill="#ebebeb"></Rectangle>
+
+                        <Rectangle x:Name="DDT2" Grid.Column="1" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT3" Grid.Column="2" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT4" Grid.Column="3" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT5" Grid.Column="4" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT6" Grid.Column="5" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDT7" Grid.Column="6" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+                        <Rectangle x:Name="DDCN" Grid.Column="7" Grid.Row="5" Grid.RowSpan="1" Visibility="Collapsed"  Margin="30 0 0 1" Fill="{DynamicResource #4C5BD4}"/>
+
+                        <Rectangle Height="2" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="7" VerticalAlignment="Bottom" Margin="15 15 0 0" Fill="#333333"></Rectangle>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <!--cham cong gan nhat-->
+            <Border Grid.Column="1" Margin="20 0 0 0"  Background="#FFFFFF" CornerRadius="10">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel>
+                    <Border Height="44" Background="#4C5BD4" CornerRadius="10 10 0 0">
+                        <DockPanel HorizontalAlignment="Center">
+                            <Image Source="{StaticResource HistoryDrawingImageKey}" Width="24" VerticalAlignment="Center"/>
+                            <TextBlock Text="Lịch sử chấm công gần nhất" FontSize="18" Margin="10 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                        </DockPanel>
+                    </Border>
+                    <ListView x:Name="lsvLichSuDiemDanh" ItemsSource="{Binding lstLichSuDiemDanh}" Margin="10" BorderThickness="0" MaxHeight="450" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Border Margin="20" BorderThickness="0 0 0 1" BorderBrush="#666666">
+                                                <StackPanel>
+                                                    <TextBlock Text="Bạn chấm công thành công" FontSize="16" FontWeight="Regular" Foreground="#4C5BD4"/>
+                                                    <TextBlock Margin="0 5 0 5" FontSize="16" Foreground="#474747">
+                                                        <Run x:Name="txtShiftName" Text="{Binding shift_name}"/>
+                                                    </TextBlock>
+                                                    <DockPanel>
+                                                        <Path Data="{StaticResource iconDongHo1}" StrokeThickness="1.5" Stroke="#474747" Margin="0 0 10 0" Width="24" HorizontalAlignment="Left"/>
+                                                        <TextBlock FontSize="16" Foreground="#474747">
+                                                            <Run Text="{Binding time}"/>
+                                                            <Run Text=", "/>
+                                                            <Run Text="{Binding date}"/>
+                                                        </TextBlock>
+                                                    </DockPanel>
+                                                </StackPanel>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

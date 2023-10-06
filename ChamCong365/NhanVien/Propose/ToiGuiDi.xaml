@@ -1,0 +1,891 @@
+﻿<Window
+    x:Class="ChamCong365.NhanVien.Propose.ToiGuiDi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.NhanVien.Propose"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="LoaiDeXuat"
+    Width="1224"
+    Height="450"
+    Background="WhiteSmoke"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Height="80"
+                    Margin="0,0,20,0"
+                    Background="#FFFFFF"
+                    CornerRadius="15"
+                    MouseUp="NavigateToToiGuiDi">
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Grid.Column="0">
+                            <Image
+                                Height="60"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                Source="/NhanVien/LichSu/Image/ToiGuiDi.png" />
+
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#4C5BD4"
+                                Text="Tôi gửi đi" />
+                            <Border Margin="0,0,0,0" HorizontalAlignment="Right">
+                                <Line
+                                    Stroke="Black"
+                                    StrokeDashArray="1"
+                                    StrokeThickness="1"
+                                    X1="0"
+                                    X2="0"
+                                    Y1="0"
+                                    Y2="80" />
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Grid.Column="1">
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#4C5BD4"
+                                Text="0 Đề Xuất" />
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    Name="borToiGuiDiActive"
+                    Height="80"
+                    Margin="0,0,20,0"
+                    CornerRadius="15"
+                    MouseUp="NavigateToToiGuiDi">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0" Color="#4C5BD4" />
+                            <GradientStop Offset="0.8" Color="#4AA7FF" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Grid.Column="0">
+                            <Image
+                                Height="60"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                Source="{StaticResource Frame_1000010473DrawingImageKey}" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#FFFFFF"
+                                Text="Tôi gửi đi" />
+                            <Border Margin="0,0,10,0" HorizontalAlignment="Right">
+                                <Line
+                                    Stroke="Black"
+                                    StrokeDashArray="1"
+                                    StrokeThickness="1"
+                                    X1="0"
+                                    X2="0"
+                                    Y1="0"
+                                    Y2="80" />
+                            </Border>
+                        </DockPanel>
+
+                        <DockPanel Grid.Column="1">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFFFFF"
+                                Text="20 Đề Xuất" />
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1"
+                    Height="80"
+                    Margin="0,0,20,0"
+                    Background="#FFFFFF"
+                    CornerRadius="15"
+                    MouseUp="NavigateToGuiDenToi">
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Grid.Column="0">
+                            <Image
+                                Height="60"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                Source="/NhanVien/LichSu/Image/GuiDenToi.png" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#339DFA"
+                                Text="Gửi đến tôi" />
+                            <Border Margin="0,0,10,0" HorizontalAlignment="Right">
+                                <Line
+                                    Stroke="Black"
+                                    StrokeDashArray="1"
+                                    StrokeThickness="1"
+                                    X1="0"
+                                    X2="0"
+                                    Y1="0"
+                                    Y2="80" />
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Grid.Column="1">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#339DFA"
+                                Text="0 " />
+
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#474747"
+                                Text="Đề Xuất" />
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    Name="borGuiDenToiActive"
+                    Grid.Column="1"
+                    Height="80"
+                    Margin="0,0,20,0"
+                    CornerRadius="15"
+                    MouseUp="NavigateToGuiDenToi"
+                    Visibility="Collapsed">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0" Color="#62B3FF" />
+                            <GradientStop Offset="0.8" Color="#62E6E1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Grid.Column="0">
+                            <Image
+                                Height="60"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                Source="/NhanVien/LichSu/Image/GuiDenToi.png" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#FFFFFF"
+                                Text="Gửi đến tôi" />
+                            <Border Margin="0,0,0,0" HorizontalAlignment="Right">
+                                <Line
+                                    Stroke="Black"
+                                    StrokeDashArray="1"
+                                    StrokeThickness="1"
+                                    X1="0"
+                                    X2="0"
+                                    Y1="0"
+                                    Y2="80" />
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Grid.Column="1">
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFFFFF"
+                                Text="0 " />
+
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFFFFF"
+                                Text="Đề Xuất" />
+                        </DockPanel>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="2"
+                    Height="80"
+                    Margin="0,0,20,0"
+                    Background="#FFFFFF"
+                    CornerRadius="15"
+                    MouseUp="NavigateToDangTheoDoi">
+
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Grid.Column="0">
+                            <Image
+                                Height="60"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                Source="/NhanVien/LichSu/Image/DangTheoDoi.png" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#FE6755"
+                                Text="Đang theo dõi" />
+                            <Border Margin="0,0,10,0" HorizontalAlignment="Right">
+                                <Line
+                                    Stroke="Black"
+                                    StrokeDashArray="1"
+                                    StrokeThickness="1"
+                                    X1="0"
+                                    X2="0"
+                                    Y1="0"
+                                    Y2="80" />
+                            </Border>
+                        </DockPanel>
+                        <DockPanel
+                            Grid.Column="1"
+                            Height="80"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FE6755"
+                                Text="0 " />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#474747"
+                                Text="Đề Xuất" />
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <Border
+                    x:Name="borDangTheoDoiActive"
+                    Grid.Column="2"
+                    Height="80"
+                    Margin="0,0,20,0"
+                    CornerRadius="15"
+                    MouseUp="NavigateToDangTheoDoi"
+                    Visibility="Collapsed">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0" Color="#FF6048" />
+                            <GradientStop Offset="0.8" Color="#FFB604" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Grid.Column="0">
+                            <Image
+                                Height="60"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left"
+                                Source="/NhanVien/LichSu/Image/DangTheoDoi.png" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Foreground="#FFFFFF"
+                                Text="Đang theo dõi" />
+                            <Border Margin="0,0,0,0" HorizontalAlignment="Right">
+                                <Line
+                                    Stroke="Black"
+                                    StrokeDashArray="1"
+                                    StrokeThickness="1"
+                                    X1="0"
+                                    X2="0"
+                                    Y1="0"
+                                    Y2="80" />
+                            </Border>
+                        </DockPanel>
+                        <DockPanel
+                            Grid.Column="1"
+                            Height="80"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFFFFF"
+                                Text="0 " />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#FFFFFF"
+                                Text="Đề Xuất" />
+                        </DockPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+            <!--    -->
+            <Grid Margin="0,50,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel MouseDown="tatCa_MouseDown">
+                    <TextBlock
+                        x:Name="txbTatCa"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Foreground="#4C5BD4"
+                        Text="Tất cả" />
+                    <Grid
+                        x:Name="gridTatCa"
+                        Margin="0,10,0,0"
+                        Visibility="Visible">
+                        <Rectangle
+                            RadiusX="10"
+                            RadiusY="10 "
+                            Stroke="#4C5BD4"
+                            StrokeDashArray="1"
+                            StrokeThickness="2" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="1" MouseDown="ChoDuyet_MouseDown">
+                    <TextBlock
+                        x:Name="txbChoDuyet"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Foreground="#4C5BD4"
+                        Text="Đang chờ duyệt" />
+                    <Grid
+                        x:Name="gridChoDuyet"
+                        Margin="0,10,0,0"
+                        Visibility="Visible">
+                        <Rectangle
+                            RadiusX="10"
+                            RadiusY="10 "
+                            Stroke="#4C5BD4"
+                            StrokeDashArray="1"
+                            StrokeThickness="2" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="2" MouseDown="DaDuyet_MouseDown">
+                    <TextBlock
+                        x:Name="txbDaDuyet"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Foreground="#4C5BD4"
+                        Text="Đã phê duyệt" />
+                    <Grid
+                        x:Name="gridDaDuyet"
+                        Margin="0,10,0,0"
+                        Visibility="Visible">
+                        <Rectangle
+                            RadiusX="10"
+                            RadiusY="10 "
+                            Stroke="#4C5BD4"
+                            StrokeDashArray="1"
+                            StrokeThickness="2" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="3" MouseDown="DaTuChoi_MouseDown">
+                    <TextBlock
+                        x:Name="txbDaTuChoi"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Foreground="#4C5BD4"
+                        Text="Đã từ chối" />
+                    <Grid
+                        x:Name="gridDaTuChoi"
+                        Margin="0,10,0,0"
+                        Visibility="Visible">
+                        <Rectangle
+                            RadiusX="10"
+                            RadiusY="10 "
+                            Stroke="#4C5BD4"
+                            StrokeDashArray="1"
+                            StrokeThickness="2" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <!--    -->
+            <Grid Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Height="42"
+                        Margin="0,0,10,0"
+                        Padding="2"
+                        BorderBrush="#ACACAC"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <ComboBox
+                            x:Name="cbxUserHiring"
+                            MinWidth="100"
+                            Padding="10,0,10,0"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            BorderBrush="{x:Null}"
+                            DisplayMemberPath="Value"
+                            FontSize="16"
+                            Foreground="{StaticResource #474747}"
+                            IsEditable="True"
+                            IsTextSearchEnabled="False"
+                            KeyUp="cbxUserHiring_KeyUp"
+                            PreviewTextInput="cbxUserHiring_PreviewTextInput"
+                            SelectedValuePath="Key"
+                            Style="{StaticResource Combobox1}" />
+
+                    </Border>
+                    <Border
+                        Grid.Column="1"
+                        Height="42"
+                        Margin="0,0,10,0"
+                        BorderBrush="#ACACAC"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <DatePicker
+                            x:Name="dpTimeStart"
+                            FontSize="15"
+                            Style="{StaticResource DatePicker1}" />
+                    </Border>
+                    <Border
+                        Grid.Column="2"
+                        Height="42"
+                        Margin="0,0,10,0"
+                        BorderBrush="#ACACAC"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <DatePicker
+                            x:Name="dpTimeEnd"
+                            FontSize="15"
+                            Style="{StaticResource DatePicker1}" />
+                    </Border>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Border
+                        Width="150"
+                        Height="42"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        CornerRadius="20">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#4C5BD4" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+                            <Border Padding="15,0,0,0">
+                                <Image
+                                    Height="24"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource SearchDrawingImageKey}" />
+                            </Border>
+                            <Border x:Name="borSearch" MouseDown="borSearch_MouseDown">
+                                <TextBlock
+                                    Padding="0,0,15,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#FFFFFF"
+                                    Text="Tìm kiếm" />
+                            </Border>
+                        </Grid>
+
+
+                    </Border>
+                </Grid>
+            </Grid>
+            <!--    -->
+            <DataGrid
+                Name="dgv"
+                Margin="0,20,0,0"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                Style="{DynamicResource DataGrid1}"
+                Visibility="Visible">
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="2*" Header="Đề Xuất">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                                    Margin="0,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    MouseUp="DetailDeXuat_MouseUp">
+                                    <DockPanel>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="18"
+                                            FontWeight="DemiBold"
+                                            Foreground="#4C5BD4"
+                                            Text="{Binding name_user}" />
+                                        <TextBlock
+                                            Margin="20,0,0,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="18"
+                                            Foreground="#474747"
+                                            Text="{Binding name_dx}" />
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="18"
+                                            Foreground="#474747"
+                                            Text="Phòng ban:" />
+                                        <Border
+                                            MinWidth="200"
+                                            Margin="10,0,0,0"
+                                            Padding="10,0,10,0"
+                                            Background="#4C5BD4"
+                                            CornerRadius="15">
+                                            <TextBlock
+                                                Margin="0,0,0,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Foreground="White"
+                                                Text="{Binding department_user}" />
+                                        </Border>
+
+                                    </DockPanel>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Người xét duyệt">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    MouseUp="DetailDeXuat_MouseUp"
+                                    Text="{Binding name_user_duyet}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Trạng thái">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel HorizontalAlignment="Center" MouseUp="DetailDeXuat_MouseUp">
+                                    <Border
+                                        Width="10"
+                                        Height="10"
+                                        Background="#70BE28"
+                                        CornerRadius="10">
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="5">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                    <Border
+                                        Width="10"
+                                        Height="10"
+                                        Background="#FF5B4D"
+                                        CornerRadius="10">
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="3">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                    <Border
+                                        Width="10"
+                                        Height="10"
+                                        Background="#FFA13B"
+                                        CornerRadius="10">
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="7">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                    <Border
+                                        Width="10"
+                                        Height="10"
+                                        Background="#FF5B4D"
+                                        CornerRadius="10">
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="6">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                    <Border
+                                        Width="10"
+                                        Height="10"
+                                        Background="#FFA13B"
+                                        CornerRadius="10">
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="0">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                    <Border
+                                        Width="10"
+                                        Height="10"
+                                        Background="#FFA13B"
+                                        CornerRadius="10">
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="10">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                                    <Border
+                                        Width="10"
+                                        Height="10"
+                                        Background="#FFA13B"
+                                        CornerRadius="10">
+                                        <Border.Style>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type_duyet}" Value="11">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                    </Border>
+                          
+                                    <TextBlock
+                                        Margin="10,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Foreground="#474747"
+                                        Text="{Binding type_duyet}" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="1*" Header="Ngày tháng">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    x:Name="textNgayThang"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    MouseUp="DetailDeXuat_MouseUp"
+                                    Text="{Binding time_create}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DockPanel Margin="0,10,20,10" HorizontalAlignment="Center">
+
+                <Border
+                    x:Name="borPageDau"
+                    Width="45"
+                    Height="29"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPageDau_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Đầu" />
+                </Border>
+                <Border
+                    x:Name="borLui1"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borLui1_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <Path
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource iconArrowLeft}"
+                        Fill="#474747" />
+                </Border>
+                <Border
+                    x:Name="borPage1"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#4c5bd4"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPage1_MouseLeftButtonUp"
+                    Visibility="Hidden">
+                    <TextBlock
+                        x:Name="textPage1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#ffffff"
+                        Text="1" />
+                </Border>
+                <Border
+                    x:Name="borPage2"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPage2_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        x:Name="textPage2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="2" />
+                </Border>
+                <Border
+                    x:Name="borPage3"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPage3_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        x:Name="textPage3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="3" />
+                </Border>
+                <Border
+                    x:Name="borLen1"
+                    Width="29"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borLen1_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <Path
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource iconArrowRight}"
+                        Fill="#474747" />
+                </Border>
+
+                <Border
+                    x:Name="borPageCuoi"
+                    Width="45"
+                    Height="29"
+                    Margin="5,0,0,0"
+                    Background="#ffffff"
+                    BorderBrush="#474747"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    MouseLeftButtonUp="borPageCuoi_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Cuối" />
+                </Border>
+
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>

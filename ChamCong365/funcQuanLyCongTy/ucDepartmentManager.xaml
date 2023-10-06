@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="ChamCong365.ucDepartmentManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <Grid>
+        <Border  
+            Background="White"
+            CornerRadius="10"
+            BorderBrush="#FFFFFF">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.5"></DropShadowEffect>
+            </Border.Effect>
+            <Grid Margin="20 20">
+                <ScrollViewer Height="47" VerticalAlignment="Top" HorizontalScrollBarVisibility="Hidden">
+                <Grid 
+                x:Name="GridMenu"
+                Width="1160" VerticalAlignment="Top" Height="47">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="0.75*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                    x:Name="bodDSPhongBan"
+                    MouseLeftButtonUp="bodDSPhongBan_MouseLeftButtonUp"
+                    Grid.Column="0" 
+                                    BorderBrush="#4C5BD4"
+                        BorderThickness="0 0 0 5"
+                    >
+                            <TextBlock 
+                                   Text="Danh sách phòng ban"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                        Foreground="#4C5BD4"
+                        FontWeight="Bold"/>
+                        </Border>
+                        <Border
+                                       x:Name="bodDSTo"
+                    MouseLeftButtonUp="bodDSTo_MouseLeftButtonUp"
+                    Grid.Column="1"
+                        BorderBrush="Gray"
+                        BorderThickness="0 0 0 1">
+                            <TextBlock 
+                                   Text="Danh sách tổ"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#474747"
+                        FontWeight="Bold"/>
+                        </Border>
+                        <Border 
+                                        x:Name="bodDSNhom"
+                    MouseLeftButtonUp="bodDSNhom_MouseLeftButtonUp"
+                    Grid.Column="2"
+                        BorderBrush="Gray"
+                        BorderThickness="0 0 0 1">
+                            <TextBlock 
+                                   Text="Danh sách nhóm"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#474747"
+                        FontWeight="Bold"/>
+                        </Border>
+                        <Border
+                                        x:Name="bodDSLuanChuyen"
+                    MouseLeftButtonUp="bodDSLuanChuyen_MouseLeftButtonUp"
+                    Grid.Column="3"
+                        BorderBrush="Gray"
+                        BorderThickness="0 0 0 1">
+                            <TextBlock 
+                                   Text="Luân chuyển"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#474747"
+                        FontWeight="Bold"/>
+                        </Border>
+                        <Border
+                                        x:Name="bodDSNghiViec"
+                    MouseLeftButtonUp="bodDSNghiViec_MouseLeftButtonUp"
+                    Grid.Column="4"
+                        BorderBrush="Gray"
+                        BorderThickness="0 0 0 1">
+                            <TextBlock 
+                                   Text="Nghỉ việc"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#474747"
+                        FontWeight="Bold"/>
+                        </Border>
+                    <Border
+                                        x:Name="bodDSGiamBienChe"
+                    MouseLeftButtonUp="bodDSGiamBienChe_MouseLeftButtonUp"
+                    Grid.Column="5"
+                        BorderBrush="Gray"
+                        BorderThickness="0 0 0 1">
+                        <TextBlock 
+                                   Text="Giảm biên chế"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#474747"
+                        FontWeight="Bold"/>
+                    </Border>
+                </Grid>
+                </ScrollViewer>
+                <StackPanel Margin="0 40 0 0 "
+            x:Name="stackTabBody" Loaded="stackTabBody_Loaded">
+
+                </StackPanel>
+            </Grid>
+        </Border>
+        </Grid>
+</UserControl>

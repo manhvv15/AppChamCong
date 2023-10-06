@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="ChamCong365.Popups.ChamCong.CaiDatWifi.ucXoaCamXuc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popups.ChamCong.CaiDatWifi"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Fill="#000000" Opacity="0.5" MouseDown="Rectangle_MouseDown"/>
+        <!--1.Delete-->
+        <Border 
+            x:Name="bodXoaCamXuc"
+            BorderThickness="1"
+            CornerRadius="10 10 10 10"
+            Width="494"
+            Height="232"
+            Background="#ffffff">
+            <StackPanel>
+                <Border
+                    Margin="0 10 0 10"
+                    Width="50"
+                    Height="50">
+                    <Image Source="{DynamicResource iconExitRedDrawingImage}"/>
+                </Border>
+                <Border 
+                    Margin="0 10 0 20"
+                    TextBlock.Foreground="#474747"
+                    Width="279"
+                    Height="auto"
+                    TextBlock.FontSize="16"
+                    TextBlock.FontWeight="DemiBold">
+                    <TextBlock 
+                        HorizontalAlignment="Center"
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        Text="Bạn có chắc chắn muốn xóa thang điểm cảm xúc này?">
+
+                    </TextBlock>
+                </Border>
+                <DockPanel 
+                    Width="274"
+                    Height="44">
+                    <Border 
+                        x:Name="bodHuy"
+                        MouseEnter="bodHuy_MouseEnter"
+                        MouseLeave="bodHuy_MouseLeave"
+                        MouseLeftButtonUp="HuyXoa"
+                        TextBlock.Foreground="#4C5BD4"
+                        TextBlock.FontWeight="DemiBold"
+                        TextBlock.FontSize="18"
+                        Width="129"
+                        BorderBrush="#4C5BD4"
+                        BorderThickness="1"
+                        CornerRadius="15 15 15 15">
+                        <TextBlock 
+                            x:Name="txbHuy"
+                            Text="Hủy"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+                    <Border 
+                        x:Name="bodXacNhanXoa"
+                        MouseLeftButtonUp="XacNhanXoa"
+                         Background="#4C5BD4"
+                        Width="129"
+                        TextBlock.Foreground="White"
+                        TextBlock.FontWeight="DemiBold"
+                        TextBlock.FontSize="18"
+                        BorderBrush="#4C5BD4"
+                        BorderThickness="1"
+                        CornerRadius="15 15 15 15">
+                        <TextBlock 
+                            Text="Đồng ý"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

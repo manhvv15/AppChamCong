@@ -1,0 +1,386 @@
+﻿<UserControl
+    x:Class="ChamCong365.ucShiftWorkManager"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignWidth="600"
+    mc:Ignorable="d">
+    <Grid>
+        <Border
+            Background="#FFFFFF"
+            BorderBrush="#FFFFFF"
+            CornerRadius="10">
+            <!--<Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="8"
+                    Opacity="0.5"
+                    ShadowDepth="0.2" />
+            </Border.Effect>-->
+            <Grid x:Name="gridShiftManager" Margin="16,16">
+                <WrapPanel
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="top">
+                    <TextBlock
+                        Text="Quản lý ca làm việc"
+                        Foreground="#474747"
+                        FontSize="18"
+                        FontWeight="Medium"/>
+                </WrapPanel>
+                <!--Button lịch làm việc-->
+                <Border
+                    x:Name="btnWorkCalendar"
+                    Width="166"
+                    Height="43"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    MouseLeftButtonUp="btnWorkCalendar_MouseLeftButtonUp"
+                    Style="{StaticResource BorderButon}">
+                    <DockPanel>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontFamily="Roboto"
+                            FontSize="18"
+                            Text="Lịch làm việc" />
+                    </DockPanel>
+                </Border>
+                <!--  dropbox chọn công ty -->
+                <Border
+                    Width="298"
+                    Margin="0,50,0,10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource BorderSelected}">
+                    <DockPanel Height="32">
+                        <TextBlock
+                            x:Name="txbSelectCompany"
+                            Width="252"
+                            Height="26"
+                            Margin="10,0,0,0"
+                            Text="Chọn công ty" />
+                        <Image
+                            x:Name="bodSelectCompany"
+                            Width="14"
+                            Height="14"
+                            MouseLeftButtonUp="Image_MouseLeftButtonUp_SelectCompany"
+                            Source="{StaticResource iconDropDownDrawingImage}" />
+                    </DockPanel>
+                </Border>
+
+
+                <!--
+                    Border
+                    Lisview Collapsed Select company
+                -->
+
+
+                <Border
+                    x:Name="bodCompany"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Width="298"
+                    Height="auto"
+                    Margin="0,90,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Panel.ZIndex="1"
+                    Background="White"
+                    BorderBrush="#474747"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <Grid>
+                        <Rectangle
+                            Margin="-2000"
+                            Fill="Transparent"
+                            MouseDown="SelectPopUpClose_MouseDown" />
+                        <ListView
+                            x:Name="lsvCompany"
+                            MaxHeight="200"
+                            BorderThickness="1"
+                            FontSize="16"
+                            Foreground="#474747"
+                            SelectionChanged="lsvCompany_SelectionChanged">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <Border>
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="Transparent" />
+                                                            <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#4c5bd4" />
+                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                                </Trigger>
+                                                            </Style.Triggers>
+
+                                                        </Style>
+
+                                                    </Border.Style>
+                                                    <TextBlock
+                                                        Margin="5,5,0,5"
+                                                        FontSize="16"
+                                                        Text="{Binding com_name}" />
+
+                                                </Border>
+
+                                                <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </Grid>
+                </Border>
+                <!--
+                    Listview
+                    Ca làm việc
+                -->
+                <Border Margin="0,100,0,0" VerticalAlignment="Top">
+                    <Grid>
+                        <ScrollViewer>
+                            <ListView
+                                x:Name="ListCaLamViec"
+                                Height="auto"
+                                Margin="-10"
+                                VerticalAlignment="Top"
+                                BorderThickness="0"
+                                Loaded="ListCaLamViec_Loaded"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                    <Border Margin="10">
+                                                        <ContentPresenter />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.Resources>
+                                    <DataTemplate x:Key="LastItemTemplate">
+                                        <Grid Width="auto" Height="200">
+                                            <Border
+                                                x:Name="bodBtnAdd"
+                                                Width="216"
+                                                Height="200"
+                                                Margin="0,0"
+                                                VerticalAlignment="Top"
+                                                BorderBrush="LightGray"
+                                                BorderThickness="2"
+                                                CornerRadius="15"
+                                                MouseLeftButtonUp="bodBtnAdd_MouseLeftButtonUp">
+                                                <Border.Background>
+                                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                                        <GradientStop Offset="0" Color="#6C7AEB" />
+                                                        <GradientStop Offset="1" Color="#4C5BD4" />
+                                                    </LinearGradientBrush>
+                                                </Border.Background>
+                                            </Border>
+
+                                            <Border
+                                                Width="50"
+                                                Height="50"
+                                                Background="White"
+                                                CornerRadius="50 50 50 50"
+                                                MouseLeftButtonUp="bodBtnAdd_MouseLeftButtonUp" />
+                                            <Border
+                                                Width="5"
+                                                Height="20"
+                                                Background="#4C5BD4"
+                                                MouseLeftButtonUp="bodBtnAdd_MouseLeftButtonUp" />
+                                            <Border
+                                                Width="20"
+                                                Height="5"
+                                                Background="#4C5BD4"
+                                                MouseLeftButtonUp="bodBtnAdd_MouseLeftButtonUp" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.Resources>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+
+
+                                        <Grid
+                                            Width="216"
+                                            Height="200"
+                                            MouseEnter="LsvItem_CaLamViec_MouseEnter"
+                                            MouseLeave="LsvItem_CaLamViec_MouseLeave">
+                                            <Border
+                                                x:Name="bodListItem_CaLamViec"
+                                                Width="216"
+                                                Height="100"
+                                                Margin="0,0"
+                                                VerticalAlignment="Top">
+                                                <Grid>
+                                                    <Border>
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="/Resource/image/WorkShift.png" />
+                                                        </Border.Background>
+                                                    </Border>
+
+                                                    <TextBlock
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        FontFamily="Roboto"
+                                                        FontSize="18"
+                                                        Foreground="White"
+                                                        Text="{Binding shift_name}" />
+                                                </Grid>
+                                            </Border>
+                                            <Grid
+                                                Width="216"
+                                                Height="100"
+                                                Margin="0,0,0,0"
+                                                VerticalAlignment="Bottom">
+                                                <TextBlock
+                                                    Margin="0,0,100,0"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="Roboto"
+                                                    FontSize="16"
+                                                    Foreground="#4C5BD4"
+                                                    Text="{Binding start_time}" />
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="Roboto"
+                                                    FontSize="16"
+                                                    Foreground="#4C5BD4"
+                                                    Text="-" />
+                                                <TextBlock
+                                                    Margin="100,0,0,0"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="Roboto"
+                                                    FontSize="16"
+                                                    Foreground="#4C5BD4"
+                                                    Text="{Binding end_time}" />
+                                            </Grid>
+                                            <Border
+                                                x:Name="bodLsvItem_CaLamViec"
+                                                Width="216"
+                                                Height="200"
+                                                VerticalAlignment="Top"
+                                                BorderBrush="LightGray"
+                                                BorderThickness="0.5"
+                                                CornerRadius="16">
+                                                <Border.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="15"
+                                                        Opacity="1"
+                                                        ShadowDepth="5" />
+                                                </Border.Effect>
+                                            </Border>
+
+                                            <!--
+                                                button
+                                                sửa và xóa ca làm việc
+                                            -->
+                                            <Grid
+                                                Width="216"
+                                                Height="200"
+                                                Margin="0,0,0,0"
+                                                Visibility="Collapsed">
+                                                <Border
+                                                    Width="216"
+                                                    Height="200"
+                                                    Margin="0,0"
+                                                    VerticalAlignment="Top"
+                                                    CornerRadius="15">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                                            <GradientStop Offset="0" Color="#6C7AEB" />
+                                                            <GradientStop Offset="1" Color="#4C5BD4" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                </Border>
+
+                                                <!--
+                                                    button
+                                                    sửa ca làm việc
+                                                -->
+                                                <DockPanel
+                                                    x:Name="docpSuaCaLamViec"
+                                                    Width="100"
+                                                    Height="30"
+                                                    HorizontalAlignment="Left"
+                                                    MouseLeftButtonUp="docpSuaCaLamViec_MouseLeftButtonUp">
+                                                    <Image
+                                                        Width="30"
+                                                        Height="30"
+                                                        Margin="20,0,5,0"
+                                                        VerticalAlignment="Center"
+                                                        Source="{StaticResource iconEditUnderLineDrawingImage}" />
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        FontWeight="Bold"
+                                                        Foreground="White">
+                                                        Sửa
+                                                    </TextBlock>
+                                                </DockPanel>
+                                                <!--
+                                                    button
+                                                    xóa ca làm việc
+                                                -->
+                                                <DockPanel
+                                                    x:Name="docpXoaCaLamViec"
+                                                    Width="100"
+                                                    Height="30"
+                                                    HorizontalAlignment="Right"
+                                                    MouseLeftButtonUp="docpXoaCaLamViec_MouseLeftButtonUp">
+                                                    <Image
+                                                        Width="30"
+                                                        Height="30"
+                                                        Margin="20,0,5,0"
+                                                        VerticalAlignment="Center"
+                                                        Source="{StaticResource iconTrashWhiteDrawingImage}" />
+                                                    <TextBlock
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        FontWeight="Bold"
+                                                        Foreground="White">
+                                                        Xóa
+                                                    </TextBlock>
+                                                </DockPanel>
+                                            </Grid>
+
+                                        </Grid>
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

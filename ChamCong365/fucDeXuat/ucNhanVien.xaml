@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="ChamCong365.ucNhanVien"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365"
+             mc:Ignorable="d">
+    <Grid Background="#ffffff" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+                x:Name="GridMenu"
+                VerticalAlignment="Top" Height="47">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"
+                    x:Name="borNhieuCap"
+                    MouseLeftButtonUp="bodDXNPQNC_MouseLeftButtonUp" 
+                                    BorderBrush="Gray"
+                        BorderThickness="0 0 0 1">
+                <TextBlock x:Name="textNhieuCap"
+                                   Text="Duyệt đề xuất nghỉ phép qua nhiều cấp"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                        Foreground="#474747"
+                        FontWeight="Bold"/>
+            </Border>
+
+
+
+            <Border Grid.Column="1"
+                                        x:Name="bodDuyetDeXuatNP1C"
+                    MouseLeftButtonUp="bodDuyetDeXuatNP1C_MouseLeftButtonUp"
+                        BorderBrush="Gray"
+                        BorderThickness="0 0 0 1">
+                <TextBlock 
+                                   Text="Duyệt đề xuất nghỉ phép qua 1 cấp"
+                                   FontSize="20"
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Foreground="#474747"
+                        FontWeight="Bold"/>
+            </Border>
+        </Grid>
+        <!--<StackPanel Grid.Row="0">
+            --><!--menu ngang-->
+            
+
+            <!--phần Tìm  kiếm và nút thêm phòng ban--><!--
+
+        </StackPanel>-->
+        <Grid x:Name="pnlHienThi" Grid.Row="1">
+            
+        </Grid>
+    </Grid>
+</UserControl>
+    
+                
+            
+       
+    
+
+
+

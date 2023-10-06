@@ -1,0 +1,280 @@
+﻿<UserControl x:Class="ChamCong365.Popup.CaiDatLuong.CaiDatPhucLoi.ucDanhSachNVHuongPhucLoi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.CaiDatLuong.CaiDatPhucLoi"
+             mc:Ignorable="d" >
+    <Grid x:Name="grLoadNhanVienPhucLoi">
+        <Rectangle Fill="#000000" Opacity="0.5" MouseDown="Rectangle_MouseDown"/>
+        <Border CornerRadius="10" Width="1000" Height="367" Background="#FFFFFF">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Height="50" Grid.Row="0">
+                    <DockPanel>
+                        <TextBlock Text="Danh sách nhân viên hưởng " FontSize="22" FontWeight="Medium" Foreground="#474747" />
+                        <TextBlock x:Name="textTd" Text="Danh sách nhân viên hưởng " FontSize="22" FontWeight="Medium" Foreground="#474747" />
+
+                    </DockPanel>
+                </Border>
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" Grid.Row="1" x:Name="scroll" VerticalAlignment="Top">
+                    <Grid>
+                        <DataGrid VerticalAlignment="Center"  Style="{DynamicResource DataGrid1}" Name="dgvListSaffInsurance" RowHeight="60" PreviewMouseWheel="dgvListSaffInsurance_PreviewMouseWheel">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="80"  Header="Ảnh">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <Border
+                                    Style="{DynamicResource BorderImage}"
+                                    HorizontalAlignment="Center">
+                                                    <Border.Background>
+                                                        <ImageBrush 
+                                             ImageSource="{Binding avatarUser}">
+                                                        </ImageBrush>
+                                                    </Border.Background>
+                                                </Border>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn MinWidth="300" Header="Họ và tên (ID)">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Grid.Row="0"
+                                                    Text="{Binding userName}" TextWrapping="Wrap" Margin="5,0,5,0"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Bottom"
+                                                     FontSize="16"
+                                                     Foreground="#4C5BD4"/>
+                                                    <TextBlock Grid.Row="1"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Top"
+                                                     FontSize="16"
+                                                     Foreground="#474747">
+                                                <Run Text="ID: "/>
+                                                <Run Text="{Binding idQLC}"/>
+                                                    </TextBlock>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="270" Header="Phòng ban">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock TextWrapping="Wrap"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    Text="{Binding dep_name}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="170" Header="Áp dụng từ tháng">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock 
+                                     HorizontalAlignment="Center" TextWrapping="Wrap"
+                                     VerticalAlignment="Center"
+                                     FontSize="16"
+                                     Foreground="#474747"
+                                     Text="{Binding cl_day}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="150" Header="Đến Tháng">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock 
+                                    HorizontalAlignment="Center" TextWrapping="Wrap"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    Text="{Binding cl_day_end}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="145" Header="Tiền phúc lợi">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    Text="{Binding cl_salary}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="Chức Năng">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <WrapPanel Width="80" Height="24">
+                                                    <Border Background="Transparent" Cursor="Hand" x:Name="bodSuaNhanVienPhucLoi" MouseUp="bodSuaNhanVienPhucLoi_MouseUp"  Width="24">
+                                                        <Path VerticalAlignment="Center"  Data="{DynamicResource iconChinhSua2}" Stroke="#4C5BD4"/>
+                                                    </Border>
+                                                    <Border Width="20">
+                                                        <Path HorizontalAlignment="Center"  Data="{DynamicResource iconDuongDoc}" Stroke="#aaa"/>
+                                                    </Border>
+                                                    <Border Background="Transparent" Cursor="Hand" x:Name="bodXoaNVPhucLoi" MouseUp="bodXoaNVPhucLoi_MouseUp"  Width="24">
+                                                        <Path VerticalAlignment="Center" Data="{DynamicResource iconXoa}" Stroke="#FF5B4D" StrokeThickness="2"/>
+                                                    </Border>
+                                                </WrapPanel>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid VerticalAlignment="Center"  Style="{DynamicResource DataGrid1}" Name="dgvPC" RowHeight="60" Visibility="Collapsed" PreviewMouseWheel="dgvPC_PreviewMouseWheel">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="80"  Header="Ảnh">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <Border
+                                    Style="{DynamicResource BorderImage}"
+                                    HorizontalAlignment="Center">
+                                                    <Border.Background>
+                                                        <ImageBrush 
+                                             ImageSource="{Binding avatarUser}">
+                                                        </ImageBrush>
+                                                    </Border.Background>
+                                                </Border>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn MinWidth="300" Header="Họ và tên (ID)">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Grid.Row="0"
+                                                    Text="{Binding userName}" TextWrapping="Wrap" Margin="5,0,5,0"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Bottom"
+                                                     FontSize="16"
+                                                     Foreground="#4C5BD4"/>
+                                                    <TextBlock Grid.Row="1"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Top"
+                                                     FontSize="16"
+                                                     Foreground="#474747">
+                                                <Run Text="ID: "/>
+                                                <Run Text="{Binding idQLC}"/>
+                                                    </TextBlock>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="270" Header="Phòng ban">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock TextWrapping="Wrap"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    Text="{Binding dep_name}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="170" Header="Áp dụng từ tháng">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock 
+                                     HorizontalAlignment="Center" TextWrapping="Wrap"
+                                     VerticalAlignment="Center"
+                                     FontSize="16"
+                                     Foreground="#474747"
+                                     Text="{Binding cl_day}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="150" Header="Đến Tháng">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock 
+                                    HorizontalAlignment="Center" TextWrapping="Wrap"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    Text="{Binding cl_day_end}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="145" Header="Tiền phụ cấp">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border>
+                                                <TextBlock 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#474747"
+                                    Text="{Binding cl_salary}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="120" Header="Chức Năng">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <WrapPanel Width="80" Height="24">
+                                                    <Border Background="Transparent" Cursor="Hand" x:Name="bodSuaNhanVienPhucLoi" MouseUp="bodSuaNhanVienPhucLoi_MouseUp"  Width="24">
+                                                        <Path VerticalAlignment="Center"  Data="{DynamicResource iconChinhSua2}" Stroke="#4C5BD4"/>
+                                                    </Border>
+                                                    <Border Width="20">
+                                                        <Path HorizontalAlignment="Center"  Data="{DynamicResource iconDuongDoc}" Stroke="#aaa"/>
+                                                    </Border>
+                                                    <Border Background="Transparent" Cursor="Hand" x:Name="bodXoaNVPhucLoi" MouseUp="bodXoaNVPhucLoi_MouseUp"  Width="24">
+                                                        <Path VerticalAlignment="Center" Data="{DynamicResource iconXoa}" Stroke="#FF5B4D" StrokeThickness="2"/>
+                                                    </Border>
+                                                </WrapPanel>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

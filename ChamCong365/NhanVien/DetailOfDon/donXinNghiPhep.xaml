@@ -1,0 +1,428 @@
+﻿<UserControl
+    x:Class="ChamCong365.NhanVien.DetailOfDon.donXinNghiPhep"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.NhanVien.DetailOfDon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    MaxWidth="1920"
+    Background="WhiteSmoke"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Border Background="#FFFFFF" BorderThickness="1">
+            <StackPanel>
+                <Border
+                    Height="60"
+                    Background="#4C5BD4"
+                    CornerRadius="10 10 0 0"
+                    Cursor="Hand"
+                    MouseUp="Border_MouseUp">
+                    <DockPanel>
+                        <Path
+                            Margin="10,0,20,0"
+                            VerticalAlignment="Center"
+                            Data="{DynamicResource sangTrai}"
+                            Fill="#FFFFFF" />
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Foreground="#FFFFFF"
+                            Text="Trở lại danh sách" />
+                        <Image
+                            Width="30"
+                            Margin="0,0,20,0"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource Print_lightDrawingImageKey}" />
+                    </DockPanel>
+                </Border>
+                <Grid Margin="10,15,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Border>
+                            <TextBlock
+                                FontSize="22"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Đề xuất đơn xin nghỉ phép"
+                                TextWrapping="Wrap" />
+                        </Border>
+                        <Border Margin="0,20,0,0">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Thông tin đề xuất" />
+                        </Border>
+                        <StackPanel Margin="0,5,0,0">
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Người tạo: " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Nhóm đề xuất: " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#4C5BD4"
+                                    Text="Đơn xin nghỉ phép" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Thời gian tạo: " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Loại đề xuất : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Loại : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Loại nghỉ phép : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Cập nhật : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                        </StackPanel>
+                        <Border Margin="0,10,0,0">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Thông tin chung" />
+                        </Border>
+                        <StackPanel Margin="0,5,0,0">
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="1.Họ và tên : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#4C5BD4"
+                                    Text="Vũ Văn Khá" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Lịch nghỉ 1: " />
+
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Ngày bắt đầu nghỉ: " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Ca nghỉ : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Thời gian bắt đầu : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Thời gian kết thúc : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Lý do xin nghỉ : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="Tài liệu : " />
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="#666666"
+                                    Text="{Binding textNguoiNhap}" />
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--  Trang thai  -->
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                        <Border
+                            Width="170"
+                            Height="44"
+                            HorizontalAlignment="Right"
+                            BorderBrush="#70BE28"
+                            BorderThickness="1"
+                            CornerRadius="15">
+                            <DockPanel>
+                                <Image
+                                    Width="24"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Source="{StaticResource check_verified_03DrawingImageKey}" />
+                                <TextBlock
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#70BE28"
+                                    Text="Đã chấp thuận" />
+                            </DockPanel>
+                        </Border>
+                        <DockPanel Margin="0,20,0,0">
+                            <Image Width="24" Source="{StaticResource alert_triangleDrawingImageKey}" />
+                            <TextBlock
+                                Margin="10,0,10,0"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Foreground="#DA302A"
+                                Text="Đang chờ công ty duyệt !" />
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Margin="15,0,0,0"
+            Background="#FFFF">
+            <StackPanel>
+                <Border
+                    Height="60"
+                    Background="#4C5BD4"
+                    CornerRadius="10 10 0 0"
+                    Cursor="Hand"
+                    MouseUp="Border_MouseUp">
+                    <DockPanel>
+                        <Image
+                            Width="24"
+                            Margin="10,0,10,0"
+                            VerticalAlignment="Center"
+                            Source="{StaticResource alert_circleDrawingImageKey}" />
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            Foreground="#FFFFFF"
+                            Text="Thông tin đề xuất" />
+
+                    </DockPanel>
+                </Border>
+                <Border Margin="10,20,0,0">
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Lãnh đạo duyệt" />
+                </Border>
+                <DockPanel Margin="10,10,0,0">
+                    <Image
+                        Width="60"
+                        HorizontalAlignment="Left"
+                        Source="/NhanVien/Propose/Trang.png" />
+                    <StackPanel Margin="10,0,0,0">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#4C5BD4"
+                            Text="Lại Thị Trang" />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="ID: 5713" />
+                    </StackPanel>
+                </DockPanel>
+                <Grid Margin="0,10,0,0" Visibility="Visible">
+                    <Rectangle
+                        RadiusX="10"
+                        RadiusY="10 "
+                        Stroke="Black"
+                        StrokeDashArray="1"
+                        StrokeThickness="1" />
+                </Grid>
+                <!--  NGuoi theo doi  -->
+                <Border Margin="10,20,0,0">
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Người theo dõi" />
+                </Border>
+                <DockPanel Margin="10,10,0,0">
+                    <Image
+                        Width="60"
+                        HorizontalAlignment="Left"
+                        Source="/NhanVien/Propose/Trang.png" />
+                    <StackPanel Margin="10,0,0,0">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#4C5BD4"
+                            Text="Lại Thị Trang" />
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="ID: 5713" />
+                    </StackPanel>
+                </DockPanel>
+                <Grid Margin="0,10,0,0" Visibility="Visible">
+                    <Rectangle
+                        RadiusX="10"
+                        RadiusY="10 "
+                        Stroke="Black"
+                        StrokeDashArray="1"
+                        StrokeThickness="1" />
+                </Grid>
+                <!--  Trang thai de xuat  -->
+                <Border Margin="10,20,0,0">
+                    <TextBlock
+                        FontSize="18"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Trạng thái đề xuất" />
+                </Border>
+                <StackPanel Margin="10,20,0,0">
+                    <DockPanel>
+                        <Image
+                            Height="24"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" />
+                        <Image
+                            Height="24"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Source="{StaticResource share_05DrawingImageKey}" />
+
+                        <Path
+                            Width="24"
+                            Data="{StaticResource check-verified-03}"
+                            Stretch="Fill"
+                            Stroke="#97C25F"
+                            StrokeThickness="3" />
+                        <WrapPanel Margin="10,0,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#474747"
+                                Text="07:27 AM, 07-04-2023 " />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#4C5BD4"
+                                Text="Vũ Văn Khá " />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#474747"
+                                Text="vừa tạo đề xuất " />
+                        </WrapPanel>
+                    </DockPanel>
+                    <DockPanel Margin="0,10,0,0">
+                        <Image
+                            Height="24"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Source="{StaticResource share_05DrawingImageKey}" />
+                        <WrapPanel Margin="10,0,0,0" Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#474747"
+                                Text="07:27 AM, 07-04-2023 " />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#4C5BD4"
+                                Text="Vũ Văn Khá " />
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#474747"
+                                Text="vừa tiếp nhận đề xuất " />
+                        </WrapPanel>
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ChamCong365.Popup.ChamCong.CamXuc.ucCamXucChamCong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.ChamCong.CamXuc"
+             mc:Ignorable="d"  >
+    <Grid>
+        <Border  CornerRadius="10" BorderThickness="0.5" BorderBrush="#6666"  Background="#FFFFFF">
+            <StackPanel Margin="20">
+                <Border HorizontalAlignment="Center">
+                    <TextBlock Foreground="#474747" TextWrapping="Wrap" FontSize="16" FontWeight="Regular">
+                        <Run Text="AI365 cho biết điểm cảm xúc của bạn là"/>
+                        <Run x:Name="tb_DiemCuaBan"/>
+                        <Run Text="/"/>
+                        <Run x:Name="tb_DiemChuan"/>
+                    </TextBlock>
+                </Border>
+                <Grid  MaxHeight="130" MaxWidth="130">
+                    <Image Visibility="Hidden" Source="{DynamicResource iconLoSo}"/>
+                    <Image Visibility="Visible" Source="{DynamicResource iconTucGian}"/>
+                    <Image Visibility="Hidden" Source="{DynamicResource iconVuiVe}"/>
+                    <Image Visibility="Hidden" Source="{DynamicResource iconNgacNhien}"/>
+                    <Image Visibility="Hidden" Source="{DynamicResource iconBuon}"/>
+                    <Image Visibility="Hidden" Source="{DynamicResource iconBinhThuong}"/>
+                    <Image Visibility="Hidden" Source="{DynamicResource iconGheSo}"/>
+                 </Grid>
+                <Border Margin="0 20 0 20">
+                    <TextBlock FontSize="24" FontWeight="Medium" Foreground="#008BFF" x:Name="tb_TrangThaiCamSuc"/>
+                </Border>
+                <StackPanel Visibility="Visible">
+                    <TextBlock Text="Bạn được đề nghị chấm công lại để được ghi nhận công" Foreground="#474747" FontSize="16" FontWeight="Regular"/>
+                    <Border Style="{DynamicResource BorderButon}" Margin="0 10 0 0">
+                        <TextBlock Text="Chấm công lại" Margin="30 10 30 10" Foreground="#FFFFFF" FontSize="16" FontWeight="Medium"/>
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>         
+    </Grid>
+</UserControl>

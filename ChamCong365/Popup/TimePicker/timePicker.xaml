@@ -1,0 +1,175 @@
+﻿<UserControl
+    x:Class="ChamCong365.Popup.TimePicker.timePicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ChamCong365.Popup.TimePicker"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid VerticalAlignment="Top">
+        <StackPanel>
+            <Border
+                x:Name="bodTimePickerCollapsed"
+                Width="120"
+                HorizontalAlignment="Left"
+                Panel.ZIndex="2"
+                Background="White"
+                BorderBrush="#FFFFFF"
+                CornerRadius="10"
+                Visibility="Visible">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="8"
+                        Opacity="0.5"
+                        ShadowDepth="0.2" />
+                </Border.Effect>
+                <StackPanel
+                    Margin="0,0,-6,0"
+                    Background="White"
+                    Orientation="Horizontal">
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                        <ListView
+                            x:Name="lsvTimePicker_Hour"
+                            HorizontalAlignment="Left"
+                            BorderThickness="0"
+                            ItemsSource="{Binding Hours, RelativeSource={RelativeSource AncestorType=Window}}"
+                            Loaded="lsvTimePicker_Hour_Loaded"
+                            MouseEnter="lsvTimePicker_Hour_MouseEnter"
+                            MouseLeave="lsvTimePicker_Hour_MouseLeave"
+                            PreviewMouseWheel="ListViewHour_PreviewMouseWheel">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border Margin="5">
+                                                    <ContentPresenter />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Resources>
+                                <DataTemplate x:Key="FirstItemTemplate">
+                                    <Border
+                                        Width="30"
+                                        Height="20"
+                                        Background="#0075FF"
+                                        TextBlock.FontWeight="Bold">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="white"
+                                            Text="{Binding}" />
+                                    </Border>
+                                </DataTemplate>
+
+                            </ListView.Resources>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Width="30" Height="20">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding}" />
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+
+                        </ListView>
+                    </ScrollViewer>
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                        <ListView
+                            x:Name="lsvTimePicker_Minute"
+                            HorizontalAlignment="Left"
+                            BorderThickness="0"
+                            ItemsSource="{Binding Minutes, RelativeSource={RelativeSource AncestorType=Window}}"
+                            Loaded="lsvTimePicker_Minute_Loaded"
+                            PreviewMouseWheel="ListViewMinute_PreviewMouseWheel">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border Margin="5">
+                                                    <ContentPresenter />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Resources>
+                                <DataTemplate x:Key="firstItemTemplate" />
+                            </ListView.Resources>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Width="30" Height="20">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding}" />
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </ScrollViewer>
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                        <ListView
+                            x:Name="lsvTimePicker_MidDay"
+                            HorizontalAlignment="Left"
+                            BorderThickness="0"
+                            Loaded="lsvTimePicker_MidDay_Loaded"
+                            PreviewMouseWheel="lsvTimePicker_MidDay_PreviewMouseWheel">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border Margin="5">
+                                                    <ContentPresenter />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Resources>
+                                <DataTemplate x:Key="firstItemTemplate" />
+                            </ListView.Resources>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Width="30" Height="20">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding}" />
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

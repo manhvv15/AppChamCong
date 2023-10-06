@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="ChamCong365.Popups.ChamCong.CaiDatWifi.ucThemMoiWifi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popups.ChamCong.CaiDatWifi"
+             mc:Ignorable="d" >
+    <Grid>
+        <Rectangle x:Name="CreateWifi" Fill="#000000" Opacity="0.5" MouseDown="CreateWifi_MouseDown"/>
+        <!--3. Create Wifi-->
+        <Border Cursor="Hand" x:Name="BodCreateWifi"
+            Width="600"
+            Height="320"
+            Background="#FFFFFF"
+            CornerRadius="10"
+            BorderBrush="#474747">
+            <StackPanel>
+                <Border 
+                    CornerRadius="10 10 0 0"
+                    Width="600" Height="54"
+                    Background="#4C5BD4"
+                    TextBlock.FontSize="20"
+                    TextBlock.FontWeight="SemiBold"
+                    TextBlock.Foreground="#FFFFFF">
+                    <TextBlock 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Thêm mới wifi"/>
+                </Border>
+                <Border 
+                    x:Name="bodExitCreateWifi"
+                    MouseUp="bodExitCreateWifi_MouseUp"
+                    Margin="0 -55 10 0"
+                    HorizontalAlignment="Right"
+                    Grid.Row="1"
+                    Width="18"
+                    Height="17">
+                    <Path Data="{DynamicResource iconExit}" StrokeThickness="2" Stroke="#FFFFFF"/>
+                </Border>
+                <StackPanel Height="75" Margin="20">
+                    <TextBlock Margin="5" Foreground="#474747" FontSize="16" FontWeight="Regular" Height="19">
+                        <Run Text="Tên Wifi"/>
+                        <Run Foreground="#FF5B4D" Text=" *"/>
+                    </TextBlock>
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0">
+                        <Grid Height="37">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*"/>
+                                <ColumnDefinition Width="312*"/>
+                                <ColumnDefinition Width="0*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="tb_TenWifi" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,7,-3,-2" Padding="3,3,0,0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập tên Wifi" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,11" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=tb_TenWifi, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <TextBlock Height="22" x:Name="txtValidateNameWifi" HorizontalAlignment="Left" FontSize="16" FontWeight="Regular" Foreground="#FF5B4D" />
+                </StackPanel>
+                <StackPanel Height="75" Margin="20 0 20 20">
+                    <TextBlock Margin="5" Foreground="#474747" FontSize="16" FontWeight="Regular" Height="19">
+                        <Run Text="Địa chỉ MAC " />
+                        <Run Foreground="#FF5B4D" Text="*"/>
+                    </TextBlock>
+                    <Border CornerRadius="5" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Margin="0,5,0,0">
+                        <Grid Height="37">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*"/>
+                                <ColumnDefinition Width="312*"/>
+                                <ColumnDefinition Width="0*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Background="Transparent" Height="40" VerticalAlignment="Center" x:Name="tb_DiaChiMac" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,7,-3,-2" Padding="3,3,0,0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="15" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập địa chỉ mac" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="8,0,-10,11" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=tb_DiaChiMac, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <TextBlock  Height="22" x:Name="txtvalidateAddressMac" HorizontalAlignment="Left" FontSize="16" FontWeight="Regular" Foreground="#FF5B4D" />
+                </StackPanel>
+                <Border
+                    x:Name="bodThemMoiWifi"
+                    MouseLeftButtonUp="bodThemMoiWifi_MouseLeftButtonUp_1"
+                    TextBlock.Foreground="#FFFFFF"
+                    TextBlock.FontWeight="Medium"
+                    CornerRadius="15"
+                    TextBlock.FontSize="18"
+                    Background="#4C5BD4"
+                    Height="44"
+                    Width="142">
+                    <TextBlock 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Thêm mới">
+
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

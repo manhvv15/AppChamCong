@@ -1,0 +1,357 @@
+<UserControl x:Class="ChamCong365.TimeKeeping.ucCaiDatLichLamViec"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.TimeKeeping"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" >
+    <Border Background="#FFFFFF"
+            CornerRadius="10">
+        <Grid>
+            <Grid Margin="0 20 20 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="1.75*"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="20 0 0 0" Grid.Row="0">
+                    <Border 
+                         HorizontalAlignment="Left"
+                         Width="218"
+                         BorderBrush="#4C5BD4"
+                         BorderThickness="0 0 0 2">
+                        <TextBlock 
+                            FontSize="20"
+                            Foreground="#4C5BD4"
+                            FontWeight="DemiBold"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"
+                            Text="Lịch làm việc chung">
+                        </TextBlock>
+                    </Border>
+                    <Rectangle Opacity="0.5" VerticalAlignment="Bottom" Height="1" Fill="#666666"/>
+                </Grid>
+                <WrapPanel Grid.Row="1"
+                    Margin="20 0 0 20"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    >
+                    <!--Select year-->
+                    <Border 
+                        x:Name="bodHienThiNam"
+                        Background="Transparent"
+                        Style="{StaticResource BorderSelected}"
+                        MouseLeftButtonUp="bodHienThiNam_MouseLeftButtonUp"
+                        Width="190">
+                        <DockPanel Height="32">
+                            <TextBlock 
+                                VerticalAlignment="Center"
+                                Margin="10 0 0 0"
+                                x:Name="txbSelectYear"/>
+                            <Path 
+                                Margin="0 0 5 0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Data="{StaticResource iconSearchMore}" Fill="#474747"/>
+                        </DockPanel>
+                    </Border>
+                    <!--Select Month-->
+                    <Border
+                        x:Name="bodHienThiThang"
+                        Width="190"
+                        Cursor="Hand"
+                        Background="Transparent"
+                        Margin="10 0 0 0"
+                        Style="{StaticResource BorderSelected}"
+                        MouseLeftButtonUp="bodHienThiThang_MouseLeftButtonUp">
+                        <DockPanel Height="32" VerticalAlignment="Top">
+                            <TextBlock 
+                                VerticalAlignment="Center"
+                                Margin="10 0 0 0"
+                                x:Name="txbSelectMonth"/>
+                            <Path 
+                                Margin="0 0 5 0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Data="{StaticResource iconSearchMore}" Fill="#474747"/>
+                        </DockPanel>
+                    </Border>
+                    <!--Thêm lịch-->
+                    <Border
+                        Style="{StaticResource BorderButon}"
+                        Height="34"
+                        Margin="10 0 0 0"
+                        x:Name="bodAddCalendar"
+                        MouseLeftButtonUp="bodAddLich_MouseLeftButtonUp"
+                        MouseEnter="bodAddCalendar_MouseEnter"
+                        MouseLeave="bodAddCalendar_MouseLeave"
+                        Width="117"
+                        Background="#42D778">
+                        <TextBlock 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="+ Thêm lịch"/>
+                    </Border>
+                    <!--Sao chép lịch-->
+                    <Border 
+                        Style="{StaticResource BorderButon}"
+                        Height="34"
+                        x:Name="bodButonCoppyCalendar"
+                        MouseUp="bodButonCoppyCalendar_MouseUp"
+                        MouseEnter="bodButonCoppyCalendar_MouseEnter"
+                        MouseLeave="bodButonCoppyCalendar_MouseLeave"
+                        Margin="10 0 0 0" 
+                        Width="149">
+                        <DockPanel>
+                            <Path 
+                            Margin="5 0 0 0"
+                            Height="24"
+                            HorizontalAlignment="Center"
+                            Data="{StaticResource iconSaoChepLich}" Stroke="#FFFFFF" StrokeThickness="2"/>
+                            <TextBlock 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Sao chép lịch"/>
+                        </DockPanel>
+                    </Border>
+                </WrapPanel>
+                <WrapPanel Grid.Row="2">
+                    <ListView  Margin="20 0 0 0" x:Name="lsvDanhSachLichLamViec" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0" >
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <!--Lich làm việc tháng-->
+                                            <Border
+                                                Margin="20 0 0 20"
+                                                Height="200"
+                                                MinWidth="435"
+                                                MaxWidth="435"
+                                                CornerRadius="10"
+                                                HorizontalAlignment="Stretch"
+                                                Background="#FFFFFF"
+                                                BorderThickness="1">
+                                                <Border.Effect>
+                                                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                                </Border.Effect>
+                                                <StackPanel>
+                                                    <Border 
+                                                        CornerRadius="10"
+                                                        Height="82">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="../Resource/image/BackgroundCalendar.png"/>
+                                                        </Border.Background>
+                                                        <Grid HorizontalAlignment="Stretch">
+                                                            <WrapPanel  
+                                                                HorizontalAlignment="Center" 
+                                                                VerticalAlignment="Center">
+                                                                <TextBlock 
+                                                                    MaxWidth="350"
+                                                                    TextWrapping="Wrap"
+                                                                    TextAlignment="Center"
+                                                                    x:Name="txbCalendarMonth"
+                                                                    Text="{Binding cy_name}"
+                                                                    FontSize="18"
+                                                                    Style="{DynamicResource TextBlockMenuHeader}"/>
+                                                            </WrapPanel>
+                                                            <Menu Margin="0 0 20 0"  Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                                <MenuItem  Style="{DynamicResource MenuItemCalendarWork}" FontSize="15">
+                                                                    <MenuItem  x:Name="dopAddSaff"  Height="40" Click="dopAddSaff_Click"  Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="Medium">
+                                                                        <MenuItem.Icon >
+                                                                            <Grid Margin="0 0 -5 -15">
+                                                                                <Ellipse x:Name="iconAccount1" Margin="0 0 0 15" Width="6.72" Height="7" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                                <Path Width="24" Height="24" x:Name="iconAccount2" VerticalAlignment="Top" Margin="0 0 0 0" Data="{StaticResource iconAccount}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                    
+                                                                    <MenuItem Height="35" x:Name="dopListSaffSmall"  Click="dopListSaffSmall_Click" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                        <MenuItem.Icon>
+                                                                            <Grid Margin="2 -5 -2 -10">
+                                                                                <Border x:Name="iconDanhSach1"  HorizontalAlignment="Left" Width="16" Height="19"  BorderBrush="#474747" CornerRadius="3" BorderThickness="1.5">
+                                                                                    <Path x:Name="iconDanhSach2" Margin="-5 -10 0 0"  VerticalAlignment="Center" Data="{StaticResource iconDanhSach}" Stroke="#474747" />
+                                                                                </Border>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                    <MenuItem Height="35" x:Name="stpEditCalendarWork" Click="stpEditCalendarWork_Click" Header="Chỉnh sửa" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                        <MenuItem.Icon>
+                                                                            <Grid Margin="0 0 -10 -10">
+                                                                                <Path x:Name="iconChinhSua"  Data="{StaticResource iconChinhSua1}" StrokeThickness="1.5" Stroke="#474747"/>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                    <MenuItem Height="35" x:Name="dopCoppyCalendarSaff"  Click="dopCoppyCalendarSaff_Click" Header="Sao chéo lịch làm việc" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                        <MenuItem.Icon>
+                                                                            <Grid Margin="0 -5 0 -10">
+                                                                                <Border x:Name="iconSaoChep1" Margin="5 6 -5 0" Width="15" Height="15" BorderBrush="#474747" BorderThickness="1.5" CornerRadius="1"/>
+                                                                                <Path x:Name="iconSaoChep2"  Margin="-3 2 4 -5" Data="{StaticResource iconSaoChep}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                    <MenuItem Height="35" Margin="0 5 0 5" x:Name="bodDeleteCalendarSaff" Click="bodDeleteCalendarSaff_Click"  Header="Xóa lịch làm việc" FontSize="15" Background="#FFFFFF" BorderThickness="0 1 0 0" BorderBrush="#666666" FontWeight="DemiBold" Foreground="#474747">
+                                                                        <MenuItem.Icon>      
+                                                                            <Grid Margin="-3 -5 -5 -10">
+                                                                                <Border BorderBrush="#666666">
+                                                                                    <Path x:Name="iconXoa"  Data="{StaticResource iconDeletePathRed}" StrokeThickness="1.5" Fill="#474747"  />
+                                                                                </Border>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                </MenuItem>
+                                                            </Menu>
+                                                        </Grid>
+                                                    </Border>
+                                                    <Border Margin="0 20 0 20">
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition/>
+                                                                <RowDefinition/>
+                                                            </Grid.RowDefinitions>
+                                                            <WrapPanel Grid.Row="1"
+                                                                Margin='20 0 0 0'>
+                                                                <Grid>
+                                                                    <Ellipse Margin="0 0 5 13" StrokeThickness="1.5" Stroke="#474747" Width="9" Height="9"/>
+                                                                    <Ellipse  Margin="11 0 0 9" StrokeThickness="1.5" Stroke="#474747" Width="6" Height="6"/>
+                                                                    <Path  
+                                                                        Height="24"
+                                                                        Data="{StaticResource iconNhomNguoi}" StrokeThickness="1.5" Stroke="#474747"/>
+                                                                </Grid>
+                                                                <TextBlock
+                                                                    Margin="10"
+                                                                    Style="{DynamicResource TextBlockLable}" 
+                                                                    FontWeight="Medium">
+                                                                    <Run Text="Nhân viên"/>
+                                                                    <Run Text="{Binding ep_count}"/>
+                                                                </TextBlock>
+                                                            </WrapPanel>
+                                                            <WrapPanel Grid.Row="0"
+                                                                Margin="20 0 0 0">
+                                                                <Path  
+                                                                    Height="24" 
+                                                                    Data="{StaticResource iconDongHo}" Fill="#474747"/>
+                                                                <TextBlock 
+                                                                    Margin="10 0 0 0"
+                                                                    Style="{DynamicResource TextBlockLable}"  
+                                                                    FontWeight="Medium">
+                                                                    <Run Text="Áp dụng: Tháng "/>
+                                                                    <Run x:Name="txbApplyMonnth" Text="{Binding apply_month}"/>
+                                                                </TextBlock>
+                                                            </WrapPanel>
+                                                        </Grid>
+                                                    </Border>
+                                                </StackPanel>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </WrapPanel>
+            </Grid>
+            <Grid x:Name="popup" Visibility="Collapsed" MouseLeftButtonUp="popup_MouseLeftButtonUp" Background="Transparent"/>
+            <!--Boder Lisview Visibility Collapsed Year-->
+            <Border x:Name="borNam" Width="188" BorderThickness="1" BorderBrush="#474747" VerticalAlignment="Top" CornerRadius="5" Background="#ffffff" HorizontalAlignment="Right" Margin="0,114,508,0" Visibility="Collapsed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="120"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox BorderThickness="1" BorderBrush="#474747" x:Name="textSearchNam" Grid.Row="0" Background="#ffffff" FontSize="16" Margin="3" TextChanged="textSearchNam_TextChanged">
+                    </TextBox>
+                    <ScrollViewer x:Name="scrollNam" Grid.Row="1" Height="120">
+                        <ListView SelectionChanged="Load" x:Name="lsvNam" Margin="5 0 0 5" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvNam_PreviewMouseWheel">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <Border HorizontalAlignment="Stretch" x:Name="borNam" MouseLeftButtonDown="borNam_MouseLeftButtonDown">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock FontSize="16" Text="{Binding nam}" Margin="5,5,0,5">
+                                                    </TextBlock>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <!--Boder Lisview Visibility Collapsed Month-->
+            <Border Background="#ffffff" x:Name="borThang" Width="188" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,114,307,0" BorderThickness="1" BorderBrush="#474747" CornerRadius="5" Visibility="Collapsed" Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="120"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="textSearchThang" Grid.Row="0" Background="#ffffff" BorderThickness="1" BorderBrush="#000000" FontSize="16" Margin="3" TextChanged="textSearchThang_TextChanged">
+                    </TextBox>
+                    <ScrollViewer  x:Name="scrollThang" Grid.Row="1" Height="120">
+                        <ListView SelectionChanged="Load" IsTabStop="False" Margin="5 0 0 5" x:Name="lsvThang" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvThang_PreviewMouseWheel">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <Border x:Name="borThang" MouseLeftButtonDown="borThang_MouseLeftButtonDown">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock FontSize="16" Text="{Binding thang}" Margin="5,5,0,5">
+                                                    </TextBlock>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
+    

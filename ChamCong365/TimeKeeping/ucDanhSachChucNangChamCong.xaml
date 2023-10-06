@@ -1,0 +1,303 @@
+﻿<UserControl x:Class="ChamCong365.TimeKeeping.ucDanhSachChucNangChamCong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.TimeKeeping"
+             mc:Ignorable="d">
+   
+        <!--Chức năng Chấm công-->
+    <StackPanel x:Name="stpListTimeKeeping">
+        <Grid x:Name="grFunctionTimeKeeping">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <WrapPanel Margin="20" Grid.Row="0">
+                    <Border Margin="0 0 5 0">
+                        <TextBlock 
+                                    x:Name="txbLoadNameFuction"
+                                     Text="Chấm công" 
+                                    FontWeight="DemiBold" 
+                                    Foreground="#474747" 
+                                    FontSize="30"  
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"/>
+                    </Border>
+                    <Border>
+                        <TextBlock
+                                    x:Name="txbFunctionChamCong"
+                                    FontWeight="DemiBold" 
+                                    Foreground="#474747" 
+                                    FontSize="30"  
+                                    HorizontalAlignment="Left" 
+                                    VerticalAlignment="Center"/>
+                    </Border>
+                </WrapPanel>
+            <Grid Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="0" 
+                        x:Name="btnCaiDatWifi" 
+                        MouseLeftButtonUp="CaiDatWifi_MouseLeftButtonUp">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="44"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border 
+                            Grid.Column="0"
+                            HorizontalAlignment="left" 
+                            Height="44">
+                            <Image 
+                                VerticalAlignment="Stretch" 
+                                Source="{StaticResource icon1DrawingImage}"/>
+                        </Border>
+                        <Border Grid.Column="1" 
+                            x:Name="bdFunction1">
+                            <TextBlock 
+                                x:Name="txbFunction1"
+                                MouseEnter="txbFunction1_MouseEnter"
+                                MouseLeave="txbFunction1_MouseLeave"
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Cài đặt: Wifi, vị trí, IP, Cảm xúc">
+                            </TextBlock>
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                            Height="44"  
+                            HorizontalAlignment="right">
+                            <Image 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Center" 
+                                Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                        </Border>
+                    </Grid>
+
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="1"
+                x:Name="btnCaLamViec"
+                MouseLeftButtonUp="CaLamViec_MouseLeftButtonUp"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0"
+                        HorizontalAlignment="Left" 
+                        Height="44">
+                        <Image Source="{StaticResource icon2DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                         MouseEnter="txbFunction2_MouseEnter"
+                         MouseLeave="txbFunction2_MouseLeave"
+                         x:Name="txbFunction2"
+                         Style="{StaticResource ListFunctionChamCong}"
+                         Text="Cài đặt quản lý ca làm việc"/>
+                    </Border>
+                    <Border
+                            Grid.Column="2"
+                            Height="44"  
+                            HorizontalAlignment="right">
+                        <Image 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Center" 
+                                Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                    </Border>
+                </Grid>
+
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="2"             
+                     x:Name="btnCaiDatLichLamViec" 
+                     MouseLeftButtonUp="CaiDatLichLamViec_MouseLeftButtonUp">
+                 <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="44"/>
+                            <ColumnDefinition Width="11*"/>
+                            <ColumnDefinition Width="10*"/>
+                        </Grid.ColumnDefinitions>
+                 <Border Grid.Column="0"
+                         Height="44">
+                     <Image Source="{StaticResource icon3DrawingImage}"/>
+                 </Border>
+                 <Border Grid.Column="1"
+                             HorizontalAlignment="Left">
+                     <TextBlock 
+                         x:Name="txbFunction3"
+                         MouseEnter="txbFunction3_MouseEnter"
+                         MouseLeave="txbFunction3_MouseLeave"
+                         Style="{StaticResource ListFunctionChamCong}"
+                         Text="Cài đặt Lịch làm việc của tháng"/>
+                 </Border>
+                    <Border Grid.Column="2"
+                        Height="44"  
+                        HorizontalAlignment="Left">
+                        <Image HorizontalAlignment="Right" 
+                             Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                    </Border>
+                </Grid>
+                
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="3"
+                  x:Name="btnCaiDatCongChuan"
+                  MouseLeftButtonUp="CaiDatCongChuan_MouseLeftButtonUp"
+                  HorizontalAlignment="Left">
+                  <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="44"/>
+                            <ColumnDefinition Width="11*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                  <Border Grid.Column="0"
+                                HorizontalAlignment="Left" 
+                                Height="44">
+                            <Image Source="{StaticResource icon4DrawingImage}"/>
+                        </Border>
+                  <Border Grid.Column="1">
+                            <TextBlock 
+                                    x:Name="txbFunction4"
+                                    MouseEnter="txbFunction4_MouseEnter"
+                                    MouseLeave="txbFunction4_MouseLeave"
+                                    Style="{StaticResource ListFunctionChamCong}"
+                                    Text="Cài đặt Công chuẩn của tháng"/>
+                        </Border>
+                  <Border Grid.Column="2" 
+                                HorizontalAlignment="Left"
+                                Height="44">
+                        <Image  Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                    </Border>
+                </Grid>
+
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="4"
+                  x:Name="btnCauHinhChamCong"
+                  MouseLeftButtonUp="CauHinhChamCong_MouseLeftButtonUp"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0"
+                                HorizontalAlignment="Left" 
+                                Height="44">
+                        <Image Source="{StaticResource icon5DrawingImage}"/>
+                    </Border>
+                    <Border Grid.Column="1">
+                        <TextBlock 
+                            MouseEnter="txbFunction5_MouseEnter"
+                            MouseLeave="txbFunction5_MouseLeave"
+                            x:Name="txbFunction5"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Cấu hình chấm công"/>
+                    </Border>
+                </Grid>
+                
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="5"
+                  x:Name="btnCapNhatKhuonMat"
+                  MouseLeftButtonUp="CapNhatKhuonMat_MouseLeftButtonUp"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left">
+                  <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="44"/>
+                      <ColumnDefinition/>
+                  </Grid.ColumnDefinitions>
+                  <Border Grid.Column="0"
+                          HorizontalAlignment="Left" 
+                          Height="44">
+                      <Image Source="{StaticResource icon6DrawingImage}"/>
+                  </Border>
+                  <Border Grid.Column="1">
+                      <TextBlock 
+                            x:Name="txbFunction6"
+                            MouseEnter="txbFunction6_MouseEnter"
+                            MouseLeave="txbFunction6_MouseLeave"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Cho phép cập nhật lại khuôn mặt"/>
+                  </Border>
+                </Grid>
+                
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="6"
+                  x:Name="btnDuyetThietBiMoi"
+                  MouseLeftButtonUp="DuyetThietBiMoi_MouseLeftButtonUp"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="44"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" HorizontalAlignment="Left" Height="44">
+                            <Image Source="{StaticResource icon7DrawingImage}"/>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock 
+                                    x:Name="txbFunction7"
+                                    MouseEnter="txbFunction7_MouseEnter"
+                                    MouseLeave="txbFunction7_MouseLeave"
+                                    Style="{StaticResource ListFunctionChamCong}"
+                                    Text="Duyệt thiết bị mới khi chấm công"/>
+                        </Border>
+
+                    </Grid>
+                
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="7"
+                  x:Name="btnXuatCong"
+                  MouseLeftButtonUp="XuatCong_MouseLeftButtonUp"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0"
+                     HorizontalAlignment="Left" 
+                     Height="44">
+                    <Image Source="{StaticResource icon8DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                        MouseEnter="txbFunction8_MouseEnter"
+                        MouseLeave="txbFunction8_MouseLeave"
+                        x:Name="txbFunction8"
+                        Style="{StaticResource ListFunctionChamCong}"
+                        Text="Xuất công"/>
+                </Border>
+                </Grid>
+                
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="8"
+                  x:Name="btnChamCongKhuonMat"
+                  MouseLeftButtonUp="ChamCongKhuonMat_MouseLeftButtonUp"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                            HorizontalAlignment="Left" 
+                            Height="44">
+                    <Image Source="{StaticResource icon9DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                        MouseEnter="txbFunction9_MouseEnter"
+                        MouseLeave="txbFunction9_MouseLeave"
+                        x:Name="txbFunction9"
+                        Style="{StaticResource ListFunctionChamCong}"
+                        Text="Chấm công"/>
+                </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        </StackPanel>
+
+</UserControl>

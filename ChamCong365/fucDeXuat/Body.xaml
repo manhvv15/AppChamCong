@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="ChamCong365.Body"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1200">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" Margin="20">
+            <Border Margin="10,0,5,0">
+                <TextBlock
+                        x:Name="txbNumber3"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="3. Đề Xuất" />
+            </Border>
+            <Border>
+                <TextBlock
+                        x:Name="txbPropose"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="{Binding Path=Text, ElementName=txbPropose}" />
+            </Border>
+        </WrapPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--<Grid
+                    x:Name="wapbuttonucNhanVien"
+                    Grid.Row="0"
+                    Margin="0,0,0,20"
+                    MouseLeftButtonUp="wapbuttonucNhanVien_MouseLeftButtonUp">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                        Grid.Column="0"
+                        Height="44"
+                        HorizontalAlignment="left">
+                    <Image VerticalAlignment="Stretch" Source="{StaticResource icon1DrawingImage}" />
+                </Border>
+                <Border x:Name="bdFunction1" Grid.Column="1">
+                    <TextBlock
+                            x:Name="txbFunction1"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Cài đặt loại hình duyệt phép" />
+                </Border>
+                <Border Grid.Column="2"
+                                 Height="44"  
+                                 HorizontalAlignment="Left">
+                    <Image HorizontalAlignment="Left" 
+                                    Source="{DynamicResource iconCircleChamHoiDrawingImage}" Margin="0,-1,0,1"/>
+                </Border>
+            </Grid>-->
+            <Grid
+                    x:Name="wapucInstallTime"
+                    Grid.Row="1"
+                    Margin="0,0,0,20"
+                    MouseUp="wapucInstallTime_MouseUp" Cursor="Hand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="11*" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Height="44">
+                    <Image Source="{StaticResource icon1DrawingImage}" />
+                </Border>
+                <Border Grid.Column="1" HorizontalAlignment="Left">
+                    <TextBlock
+                            x:Name="txbFunction2"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Cài đặt thời gian duyệt đề xuất" />
+                </Border>
+                <Border Grid.Column="2"
+                                 Height="44"  
+                                 HorizontalAlignment="Left">
+                    <Image HorizontalAlignment="Left" 
+                                    Source="{DynamicResource iconCircleChamHoiDrawingImage}" Margin="0,-1,0,1"/>
+                </Border>
+
+            </Grid>
+            <Grid
+                    x:Name="wapucAdvancemoney"
+                    Grid.Row="2"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Left"
+                    MouseUp="wapucAdvancemoney_MouseUp" Cursor="Hand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="11*" />
+                    <ColumnDefinition Width="9*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                        Grid.Column="0"
+                        Height="44"
+                        HorizontalAlignment="Left">
+                    <Image Source="{StaticResource icon2DrawingImage}" />
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock
+                            x:Name="txbFunction3"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Tạm ứng tiền " />
+                </Border>
+                <Border
+                        Grid.Column="3"
+                        Height="44"
+                        HorizontalAlignment="Left">
+                    <Image Source="{StaticResource iconCircleChamHoiDrawingImage}" />
+                </Border>
+
+            </Grid>
+            <Grid
+                    x:Name="wapucOrganizationalchart"
+                    Grid.Row="3"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    MouseUp="wapucOrganizationalchart_MouseUp" Cursor="Hand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="20*" />
+                    <ColumnDefinition Width="9*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                        Grid.Column="0"
+                        Height="44"
+                        HorizontalAlignment="Left">
+                    <Image Source="{StaticResource icon3DrawingImage}" />
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock
+                            x:Name="txbFunction4"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Sơ đồ tổ chức" />
+                </Border>
+                <Border
+                        Grid.Column="2"
+                        Height="44"
+                        HorizontalAlignment="Left"/>
+
+            </Grid>
+
+            <Grid
+                  
+                    Grid.Row="4"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" Cursor="Hand">
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border
+                        Grid.Column="0"
+                        Height="44"
+                        HorizontalAlignment="Left">
+                    <Image Source="{StaticResource icon4DrawingImage}" />
+                </Border>
+               
+                <Border Grid.Column="1">
+
+                    <TextBlock
+                            x:Name="txbFunction5"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Nâng cao" />
+                </Border>
+            </Grid>
+            <Grid
+                    Grid.Row="5"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
+    
+
+
+
+                                                       
+                               
+         

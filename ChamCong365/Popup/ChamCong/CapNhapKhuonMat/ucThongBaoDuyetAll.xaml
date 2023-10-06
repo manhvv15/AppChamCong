@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ChamCong365.Popup.ChamCong.CapNhapKhuonMat.ucThongBaoDuyetAll"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.ChamCong.CapNhapKhuonMat"
+             mc:Ignorable="d" >
+    <Grid>
+        <Rectangle Fill="#000000" Opacity="0.5" MouseDown="Rectangle_MouseDown"/>
+        <Border 
+            Visibility="Visible"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+               Style="{StaticResource BorderMessageBox}"
+                x:Name="bodDuyetAll"
+                MaxWidth="450" MaxHeight="150">
+            <StackPanel Margin="20">
+                <TextBlock 
+                    TextAlignment="Center"
+                    Margin="0 0 0 20"
+                    HorizontalAlignment="Center"
+                    Text="Tất cả tài khoản đã được cấp quyền nhận diện khuôn mặt"
+                    Style="{StaticResource TextBlockLable}"/>
+                <Border
+                    x:Name="btnDuyetAll"
+                   MouseLeftButtonUp="DuyetAll"
+                    Style="{StaticResource BorderButon}"
+                    Width="64" Height="34">
+                    <TextBlock 
+                        Text="OK"
+                        Style="{StaticResource TextBlockMenuHeader}"/>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

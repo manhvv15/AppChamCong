@@ -1,0 +1,1183 @@
+﻿<UserControl
+    x:Class="ChamCong365.Popup.funcCompanyManager.ListCandidatesPopups.ucAddCandidate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Popup="clr-namespace:ChamCong365.Popup.funcCompanyManager.DatePicker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="2050"
+    d:DesignWidth="1920"
+    mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <Grid>
+            <Rectangle
+                Fill="#474747"
+                MouseDown="Rectangle_MouseDown"
+                Opacity="0.7" />
+            <Grid Width="736" VerticalAlignment="Top">
+
+                <Border Background="{StaticResource #FFFFFF}" CornerRadius="8" />
+                <Grid Height="44" VerticalAlignment="Top">
+                    <Border Background="{StaticResource #4C5BD4}" CornerRadius="8,8,0,0" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Roboto"
+                        FontSize="14"
+                        FontStyle="Normal"
+                        Foreground="#ffffff"
+                        Text="THÊM ỨNG VIÊN" />
+                </Grid>
+                <Grid Margin="0,30,0,0">
+                    <StackPanel>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Tên ứng viên" />
+                            <TextBlock
+                                Width="10"
+                                Margin="79,-3,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBox
+                                    x:Name="tbName"
+                                    Padding="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Nhập tên ứng viên"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    FontSize="14"
+                                    Foreground="#474747" />
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="E-mail" />
+                            <TextBlock
+                                Margin="44,-3,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text="*" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBox
+                                    x:Name="tbEmail"
+                                    Padding="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Nhập email"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    FontSize="14"
+                                    Foreground="#474747" />
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Số điện thoại" />
+                            <TextBlock
+                                Width="10"
+                                Margin="82,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBox
+                                    x:Name="tbPhone"
+                                    Padding="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Nhập số điện thoại"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    FontSize="14"
+                                    Foreground="#474747"
+                                    PreviewTextInput="NumberValidationTextBox" />
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Giới tính" />
+                            <TextBlock
+                                Width="10"
+                                Margin="56,0,53,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Path
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Data="{StaticResource icon_explandmore}"
+                                        Fill="{StaticResource #474747}"
+                                        Opacity="0.24" />
+                                    <Border
+                                        Padding="2,0,2,0"
+                                        BorderBrush="#474747"
+                                        CornerRadius="4"
+                                        Cursor="Hand">
+                                        <ComboBox
+                                            x:Name="cbxGender"
+                                            Padding="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="Giới tính"
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}"
+                                            DisplayMemberPath="value"
+                                            FontSize="14"
+                                            Foreground="#FF474747"
+                                            SelectedValuePath="ID"
+                                            Style="{StaticResource Combobox1}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Ngày tháng năm sinh" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,345,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <!--<DatePicker Margin="1,0,1,0" FirstDayOfWeek="Monday" SelectedDateFormat="Short" x:Name="dpDateOfBirth" Padding="10,0,10,0" materialDesign:HintAssist.Hint="dd/mm/yyyy" Height="24" VerticalAlignment="Center" Background="{x:Null}" Foreground="{StaticResource #474747}">
+                                <DatePicker.Resources>
+                                    <ResourceDictionary>
+                                        <ResourceDictionary.MergedDictionaries>
+                                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                                            <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                                        </ResourceDictionary.MergedDictionaries>
+                                    </ResourceDictionary>
+                                </DatePicker.Resources>
+                            </DatePicker>-->
+                                    <Popup:DatePicker
+                                        x:Name="dpDateOfBirth"
+                                        Background="{StaticResource #FFFFFF}"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        FontSize="16" />
+                                    <Grid
+                                        Height="8"
+                                        Margin="1,0,1,2"
+                                        VerticalAlignment="Bottom">
+                                        <Border Background="{StaticResource #FFFFFF}" CornerRadius="0,0,4,4" />
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Quê quán" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBox
+                                    x:Name="tbHomeTown"
+                                    Padding="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Quê quán"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    FontSize="14"
+                                    Foreground="#474747" />
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Trình độ học vấn" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,415,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Path
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Data="{StaticResource icon_explandmore}"
+                                        Fill="{StaticResource #474747}"
+                                        Opacity="0.24" />
+                                    <Border
+                                        Padding="2,0,2,0"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        Cursor="Hand">
+                                        <ComboBox
+                                            x:Name="cbxEducation"
+                                            Padding="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="-- Vui lòng chọn --"
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}"
+                                            DisplayMemberPath="value"
+                                            Foreground="#FF474747"
+                                            IsEditable="True"
+                                            IsTextSearchEnabled="False"
+                                            KeyUp="cbxEducation_KeyUp"
+                                            PreviewTextInput="cbxEducation_PreviewTextInput"
+                                            SelectedValuePath="ID"
+                                            Style="{StaticResource Combobox1}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Trường học" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBox
+                                    x:Name="tbSchool"
+                                    Padding="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Nhập trường học"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    FontSize="14"
+                                    Foreground="#474747" />
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Kinh nghiệm làm việc" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,350,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Path
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Data="{StaticResource icon_explandmore}"
+                                        Fill="{StaticResource #474747}"
+                                        Opacity="0.24" />
+                                    <Border
+                                        Padding="2,0,2,0"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        Cursor="Hand">
+                                        <ComboBox
+                                            x:Name="cbxExp"
+                                            Padding="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="-- Vui lòng chọn --"
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}"
+                                            DisplayMemberPath="value"
+                                            Foreground="#FF474747"
+                                            SelectedValuePath="ID"
+                                            Style="{StaticResource Combobox1}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Tình trạng hôn nhân" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,360,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Path
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Data="{StaticResource icon_explandmore}"
+                                        Fill="{StaticResource #474747}"
+                                        Opacity="0.24" />
+                                    <Border
+                                        Padding="2,0,2,0"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        Cursor="Hand">
+                                        <ComboBox
+                                            x:Name="cbxMarried"
+                                            Padding="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="-- Vui lòng chọn --"
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}"
+                                            DisplayMemberPath="value"
+                                            Foreground="#FF474747"
+                                            SelectedValuePath="ID"
+                                            Style="{StaticResource Combobox1}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Địa chỉ" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,535,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBox
+                                    x:Name="tbAddress"
+                                    Padding="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Nhập địa chỉ"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    FontSize="14"
+                                    Foreground="#474747" />
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Nguồn ứng viên" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,420,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <TextBox
+                                    x:Name="tbCVFrom"
+                                    Padding="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Nguồn ứng viên"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    FontSize="14"
+                                    Foreground="#474747" />
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Nhân viên tuyển dụng" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,338,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Path
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Data="{StaticResource icon_explandmore}"
+                                        Fill="{StaticResource #474747}"
+                                        Opacity="0.24" />
+                                    <Border
+                                        Padding="2,0,2,0"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        Cursor="Hand">
+                                        <ComboBox
+                                            x:Name="cbxRecuitment"
+                                            Padding="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="-- Vui lòng chọn --"
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}"
+                                            DisplayMemberPath="Value"
+                                            Foreground="#FF474747"
+                                            IsEditable="True"
+                                            IsTextSearchEnabled="False"
+                                            KeyUp="cbxRecuitment_KeyUp"
+                                            PreviewTextInput="cbxRecuitment_PreviewTextInput"
+                                            SelectedValuePath="Key"
+                                            Style="{StaticResource Combobox1}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Nhân viên giới thiệu" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Path
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Data="{StaticResource icon_explandmore}"
+                                        Fill="{StaticResource #474747}"
+                                        Opacity="0.24" />
+                                    <Border
+                                        Padding="2,0,2,0"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        Cursor="Hand">
+                                        <ComboBox
+                                            x:Name="cbxRecommend"
+                                            Padding="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="-- Vui lòng chọn --"
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}"
+                                            DisplayMemberPath="Value"
+                                            Foreground="#FF474747"
+                                            IsEditable="True"
+                                            IsTextSearchEnabled="False"
+                                            KeyUp="cbxRecommend_KeyUp"
+                                            PreviewTextInput="cbxRecommend_PreviewTextInput"
+                                            SelectedValuePath="Key"
+                                            Style="{StaticResource Combobox1}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Vị trí ứng tuyển" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,425,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Path
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Data="{StaticResource icon_explandmore}"
+                                        Fill="{StaticResource #474747}"
+                                        Opacity="0.24" />
+                                    <Border
+                                        Padding="2,0,2,0"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        Cursor="Hand">
+                                        <ComboBox
+                                            x:Name="cbxPosition"
+                                            Padding="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            materialDesign:HintAssist.Hint="-- Vui lòng chọn --"
+                                            Background="Transparent"
+                                            BorderBrush="{x:Null}"
+                                            DisplayMemberPath="Value"
+                                            Foreground="#FF474747"
+                                            IsEditable="True"
+                                            IsTextSearchEnabled="False"
+                                            KeyUp="cbxPosition_KeyUp"
+                                            PreviewTextInput="cbxPosition_PreviewTextInput"
+                                            SelectedValuePath="Key"
+                                            Style="{StaticResource Combobox1}" />
+                                    </Border>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Ngày ứng tuyển" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,410,0"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Border
+                                Width="404"
+                                HorizontalAlignment="Right"
+                                BorderBrush="#474747"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                                <Grid>
+                                    <Popup:DatePicker
+                                        x:Name="dpTimeSendCV"
+                                        Background="{StaticResource #FFFFFF}"
+                                        BorderBrush="#474747"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4"
+                                        FontSize="16" />
+                                    <Grid
+                                        Height="8"
+                                        Margin="1,0,1,2"
+                                        VerticalAlignment="Bottom">
+                                        <Border Background="{StaticResource #FFFFFF}" CornerRadius="0,0,4,4" />
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid
+                            Width="624"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontFamily="Roboto"
+                                FontSize="14"
+                                FontStyle="Normal"
+                                Foreground="#474747"
+                                Text="Đánh giá hồ sơ" />
+                            <TextBlock
+                                Width="10"
+                                Margin="0,0,420,0"
+                                VerticalAlignment="Top"
+                                FontSize="14"
+                                Foreground="Red"
+                                Text=" *" />
+                            <Grid
+                                Width="180"
+                                Height="30"
+                                Margin="214,0,230,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Path
+                                        x:Name="star1"
+                                        Cursor="Hand"
+                                        Data="{StaticResource star_yellow}"
+                                        Stroke="#FDBE1E" />
+                                    <Grid
+                                        x:Name="gstar1"
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeave="MouseLeaveFirstStar"
+                                        MouseLeftButtonDown="SetStar"
+                                        MouseMove="MouseMoveFirstStar" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Path
+                                        x:Name="star2"
+                                        Cursor="Hand"
+                                        Data="{StaticResource star_yellow}"
+                                        Stroke="#FDBE1E" />
+                                    <Grid
+                                        x:Name="gstar2"
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeave="MouseLeaveFirstStar"
+                                        MouseLeftButtonDown="SetStar"
+                                        MouseMove="MouseMoveFirstStar" />
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Path
+                                        x:Name="star3"
+                                        Cursor="Hand"
+                                        Data="{StaticResource star_yellow}"
+                                        Stroke="#FDBE1E" />
+                                    <Grid
+                                        x:Name="gstar3"
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeave="MouseLeaveFirstStar"
+                                        MouseLeftButtonDown="SetStar"
+                                        MouseMove="MouseMoveFirstStar" />
+                                </Grid>
+                                <Grid Grid.Column="3">
+                                    <Path
+                                        x:Name="star4"
+                                        Cursor="Hand"
+                                        Data="{StaticResource star_yellow}"
+                                        Stroke="#FDBE1E" />
+                                    <Grid
+                                        x:Name="gstar4"
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeave="MouseLeaveFirstStar"
+                                        MouseLeftButtonDown="SetStar"
+                                        MouseMove="MouseMoveFirstStar" />
+                                </Grid>
+                                <Grid Grid.Column="4">
+                                    <Path
+                                        x:Name="star5"
+                                        Cursor="Hand"
+                                        Data="{StaticResource star_yellow}"
+                                        Stroke="#FDBE1E" />
+                                    <Grid
+                                        x:Name="gstar5"
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeave="MouseLeaveFirstStar"
+                                        MouseLeftButtonDown="SetStar"
+                                        MouseMove="MouseMoveFirstStar" />
+                                </Grid>
+                            </Grid>
+                            <StackPanel Margin="0,30,0,0">
+                                <ItemsControl x:Name="icListSkill">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid
+                                                Width="404"
+                                                Height="30"
+                                                Margin="220,10,0,0">
+                                                <Grid Width="150" HorizontalAlignment="Left">
+                                                    <Border
+                                                        BorderBrush="#474747"
+                                                        BorderThickness="1"
+                                                        CornerRadius="4" />
+                                                    <TextBox
+                                                        Padding="10,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        materialDesign:HintAssist.Hint="Nhập kỹ năng khác"
+                                                        Background="{x:Null}"
+                                                        BorderBrush="{x:Null}"
+                                                        FontSize="14"
+                                                        Foreground="#474747"
+                                                        Text="{Binding skill_name}" />
+                                                </Grid>
+                                                <Grid
+                                                    Width="205"
+                                                    Margin="0,0,0,0"
+                                                    HorizontalAlignment="Right">
+                                                    <Grid Width="175" HorizontalAlignment="Left">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid Grid.Column="0">
+                                                            <Path Data="{StaticResource star_yellow}" Stroke="#FDBE1E" />
+                                                            <Path
+                                                                Data="{StaticResource star_yellow}"
+                                                                Fill="#FDBE1E"
+                                                                Stroke="#FDBE1E">
+                                                                <Path.Style>
+                                                                    <Style TargetType="Path">
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding star1}" Value="true">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding star1}" Value="false">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Path.Style>
+                                                            </Path>
+                                                            <Grid
+                                                                x:Name="gsstar1"
+                                                                Background="Transparent"
+                                                                Cursor="Hand"
+                                                                MouseLeftButtonDown="SetStarSkill" />
+                                                        </Grid>
+                                                        <Grid Grid.Column="1">
+                                                            <Path Data="{StaticResource star_yellow}" Stroke="#FDBE1E" />
+                                                            <Path
+                                                                Data="{StaticResource star_yellow}"
+                                                                Fill="#FDBE1E"
+                                                                Stroke="#FDBE1E">
+                                                                <Path.Style>
+                                                                    <Style TargetType="Path">
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding star2}" Value="true">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding star2}" Value="false">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Path.Style>
+                                                            </Path>
+                                                            <Grid
+                                                                x:Name="gsstar2"
+                                                                Background="Transparent"
+                                                                Cursor="Hand"
+                                                                MouseLeftButtonDown="SetStarSkill" />
+                                                        </Grid>
+                                                        <Grid Grid.Column="2">
+                                                            <Path Data="{StaticResource star_yellow}" Stroke="#FDBE1E" />
+                                                            <Path
+                                                                Data="{StaticResource star_yellow}"
+                                                                Fill="#FDBE1E"
+                                                                Stroke="#FDBE1E">
+                                                                <Path.Style>
+                                                                    <Style TargetType="Path">
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding star3}" Value="true">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding star3}" Value="false">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Path.Style>
+                                                            </Path>
+                                                            <Grid
+                                                                x:Name="gsstar3"
+                                                                Background="Transparent"
+                                                                Cursor="Hand"
+                                                                MouseLeftButtonDown="SetStarSkill" />
+                                                        </Grid>
+                                                        <Grid Grid.Column="3">
+                                                            <Path Data="{StaticResource star_yellow}" Stroke="#FDBE1E" />
+                                                            <Path
+                                                                Data="{StaticResource star_yellow}"
+                                                                Fill="#FDBE1E"
+                                                                Stroke="#FDBE1E">
+                                                                <Path.Style>
+                                                                    <Style TargetType="Path">
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding star4}" Value="true">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding star4}" Value="false">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Path.Style>
+                                                            </Path>
+                                                            <Grid
+                                                                x:Name="gsstar4"
+                                                                Background="Transparent"
+                                                                Cursor="Hand"
+                                                                MouseLeftButtonDown="SetStarSkill" />
+                                                        </Grid>
+                                                        <Grid Grid.Column="4">
+                                                            <Path Data="{StaticResource star_yellow}" Stroke="#FDBE1E" />
+                                                            <Path
+                                                                Data="{StaticResource star_yellow}"
+                                                                Fill="#FDBE1E"
+                                                                Stroke="#FDBE1E">
+                                                                <Path.Style>
+                                                                    <Style TargetType="Path">
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding star5}" Value="true">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                            <DataTrigger Binding="{Binding star5}" Value="false">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Path.Style>
+                                                            </Path>
+                                                            <Grid
+                                                                x:Name="gsstar5"
+                                                                Background="Transparent"
+                                                                Cursor="Hand"
+                                                                MouseLeftButtonDown="SetStarSkill" />
+                                                        </Grid>
+                                                    </Grid>
+
+                                                    <Grid Margin="175,0,0,0" VerticalAlignment="Center">
+                                                        <Path
+                                                            Width="20"
+                                                            Height="20"
+                                                            HorizontalAlignment="Center"
+                                                            Data="{StaticResource delete_icon}"
+                                                            Fill="red" />
+                                                        <Grid
+                                                            Background="Transparent"
+                                                            Cursor="Hand"
+                                                            MouseLeftButtonDown="DeleteSkill" />
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Margin="0,20,0,0">
+                            <TextBlock
+                                Margin="274,0,0,0"
+                                HorizontalAlignment="Left"
+                                Cursor="Hand"
+                                FontSize="14"
+                                Foreground="{StaticResource #4C5BD4}"
+                                MouseLeftButtonDown="AddNewSkill"
+                                Text="Thêm kỹ năng"
+                                TextDecorations="Underline" />
+                        </Grid>
+                        <Grid Margin="54,28,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Margin="0,0,30,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="#474747"
+                                Text="Tải lên tệp CV" />
+                            <Path
+                                Grid.Column="1"
+                                Data="{StaticResource icon_choose_file}"
+                                Fill="{StaticResource #474747}" />
+                            <Grid
+                                Grid.Column="1"
+                                Background="Transparent"
+                                Cursor="Hand"
+                                MouseLeftButtonDown="ChooseCV" />
+                            <Grid Grid.Column="2" Margin="90,0,0,0">
+                                <TextBlock
+                                    x:Name="tbFileName"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Foreground="#474747" />
+                            </Grid>
+                            <Grid
+                                x:Name="btnDeleteCV"
+                                Grid.Column="3"
+                                Margin="20,0,0,0"
+                                Visibility="Collapsed">
+                                <Path
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    Data="{StaticResource delete_icon}"
+                                    Fill="red" />
+                                <Grid
+                                    Background="Transparent"
+                                    Cursor="Hand"
+                                    MouseLeftButtonDown="DeleteFileCV" />
+                            </Grid>
+                        </Grid>
+                        <!--<Grid Width="624" Height="198" HorizontalAlignment="Center" Margin="0,28,0,0">
+                    <Border  CornerRadius="4" BorderThickness="1" BorderBrush="#474747">
+                        <ScrollViewer>
+                            <Grid Height="1200"></Grid>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>-->
+                        <Grid
+                            Width="624"
+                            Height="44"
+                            Margin="0,28,0,0"
+                            HorizontalAlignment="Center">
+                            <Grid HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" Width="100">
+                                    <Border Background="{StaticResource #BDBDBD}" CornerRadius="8" />
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        Foreground="{StaticResource #FFFFFF}"
+                                        Text="Hủy" />
+                                    <Grid
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeftButtonDown="CancelPopup" />
+                                </Grid>
+                                <Grid
+                                    Grid.Column="1"
+                                    Width="100"
+                                    Margin="16,0,0,0">
+                                    <Border Background="{StaticResource #27AE60}" CornerRadius="8" />
+                                    <TextBox
+                                        x:Name="tbForcus"
+                                        Background="{x:Null}"
+                                        BorderBrush="{x:Null}"
+                                        Foreground="{x:Null}" />
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        Foreground="{StaticResource #FFFFFF}"
+                                        Text="Thêm" />
+                                    <Grid
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeftButtonDown="AddNewCandidate" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid Height="50" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
