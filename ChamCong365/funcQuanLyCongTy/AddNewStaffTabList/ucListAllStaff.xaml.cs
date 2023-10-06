@@ -208,6 +208,7 @@ namespace ChamCong365.funcQuanLyCongTy.AddNewStaffTabList
                     CompanyRoot result = JsonConvert.DeserializeObject<CompanyRoot>(responseContent);
                     ChildCompanyList = result.data.items;
                     lsvCompany.ItemsSource = ChildCompanyList;
+
                 }
 
 
