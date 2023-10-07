@@ -37,5 +37,6 @@
                 <TextBlock Margin="5 0 0 0" Text="Thêm dòng" VerticalAlignment="Center" Foreground="#4C5BD4" FontSize="16"/>
             </DockPanel>
         </Border>
+    
     </StackPanel>
 </Window>

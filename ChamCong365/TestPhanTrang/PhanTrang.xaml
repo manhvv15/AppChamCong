@@ -94,6 +94,7 @@
                     </DockPanel>
                 </Border>
             </WrapPanel>
+            
             <DataGrid Visibility="Visible" Style="{DynamicResource DataGrid1}" Name="dgv" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="0,20,0,0"  >
                 <DataGrid.Resources>
                     <Style TargetType="DataGridColumnHeader">
@@ -131,7 +132,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel VerticalAlignment="Center" >
-                                    <TextBlock x:Name="txtCount" Text="{Binding stt}" FontSize="18" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock x:Name="txtCount" Text="{Binding ep_id}" FontSize="18" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
 
                                 </StackPanel>
                             </DataTemplate>
@@ -141,7 +142,7 @@
 
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Foreground="#474747" FontSize="16" Text="{Binding caNghi}" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Foreground="#474747" FontSize="16" Text="{Binding ep_name}" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -149,7 +150,7 @@
 
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="16" Text="{Binding ngayBatDau}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock FontSize="16" Text="{Binding ep_phone}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -157,7 +158,7 @@
 
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock x:Name="textXemMucPhat" FontSize="16" Text="{Binding ngayKetThuc}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                                <TextBlock x:Name="textDangNhap" FontSize="16" Text="{Binding ep_phone_tk}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -174,7 +175,7 @@
 
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image ></Image>
+                                <TextBlock x:Name="textPhongBan" FontSize="16" Text="{Binding dep_name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -195,7 +196,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center">
+            <DockPanel  HorizontalAlignment="Center" Visibility="Visible">
 
                 <Border
                     x:Name="borPageDau"
@@ -205,7 +206,7 @@
                     BorderBrush="#474747"
                     BorderThickness="1"
                     CornerRadius="5"
-                    
+                    MouseLeftButtonUp="borPageDau_MouseLeftButtonUp"
                     Visibility="Collapsed">
                     <TextBlock
                         HorizontalAlignment="Center"
@@ -223,7 +224,7 @@
                     BorderBrush="#474747"
                     BorderThickness="1"
                     CornerRadius="5"
-                    
+                    MouseLeftButtonUp="borLui1_MouseLeftButtonUp"
                     Visibility="Collapsed">
                     <Path
                         HorizontalAlignment="Center"
@@ -240,8 +241,8 @@
                     BorderBrush="#474747"
                     BorderThickness="1"
                     CornerRadius="5"
-                   
->
+                    MouseLeftButtonUp="borPage1_MouseLeftButtonUp"
+                    Visibility="Hidden">
                     <TextBlock
                         x:Name="textPage1"
                         HorizontalAlignment="Center"
@@ -259,7 +260,8 @@
                     BorderBrush="#474747"
                     BorderThickness="1"
                     CornerRadius="5"
-                    >
+                    MouseLeftButtonUp="borPage2_MouseLeftButtonUp"
+                    Visibility="Collapsed">
                     <TextBlock
                         x:Name="textPage2"
                         HorizontalAlignment="Center"
@@ -277,7 +279,8 @@
                     BorderBrush="#474747"
                     BorderThickness="1"
                     CornerRadius="5"
-                    >
+                    MouseLeftButtonUp="borPage3_MouseLeftButtonUp"
+                    Visibility="Collapsed">
                     <TextBlock
                         x:Name="textPage3"
                         HorizontalAlignment="Center"
@@ -295,7 +298,8 @@
                     BorderBrush="#474747"
                     BorderThickness="1"
                     CornerRadius="5"
-                   >
+                    MouseLeftButtonUp="borLen1_MouseLeftButtonUp"
+                    Visibility="Collapsed">
                     <Path
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -312,7 +316,8 @@
                     BorderBrush="#474747"
                     BorderThickness="1"
                     CornerRadius="5"
-                    >
+                    MouseLeftButtonUp="borPageCuoi_MouseLeftButtonUp"
+                    Visibility="Collapsed">
                     <TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
