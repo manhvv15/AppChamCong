@@ -6,20 +6,23 @@
              xmlns:local="clr-namespace:ChamCong365.TestPhanTrang"
              mc:Ignorable="d" 
              >
-    <StackPanel Background="WhiteSmoke">
-        <WrapPanel Margin="20,0,20,0">
+    <Grid >
+       
+        <StackPanel Background="WhiteSmoke">
+            <WrapPanel Margin="20,0,20,0">
 
-            <!--  Chọn Công ty  -->
-            <Border
+                <!--  Chọn Công ty  -->
+
+                <Border
                     x:Name="bodSelectCompany"
-                    Width="373"
+                   Width="373"
                     Height="44"
                     Margin="0,0,20,20"
                     HorizontalAlignment="Left"
                    
-                    Style="{StaticResource BorderSelected}">
-                <DockPanel>
-                    <TextBlock
+                    Style="{StaticResource BorderSelected}" MouseLeftButtonUp="bodSelectCompany_MouseLeftButtonUp">
+                    <DockPanel>
+                        <TextBlock
                             x:Name="txbSelectCompany"
                             MaxWidth="300"
                             Margin="10"
@@ -27,15 +30,18 @@
                             Foreground="#ACACAC"
                             Style="{StaticResource TextBlockLable}"
                             Text="Chọn công ty" />
-                    <Image
+                        <Image
                             Width="15"
                             Margin="0,0,5,0"
                             HorizontalAlignment="Right"
                             Source="{StaticResource iconControlBottomDrawingImage}" />
-                </DockPanel>
-            </Border>
-            <!--  search phòng ban  -->
-            <Border
+                    </DockPanel>
+                </Border>
+
+
+
+                <!--  search phòng ban  -->
+                <Border
                     x:Name="bodSearchDepartment"
                     Grid.Column="1"
                     Width="373"
@@ -43,9 +49,9 @@
                     Margin="0,0,20,20"
                     HorizontalAlignment="Center"
                    
-                    Style="{StaticResource BorderSelected}">
-                <DockPanel>
-                    <TextBlock
+                    Style="{StaticResource BorderSelected}" MouseLeftButtonUp="bodSearchDepartment_MouseLeftButtonUp">
+                    <DockPanel>
+                        <TextBlock
                             x:Name="txbSelectDepartment"
                             MaxWidth="337"
                             Margin="10"
@@ -53,15 +59,15 @@
                             Foreground="#ACACAC"
                             Style="{StaticResource TextBlockLable}"
                             Text="Nhập tên phòng ban" />
-                    <Image
+                        <Image
                             Width="24"
                             Margin="0,0,5,0"
                             HorizontalAlignment="Right"
                             Source="{StaticResource iconSearchMoreDrawingImage}" />
-                </DockPanel>
-            </Border>
-            <!--  search theo tên nhân viên  -->
-            <Border
+                    </DockPanel>
+                </Border>
+                <!--  search theo tên nhân viên  -->
+                <Border
                     x:Name="bodSearchStaffName"
                     Grid.Column="2"
                     Width="373"
@@ -71,8 +77,8 @@
                     VerticalAlignment="Top"
                    
                     Style="{StaticResource BorderSelected}">
-                <DockPanel>
-                    <TextBlock
+                    <DockPanel>
+                        <TextBlock
                             x:Name="txbSelectStaffName"
                             MaxWidth="300"
                             Margin="10"
@@ -80,118 +86,118 @@
                             Foreground="#ACACAC"
                             Style="{StaticResource TextBlockLable}"
                             Text="Nhập tên cần tìm" />
-                    <Image
+                        <Image
                             Width="24"
                             Margin="0,0,5,0"
                             HorizontalAlignment="Right"
                             Source="{StaticResource iconSearchMoreDrawingImage}" />
-                </DockPanel>
-            </Border>
-        </WrapPanel>
-        <DataGrid Visibility="Visible" Style="{DynamicResource DataGrid1}" Name="dgv" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="0,20,0,0"  >
-            <DataGrid.Resources>
-                <Style TargetType="DataGridColumnHeader">
+                    </DockPanel>
+                </Border>
+            </WrapPanel>
+            <DataGrid Visibility="Visible" Style="{DynamicResource DataGrid1}" Name="dgv" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="0,20,0,0"  >
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridColumnHeader">
 
 
-                    <Setter Property="Background" Value="#4c5bd4" />
-                    <Setter Property="Foreground" Value="#FFFFFF" />
-                    <Setter Property="FontWeight" Value="Medium" />
-                    <Setter Property="FontSize" Value="16" />
-                    <Setter Property="MinHeight" Value="50" />
-                    <Setter Property="VerticalContentAlignment" Value="Center" />
-                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="Background" Value="#4c5bd4" />
+                        <Setter Property="Foreground" Value="#FFFFFF" />
+                        <Setter Property="FontWeight" Value="Medium" />
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="MinHeight" Value="50" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
 
-                    <!-- Header border properties -->
-                    <Setter Property="BorderThickness" Value="0,0,1,0" />
-                    <Setter Property="BorderBrush" Value="{DynamicResource #FFFFFF}" />
+                        <!-- Header border properties -->
+                        <Setter Property="BorderThickness" Value="0,0,1,0" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource #FFFFFF}" />
 
-                    <!-- Header content template (TextBlock) -->
-                    <Setter Property="ContentTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <TextBlock
+                        <!-- Header content template (TextBlock) -->
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock
                                     Margin="20,5"
                                     Text="{Binding}"
                                     TextWrapping="NoWrap" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn  Width="*" Header="ID">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Center" >
+                                    <TextBlock x:Name="txtCount" Text="{Binding stt}" FontSize="18" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+                                </StackPanel>
                             </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Họ và tên" Width="1.3*">
 
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Foreground="#474747" FontSize="16" Text="{Binding caNghi}" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="1.5*" Header="Số điện thoại">
 
-                </Style>
-            </DataGrid.Resources>
-            <DataGrid.Columns>
-                <DataGridTemplateColumn  Width="*" Header="ID">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" >
-                                <TextBlock x:Name="txtCount" Text="{Binding stt}" FontSize="18" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding ngayBatDau}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="1.5*" Header="TkDangNhap">
 
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Họ và tên" Width="1.3*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="textXemMucPhat" FontSize="16" Text="{Binding ngayKetThuc}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Foreground="#474747" FontSize="16" Text="{Binding caNghi}" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="1.5*" Header="Số điện thoại">
+                    <DataGridTemplateColumn Width="1.5*" Header="PhongBan">
 
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock FontSize="16" Text="{Binding ngayBatDau}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="1.5*" Header="TkDangNhap">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image ></Image>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="1.5*" Header="Chuc Vu">
 
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock x:Name="textXemMucPhat" FontSize="16" Text="{Binding ngayKetThuc}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image ></Image>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Tuy Chinh">
 
-                <DataGridTemplateColumn Width="1.5*" Header="PhongBan">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel HorizontalAlignment="Center">
+                                    <Border Background="#1677FF" Width="30" Height="30" CornerRadius="5" >
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Width="20"/>
+                                    </Border>
+                                    <Border Margin="10 0 0 0" Background="#1677FF" Width="30" Height="30" CornerRadius="5" >
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Width="20"/>
+                                    </Border>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center">
 
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image ></Image>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="1.5*" Header="Chuc Vu">
-
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image ></Image>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="*" Header="Tuy Chinh">
-
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DockPanel HorizontalAlignment="Center">
-                                <Border Background="#1677FF" Width="30" Height="30" CornerRadius="5" >
-                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Width="20"/>
-                                </Border>
-                                <Border Margin="10 0 0 0" Background="#1677FF" Width="30" Height="30" CornerRadius="5" >
-                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Width="20"/>
-                                </Border>
-                            </DockPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center">
-
-            <Border
+                <Border
                     x:Name="borPageDau"
                     Width="45"
                     Height="29"
@@ -201,14 +207,14 @@
                     CornerRadius="5"
                     
                     Visibility="Collapsed">
-                <TextBlock
+                    <TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="16"
                         Foreground="#474747"
                         Text="Đầu" />
-            </Border>
-            <Border
+                </Border>
+                <Border
                     x:Name="borLui1"
                     Width="29"
                     Height="29"
@@ -219,13 +225,13 @@
                     CornerRadius="5"
                     
                     Visibility="Collapsed">
-                <Path
+                    <Path
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Data="{DynamicResource iconArrowLeft}"
                         Fill="#474747" />
-            </Border>
-            <Border
+                </Border>
+                <Border
                     x:Name="borPage1"
                     Width="29"
                     Height="29"
@@ -236,15 +242,15 @@
                     CornerRadius="5"
                    
 >
-                <TextBlock
+                    <TextBlock
                         x:Name="textPage1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="16"
                         Foreground="#ffffff"
                         Text="1" />
-            </Border>
-            <Border
+                </Border>
+                <Border
                     x:Name="borPage2"
                     Width="29"
                     Height="29"
@@ -254,15 +260,15 @@
                     BorderThickness="1"
                     CornerRadius="5"
                     >
-                <TextBlock
+                    <TextBlock
                         x:Name="textPage2"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="16"
                         Foreground="#474747"
                         Text="2" />
-            </Border>
-            <Border
+                </Border>
+                <Border
                     x:Name="borPage3"
                     Width="29"
                     Height="29"
@@ -272,15 +278,15 @@
                     BorderThickness="1"
                     CornerRadius="5"
                     >
-                <TextBlock
+                    <TextBlock
                         x:Name="textPage3"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="16"
                         Foreground="#474747"
                         Text="3" />
-            </Border>
-            <Border
+                </Border>
+                <Border
                     x:Name="borLen1"
                     Width="29"
                     Height="29"
@@ -290,14 +296,14 @@
                     BorderThickness="1"
                     CornerRadius="5"
                    >
-                <Path
+                    <Path
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Data="{DynamicResource iconArrowRight}"
                         Fill="#474747" />
-            </Border>
+                </Border>
 
-            <Border
+                <Border
                     x:Name="borPageCuoi"
                     Width="45"
                     Height="29"
@@ -307,14 +313,94 @@
                     BorderThickness="1"
                     CornerRadius="5"
                     >
-                <TextBlock
+                    <TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="16"
                         Foreground="#474747"
                         Text="Cuối" />
-            </Border>
+                </Border>
 
-        </DockPanel>
-    </StackPanel>
+            </DockPanel>
+        </StackPanel>
+        <Grid x:Name="Company"  Visibility="Collapsed" Width="350" Height="200" Margin="20 60 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <ListView x:Name="lsvCompany" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+
+                                    <Border HorizontalAlignment="Stretch" x:Name="borTenChonCongTy"  MouseLeftButtonDown="borTenChonLoai_MouseLeftButtonDown_2" >
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Background" Value="Transparent"></Setter>
+                                                <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <Border >
+                                            <TextBlock FontSize="16" Text="{Binding com_name}" Margin="5,5,0,5"/>
+                                        </Border>
+
+                                    </Border>
+
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Grid>
+        <Grid x:Name="PhongBan"  Visibility="Collapsed" Width="350" Height="200" Margin="420 60 0 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <ListView x:Name="lsvPhongBan" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+
+                                    <Border HorizontalAlignment="Stretch" x:Name="borTenChonPhongBan" MouseLeftButtonDown="borTenChonCongTy_MouseLeftButtonDown"   >
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Background" Value="Transparent"></Setter>
+                                                <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <Border >
+                                            <TextBlock FontSize="16" Text="{Binding dep_name}" Margin="5,5,0,5"/>
+                                        </Border>
+
+                                    </Border>
+
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Grid>
+
+    </Grid>
 </UserControl>
