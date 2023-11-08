@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="ChamCong365.SalarySettings.ucInsuranceSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.SalarySettings"
+             mc:Ignorable="d">
+    <Grid>
+        <Border   
+            Background="White"
+            CornerRadius="10"
+            BorderBrush="#FFFFFF">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.5"></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel Margin="20">
+                <WrapPanel >
+                    <DockPanel Height="43" Margin="0 0 0 20" Width="1030">
+                        <Border x:Name="bodInsurancePolicy"
+                            MouseUp="bodInsurancePolicy_MouseUp"
+                            Padding="0 0 10 0"
+                            BorderThickness="0 0 0 1"
+                            BorderBrush="#DDDDDD">
+                            <TextBlock
+                                x:Name="txbTextInsurancePolicy"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Medium"
+                                Text="Chính sách bảo hiểm"/>
+                        </Border>
+                        <Border 
+                            x:Name="bodListSaffNotSettings"
+                            MouseUp="bodListSaffNotSettings_MouseUp"
+                            BorderThickness="0 0 0 1"
+                            BorderBrush="#DDDDDD"
+                            HorizontalAlignment="Left">
+                            <TextBlock 
+                                x:Name="txbListSaffNotSettings"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Medium"
+                                Text="Danh sách nhân sự chưa thiết lập"  Margin="10,0,10,0"/>
+                        </Border>
+                        <Border 
+                            x:Name="bodListSaffYesSettings"
+                            MouseUp="bodListSaffYesSettings_MouseUp"
+                            BorderThickness="0 0 0 1"
+                            BorderBrush="#DDDDDD"
+                            HorizontalAlignment="Left">
+                            <TextBlock
+                                x:Name="txbListSaffYesSettings"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Medium"
+                                Text="Danh sách nhân sự đã thiết lập"  Margin="10,0,20,0"/>
+                        </Border>
+                        <Rectangle  Stroke="#DDDDDD" Style="{StaticResource Rectangle}"/>
+                    </DockPanel>
+                    <Border 
+                        Visibility="Visible"
+                        x:Name="bodAddInsurance"
+                        MouseEnter="bodAddInsurance_MouseEnter"
+                        MouseLeave="bodAddInsurance_MouseLeave"
+                        Height="43"
+                        Margin="0 0 0 20"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Style="{DynamicResource BorderButonGreen}"
+                        BorderThickness="0">
+                        <TextBlock Text="+ Thêm mới"
+                                    Margin="20 0 20 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Stretch"/>
+                    </Border>
+                </WrapPanel>
+                <Grid 
+                    Height="525"
+                    x:Name="grLoadFormInsurance">
+
+                </Grid>
+            </StackPanel>
+            
+        </Border>  
+    </Grid>
+</UserControl>

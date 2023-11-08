@@ -1,0 +1,324 @@
+﻿<UserControl x:Class="ChamCong365.Popup.ListTabInsurance.ucInsurancePolicy"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.ListTabInsurance"
+             mc:Ignorable="d">
+
+    <WrapPanel x:Name="wapLoadInsurancePolicy">
+        <Grid x:Name="SalaryInput"
+              Margin="0 0 20 20"
+            Width="373"
+            Height="270">
+            <Border x:Name="bodSalaryInput"
+                Style="{DynamicResource BorderInsurance}">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.3"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel Margin="20">
+                    <DockPanel>
+                        <Border>
+                            <TextBlock Foreground="#4C5BD4" FontSize="18" FontWeight="Medium" Text="Nhập tiền bảo hiểm"/>
+                        </Border>
+                        <Border x:Name="bodMethond" MouseLeftButtonUp="bodMethond_MouseLeftButtonUp" HorizontalAlignment="Right" Height="24" Width="24">
+                            <Image Source="{DynamicResource iconFilterDrawingImage}"/>
+                        </Border>
+                    </DockPanel>
+                    <Rectangle Margin="0 10 0 0" Stroke="#C4C4C4" Opacity="1" StrokeDashArray="2 1 2 0"/>
+                    <DockPanel Margin="0 15 0 15">
+                        <Path Data="{DynamicResource iconEdit2}" Stroke="#474747"/>
+                        <Border Margin="10 0 0 0">
+                            <TextBlock Text="Miêu tả" Foreground="#474747" FontSize="16" FontWeight="Regular"/>
+                        </Border>
+                    </DockPanel>
+                    <Border Margin="0 0 0 20">
+                        <TextBlock Text="Nhập trực tiếp tiền bảo hiểm cho nhân viên"
+                                   FontSize="16"
+                                   Foreground="#474747"
+                                   FontWeight="Regular"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+                    <Border Style="{DynamicResource BorderButon}"
+                            Width="200" Height="41">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Medium" Foreground="#FFFFFF" Text="Nhập tiền bảo hiểm"/>
+                    </Border>
+                   
+                </StackPanel>
+            </Border>
+            <Image 
+                Visibility="Collapsed"
+                x:Name="bodControl"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top"
+                Width="14" Height="11" 
+                Source="{StaticResource iconPolygon1DrawingImage}" 
+                Margin="0,44,26,0"/>
+            <Border x:Name="bodListMethond"
+                Visibility="Collapsed"
+                Margin="0 52 10 0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                BorderBrush="#FFFFFF"
+                BorderThickness="2"
+                CornerRadius="10"
+                Background="#FFFFFF"
+                 Width="225" Height="98">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.5"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel Margin="10">
+                    <!--Thêm nhân viên-->
+                    <DockPanel
+                        x:Name="dopAddSaff"
+                        MouseLeftButtonUp="dopAddSaff_MouseLeftButtonUp"
+                        Margin="0 0 0 10">
+                        <Image 
+                        x:Name="iconAccount"
+                        Margin="0 0 10 0" 
+                        Source="{StaticResource iconAccountDrawingImage}" 
+                        Width="24" 
+                        Height="24"/>
+                        <TextBlock 
+                        x:Name="txbAddSaff"
+                        HorizontalAlignment="Left" 
+                        FontSize="16" 
+                        FontWeight="DemiBold" 
+                        Foreground="#474747" 
+                        Height="19" 
+                        Text="Thêm nhân viên"/>
+                    </DockPanel>
+                    <!--Danh sách nhân viên-->
+                    <DockPanel
+                        x:Name="dopListSaffInsurance"
+                        MouseLeftButtonUp="dopListSaffInsurance_MouseLeftButtonUp"
+                        Margin="0 0 0 10">
+                        <Image 
+                        Margin="0 0 10 0" 
+                        Source="{StaticResource iconNoteListDrawingImage}" 
+                        Width="24" 
+                        Height="24"/>
+                        <TextBlock 
+                            x:Name="txbListSaff"
+                        HorizontalAlignment="Left" 
+                        FontSize="16" 
+                        FontWeight="DemiBold" 
+                        Foreground="#474747" 
+                        Height="19" 
+                        Text="Danh sách nhân viên"/>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid x:Name="InsuranceSalaryBasic"
+              Margin="0 0 20 20"
+            Width="373"
+            Height="270">
+            <Border x:Name="bodInsuranceSalaryBasic"
+                Style="{DynamicResource BorderInsurance}">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.3"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel Margin="20">
+                    <DockPanel>
+                        <Border>
+                            <TextBlock Foreground="#4C5BD4" FontSize="18" FontWeight="Medium" Text="BHXH tính theo lương cơ bản"/>
+                        </Border>
+                        <Border x:Name="bodMethondSalaryBasic" MouseLeftButtonUp="bodMethondSalaryBasic_MouseLeftButtonUp" HorizontalAlignment="Right" Height="24" Width="24">
+                            <Image Source="{DynamicResource iconFilterDrawingImage}"/>
+                        </Border>
+                    </DockPanel>
+                    <Rectangle Margin="0 10 0 0" Stroke="#C4C4C4" Opacity="1" StrokeDashArray="2 1 2 0"/>
+                    <DockPanel Margin="0 15 0 15">
+                        <Path Data="{DynamicResource iconEdit2}" Stroke="#474747"/>
+                        <Border Margin="10 0 0 0">
+                            <TextBlock Text="Miêu tả" Foreground="#474747" FontSize="16" FontWeight="Regular"/>
+                        </Border>
+                    </DockPanel>
+                    <Border>
+                        <TextBlock Text="Bảo hiểm xã hội được tính theo mức lương cơ bản mà công ty chi trả cho cá nhân đó."
+                                   FontSize="16"
+                                   Foreground="#474747"
+                                   FontWeight="Regular"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+                    <DockPanel Margin="0 15 0 15">
+                        <Path Data="{DynamicResource iconAddDesktop}" Stroke="#474747"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16" Foreground="#474747" FontWeight="Regular" Text="Công thức tính"/>
+                    </DockPanel>
+                    <TextBlock FontSize="16" FontWeight="Regular" Foreground="#474747">
+                        <Run Text="Lương cơ bản"/>
+                        <Run Text="*"/>
+                        <Run Text="10,5%"/>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+            <Image 
+                Visibility="Collapsed"
+                x:Name="bodControlSalaryBasic"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top"
+                Width="14" Height="11" 
+                Source="{StaticResource iconPolygon1DrawingImage}" 
+                Margin="0,44,26,0"/>
+            <Border x:Name="bodListMethondSalaryBasic"
+                Visibility="Collapsed"
+                Margin="0 52 10 0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                BorderBrush="#FFFFFF"
+                BorderThickness="2"
+                CornerRadius="10"
+                Background="#FFFFFF"
+                 Width="225" Height="98">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.5"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel Margin="10">
+                    <!--Thêm nhân viên-->
+                    <DockPanel
+                        x:Name="dopAddSaffSalaryBasic"
+                        Margin="0 0 0 10">
+                        <Image 
+                        x:Name="iconAccountSalaryBasic"
+                        Margin="0 0 10 0" 
+                        Source="{StaticResource iconAccountDrawingImage}" 
+                        Width="24" 
+                        Height="24"/>
+                        <TextBlock 
+                        x:Name="txbAddSaffSalaryBasic"
+                        HorizontalAlignment="Left" 
+                        FontSize="16" 
+                        FontWeight="DemiBold" 
+                        Foreground="#474747" 
+                        Height="19" 
+                        Text="Thêm nhân viên"/>
+                    </DockPanel>
+                    <!--Danh sách nhân viên-->
+                    <DockPanel
+                        x:Name="dopListSaffSmallSalaryBasic"
+                        Margin="0 0 0 10">
+                        <Image 
+                        Margin="0 0 10 0" 
+                        Source="{StaticResource iconNoteListDrawingImage}" 
+                        Width="24" 
+                        Height="24"/>
+                        <TextBlock 
+                            x:Name="txbListSaffSalaryBasic"
+                        HorizontalAlignment="Left" 
+                        FontSize="16" 
+                        FontWeight="DemiBold" 
+                        Foreground="#474747" 
+                        Height="19" 
+                        Text="Danh sách nhân viên"/>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid x:Name="InsuranceSalaryInput"
+              Margin="0 0 0 20"
+            Width="373"
+            Height="270">
+            <Border x:Name="bodInsuranceSalaryInput"
+                Style="{DynamicResource BorderInsurance}">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.3"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel Margin="20">
+                    <DockPanel>
+                        <Border>
+                            <TextBlock Foreground="#4C5BD4" FontSize="18" FontWeight="Medium" Text="BHXH tính theo lương nhập vào"/>
+                        </Border>
+                        <Border x:Name="bodMethondSalaryInput" MouseLeftButtonUp="bodMethondSalaryInput_MouseLeftButtonUp" HorizontalAlignment="Right" Height="24" Width="24">
+                            <Image Source="{DynamicResource iconFilterDrawingImage}"/>
+                        </Border>
+                    </DockPanel>
+                    <Rectangle Margin="0 10 0 0" Stroke="#C4C4C4" Opacity="1" StrokeDashArray="2 1 2 0"/>
+                    <DockPanel Margin="0 15 0 15">
+                        <Path Data="{DynamicResource iconEdit2}" Stroke="#474747"/>
+                        <Border Margin="10 0 0 0">
+                            <TextBlock Text="Miêu tả" Foreground="#474747" FontSize="16" FontWeight="Regular"/>
+                        </Border>
+                    </DockPanel>
+                    <Border>
+                        <TextBlock Text="Bảo hiểm xã hội sẽ tính theo mức lương của từng cá nhân do công ty nhập vào (có thể là mức tối thiểu vùng)"
+                                   FontSize="16"
+                                   Foreground="#474747"
+                                   FontWeight="Regular"
+                                   TextWrapping="Wrap"/>
+                    </Border>
+                    <DockPanel Margin="0 15 0 15">
+                        <Path Data="{DynamicResource iconAddDesktop}" Stroke="#474747"/>
+                        <TextBlock Margin="10 0 0 0" FontSize="16" Foreground="#474747" FontWeight="Regular" Text="Công thức tính"/>
+                    </DockPanel>
+                    <TextBlock FontSize="16" FontWeight="Regular" Foreground="#474747">
+                        <Run Text="Lương cơ bản"/>
+                        <Run Text="*"/>
+                        <Run Text="10,5%"/>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+            <Image 
+                Visibility="Collapsed"
+                x:Name="bodControlSalaryInput"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top"
+                Width="14" Height="11" 
+                Source="{StaticResource iconPolygon1DrawingImage}" 
+                Margin="0,44,26,0"/>
+            <Border x:Name="bodListMethondSalaryInput"
+                Visibility="Collapsed"
+                Margin="0 52 10 0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                BorderBrush="#FFFFFF"
+                BorderThickness="2"
+                CornerRadius="10"
+                Background="#FFFFFF"
+                 Width="225" Height="98">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.5"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel Margin="10">
+                    <!--Thêm nhân viên-->
+                    <DockPanel
+                        x:Name="dopAddSaffSalaryInput"
+                        Margin="0 0 0 10">
+                        <Image 
+                            x:Name="iconAccountSalaryInput"
+                        Margin="0 0 10 0" 
+                        Source="{StaticResource iconAccountDrawingImage}" 
+                        Width="24" 
+                        Height="24"/>
+                        <TextBlock 
+                        x:Name="txbAddSaffSalaryInput"
+                        HorizontalAlignment="Left" 
+                        FontSize="16" 
+                        FontWeight="DemiBold" 
+                        Foreground="#474747" 
+                        Height="19" 
+                        Text="Thêm nhân viên"/>
+                    </DockPanel>
+                    <!--Danh sách nhân viên-->
+                    <DockPanel
+                        x:Name="dopListSaffSmallSalaryInput"
+                        Margin="0 0 0 10">
+                        <Image 
+                        Margin="0 0 10 0" 
+                        Source="{StaticResource iconNoteListDrawingImage}" 
+                        Width="24" 
+                        Height="24"/>
+                        <TextBlock 
+                            x:Name="txbListSaffSalaryInput"
+                        HorizontalAlignment="Left" 
+                        FontSize="16" 
+                        FontWeight="DemiBold" 
+                        Foreground="#474747" 
+                        Height="19" 
+                        Text="Danh sách nhân viên"/>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </WrapPanel>
+</UserControl>

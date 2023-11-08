@@ -1,0 +1,478 @@
+﻿<UserControl x:Class="ChamCong365.Popup.funcCompanyManager.ucCreateShiftWork"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.funcCompanyManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="800">
+    <Grid>
+        <Rectangle Fill="#474747" Opacity="0.7" MouseDown="Rectangle_MouseDown" />
+        <!--3. Create Shift Work-->
+        <Border    Width="602"
+                   VerticalAlignment="Center"
+            Background="White"
+                    BorderThickness="1"
+                    CornerRadius="10 10 0 0">
+        <StackPanel 
+         >
+            <Border
+                    BorderThickness="1"
+                    CornerRadius="10 10 0 0"
+                    BorderBrush="#4C5BD4"
+                    Background="#4C5BD4"
+                    >
+                <DockPanel
+              
+                        Height="54">
+                    <TextBlock
+                            Margin="200 0 0 0"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="White"
+                            Text="Thêm ca làm việc" />
+                    <Image
+                            x:Name="btnExit_ThemCa"
+                            MouseLeftButtonUp="btnExit_ThemCa_MouseLeftButtonUp"
+                            Margin="0 0 30 0"
+                            HorizontalAlignment="Right"
+                            Width="14"
+                            Height="14"
+                            Source="{StaticResource iconExitDrawingImage}" />
+                </DockPanel>
+            </Border>
+
+            <WrapPanel
+                    Margin="0 20 0 0"
+                    Height="63">
+                <TextBlock
+                        Margin="20 0 0 0"
+                        FontSize="16"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Text="Ca làm việc *"
+                        Height="19" />
+                <Border
+                        Height="39"
+                        Width="560"
+                        Margin="20 0 20 0"
+                        BorderThickness="1"
+                        BorderBrush="#9F9F9F"
+                        CornerRadius="5">
+                    <TextBox
+                            x:Name="txtNameCalendar"
+                            TextAlignment="Justify"
+                            FontSize="16"
+                            Foreground="Black"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Width="555" Height="38" />
+                </Border>
+            </WrapPanel>
+            <WrapPanel
+                    x:Name="warpInOutTime"
+                    Margin="0 20 0 0"
+                    Height="63">
+                <Grid Width="600" Height="63">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="19" />
+                        <RowDefinition Height="39" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                            Margin="20 0 0 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Giờ vào ca (Check in) *"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Width="160"
+                            Grid.Row="0" />
+
+                    <Border
+                            Margin="20 0 20 0"
+                            BorderThickness="1"
+                            CornerRadius="5"
+                            BorderBrush="#9F9F9F"
+                            Width="250"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1">
+                        <DockPanel>
+                            <TextBlock
+                                    Width="220"
+                                    Height="19" />
+                            <Image
+                                    Width="20" Height="20"
+                                    Source="{StaticResource iconClockDrawingImage}" />
+                        </DockPanel>
+                    </Border>
+
+                    <TextBlock
+                            Margin="20 0 20 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Giờ hết ca (Check out) *"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Width="250"
+                            Grid.Row="0" />
+
+                    <Border
+                            Margin="20 0 20 0"
+                            BorderThickness="1"
+                            CornerRadius="5"
+                            BorderBrush="#9F9F9F"
+                            Width="250"
+                            HorizontalAlignment="Right"
+                            Grid.Row="1">
+                        <DockPanel>
+                            <TextBlock
+                                    Width="220"
+                                    Height="19" />
+                            <Image
+                                    Width="20" Height="20"
+                                    Source="{StaticResource iconClockDrawingImage}" />
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </WrapPanel>
+
+            <WrapPanel
+                    x:Name="wraplimitTimeSetting"
+                    MouseLeftButtonUp="wraplimitTimeSetting_MouseLeftButtonUp"
+                    Margin="0 20 0 0"
+                    Height="auto">
+                <Border>
+                    <TextBlock
+                            Margin="20 0 0 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#4C5BD4"
+                            Text="Cài đặt giới hạn thời gian"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Width="400"
+                            Grid.Row="0" />
+                </Border>
+            </WrapPanel>
+            <WrapPanel
+                    x:Name="warpLimitTimeSettingZone"
+                    Visibility="Collapsed">
+                <WrapPanel
+                        Margin="0 20 0 0"
+                        Height="63">
+                    <Grid Width="600" Height="63">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="83*" />
+                            <ColumnDefinition Width="517*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="19" />
+                            <RowDefinition Height="39" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                                Margin="20,0,0,0"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Ghi nhận check in sớm nhât (không bắt buộc)"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Width="400" Grid.ColumnSpan="2" />
+
+                        <Border
+                                Margin="20,0,20,0"
+                                BorderThickness="1"
+                                CornerRadius="5"
+                                BorderBrush="#9F9F9F"
+                                Width="560"
+                                Grid.Row="1" Grid.ColumnSpan="2">
+                            <DockPanel>
+                                <TextBlock
+                                        Width="516"
+                                        Height="19" />
+                                <Image
+                                        Width="20" Height="20"
+                                        Source="{StaticResource iconClockDrawingImage}" />
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                </WrapPanel>
+                <WrapPanel
+                        Margin="0 20 0 0"
+                        Height="63">
+                    <Grid Width="600" Height="63">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="19" />
+                            <RowDefinition Height="39" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                                Margin="20 0 0 0"
+                                FontSize="16"
+                                FontWeight="DemiBold"
+                                Foreground="#474747"
+                                Text="Ghi nhận check out muộn nhất (không bắt buộc)"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Width="400"
+                                Grid.Row="0" />
+
+                        <Border
+                                Margin="20 0 20 0"
+                                BorderThickness="1"
+                                CornerRadius="5"
+                                BorderBrush="#9F9F9F"
+                                Width="560"
+                                Grid.Row="1">
+                            <DockPanel>
+                                <TextBlock
+                                        Width="516"
+                                        Height="19" />
+                                <Image
+                                        Width="20" Height="20"
+                                        Source="{StaticResource iconClockDrawingImage}" />
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                </WrapPanel>
+            </WrapPanel>
+            <WrapPanel
+                    Width="600"
+                    Margin="0 20 0 0"
+                    Height="auto">
+                <Border>
+                    <TextBlock
+                            Margin="20 0 0 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Chọn công thuộc loại nào để tính ca cuối tháng"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="400"
+                            Grid.Row="0" />
+                </Border>
+                <WrapPanel
+                        Width="600">
+                    <Border
+                            x:Name="bodBtnTinhTheoSoCa"
+                            MouseLeftButtonUp="bodBtnTinhTheoSoCa_MouseLeftButtonUp"
+                            Margin="20 20 0 0"
+                            Width="250"
+                            Height="34"
+                            Background="#4C5BD4"
+                            CornerRadius="5"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            TextBlock.FontSize="18"
+                            TextBlock.FontWeight="DemiBold"
+                            TextBlock.Foreground="White">
+                        <TextBlock
+                                x:Name="txbTinhTheoSoCa"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Text="Tính công theo số ca" />
+                    </Border>
+                    <Border
+                            x:Name="bodBtnTinhTheoTien"
+                            MouseLeftButtonUp="bodBtnTinhTheoTien_MouseLeftButtonUp"
+                            Margin="56 20 0 0"
+                            Width="250"
+                            Height="34"
+                            Background="white"
+                            CornerRadius="5"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            TextBlock.FontSize="18"
+                            TextBlock.FontWeight="DemiBold"
+                            TextBlock.Foreground="#474747">
+                        <TextBlock
+                                x:Name="txbTinhTheoTien"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Text="Tính công theo tiền" />
+                    </Border>
+                    <Border
+                            x:Name="bodBtnTinhTheoGio"
+                            MouseLeftButtonUp="bodBtnTinhTheoGio_MouseLeftButtonUp"
+                            Margin="20 20 0 0"
+                            Width="256"
+                            Height="34"
+                            Background="White"
+                            CornerRadius="5"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            TextBlock.FontSize="18"
+                            TextBlock.FontWeight="DemiBold"
+                            TextBlock.Foreground="#474747"
+                            HorizontalAlignment="Right"
+                        >
+                        <TextBlock
+                                x:Name="txbTinhTheoGio"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Text="Tính công theo giờ" />
+                    </Border>
+                </WrapPanel>
+            </WrapPanel>
+
+            <WrapPanel
+                    x:Name="warpSoCongTuongUng"
+                    Visibility="Visible"
+                    Margin="0 20 0 0"
+                    Height="63">
+                <Grid Width="600" Height="auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="19" />
+                        <RowDefinition Height="39" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                            Margin="20 0 0 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Số công tương ứng *"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Width="190"
+                            Grid.Row="0" />
+                    <Border
+                            Margin="20 0 20 0"
+                            BorderThickness="1"
+                            CornerRadius="5"
+                            BorderBrush="#9F9F9F"
+                            Width="560"
+                            Grid.Row="1">
+                        <DockPanel>
+                            <TextBlock
+                                    x:Name="txbChonCa"
+                                    Width="526"
+                                    Height="19" />
+                            <Image
+                                    x:Name="bodChonCa"
+                                    MouseLeftButtonUp="Image_MouseLeftButtonUp_ChonCa"
+                                    Width="14" Height="14"
+                                    Source="{StaticResource iconDropDownDrawingImage}" />
+
+                        </DockPanel>
+
+                    </Border>
+                    <Border
+                            Panel.ZIndex="1"
+                            Background="White"
+                            x:Name="bodCongTrenCa"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            CornerRadius="0 0 5 5"
+                            BorderThickness="1 0 1 1"
+                            BorderBrush="Black"
+                            Height="auto"
+                            Width="550" Margin="0,0,30,0" Grid.Row="1"
+                            Visibility="Collapsed"
+                        >
+                        <Grid>
+                            <ListView
+                                    Padding="10 0 10 0"
+                                    BorderThickness="1"
+                                    FontWeight="DemiBold"
+                                    Foreground="#474747"
+                                    Height="auto" x:Name="lsvCongTrenCa"
+                                    SelectionChanged="lsvCongTrenCa_SelectionChanged"
+                                    FontSize="16"
+                                    Grid.Row="1" />
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </WrapPanel>
+
+            <WrapPanel
+                    x:Name="wrapSoTienTuongUong"
+                    Visibility="Collapsed"
+                    Margin="0 20 0 0"
+                    Height="63">
+                <Grid Width="600" Height="auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="19" />
+                        <RowDefinition Height="39" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                            Margin="20 0 0 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Số tiền tương ứng *"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Width="190"
+                            Grid.Row="0" />
+                    <Border
+                            Margin="20 0 20 0"
+                            BorderThickness="1"
+                            CornerRadius="5"
+                            BorderBrush="#9F9F9F"
+                            Width="560"
+                            Grid.Row="1">
+                        <DockPanel>
+                            <TextBlock
+                                    Width="526"
+                                    Height="19" />
+
+                        </DockPanel>
+
+                    </Border>
+                    <Border
+                            Panel.ZIndex="1"
+                            Background="White"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            CornerRadius="0 0 5 5"
+                            BorderThickness="1 0 1 1"
+                            BorderBrush="Black"
+                            Height="auto"
+                            Width="550" Margin="0,0,30,0" Grid.Row="1"
+                            Visibility="Collapsed"
+                        >
+                        <Grid>
+                            <ListView
+                                    Padding="10 0 10 0"
+                                    BorderThickness="1"
+                                    FontWeight="DemiBold"
+                                    Foreground="#474747"
+                                    Height="auto"
+                                    SelectionChanged="lsvCongTrenCa_SelectionChanged"
+                                    FontSize="16"
+                                    Grid.Row="1" />
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </WrapPanel>
+
+            <Border
+                    x:Name="bodBtnThemCa"
+                    MouseLeftButtonUp="bodBtnThemCa_MouseLeftButtonUp"
+                    Margin="0 20 0 20"
+                    Width="126"
+                    Height="34"
+                    Background="#4C5BD4"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="DemiBold"
+                    TextBlock.Foreground="White">
+                <TextBlock
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Thêm ca" />
+            </Border>
+
+
+        </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

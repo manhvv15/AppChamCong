@@ -1,0 +1,541 @@
+﻿<UserControl x:Class="ChamCong365.TimeKeeping.ucConfirmationNewDevice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.TimeKeeping"
+             mc:Ignorable="d"  
+            MaxWidth="1200">
+    
+    <Border Background="White"
+            CornerRadius="10"
+            BorderBrush="#FFFFFF">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0.2" BlurRadius="8" Opacity="0.5"></DropShadowEffect>
+        </Border.Effect>
+        <Grid>
+            <StackPanel
+            Margin="20 0 20 0">
+            <Border>
+                <TextBlock 
+                    Margin="0 20 0 0"
+                    FontWeight="DemiBold"
+                    Text="Danh sách Thiết bị"
+                    Style="{StaticResource TextBlockLable}"/>
+            </Border>
+            <WrapPanel
+                Margin="0 20 0 0">
+                    <!--Chọn tên-->
+                    <Border
+                    Margin="0 0 20 0"
+                    Width="330"
+                    Style="{StaticResource BorderSelected}"
+                    Height="44">
+                        <Grid>
+                            <DockPanel  MouseUp="bodSelectNameSaff_MouseUp">
+                                <TextBlock
+                                MaxWidth="300"
+                                Style="{StaticResource TextBlockLable}"
+                                VerticalAlignment="Center"
+                                Foreground="#ACACAC"
+                                Text="Nhập tên cần tìm"
+                                x:Name="txtSelectNameSaff"/>
+                                <Border 
+                                x:Name="bodSelectNameSaff">
+                                    <Image 
+                                    Margin="0 0 5 0"
+                                    Width="15"
+                                    HorizontalAlignment="Right"
+                            Source="{StaticResource iconControlBottomDrawingImage}"/>
+                                </Border>
+                            </DockPanel>
+                        </Grid>
+                    </Border>
+                    <!--Chọn Công ty-->
+                     <Border
+                    Margin="0 10 20 10"
+                    Width="330"
+                    x:Name="bodSelectCompany"
+                    MouseUp="bodSelectCompany_MouseUp"
+                    Style="{StaticResource BorderSelected}"
+                    Height="44">
+                    <DockPanel >
+                        <TextBlock 
+                            MaxWidth="300"
+                            Style="{StaticResource TextBlockLable}"
+                            VerticalAlignment="Center"
+                            Foreground="#ACACAC"
+                            Text="Chọn công ty"
+                            x:Name="txbSelectCompany"/>
+                        <Image 
+                            Margin="0 0 5 0"
+                            Width="15"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource iconControlBottomDrawingImage}"/>
+                    </DockPanel>
+                </Border>
+                     <!--Chọn Phòng ban-->
+                    <Border
+                    Width="330"
+                    Margin="0 0 20 0"
+                    Style="{StaticResource BorderSelected}"
+                    Height="44">
+                        <ComboBox Name="cboSelectRoom"
+                        Height="44">
+                        </ComboBox>
+                        <!--<DockPanel>
+                            <TextBlock 
+                            MaxWidth="300"
+                            Style="{StaticResource TextBlockLable}"
+                            VerticalAlignment="Center"
+                            Foreground="#ACACAC"
+                            Text="Phòng ban (tất cả)"
+                            x:Name="txtSelectRoom"/>
+                            <Border 
+                            x:Name="bodSelectRoom"
+                            MouseUp="bodSelectRoom_MouseUp">
+                                <Image 
+                            Margin="0 0 5 0"
+                            Width="15"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource iconControlBottomDrawingImage}"/>
+                            </Border>
+                        </DockPanel>-->
+                    </Border>
+                    <!--Button Lọc-->
+                    <Border 
+                        Width="109"
+                        HorizontalAlignment="Right"
+                        Height="44"
+                        Background="#4AA7FF"
+                        Style="{StaticResource BorderButon}">
+                        <TextBlock 
+                        
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Lọc"/>
+                </Border>
+            </WrapPanel>
+            <StackPanel Margin="0 20 0 0">
+                <!--Danh mục nhân viên-->
+                <Border
+                    Height="47"
+                    Background="#D9EAFF"
+                    BorderThickness="1"
+                    BorderBrush="#D9EAFF">
+                    <DockPanel>
+                        <!--Chọn quyền-->
+                        <Border 
+                            Style="{StaticResource BorderListView1}"
+                             Width="60">
+                            <DockPanel>
+                                <Border x:Name="bodCheckBoxFaceAll"
+                                        MouseLeftButtonUp="bodCheckBoxFaceAll_MouseLeftButtonUp"
+                                        CornerRadius="5"
+                                        BorderThickness="2"
+                                        BorderBrush="#9F9F9F"
+                                        Width="24" Height="24"
+                                        Background="White">
+                                    <Image Source="{DynamicResource iconNikeDrawingImage}"/>
+                                </Border>
+                            </DockPanel>
+                        </Border>
+                        <!--Ảnh nhân viên-->
+                        <Border 
+                            Width="50"
+                            Style="{StaticResource BorderListView1}">
+                            <TextBlock 
+                                 Text="Ảnh"
+                                Style="{DynamicResource TextBlockBlue}"/>
+                        </Border>
+                        <!--Tên nhân viên-->
+                        <Border 
+                            Width="225"
+                            Style="{StaticResource BorderListView1}">
+                            <TextBlock 
+                                Style="{DynamicResource TextBlockBlue}"
+                                Text="Họ tên (ID)"/>
+                        </Border>
+                        <!--Phòng ban-->
+                        <Border 
+                            Width="225"
+                            Style="{StaticResource BorderListView1}">
+                            <TextBlock 
+                                 Style="{DynamicResource TextBlockBlue}"
+                                  Text="Phòng ban"/>
+                        </Border>
+                        <!--Thiết bị đang sử dụng-->
+                        <Border 
+                            Width="242"
+                            Style="{StaticResource BorderListView1}">
+                            <TextBlock 
+                                   Text="Thiết bị đâng sử dụng"
+                                  Style="{DynamicResource TextBlockBlue}"/>
+                        </Border>
+                        <!--Thiết bị mới-->
+                        <Border 
+                            Width="241"
+                            Style="{StaticResource BorderListView1}">
+                            <TextBlock 
+                                Text="Thiết bị mới"
+                               Style="{DynamicResource TextBlockBlue}"/>
+                        </Border>
+                        <!--Chức năng-->
+                        <Border   
+                            Width="120"
+                            Style="{StaticResource BorderListView1}">
+                            <TextBlock 
+                                 Text="Chức Năng"
+                                 Style="{DynamicResource TextBlockBlue}"/>
+                        </Border>
+                    </DockPanel>
+                </Border>
+                <!--danh sách nhân viên-->
+                <ListView 
+                   Height="340"
+                    x:Name="lsvListSaffInDevice">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ScrollViewer>
+                                <Grid>
+                                <WrapPanel>
+                                    <!--Chọn quyền-->
+                                    <Border Width="51">
+                                        <CheckBox 
+                                            x:Name="CheckDeviceSelected"
+                                            Checked="CheckDeviceSelected_Checked"
+                                            Unchecked="CheckDeviceSelected_Unchecked"
+                                            HorizontalAlignment="Left"
+                                            />
+                                        </Border>
+                                    <!--Ảnh nhân viên-->
+                                    <Border 
+                                            Width="46"
+                                            Style="{StaticResource BorderImage}">
+                                        <Border.Background>
+                                            <ImageBrush 
+                                                ImageSource="{Binding anh}">
+                                            </ImageBrush>
+                                        </Border.Background>
+                                    </Border>
+                                    <!--Họ tên &ID-->
+                                    <StackPanel 
+                                            Width="225">
+                                        <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Top"
+                                                 FontSize="16"
+                                                 Foreground="#474747"
+                                                 Text="{Binding name}"
+                                                 Height="23"/>
+                                        <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="16" 
+                                                Foreground="#474747"
+                                                Text="{Binding Id}"
+                                                 Height="23"/>
+                                    </StackPanel>
+                                    <!--Phòng ban-->
+                                    <Border Width="225">
+                                        <TextBlock 
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"
+                                                 FontSize="16"
+                                                 Foreground="#474747"
+                                                 Text="{Binding phongban}"
+                                                 Height="23"/>
+                                    </Border>
+                                    <!--Thiết bị đang sử dung-->
+                                    <Border Width="242">
+                                        <TextBlock 
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"
+                                                 FontSize="16"
+                                                 Foreground="#474747"
+                                                 Text="{Binding Thietbi}"
+                                                 Height="21"/>
+                                    </Border>
+                                    <!--Thiết bị mới-->
+                                    <Border Width="241">
+                                        <TextBlock 
+                                                 VerticalAlignment="Center"
+                                                 HorizontalAlignment="Center"
+                                                 FontSize="16"
+                                                 Foreground="#474747"
+                                                 Text="{Binding Thietbimoi}"
+                                                 Height="21"/>
+                                    </Border>
+                                    <!--Chức năng-->
+                                    <Border
+                                        x:Name="bodDeleteListDecvice"
+                                        MouseUp="bodDeleteListDecvice_MouseUp"
+                                            Width="120">
+                                        <Image
+                                                Width="24" Height="24"
+                                                Source="{DynamicResource iconDeleteDrawingImage}"/>
+                                    </Border>
+                                </WrapPanel>
+                                <Rectangle Style="{StaticResource Rectangle}"/>
+                            </Grid>
+                            </ScrollViewer>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <DockPanel
+                Margin="0 10 0 10"
+                HorizontalAlignment="Center"
+                Width="125" Height="29">
+                <Border 
+                    HorizontalAlignment="Right"
+                        Width="29" Height="29"
+                        Style="{StaticResource BorderButon}">
+                    <TextBlock 
+                        x:Name="txbCurrentPage"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" Text="1"
+                        />
+                </Border>
+                <Border 
+                   Margin="5 0 5 0"
+                    Width="29" Height="29"
+                    Style="{StaticResource Boder}">
+                    <TextBlock 
+                        Foreground="Blue"
+                        x:Name="txbTotalPaget"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="2"
+                        />
+                </Border>
+                <Border 
+                    x:Name="bodNext"
+                    MouseUp="bodNext_MouseUp"
+                    Width="51" Height="29"
+                    Style="{StaticResource Boder}">
+                    <TextBlock  
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Tiếp"/>
+                </Border>
+            </DockPanel>
+            <Border
+                Width="132"
+                Height="43"
+                Style="{StaticResource BorderButon}">
+                <TextBlock 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Text="Duyệt"/>
+            </Border>
+        </StackPanel>
+            <!--select Name Saff-->
+            <Border 
+            HorizontalAlignment="Left"
+            Width="330"
+            Height="228"
+            Visibility="Collapsed"
+            Style="{StaticResource BorderListViewSeleted}"
+            x:Name="bodSelectNameSaffCollapsed"
+            Margin="20 116 150 0"  
+            Grid.RowSpan="2" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="34"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!---->
+                <TextBox 
+                    Style="{StaticResource TextBoxListViewSeleted}"
+                    x:Name="txtSearchNameSaff" />
+                <!---->
+                <ListView 
+                    Height="200"
+                    Grid.Row="1"
+                    x:Name="lsvListNameSaff"
+                    SelectionChanged="lsvListNameSaff_SelectionChanged"
+                    Style="{StaticResource ListViewSelected}"/>
+            </Grid>
+        </Border>
+            <!--select Phòng ban -->
+            <!--<Border 
+            x:Name="bodSelectRoomCollapsed"
+            Width="328"
+            Height="298"
+            Visibility="Collapsed"
+            HorizontalAlignment="Left"
+            Style="{StaticResource BorderListViewSeleted}"
+            Margin="373 116 0 0"  
+            Grid.RowSpan="2" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="34"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                --><!---->
+                <!--TextChanged="txtSearchYear_TextChanged"--><!--
+                <TextBlock 
+                    Style="{StaticResource TextBlockLable}"
+                    Text="Chọn phòng ban (Tất cả)"
+                    Height="32"/>
+                --><!---->
+                <!--SelectionChanged="lsvListYear_SelectionChanged"--><!--
+                <ListView  
+                    SelectionChanged="lsvSelectRoom_SelectionChanged"
+                    x:Name="lsvSelectRoom"
+                    Height="245"
+                    Grid.Row="1"
+                    Style="{StaticResource ListViewSelected}">
+                </ListView>
+            </Grid>
+            </Border>-->
+            <!--select công ty-->
+            <Border 
+            x:Name="bodSelectCompanyCollapsed"
+            Width="328"
+            Height="170"
+            Visibility="Collapsed"
+            Style="{StaticResource BorderListViewSeleted}"
+            Margin="370 116 0 0"  
+            Grid.RowSpan="2" 
+            Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="34"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!---->
+                <TextBlock
+                    Style="{StaticResource TextBlockLable}"
+                    Text="Chọn công ty"
+                    x:Name="txtSelectCompany"
+                    Height="32"/>
+                <ListView 
+                    SelectionChanged="lsvSelectCompaty_SelectionChanged"
+                    x:Name="lsvSelectCompaty"
+                    Height="224"
+                    Grid.Row="1"
+                    Style="{StaticResource ListViewSelected}"/>
+            </Grid>
+        </Border>
+            <!--Messagebox-->
+            <!--all-->
+            <Border 
+           Style="{StaticResource BorderMessageBox}"
+            x:Name="bodMessageboxYesAll"
+            Width="450" Height="113">
+            <StackPanel>
+                <TextBlock 
+                    Margin="0 20 0 20"
+                    HorizontalAlignment="Center"
+                    Text="Tất cả nhân viên đã được duyệt thiết bị khi chấn công"
+                    Style="{StaticResource TextBlockLable}"/>
+                <Border
+                    x:Name="bodOkMessageYesAll"
+                    MouseUp="bodOkMessageYesAll_MouseUp"
+                    Style="{StaticResource BorderButon}"
+                    Width="64" Height="34">
+                    <TextBlock 
+                        Text="OK"
+                        Style="{StaticResource TextBlockMenuHeader}"/>
+                </Border>
+            </StackPanel>
+        </Border>
+            <!--Select-->
+            <Border 
+            Style="{StaticResource BorderMessageBox}"
+            x:Name="bodMessageboxYesSelected"
+            Width="450" Height="113">
+            <StackPanel>
+                <WrapPanel HorizontalAlignment="Center" Margin="0 0 0 20" >
+                    <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="đã duyệt thiết bị nhân viên"
+                    Style="{StaticResource TextBlockLable}"/>
+                    <TextBlock 
+                    HorizontalAlignment="Center"
+                    Text="{Binding ElementName=bodSelectNameSaff}"
+                    Style="{StaticResource TextBlockLable}"/>
+                    <TextBlock 
+                    HorizontalAlignment="Center"
+                    Text="Chấm công"
+                    Style="{StaticResource TextBlockLable}"/>
+                </WrapPanel>
+                <Border
+                    x:Name="bodOkMessageYesSelected"
+                    MouseUp="bodOkMessageYesSelected_MouseUp"
+                    Style="{StaticResource BorderButon}"
+                    Width="64" Height="34">
+                    <TextBlock 
+                        Text="OK"
+                        Style="{StaticResource TextBlockMenuHeader}"/>
+                </Border>
+            </StackPanel>
+        </Border>
+            <!--Xóa nhân viên-->
+            <Border 
+            Visibility="Collapsed" 
+            x:Name="bodDeleteListDevice"
+            Width="450"
+            Background="White"
+            Height="183"
+            CornerRadius="10"
+                BorderThickness="1"
+                BorderBrush="Blue">
+            <StackPanel>
+                <Image 
+                    Margin="0 15 0 0" 
+                    Width="50" 
+                    Source="./Resource/image/nox.png"/>
+                <Border Margin="0 20 0 10">
+                    <TextBlock 
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Bạn có chắc chắn muốn xóa nhân viên này khỏi danh sách thiết bị mới chấm công ?"/>
+                </Border>
+                <DockPanel>
+                    <Border 
+                        x:Name="bodCancel"
+                        MouseUp="bodCancel_MouseUp"
+                        Margin="80 0 0 0"
+                        Width="129"
+                        Height="34"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        BorderBrush="#4C5BD4">
+                        <TextBlock 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="#4C5BD4"
+                            FontWeight="DemiBold"
+                            Text="Hủy" />
+                    </Border>
+                    <Border 
+                        Margin="0 0 80 0"
+                        HorizontalAlignment="Right"
+                        Width="129"
+                        Height="34"
+                        CornerRadius="10"
+                        BorderThickness="1"
+                        BorderBrush="#4C5BD4"
+                            Background="#4C5BD4">
+                        <TextBlock 
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            FontSize="18"
+                            Foreground="White"
+                            FontWeight="DemiBold"
+                            Text="Đồng ý" />
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        </Grid>
+    </Border>
+</UserControl>

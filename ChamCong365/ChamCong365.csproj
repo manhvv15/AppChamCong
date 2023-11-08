@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F167F5E-BFC4-42ED-9CB4-44AC9741A683}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ChamCong365</RootNamespace>
+    <AssemblyName>ChamCong365</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=6.2.7.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.2.7\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Object.Library.15.0.4420.1018\lib\net20\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="OOP\ClsCaLamViec.cs" />
+    <Compile Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpChiTietMucPhatNghiSaiQD.xaml.cs">
+      <DependentUpon>PopUpChiTietMucPhatNghiSaiQD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpHoiTruocKhiXoaMucPhat.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaMucPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpThongBaoSuaXoaMucPhatThanhCong.xaml.cs">
+      <DependentUpon>PopUpThongBaoSuaXoaMucPhatThanhCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpChinhSuaMucPhat.xaml.cs">
+      <DependentUpon>PopUpChinhSuaMucPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpXoaMucPhat.xaml.cs">
+      <DependentUpon>PopUpXoaMucPhat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\CaiDatLuong\PhuCap\PopUpHoiTruocKhiXoaPhuCapPCTheoCa.xaml.cs">
+      <DependentUpon>PopUpHoiTruocKhiXoaPhuCapPCTheoCa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucCalendar.xaml.cs">
+      <DependentUpon>ucCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucLoadMonths.xaml.cs">
+      <DependentUpon>ucLoadMonths.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucMonthApply.xaml.cs">
+      <DependentUpon>ucMonthApply.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentManagerTabList\ucListDpartment.xaml.cs">
+      <DependentUpon>ucListDpartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentManagerTabList\ucListGiamBienChe.xaml.cs">
+      <DependentUpon>ucListGiamBienChe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentManagerTabList\ucListGroup.xaml.cs">
+      <DependentUpon>ucListGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentManagerTabList\ucListLuanChuyen.xaml.cs">
+      <DependentUpon>ucListLuanChuyen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentManagerTabList\ucListNghiViec.xaml.cs">
+      <DependentUpon>ucListNghiViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentManagerTabList\ucListTo.xaml.cs">
+      <DependentUpon>ucListTo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ucCreateDepartment.xaml.cs">
+      <DependentUpon>ucCreateDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ucCreateShiftWork.xaml.cs">
+      <DependentUpon>ucCreateShiftWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\funcCompanyManager\ucUpdateDepartment.xaml.cs">
+      <DependentUpon>ucUpdateDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucAddSaffForInsurance.xaml.cs">
+      <DependentUpon>ucAddSaffForInsurance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucInsurancePolicy.xaml.cs">
+      <DependentUpon>ucInsurancePolicy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucListSaffInsurance.xaml.cs">
+      <DependentUpon>ucListSaffInsurance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucListSaffNotSettings.xaml.cs">
+      <DependentUpon>ucListSaffNotSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucListSaffYesSettings.xaml.cs">
+      <DependentUpon>ucListSaffYesSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucNextGroundInsurance.xaml.cs">
+      <DependentUpon>ucNextGroundInsurance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucNextSaffInsurance.xaml.cs">
+      <DependentUpon>ucNextSaffInsurance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucSetupInsurance.xaml.cs">
+      <DependentUpon>ucSetupInsurance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateFileSaff.xaml.cs">
+      <DependentUpon>ucCreateFileSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucEditCalendarWork.xaml.cs">
+      <DependentUpon>ucEditCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucFirstDay.xaml.cs">
+      <DependentUpon>ucFirstDay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\DatePicker\ucLoadDays.xaml.cs">
+      <DependentUpon>ucLoadDays.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCoppyCalendarWork.xaml.cs">
+      <DependentUpon>ucCoppyCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateAddressIP.xaml.cs">
+      <DependentUpon>ucCreateAddressIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateCalendarWork.xaml.cs">
+      <DependentUpon>ucCreateCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucListIP.xaml.cs">
+      <DependentUpon>ucListIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucListWifi.xaml.cs">
+      <DependentUpon>ucListWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucLoadDaySmall.xaml.cs">
+      <DependentUpon>ucLoadDaySmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucLoadFirstDaySmall.xaml.cs">
+      <DependentUpon>ucLoadFirstDaySmall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucLoadMonth.xaml.cs">
+      <DependentUpon>ucLoadMonth.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupSalarySettings\ucCreateFileSalary.xaml.cs">
+      <DependentUpon>ucCreateFileSalary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateSaff.xaml.cs">
+      <DependentUpon>ucCreateSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucCreateWifi.xaml.cs">
+      <DependentUpon>ucCreateWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucDelete.xaml.cs">
+      <DependentUpon>ucDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucDeleteCalendarWork.xaml.cs">
+      <DependentUpon>ucDeleteCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucDeleteSaff.xaml.cs">
+      <DependentUpon>ucDeleteSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucListSaff.xaml.cs">
+      <DependentUpon>ucListSaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucNextCreateCalendarWork.xaml.cs">
+      <DependentUpon>ucNextCreateCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucSelectShift.xaml.cs">
+      <DependentUpon>ucSelectShift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucUpdateIP.xaml.cs">
+      <DependentUpon>ucUpdateIP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\PopupTimeKeeping\ucUpdateWifi.xaml.cs">
+      <DependentUpon>ucUpdateWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmCaiDatDiMuonVeSom.xaml.cs">
+      <DependentUpon>frmCaiDatDiMuonVeSom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmDanhSachNghiSaiQuyDinh.xaml.cs">
+      <DependentUpon>frmDanhSachNghiSaiQuyDinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmDSDiMuonVeSom.xaml.cs">
+      <DependentUpon>frmDSDiMuonVeSom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\DiMuonVeSom\frmNghiSaiQuyDinh.xaml.cs">
+      <DependentUpon>frmNghiSaiQuyDinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\frmCaiDatThietLapPhatDiMuonVeSom.xaml.cs">
+      <DependentUpon>frmCaiDatThietLapPhatDiMuonVeSom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\frmDanhSachPhuCap.xaml.cs">
+      <DependentUpon>frmDanhSachPhuCap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucBasicSalary.xaml.cs">
+      <DependentUpon>ucBasicSalary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucInsuranceSettings.xaml.cs">
+      <DependentUpon>ucInsuranceSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalarySettings\ucListSalarySettings.xaml.cs">
+      <DependentUpon>ucListSalarySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucListTimeKeeping.xaml.cs">
+      <DependentUpon>ucListTimeKeeping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucBodyHome.xaml.cs">
+      <DependentUpon>ucBodyHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucConfirmationNewDevice.xaml.cs">
+      <DependentUpon>ucConfirmationNewDevice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucInstallCalendarWork.xaml.cs">
+      <DependentUpon>ucInstallCalendarWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucOutWork.xaml.cs">
+      <DependentUpon>ucOutWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucSecurityWifi.xaml.cs">
+      <DependentUpon>ucSecurityWifi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucStandardInstallation.xaml.cs">
+      <DependentUpon>ucStandardInstallation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimeKeeping\ucUpdateFace.xaml.cs">
+      <DependentUpon>ucUpdateFace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucChildCompanyManager.xaml.cs">
+      <DependentUpon>ucChildCompanyManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucDepartmentManager.xaml.cs">
+      <DependentUpon>ucDepartmentManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucFunctionCompanyManager.xaml.cs">
+      <DependentUpon>ucFunctionCompanyManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="funcQuanLyCongTy\ucShiftWorkManager.xaml.cs">
+      <DependentUpon>ucShiftWorkManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\PickersViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Page Include="DepartmentManagerTabList\ucListDpartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DepartmentManagerTabList\ucListGiamBienChe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DepartmentManagerTabList\ucListGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DepartmentManagerTabList\ucListLuanChuyen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DepartmentManagerTabList\ucListNghiViec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DepartmentManagerTabList\ucListTo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpChiTietMucPhatNghiSaiQD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpHoiTruocKhiXoaMucPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\NghiSaiQuyDinh\PopUpThongBaoSuaXoaMucPhatThanhCong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpChinhSuaMucPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhatDiMuonVeSom\PopUpXoaMucPhat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\CaiDatLuong\PhuCap\PopUpHoiTruocKhiXoaPhuCapPCTheoCa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucLoadMonths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucMonthApply.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ucCreateDepartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ucCreateShiftWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\funcCompanyManager\ucUpdateDepartment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucAddSaffForInsurance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucInsurancePolicy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucListSaffInsurance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucListSaffNotSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucListSaffYesSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucNextGroundInsurance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucNextSaffInsurance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucSetupInsurance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateFileSaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucEditCalendarWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucFirstDay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\DatePicker\ucLoadDays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCoppyCalendarWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateAddressIP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateCalendarWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucListIP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucListWifi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucLoadDaySmall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucLoadFirstDaySmall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucLoadMonth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupSalarySettings\ucCreateFileSalary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateSaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucCreateWifi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucDeleteCalendarWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucDeleteSaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucListSaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucNextCreateCalendarWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucSelectShift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucUpdateIP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popup\PopupTimeKeeping\ucUpdateWifi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\Combobox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\DateTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\DefaultColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\iconChamCong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\iconQuanLyCongTy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resource\PathXAML\Scroll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\PathXAML\SetStyleDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmCaiDatDiMuonVeSom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmDanhSachNghiSaiQuyDinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmDSDiMuonVeSom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\DiMuonVeSom\frmNghiSaiQuyDinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\frmCaiDatThietLapPhatDiMuonVeSom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\frmDanhSachPhuCap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\ucBasicSalary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\ucInsuranceSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SalarySettings\ucListSalarySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeKeeping\ucListTimeKeeping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucBodyHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeKeeping\ucConfirmationNewDevice.xaml">
+    </Page>
+    <Page Include="TimeKeeping\ucInstallCalendarWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeKeeping\ucOutWork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeKeeping\ucSecurityWifi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeKeeping\ucStandardInstallation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimeKeeping\ucUpdateFace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucChildCompanyManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucDepartmentManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucFunctionCompanyManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="funcQuanLyCongTy\ucShiftWorkManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\BackgroundCalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\KyTo.jpg" />
+    <Resource Include="Resource\image\llll.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\CompanyLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\image\WorkShift.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

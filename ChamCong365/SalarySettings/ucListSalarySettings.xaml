@@ -1,0 +1,296 @@
+﻿<UserControl x:Class="ChamCong365.Salarysettings.ucListSalarySettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Salarysettings"
+             mc:Ignorable="d" >
+    <!--Chức năng Chấm công-->
+    <StackPanel>
+        <WrapPanel Margin="0 0 20 20" Grid.Row="0">
+            <Border Margin="10 0 5 0">
+                <TextBlock 
+                    x:Name="txbNumber4"
+                    FontWeight="DemiBold" 
+                    Foreground="#474747" 
+                    FontSize="30"  
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"/>
+            </Border>
+            <Border>
+                <TextBlock
+                        x:Name="txbSalarySettings"
+                        Text="{Binding Path=Text, ElementName=txbSalary}" 
+                        FontWeight="DemiBold" 
+                        Foreground="#474747" 
+                        FontSize="30"  
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"/>
+            </Border>
+        </WrapPanel>
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid  Margin="0 0 0 20" Grid.Row="0"
+                  x:Name="grLoadFunction01"
+                  MouseUp="grLoadFunction01_MouseUp"
+                  Cursor="Hand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border 
+                     Grid.Column="0"
+                     HorizontalAlignment="left" 
+                     Height="44">
+                    <Image 
+                        VerticalAlignment="Stretch" 
+                        Source="{StaticResource icon1DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1" 
+                    x:Name="bdFunction01"
+                        >
+                    <TextBlock 
+                        x:Name="txbFuncSalary01"
+                        Style="{StaticResource ListFunctionChamCong}"
+                        Text="Cài đặt nhập lương cơ bản">
+                    </TextBlock>
+                </Border>
+            </Grid>
+            <Grid x:Name="btnPhatDiMunVeSom" Cursor="Hand"  Margin="0 0 0 20" Grid.Row="1" MouseLeftButtonUp="btnPhatDiMunVeSom_MouseLeftButtonUp">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                            Height="44">
+                    <Image Source="{StaticResource icon2DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    x:Name="bodFunction1">
+                    <TextBlock 
+                         x:Name="txbFunction1"
+                         Style="{StaticResource ListFunctionChamCong}"
+                         Text="Cài đặt thiết bị lập phạt đi muộn về sớm"/>
+                </Border>
+                <Border Grid.Column="2"
+                    Height="44"  
+                    HorizontalAlignment="Left">
+                    <Image HorizontalAlignment="Right" 
+                        Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                </Border>
+
+            </Grid>
+            <Grid x:Name="grLoadFunction03"
+                  MouseUp="grLoadFunction03_MouseUp"
+                Cursor="Hand"  
+                Margin="0 0 0 20" 
+                Grid.Row="2"     
+                HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                            HorizontalAlignment="Left" 
+                            Height="44">
+                    <Image Source="{StaticResource icon3DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1"
+                        x:Name="bodFunction03">
+                    <TextBlock 
+                                x:Name="txbFuncSalary03"
+                              
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Cài đặt bảo hiểm"/>
+                </Border>
+                <Border Grid.Column="2" 
+                            HorizontalAlignment="Left"
+                            Height="44">
+                    <Image   Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                </Border>
+
+            </Grid>
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="3" 
+                           >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+                <Border 
+                                Grid.Column="0"
+                                HorizontalAlignment="Left" 
+                                Height="44">
+                    <Image 
+                                    VerticalAlignment="Stretch" 
+                                    Source="{StaticResource icon4DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1" 
+                        x:Name="bodFunction04">
+
+                    <TextBlock 
+                                    x:Name="txbFunction3"
+                                    Style="{StaticResource ListFunctionChamCong}"
+                                    Text="Cài đặt phúc lợi">
+                    </TextBlock>
+                </Border>
+                <Border
+                                Grid.Column="2"
+                                Height="44"  
+                                HorizontalAlignment="Left">
+                    <Image 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Center" 
+                                    Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                </Border>
+            </Grid>
+            <Grid x:Name="btnPhuCapKhac" Cursor="Hand" Margin="0 0 0 20" Grid.Row="4" MouseLeftButtonUp="btnPhuCapKhac_MouseLeftButtonUp">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="11*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                            Height="44">
+                    <Image Source="{StaticResource icon5DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1"
+                                HorizontalAlignment="Left">
+                    <TextBlock 
+                                x:Name="txbFunction4"
+                                
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Cài đặt phụ cấp khác"/>
+                </Border>
+                <Border Grid.Column="2"
+                             Height="44"  
+                             HorizontalAlignment="Left">
+                    <Image HorizontalAlignment="Right" 
+                               Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                </Border>
+
+            </Grid>
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="5"
+                            HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="11*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                            HorizontalAlignment="Left" 
+                            Height="44">
+                    <Image Source="{StaticResource icon6DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                                x:Name="txbFunction5"
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Cài đặt thuế"/>
+                </Border>
+                <Border Grid.Column="2" 
+                            HorizontalAlignment="Left"
+                            Height="44">
+                    <Image   Source="{DynamicResource iconQuestionMarkDrawingImage}"/>
+                </Border>
+
+            </Grid>
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="6"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"
+                            HorizontalAlignment="Left" 
+                            Height="44">
+                    <Image Source="{StaticResource icon7DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                                x:Name="txbFunction6"
+                                
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Cộng công"/>
+                </Border>
+
+            </Grid>
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="7"
+                      
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" HorizontalAlignment="Left" Height="44">
+                    <Image Source="{StaticResource icon8DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                                x:Name="txbFunction7"
+                              
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Thưởng / Phạt"/>
+                </Border>
+
+            </Grid>
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="8"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                            HorizontalAlignment="Left" 
+                            Height="44">
+                    <Image Source="{StaticResource icon9DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                                x:Name="txbFunction8"
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Xuất Lương"/>
+                </Border>
+            </Grid>
+            <Grid Cursor="Hand" Margin="0 0 0 20" Grid.Row="9"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                            HorizontalAlignment="Left" 
+                            Height="44">
+                    <Image Source="{StaticResource icon10DrawingImage}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <TextBlock 
+                                x:Name="txbFunction9"
+                                Style="{StaticResource ListFunctionChamCong}"
+                                Text="Nâng cao"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </StackPanel>
+</UserControl>

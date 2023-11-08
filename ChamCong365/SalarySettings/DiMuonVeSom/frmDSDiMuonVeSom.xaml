@@ -1,0 +1,352 @@
+﻿<Page x:Class="ChamCong365.SalarySettings.DiMuonVeSom.frmDSDiMuonVeSom"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChamCong365.SalarySettings.DiMuonVeSom"
+      mc:Ignorable="d"
+      Title="frmDSDiMuonVeSom">
+
+    <Grid x:Name="pnlHienThi" VerticalAlignment="Top">
+        <Grid Margin="10,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0" Margin="0,20,0,0">
+                
+                <Border x:Name="borHienThiPhongBan" Background="Transparent"  BorderBrush="#474747" BorderThickness="1" Width="253" Height="34" CornerRadius="5" Margin="0,10,15,0" MouseLeftButtonUp="borHienThiPhongBan_MouseLeftButtonUp">
+                    <DockPanel>
+                        <TextBlock x:Name="textHienThiPhongBan" Text="Phòng ban (tất cả)" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Foreground="#474747"></TextBlock>
+                        <Path Data="{DynamicResource iconSearch}" HorizontalAlignment="Right" VerticalAlignment="Center" Fill="#5B5B5B " Margin="0,0,5,0"></Path>
+                    </DockPanel>
+                </Border>
+                <Border x:Name="borHienThiNhanVien" Background="Transparent" BorderBrush="#474747" BorderThickness="1" Width="253" Height="34" CornerRadius="5" Margin="0,10,15,0" MouseLeftButtonUp="borHienThiNhanVien_MouseLeftButtonUp">
+                    <DockPanel>
+                        <TextBlock x:Name="textHienThiNhanVien" Text="Tất cả nhân viên" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Foreground="#474747"></TextBlock>
+                        <Path Data="{DynamicResource iconSearch}" HorizontalAlignment="Right" VerticalAlignment="Center" Fill="#5B5B5B " Margin="0,0,5,0"></Path>
+                    </DockPanel>
+                </Border>
+                <Border x:Name="borHienThiThang" Background="Transparent" BorderBrush="#474747" BorderThickness="1" Width="253" Height="34" CornerRadius="5,5,5,5" Margin="0,10,15,0" MouseLeftButtonUp="btnHienThiThang_MouseLeftButtonUp">
+                    <DockPanel>
+                        <TextBlock x:Name="textHienThiThang" Text="Tháng 1" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Foreground="#474747"></TextBlock>
+                        <Path Data="{DynamicResource iconSearch}" HorizontalAlignment="Right" VerticalAlignment="Center" Fill="#5B5B5B " Margin="0,0,5,0"></Path>
+                    </DockPanel>
+                </Border>
+                <Grid>
+                    <Border x:Name="borHienThiNam" Background="Transparent" BorderBrush="#474747" BorderThickness="1" Width="253" Height="34" CornerRadius="5" Margin="0,10,15,0" MouseLeftButtonUp="btnHienThiNam_MouseLeftButtonUp">
+                        <DockPanel>
+                            <TextBlock x:Name="textHienThiNam" Text="Tháng 1" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Foreground="#474747"></TextBlock>
+                            <Path Data="{DynamicResource iconSearch}" HorizontalAlignment="Right" VerticalAlignment="Center" Fill="#5B5B5B " Margin="0,0,5,0"></Path>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+                <Border x:Name="btnThemMoi" Background="#4c5bd4" Width="147" Height="34" CornerRadius="5" Margin="0,10,5,0" Cursor="Hand">
+                    <TextBlock x:Name="test" Text="Thống kê" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+            </WrapPanel>
+            <DockPanel Grid.Row="1" Margin="0,20,0,0">
+                <StackPanel>
+                    <TextBlock Text="Theo dõi đi muộn về sớm" FontSize="18" FontWeight="DemiBold" Foreground="#474747"></TextBlock>
+                    <TextBlock Text="Quản lý nhân viên ra về" FontSize="16" FontWeight="DemiBold" Foreground="#474747" Margin="0,3,0,0"></TextBlock>
+                </StackPanel>
+                <Border  Background="#4c5bd4" Width="198" Height="34" CornerRadius="5" Margin="0,10,10,0" Cursor="Hand" HorizontalAlignment="Right">
+                    <DockPanel HorizontalAlignment="Center">
+                        <Path Data="{DynamicResource iconExcel}" Fill="#ffffff" VerticalAlignment="Center"></Path>
+                        <TextBlock Text="Xuất file thống kê" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center" Margin="20,0,0,0"></TextBlock>
+
+                    </DockPanel>
+                </Border>
+            </DockPanel>
+            <DataGrid Grid.Row="2" Style="{DynamicResource DataGrid1}" Name="dgv" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="0,10,10,20" RowHeight="75" PreviewMouseWheel="dgv_PreviewMouseWheel">
+                <!--<DataGrid.OpacityMask>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Border Width="{Binding ElementName=dgv,Path=ActualWidth}" Height="{Binding ElementName=dgv,Path=ActualHeight}" CornerRadius="10,10,0,0" Background="#ffffff"></Border>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </DataGrid.OpacityMask>-->
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn MinWidth="320" Header="Họ và tên (ID)">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel Margin="40,0,0,0" VerticalAlignment="Center">
+                                    <Border Width="45" Height="45" CornerRadius="1000">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding Anh}"></ImageBrush>
+                                        </Border.Background>
+                                    </Border>
+                                    <StackPanel HorizontalAlignment="Left" Margin="5,0,0,0">
+                                        <TextBlock FontSize="16" Text="{Binding HoVaTen}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#4c5bd4"></TextBlock>
+                                        <DockPanel>
+                                            <TextBlock Text="ID: " FontSize="16"></TextBlock>
+                                            <TextBlock Text="{Binding ID}" FontSize="16"></TextBlock>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Phòng ban" Width="200">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding PhongBan}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="150" Header="Thời gian">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding ThoiGian}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="150" Header="Ca">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding Ca}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="250" Header="Muộn/sớm">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border Background="#FFEBEB" CornerRadius="20" Height="30" Width="200">
+                                        <TextBlock Text="{Binding Som}" FontSize="16" Foreground="#FF5B4D" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold"></TextBlock>
+                                    </Border>
+                                    <Border Background="#FFEBEB" CornerRadius="20" Margin="0,5,0,0" Height="30" Width="200">
+                                        <TextBlock Text="{Binding Muon}" FontSize="16" Foreground="#FF5B4D" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold"></TextBlock>
+                                    </Border>
+                                    
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="150" Header="Phạt">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding Phat}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        <Grid x:Name="popup" Visibility="Collapsed" MouseLeftButtonUp="popup_MouseLeftButtonUp" Background="Transparent"/>
+        <Border Background="#ffffff" x:Name="borNhanVien" Width="253" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,63,0,0" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="textSearchNhanVien" Grid.Row="0" Background="#ffffff" BorderThickness="1" BorderBrush="#000000" FontSize="16" Margin="3" TextChanged="textSearchNhanVien_TextChanged">
+                </TextBox>
+                <ScrollViewer x:Name="scrollNhanVien" Grid.Row="1" Height="120">
+
+                    <!--<ListView x:Name="lsvNhanVien" BorderThickness="0" FontSize="16" PreviewMouseWheel="lsvNhanVien_PreviewMouseWheel" SelectionChanged="lsvNhanVien_SelectionChanged">
+                        
+                    </ListView>-->
+                    <ListView x:Name="lsvNhanVien" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvNhanVien_PreviewMouseWheel">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border HorizontalAlignment="Stretch" x:Name="borTenNhanVien" MouseLeftButtonUp="borTenNhanVien_MouseLeftButtonUp">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Background" Value="Transparent"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <TextBlock FontSize="16" Text="{Binding TenNhanVien}" Margin="5,5,0,5">
+                                                    
+                                                </TextBlock>
+
+                                            </Border>
+
+                                            <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <Border x:Name="borPhongBan" Width="253" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Background="#ffffff" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,64,0,0" Visibility="Collapsed">
+            <ScrollViewer x:Name="scrollPhongBan" Grid.Row="1" Height="120">
+                <ListView IsTabStop="False" x:Name="lsvPhongBan" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvPhongBan_PreviewMouseWheel">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Border x:Name="borTenPB" MouseLeftButtonDown="borTenPB_MouseLeftButtonDown">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+
+                                                </Style>
+
+                                            </Border.Style>
+                                            <TextBlock FontSize="16" Text="{Binding TenPB}" Margin="5,5,0,5">
+                                                
+                                            </TextBlock>
+
+                                        </Border>
+
+                                        <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </ScrollViewer>
+        </Border>
+        <Border Background="#ffffff" x:Name="borThang" Width="253" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="546,63,0,0" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="textSearchThang" Grid.Row="0" Background="#ffffff" BorderThickness="1" BorderBrush="#000000" FontSize="16" Margin="3" TextChanged="textSearchThang_TextChanged">
+                </TextBox>
+                <ScrollViewer x:Name="scrollThang" Grid.Row="1" Height="120">
+                    <ListView IsTabStop="False" x:Name="lsvThang" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvThang_PreviewMouseWheel">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border x:Name="borThang" MouseLeftButtonDown="borThang_MouseLeftButtonDown">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Background" Value="Transparent"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+
+                                                    </Style>
+
+                                                </Border.Style>
+                                                <TextBlock FontSize="16" Text="{Binding thang}" Margin="5,5,0,5">
+
+                                                </TextBlock>
+
+                                            </Border>
+
+                                            <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </ScrollViewer>
+            </Grid>
+        </Border>
+        <Border x:Name="borNam" Width="253" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Background="#ffffff" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox BorderThickness="1" BorderBrush="#000000" x:Name="textSearchNam" Grid.Row="0" Background="#ffffff" FontSize="16" Margin="3" TextChanged="textSearchNam_TextChanged">
+                </TextBox>
+                <ScrollViewer x:Name="scrollNam" Grid.Row="1" Height="120">
+                    <ListView x:Name="lsvNam" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvNam_PreviewMouseWheel">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListViewItem">
+                                            <Border HorizontalAlignment="Stretch" x:Name="borNam" MouseLeftButtonDown="borNam_MouseLeftButtonDown">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Background" Value="Transparent"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <TextBlock FontSize="16" Text="{Binding nam}" Margin="5,5,0,5">
+
+                                                </TextBlock>
+
+                                            </Border>
+
+                                            <!--<Border Margin="0 5 5 0" CornerRadius="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            </Border>-->
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </ScrollViewer>
+            </Grid>
+        </Border>
+        
+
+    </Grid>
+</Page>

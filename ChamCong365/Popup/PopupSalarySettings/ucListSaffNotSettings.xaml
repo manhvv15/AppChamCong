@@ -1,0 +1,339 @@
+﻿<UserControl x:Class="ChamCong365.Popup.ListTabInsurance.ucListSaffNotSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.ListTabInsurance"
+             mc:Ignorable="d" MaxWidth="1200">
+    <Grid x:Name="grLoadListSaffNoSettings">
+        <StackPanel>
+        <Border Margin="0 0 0 20">
+            <TextBlock Text="Danh sách nhân sự chưa thiết lập bảo hiẻm"
+                       Style="{StaticResource ListFunctionChamCong}"/>
+        </Border>
+        <WrapPanel  HorizontalAlignment="Left">
+            <!--Select Month-->
+            <Border
+                x:Name="bodSelectMonth"
+                MouseUp="bodSelectMonth_MouseUp"
+                VerticalAlignment="Top"
+                Margin="0 0 20 20"
+                Style="{StaticResource BorderSelected}"
+                Width="133">
+                <DockPanel>
+                    <TextBlock 
+                            VerticalAlignment="Center"
+                            Margin="10 0 0 0"
+                            x:Name="txbSelectMonth"/>
+                    <Image 
+                         Margin="0 0 5 0"
+                                Width="25"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource iconSearchMoreDrawingImage}"/>
+                </DockPanel>
+            </Border>
+            <!--Select Year-->
+            <Border
+                Margin="0 0 20 20"
+                Width="133"
+                Style="{StaticResource BorderSelected}"
+                x:Name="bodSelectYear"
+                MouseUp="bodSelectYear_MouseUp">
+                <DockPanel Height="32" VerticalAlignment="Top">
+                    <TextBlock 
+                            VerticalAlignment="Center"
+                            Margin="10 0 0 0"
+                            x:Name="txbSelectYear"/>
+                    <Image 
+                         Margin="0 0 5 0"
+                                Width="25"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource iconSearchMoreDrawingImage}"/>
+                </DockPanel>
+            </Border>
+            <!--Chọn Phong ban-->
+            <Border
+                Cursor="Hand"
+                x:Name="bodSelectRoom"
+                MouseUp="bodSelectRoom_MouseUp"
+                VerticalAlignment="Center"
+                 Margin="0 0 20 20"
+                Width="280"
+                Style="{StaticResource BorderSelected}">
+                <Grid>
+                    <DockPanel>
+                        <TextBlock
+                            Margin="10 0 0 0"
+                            MaxWidth="240" 
+                            FontSize="16"
+                            Style="{StaticResource TextBlockLable}"
+                            VerticalAlignment="Center"
+                            Text="Phòng ban (tất cả)"
+                            x:Name="txtSelectRooms"/>
+                        <Border 
+                             x:Name="bodSelectNameSaff">
+                            <Image 
+                                Margin="0 0 5 0"
+                                Width="25"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource iconSearchMoreDrawingImage}"/>
+                        </Border>
+                    </DockPanel>
+                </Grid>
+            </Border>
+            <!--Chọn nhân viên-->
+            <Border
+                x:Name="bodSelectNameSaffInsurance"
+                MouseUp="bodSelectNameSaffInsurance_MouseUp"
+                Margin="0 0 20 20"
+                Cursor="Hand"
+                Height="34"
+                VerticalAlignment="Center"
+                Width="280"
+                Style="{StaticResource BorderSelected}">
+                <Grid>
+                    <DockPanel>
+                        <TextBlock
+                            Margin="10 0 0 0"
+                            MaxWidth="240" 
+                            FontSize="16"
+                            Style="{StaticResource TextBlockLable}"
+                            VerticalAlignment="Center"
+                            x:Name="txbNameSaffInsurance"
+                            Text="Tất cả nhân viên"/>
+                        <Border>
+                            <Image 
+                                Margin="0 0 5 0"
+                                Width="25"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource iconSearchMoreDrawingImage}"/>
+                        </Border>
+                    </DockPanel>
+                </Grid>
+            </Border>
+            <Border
+                Margin="0 0 0 20"
+                Height="34"
+                Style="{StaticResource BorderButon}">
+                <TextBlock Text="Thống kê"
+                           Margin="33 0 33 0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+            </Border>
+        </WrapPanel>
+        <Border 
+            Height="34"
+            Style="{DynamicResource BorderHeaderForm}">
+        </Border>
+        <ListView Grid.Row="2"
+                  MaxHeight="360"
+                  x:Name="lsvLoadSaffs" SelectionChanged="lsvLoadSaffs_SelectionChanged">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <Grid Height="91">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90"/>
+                                        <RowDefinition Height="1"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Margin="20 0 0 0" Grid.Column="0"
+                                             HorizontalAlignment="Left">
+                                            <DockPanel>
+                                                <Border 
+                                                    Style="{DynamicResource BorderImage}"
+                                                        Margin="0 20 0 0"
+                                                        VerticalAlignment="Top"
+                                                        Width="42" Height="42">
+                                                    <Border.Background>
+                                                        <ImageBrush ImageSource="{Binding Anh}"/>
+                                                    </Border.Background>
+                                                </Border>
+                                                <Grid Margin="20 10 20 10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Border Grid.Row="0">
+                                                        <TextBlock 
+                                                            Foreground="#4C5BD4"
+                                                            FontSize="16"
+                                                            FontWeight="Regular"
+                                                            Text="{Binding Name}"/>
+                                                    </Border>
+                                                    <Border Grid.Row="1"
+                                                            TextBlock.Foreground="#474747"
+                                                            TextBlock.FontSize="16">
+                                                        <TextBlock>
+                                                                <Run Text="ID: "/>
+                                                                <Run Text="{Binding ID}"/>
+                                                        </TextBlock>
+                                                    </Border>
+                                                    <Border Grid.Row="2">
+                                                        <TextBlock 
+                                                            Foreground="#474747"
+                                                            FontSize="16"
+                                                            FontWeight="Regular"
+                                                            Text="{Binding PhongBan}"/>
+                                                    </Border>
+                                                </Grid>
+                                            </DockPanel>
+                                        </Grid>
+                                        <Grid Margin="0 0 20 0" Grid.Column="1"
+                                              HorizontalAlignment="Right">
+                                            <Border  x:Name="bodSetupInsurance"
+                                                MouseUp="bodSetupInsurance_MouseUp"
+                                                     MouseEnter="bodSetupInsurance_MouseEnter"
+                                                     MouseLeave="bodSetupInsurance_MouseLeave"
+                                                Width="131"
+                                                Height="34"
+                                                CornerRadius="20"
+                                                Background="#E9EBFF">
+                                                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                    <Image Margin="0 0 10 0" Height="20" Source="{DynamicResource iconSettingsDrawingImage}"/>
+                                                    <TextBlock FontSize="16" FontWeight="Regular" Foreground="#474747" Text="Thiết lập"/>
+                                                </DockPanel>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <Rectangle 
+                                        Opacity="1" 
+                                        StrokeDashArray="2 1 2 5" 
+                                        Stroke="#C4C4C4" 
+                                        StrokeEndLineCap="Round"/>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <!--Number Page-->
+        <WrapPanel
+             HorizontalAlignment="Center"
+             Width="125" Height="29">
+            <Border 
+                HorizontalAlignment="Right"
+                Width="29" Height="29"
+                Style="{StaticResource BorderButon}">
+                <TextBlock 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Text="1"/>
+            </Border>
+            <Border 
+                Margin="5 0 5 0"
+                Width="29" Height="29"
+                BorderThickness="1"
+                BorderBrush="#4C5BD4"
+                Style="{StaticResource Boder}">
+                <TextBlock 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="2"/>
+            </Border>
+            <Border 
+                 Width="29" Height="29"
+                BorderThickness="1"
+                BorderBrush="#4C5BD4"
+                Style="{StaticResource Boder}">
+                <TextBlock  
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Text=">"/>
+            </Border>
+        </WrapPanel>
+    </StackPanel>
+    <!--Chọn tháng-->
+        <Border x:Name="bodSelectMontlv"
+            Background="#FFFFFF"
+            Margin="0 80.6"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            BorderBrush="#666666"
+            BorderThickness="1"
+            CornerRadius="5"
+            Width="131" Height="180">
+            <StackPanel>
+                <Border 
+                    Margin="0 5 0 0"
+                    BorderBrush="#666666"
+                    BorderThickness="1"
+                    Width="121" Height="26">
+                    <TextBox x:Name="txbSearchBoxMonth"/>
+                </Border>
+                <ListView BorderThickness="0" Style="{DynamicResource ListViewSelected}" SelectionChanged="lsvLoadMont_SelectionChanged" x:Name="lsvLoadMont">
+                   
+                </ListView>
+            </StackPanel>
+        </Border>
+    <!--Chọn Năm-->
+        <Border x:Name="bodSelectYearlv"
+            Background="#FFFFFF"
+            Margin="153 80.6"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            BorderBrush="#666666"
+            BorderThickness="1"
+            CornerRadius="5"
+            Width="131" Height="180">
+            <StackPanel>
+                <Border 
+                    Margin="0 5 0 0"
+                    BorderBrush="#666666"
+                    BorderThickness="1"
+                    Width="121" Height="26">
+                    <TextBox x:Name="txbSearchMonth"/>
+                </Border>
+                <ListView BorderThickness="0" SelectionChanged="lsvLoadYear_SelectionChanged" Style="{DynamicResource ListViewSelected}" x:Name="lsvLoadYear"/>
+            </StackPanel>
+        </Border>
+    <!--Phòng ban-->
+        <Border 
+            Visibility="Collapsed"
+            Background="#FFFFFF"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="306 80.6 0 0"
+            CornerRadius="5"
+            Width="271"
+            Height="auto"
+            x:Name="bodSelectRooms"
+            BorderBrush="#666666"
+            BorderThickness="1" >
+            <ListView Margin="10 0 0 10" BorderThickness="0" Style="{DynamicResource ListViewSelected}" Height="180" SelectionChanged="lsvLoadListRoom_SelectionChanged" x:Name="lsvLoadListRoom"/>
+        </Border>
+    <!--Tên nhân viên-->
+        <Border x:Name="bodListNameSaffInsurance"
+                Background="#FFFFFF"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="597 80.6 0 0 "
+            CornerRadius="5" 
+            Visibility="Collapsed"
+            BorderThickness="1"
+            BorderBrush="#666666"
+            Width="271" Height="auto">
+            <StackPanel>
+                <Border Width="259" Height="26"
+                        Margin="0 5 0 0"
+                        BorderThickness="1"
+                        BorderBrush="#4F4F4F">
+                    <TextBox FontSize="16" Foreground="#4F4F4F" FontWeight="Regular" x:Name="txSearchbNameInsurance"/>
+                </Border>
+                <ListView Margin="10 0 0 10" BorderThickness="0" FontWeight="Regular" FontSize="16" Foreground="#4F4F4F" Height="180" x:Name="lsvLoadNameSaffInsurance" SelectionChanged="lsvLoadNameSaffInsurance_SelectionChanged"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

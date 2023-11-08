@@ -1,0 +1,227 @@
+﻿<UserControl x:Class="ChamCong365.Popup.funcCompanyManager.ucCreateDepartment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.funcCompanyManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Rectangle Fill="#474747" Opacity="0.7" MouseDown="Rectangle_MouseDown" />
+        <!--Update phòng ban Collapsed  -->
+        <Border
+            Visibility="Visible"
+            Panel.ZIndex="1"
+            x:Name="bodCreateDepartmentCollapsed"
+            Background="White"
+            CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="Gray"
+            Width="600"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Margin="0 300 0 0"
+        >
+            <StackPanel Width="602" Height="auto">
+                <Border
+                    Background="#4C5BD4"
+                    BorderThickness="1"
+                    CornerRadius="10 10 0 0"
+                    BorderBrush="#4C5BD4">
+                    <Grid
+                    
+                        Height="54">
+                        <TextBlock
+                            Margin="0 0 0 0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="White"
+                            Text="Thêm phòng ban" />
+                        <Image
+                            Margin="0 0 30 0"
+                            x:Name="btnExitCreate"
+                            MouseLeftButtonUp="bodExitPopup_MouseUp"
+                            HorizontalAlignment="Right"
+                            Width="14"
+                            Height="14"
+                            Source="{StaticResource iconExitDrawingImage}" />
+                    </Grid>
+                </Border>
+                <Grid Width="600" Height="auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="19" />
+                        <RowDefinition Height="44" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                            Margin="20 0 0 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                        
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Width="190"
+                            Grid.Row="0">Công ty *</TextBlock>
+                    <Border
+                         
+                          Margin="20 0 0 0"
+                    x:Name="CreateArea_bodSelectCompany"
+                    Height="42"
+                    Width="560"
+                    Grid.Row="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Style="{StaticResource BorderSelected}" MouseLeftButtonUp="CreateArea_bodSelectCompany_MouseLeftButtonUp">
+
+                        <DockPanel>
+                            <TextBlock
+                    x:Name="CreateArea_txbSelectCompany"
+                    Text="Chọn công ty"
+                    Width="500"
+                    Margin="20 0 0 0"
+                    Height="36" />
+                            <Image
+                    x:Name="CreateArea_imgSelectCompany"
+
+                    Width="14" Height="14"
+                    Source="{StaticResource iconDropDownDrawingImage}" />
+                        </DockPanel>
+                    </Border>
+                </Grid>
+
+                <WrapPanel
+                    Margin="0 20 0 0"
+                    Height="63">
+                    <Grid Width="600" Height="auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="19" />
+                            <RowDefinition Height="39" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="20 0 0 0"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="#474747"
+                            Text="Tên phòng ban *"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Width="190"
+                            Grid.Row="0" />
+                        <Border
+                            Margin="20 0 20 0"
+                            BorderThickness="1"
+                            CornerRadius="5"
+                            BorderBrush="#9F9F9F"
+                            Width="560"
+                            Grid.Row="1">
+                            <DockPanel>
+                                <TextBox
+                                        FontSize="16"
+                                    BorderThickness="0"
+                                    Width="526"
+                                    Height="36" />
+
+                            </DockPanel>
+
+                        </Border>
+                        <Border
+                            Panel.ZIndex="1"
+                            Background="White"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            CornerRadius="0 0 5 5"
+                            BorderThickness="1 0 1 1"
+                            BorderBrush="Black"
+                            Height="auto"
+                            Width="550" Margin="0,0,30,0" Grid.Row="1"
+                            Visibility="Collapsed"
+                        >
+                            <Grid>
+                                <ListView
+                                    Padding="10 0 10 0"
+                                    BorderThickness="1"
+                                    FontWeight="DemiBold"
+                                    Foreground="#474747"
+                                    Height="auto"
+                                    FontSize="16"
+                                    Grid.Row="1" />
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </WrapPanel>
+                <Grid>
+                    <!--nút hủy-->
+                    <Border
+                        HorizontalAlignment="Center"
+                    Margin="0 20 200 20"
+                    Width="126"
+                    Height="34"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                        BorderBrush="#4C5BD4"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="DemiBold"
+                    TextBlock.Foreground="White">
+                        <TextBlock
+                            Foreground="#4C5BD4"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Hủy" />
+                    </Border>
+
+                    <!--nút thêm mới-->
+                    <Border
+                    Margin="200 20 0 20"
+                    Width="126"
+                    Height="34"
+                    Background="#4C5BD4"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="DemiBold"
+                    TextBlock.Foreground="White">
+                        <TextBlock
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Text="Cập nhật" />
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+
+
+        </Border >
+        <!--listview danh sách tên cong ty trong dropdown phần thêm phòng ban-->
+
+        <Border
+            Panel.ZIndex="1"
+            Background="White"
+            x:Name="CreateArea_bodListCompany"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            CornerRadius="0 0 5 5"
+            BorderThickness="1 0 1 1"
+            BorderBrush="Black"
+            Height="auto"
+            Width="560"
+                Margin="4 416 0 0 "
+            Visibility="Collapsed"
+        >
+            <Grid>
+                <ListView
+                    Padding="10 0 10 0"
+                    BorderThickness="1"
+                    FontWeight="DemiBold"
+                    Foreground="#474747"
+                    Height="auto" x:Name="CreateArea_lsvCompany"
+                    SelectionChanged="CreateArea_lsvCompany_SelectionChanged"
+                    FontSize="16"
+                    Grid.Row="1" />
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

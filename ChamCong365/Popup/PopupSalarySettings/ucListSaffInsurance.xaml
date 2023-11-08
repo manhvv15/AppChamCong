@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="ChamCong365.Popup.PopupSalarySettings.ucListSaffInsurance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.PopupSalarySettings"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Fill="#474747" Opacity="0.7" MouseDown="Rectangle_MouseDown"/>
+        <Border x:Name="bodLoadListSaff" CornerRadius="10" Width="1200" Height="749" Background="#FFFFFF">
+            <StackPanel Margin="20">
+                <DockPanel>
+                    <StackPanel>
+                        <TextBlock Foreground="#474747" FontSize="22" FontWeight="Medium" Text="Nhập tiền bảo hiểm"/>
+                        <TextBlock FontSize="18" FontWeight="Medium" Foreground="#B2B2B2" Text="Danh sách nhân viên bảo hiểm"/>
+                    </StackPanel>
+                    <Border Width="175" Height="39" HorizontalAlignment="Right" Style="{DynamicResource BorderButon}">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontWeight="Medium"  Text="+ Thêm nhân viên"/>
+                    </Border>
+                </DockPanel>
+                <DockPanel Margin="0 20 0 0">
+                    <Border x:Name="bodSaffs" MouseLeftButtonUp="bodSaffs_MouseLeftButtonUp" Width="115" Height="28">
+                        <TextBlock Foreground="#474747" FontSize="16" FontWeight="Medium">
+                            <Run Text="Nhân Viên"/>
+                            <Run Text="("/>
+                            <Run x:Name="txbCountSaff"/>
+                            <Run Text=")"/>
+                        </TextBlock>
+                    </Border>
+                    <Border x:Name="bodGrounds" HorizontalAlignment="Left" Width="100" Height="28">
+                        <TextBlock Foreground="#474747" FontSize="16" FontWeight="Medium">
+                            <Run Text="Nhóm"/>
+                            <Run Text="("/>
+                            <Run x:Name="txbCountGrounds"/>
+                            <Run Text=")"/>
+                        </TextBlock>
+                    </Border>
+                </DockPanel>
+                <Rectangle Margin="0 0 0 20" Stroke="#EBEBEB" Opacity="1"/>
+                <!--List nhân viên-->
+               
+                    <DataGrid MaxHeight="550" ScrollViewer.VerticalScrollBarVisibility="Visible" VerticalAlignment="Center"  Style="{DynamicResource DataGrid1}" Name="dgvListSaffInsurance" ScrollViewer.CanContentScroll="True" >
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="86"  Header="Ảnh">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border>
+                                            <Border
+                                                Style="{DynamicResource BorderImage}"
+                                                HorizontalAlignment="Left">
+                                                <Border.Background>
+                                                    <ImageBrush 
+                                                        ImageSource="{Binding anh}">
+                                                    </ImageBrush>
+                                                </Border.Background>
+                                            </Border>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="319" Header="Họ và tên (ID)">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Grid.Row="0"
+                                                    Text="{Binding name}"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Bottom"
+                                                     FontSize="16"
+                                                     Foreground="#4C5BD4"/>
+                                            <TextBlock Grid.Row="1"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Top"
+                                                     FontSize="16"
+                                                     Foreground="#474747">
+                                                <Run Text="ID: "/>
+                                                <Run Text="{Binding Id}"/>
+                                            </TextBlock>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="213" Header="Áp dụng từ tháng">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border>
+                                            <TextBlock 
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding thoigianapdung}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="213" Header="Đến Tháng">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border>
+                                            <TextBlock 
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding timeout}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="201" Header="Tiền bảo hiểm">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border>
+                                            <TextBlock 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding tienbaohiem}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="117" Header="Chức Năng">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel>
+                                            <WrapPanel Width="80" Height="24">
+                                                <Border Width="24">
+                                                    <Path VerticalAlignment="Center"  Data="{DynamicResource iconRactanle}" Stroke="#4C5BD4"/>
+                                                </Border>
+                                                <Border Width="20">
+                                                    <Path HorizontalAlignment="Center"  Data="{DynamicResource iconVector255}" Stroke="#D9D9D9"/>
+                                                </Border>
+                                                <Border Width="24">
+                                                    <Path VerticalAlignment="Center" Data="{DynamicResource iconDeletePathRed}" Stroke="#FF5B4D"/>
+                                                </Border>
+                                            </WrapPanel>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+               
+            </StackPanel>
+        </Border>  
+    </Grid>
+</UserControl>

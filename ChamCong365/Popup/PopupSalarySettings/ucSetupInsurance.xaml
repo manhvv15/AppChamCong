@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="ChamCong365.Popup.ListTabInsurance.ucSetupInsurance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.ListTabInsurance"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Fill="#474747" Opacity="0.7" MouseDown="Rectangle_MouseDown"/>
+        <Border Background="#FFFFFF"  CornerRadius="10 10 10 10" Width="600" MaxHeight="530">
+            <Grid>
+                <StackPanel>
+                    <Border 
+                    CornerRadius="10 10 0 0"
+                    Background="#4C5BD4">
+                    <DockPanel 
+                        Width="550"
+                        Height="54">
+                        <TextBlock
+                            Margin="200 0 0 0"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="DemiBold"
+                            Foreground="#FFFFFF"
+                            Text="Bảo hiểm nhân viên"/>
+                        <Image 
+                                x:Name="ExitInsuranceSaff"
+                                HorizontalAlignment="Right" 
+                                Width="14" 
+                                Height="14" 
+                                Source="{StaticResource iconExitDrawingImage}"/>
+                    </DockPanel>
+                </Border>
+                    <StackPanel Margin="20">
+                    <WrapPanel Height="60">
+                        <Border x:Name="bodLoadImageSaff" Style="{StaticResource BorderImage}">
+                            <Border.Background>
+                                <ImageBrush/>
+                            </Border.Background>
+                         </Border>
+                        <StackPanel>
+                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Text="{Binding}"/>
+                    </StackPanel>
+                    </WrapPanel>
+                    <StackPanel Margin="0 20 0 0">
+                    <TextBlock  HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}">
+                        <Run Text="Áp dụng từ tháng "/>
+                        <Run Foreground="#FF5B4D" Text="*"/>
+                    </TextBlock>
+                <Border Margin="0 5 0 0" HorizontalAlignment="Left" Width="540" Height="42" Style="{StaticResource BorderSelected}">
+                    <DockPanel>
+                            <TextBlock Margin="5 0 0 0" Text="---- --- ----" MaxWidth="500" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}"/>
+                        <Image Width="20" Height="20" Margin="0 0 10 0" HorizontalAlignment="Right" Source="{DynamicResource iconsCalendarDrawingImage}"/>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+                    <StackPanel Margin="0 20 0 20">
+                <TextBlock Text="Đến tháng (Không bắt buộc)" HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}"/>
+                <Border Margin="0 5 0 0" HorizontalAlignment="Left" Width="540" Height="42" Style="{StaticResource BorderSelected}">
+                    <DockPanel>
+                            <TextBlock Margin="5 0 0 0" Text="---- --- ----" MaxWidth="500" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}"/>
+                        <Image Width="20" Height="20" Margin="0 0 10 0" HorizontalAlignment="Right" Source="{DynamicResource iconsCalendarDrawingImage}"/>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+                    <StackPanel>
+                <TextBlock  HorizontalAlignment="Left" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}">
+                    <Run Text="Loại bảo hiểm "/>
+                    <Run Foreground="#FF5B4D" Text="*"/>
+                </TextBlock>
+                <Border x:Name="bodSelectInsurance" MouseUp="bodSelectInsurance_MouseUp" Margin="0 5 0 0" HorizontalAlignment="Left" Width="540" Height="42" Style="{StaticResource BorderSelected}">
+                    <DockPanel>
+                        <TextBlock x:Name="txbTextInsurance" MaxWidth="500" FontWeight="Regular" Style="{DynamicResource TextBlockCalenda}"/>
+                        <Image Width="20" Height="20" Margin="0 0 10 0" HorizontalAlignment="Right" Source="{DynamicResource iconControlBottomDrawingImage}"/>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+                    <DockPanel Margin="0 20 0 0">
+                        <Border x:Name="bodCancel" MouseEnter="bodCancel_MouseEnter" MouseLeave="bodCancel_MouseLeave" BorderBrush="#4C5BD4" BorderThickness="1" Margin="170 0 0 0" HorizontalAlignment="Right" Background="#FFFFFF" Width="91" Height="31" Style="{StaticResource BorderButon}">
+                    <TextBlock x:Name="txbCancel" FontSize="18" FontWeight="Medium" Foreground="#4C5BD4" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Hủy"/>
+                </Border>
+                        <Border x:Name="bodSave" MouseEnter="bodSave_MouseEnter" MouseLeave="bodSave_MouseLeave" HorizontalAlignment="Center" Margin="0 0 170 0" Width="91" Height="31" Style="{StaticResource BorderButon}">
+                            <TextBlock FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Lưu"/>
+                        </Border>
+                    </DockPanel>
+                </StackPanel>
+                </StackPanel>
+                <Border HorizontalAlignment="Left" Margin="20 399 0 0" Background="#FFFFFF" x:Name="bodlistInsurance" Visibility="Collapsed" Width="530" Height="128" CornerRadius="5" BorderThickness="1" BorderBrush="#666666">
+                    <ListView BorderThickness="0" Width="500" FontSize="16" Foreground="#474747"  x:Name="lsvLoadInsurance" SelectionChanged="lsvLoadInsurance_SelectionChanged" />
+                </Border>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</UserControl>

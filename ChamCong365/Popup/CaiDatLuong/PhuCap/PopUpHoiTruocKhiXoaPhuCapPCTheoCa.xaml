@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ChamCong365.Popup.CaiDatLuong.PhuCap.PopUpHoiTruocKhiXoaPhuCapPCTheoCa"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamCong365.Popup.CaiDatLuong.PhuCap"
+             mc:Ignorable="d" >
+    <Grid>
+        <Rectangle Fill="#000000" Opacity="0.5" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"></Rectangle>
+        <Border Width="450" Height="183" CornerRadius="10" Background="#ffffff">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Width="50" Height="50" CornerRadius="1000" Background="#FF5B4D">
+                    <Path Data="{DynamicResource iconClose22}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#ffffff"></Path>
+
+                </Border>
+                <TextBlock x:Name="textNoiDung" Text="Bạn có muốn xoá phụ cấp này ?" Grid.Row="1" FontSize="16" Foreground="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <DockPanel Grid.Row="2" HorizontalAlignment="Center">
+                    <Border CornerRadius="10" Width="129" Height="34" Background="#ffffff" Margin="0,0,20,0" BorderThickness="1" BorderBrush="#4c5bd4" Cursor="Hand">
+                        <TextBlock Text="Huỷ" FontSize="18" FontWeight="DemiBold" Foreground="#4c5bd4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border CornerRadius="10" Width="129" Height="34" Background="#4c5bd4" Cursor="Hand">
+                        <TextBlock Text="Đồng ý" FontSize="18" FontWeight="DemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                </DockPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
