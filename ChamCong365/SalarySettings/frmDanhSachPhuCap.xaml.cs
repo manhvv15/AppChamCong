@@ -57,6 +57,13 @@ namespace ChamCong365.SalarySettings
             lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            lstPhuCapTheoCa.Add(new PhuCapTheoCa { TenCa = "Ca sáng 7TR < LƯƠNG <= 10TR", TienPhuCap = "50.000", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             dgvTheoCa.ItemsSource = lstPhuCapTheoCa;
 
         }
