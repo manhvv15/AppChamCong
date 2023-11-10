@@ -67,7 +67,7 @@ namespace ChamCong365.SalarySettings
             lstPhuCap.Add(new PhuCap { TenPhuCap = "Phụ cấp 1", MucPhuCap = "100.000", LoaiThuNhap = "Thu nhập miễn thuế", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             lstPhuCap.Add(new PhuCap { TenPhuCap = "Phụ cấp 1", MucPhuCap = "100.000", LoaiThuNhap = "Thu nhập miễn thuế", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             lstPhuCap.Add(new PhuCap { TenPhuCap = "Phụ cấp 1", MucPhuCap = "100.000", LoaiThuNhap = "Thu nhập miễn thuế", ApDungTuThang = "6/2023", DenThang = "7/2023" });
-            lstPhuCap.Add(new PhuCap { TenPhuCap = "Phụ cấp 1", MucPhuCap = "100.000", LoaiThuNhap = "Thu nhập miễn thuế", ApDungTuThang = "6/2023", DenThang = "7/2023" });
+            //lstPhuCap.Add(new PhuCap { TenPhuCap = "Phụ cấp 1", MucPhuCap = "100.000", LoaiThuNhap = "Thu nhập miễn thuế", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             lstPhuCap.Add(new PhuCap { TenPhuCap = "Phụ cấp 1", MucPhuCap = "100.000", LoaiThuNhap = "Thu nhập miễn thuế", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             lstPhuCap.Add(new PhuCap { TenPhuCap = "Phụ cấp 1", MucPhuCap = "100.000", LoaiThuNhap = "Thu nhập miễn thuế", ApDungTuThang = "6/2023", DenThang = "7/2023" });
             dgv.ItemsSource = lstPhuCap;
@@ -76,7 +76,7 @@ namespace ChamCong365.SalarySettings
 
         private void dgv_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            Main.scrollMain.ScrollToVerticalOffset(Main.scrollMain.VerticalOffset - e.Delta);
+            //Main.scrollMain.ScrollToVerticalOffset(Main.scrollMain.VerticalOffset - e.Delta);
         }
 
         private void dgvTheoCa_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
