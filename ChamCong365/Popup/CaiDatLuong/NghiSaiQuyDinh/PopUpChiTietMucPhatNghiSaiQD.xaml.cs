@@ -27,7 +27,7 @@ namespace ChamCong365.Popup.CaiDatLuong.NghiSaiQuyDinh
 
         private void Rectangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            //this.Visibility = Visibility.Collapsed;
         }
     }
 }
