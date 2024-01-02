@@ -1,0 +1,619 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.TimeKeeping.ucCapNhatKhuonMatMoi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:comon="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.ThietLapCongTy.Comons"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.TimeKeeping"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    MaxWidth="1920"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="10" Background="WhiteSmoke">
+            <TextBlock FontWeight="Medium" Style="{StaticResource TextBlockLable}">
+                <Run Text="Danh sách cập nhật khuôn mặt" />
+                <Run Text="(" />
+                <Run x:Name="txtCountSaff" />
+                <Run Text=")" />
+            </TextBlock>
+            <WrapPanel Margin="0,20,0,0">
+                <Border
+                    x:Name="borPhongBan1"
+                    Width="270"
+                    Height="40"
+                    Background="Transparent"
+                    BorderBrush="#a9a9a9"
+                    BorderThickness="1"
+                    CornerRadius="10"
+                    MouseLeftButtonUp="borPhongBan1_MouseLeftButtonUp">
+                    <Grid Background="Transparent" Cursor="Hand">
+                        <TextBlock
+                            x:Name="txtPhongBan"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="#a9a9a9"
+                            Text="Tìm theo phòng ban" />
+                        <Image
+                            Width="10"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource Frame_635607DrawingImageKey}" />
+                    </Grid>
+                </Border>
+                <Border
+                    x:Name="borTen"
+                    Width="300"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    Background="Transparent"
+                    BorderBrush="#a9a9a9"
+                    BorderThickness="1"
+                    CornerRadius="10"
+                    MouseLeftButtonUp="borTen_MouseLeftButtonUp">
+                    <Grid Background="Transparent" Cursor="Hand">
+                        <TextBox
+                            x:Name="textSearchTen"
+                            Height="40"
+                            Margin="10,10,0,0"
+                            VerticalAlignment="Top"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="15"
+                            Foreground="{DynamicResource #474747}"
+                            TextChanged="textSearchTen_TextChanged" />
+                        <TextBlock
+                            MouseLeftButtonUp="borTen_MouseLeftButtonUp"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="#a9a9a9"
+                            IsHitTestVisible="False"
+                            Text="Nhập tên nhân viên cần tìm"
+                            TextWrapping="Wrap">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=textSearchTen, Path=Text}" Value="">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+
+                        <Image
+                            Width="10"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            Source="{StaticResource Frame_635607DrawingImageKey}" />
+                    </Grid>
+                </Border>
+                <CheckBox
+                    Margin="20,0,0,0"
+                    Checked="Check"
+                    Content="Đã cập nhật"
+                    FontSize="16"
+                    Unchecked="uncheck" />
+                <Border
+                    x:Name="btnLoc"
+                    Width="110"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    Background="#4AA7FF"
+                    Cursor="Hand"
+                    MouseLeftButtonUp="btnLoc_MouseLeftButtonUp"
+                    Style="{DynamicResource BorderButon}">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Text="Lọc" />
+                </Border>
+                <Border
+                    x:Name="btnDuyệt"
+                    Width="110"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    Background="#4AA7FF"
+                    Cursor="Hand"
+                    MouseLeftButtonUp="btnDuyet_MouseLeftButtonUp"
+                    Style="{DynamicResource BorderButon}">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        Text="Duyệt" />
+                </Border>
+            </WrapPanel>
+            <StackPanel x:Name="UnUpdate">
+                <DataGrid PreviewMouseWheel="dgvCapNhapKhuonMat_PreviewMouseWheel"
+                    Name="dgvCapNhapKhuonMat"
+                    Margin="0,20,0,0"
+                    RowHeight="86"
+                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    Style="{DynamicResource DataGrid1}">
+                    <DataGrid.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border
+                                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=ActualWidth}"
+                                    Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=ActualHeight}"
+                                    Background="#FFFFFF"
+                                    CornerRadius="15" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </DataGrid.OpacityMask>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn MinWidth="100" Width="0.75*" Header="Ảnh">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <Border
+                                        Margin="20,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Style="{StaticResource BorderImage}">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding avatarUser}" />
+                                        </Border.Background>
+                                    </Border>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="3*" Header="Họ và tên">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel
+                                        Width="207"
+                                        Margin="10,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            Height="23"
+                                            Margin="0,0,0,5"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding userName}"
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap" />
+                                        <TextBlock
+                                            Height="23"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Bottom"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding idQLC}"
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="2.07*" Header="Phòng ban">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding detail.organizeDetailName}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="2.07*" Header="Chức vụ">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding positionName}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="2.07*" Header="Email">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding email}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="1.27*" Header="SĐT">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding phoneTK}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="1.38*">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <DockPanel  Background="Transparent" Cursor="Hand">
+                                        <TextBlock Margin="0,0,10,0" Text="Quyền" />
+                                        <CheckBox
+                                            x:Name="XacNhanKhuonMatTatCa"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Checked="XacNhanKhuonMatTatCa_Checked"
+                                            Unchecked="XacNhanKhuonMatTatCa_Unchecked">
+                                            <CheckBox.Style>
+                                                <Style BasedOn="{StaticResource checkbox2}" TargetType="CheckBox">
+                                                    <Setter Property="IsChecked" Value="False" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsCheckAll}" Value="1">
+                                                            <Setter Property="IsChecked" Value="True" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </CheckBox.Style>
+                                        </CheckBox>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border>
+                                        <CheckBox HorizontalAlignment="Center" IsChecked="{Binding isCheck}">
+                                            <!--x:Name="XacNhanKhuonMat"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Checked="XacNhanKhuonMat_Checked"
+                                        Cursor="Hand"
+                                        Unchecked="XacNhanKhuonMat_Unchecked"-->
+
+                                        </CheckBox>
+
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <comon:ucPhanTrangNV
+                    x:Name="paginNV"
+                    Margin="0,20,0,20"
+                    HorizontalAlignment="Center"
+                    DisplayNumber="10"
+                    SelectionChange="paginNV_SelectionChange" />
+            </StackPanel>
+            <StackPanel x:Name="Updated" Visibility="Collapsed">
+                <DataGrid
+                    PreviewMouseWheel="dgvCapNhapKhuonMat1_PreviewMouseWheel"
+                    Name="dgvCapNhapKhuonMat1"
+                    Margin="0,20,0,0"
+                    RowHeight="86"
+                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    Style="{DynamicResource DataGrid1}"
+                    Visibility="Visible">
+                    <DataGrid.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border
+                                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=ActualWidth}"
+                                    Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=ActualHeight}"
+                                    Background="#FFFFFF"
+                                    CornerRadius="15" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </DataGrid.OpacityMask>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="3*" Header="Họ và tên">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <Border
+                                            Margin="20,0,0,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource BorderImage}">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding avatarUser}" />
+                                            </Border.Background>
+                                        </Border>
+                                        <StackPanel
+                                            Width="207"
+                                            Margin="10,0,0,0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                            <TextBlock
+                                                Height="23"
+                                                Margin="0,0,0,5"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Top"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding userName}"
+                                                TextAlignment="Center"
+                                                TextWrapping="Wrap" />
+                                            <TextBlock
+                                                Height="23"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="16"
+                                                Foreground="#474747"
+                                                Text="{Binding idQLC}"
+                                                TextAlignment="Center"
+                                                TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="2.07*" Header="Phòng ban">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding detail.organizeDetailName}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="2.07*" Header="Chức vụ">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding positionName}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="2.07*" Header="Email">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding email}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="1.27*" Header="SĐT">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding phoneTK}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <comon:ucPhanTrangNV
+                    x:Name="paginNVUpdated"
+                    Margin="0,20,0,20"
+                    HorizontalAlignment="Center"
+                    DisplayNumber="10"
+                    SelectionChange="paginNVUpdated_SelectionChange" />
+            </StackPanel>
+        </StackPanel>
+        <Grid x:Name="borPhongBan" Visibility="Collapsed">
+            <Rectangle Fill="Transparent" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp" />
+            <Border
+                Width="{Binding Path=ActualWidth, ElementName=borPhongBan1}"
+                Height="220"
+                Margin="10,95,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                CornerRadius="10">
+                <ListView
+                    x:Name="lsvPhongBan"
+                    BorderThickness="0"
+                    FontSize="16"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    SelectionChanged="lsvPhongBan_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent" />
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Border>
+                                                <TextBlock
+                                                    Margin="5,5,0,5"
+                                                    FontSize="16"
+                                                    Text="{Binding organizeDetailName}" />
+                                            </Border>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+
+        </Grid>
+        <Grid x:Name="borTen1" Visibility="Collapsed">
+            <Rectangle Fill="Transparent" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp_1" />
+
+            <Border
+                Width="{Binding Path=ActualWidth, ElementName=borTen}"
+                Height="220"
+                Margin="300,95,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                CornerRadius="10">
+                <ListView
+                    x:Name="lsvTen"
+                    BorderThickness="0"
+                    FontSize="16"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    SelectionChanged="lsvTen_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent" />
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000" />
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4" />
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff" />
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <DockPanel>
+                                                <Border>
+                                                    <TextBlock
+                                                        Margin="5,5,0,5"
+                                                        FontSize="16"
+                                                        Text="{Binding IDnName}" />
+                                                </Border>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+        </Grid>
+        <Grid
+            x:Name="ThongBao"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Visibility="Collapsed">
+            <Rectangle Fill="Transparent" />
+            <Border
+                Width="500"
+                Height="200"
+                Background="WhiteSmoke"
+                BorderBrush="Black"
+                BorderThickness="1"
+                CornerRadius="10">
+
+
+                <StackPanel Margin="20">
+                    <TextBlock FontSize="20" Text="hungha365 says" />
+                    <TextBlock
+                        Margin="0,20,0,0"
+                        FontSize="16"
+                        Text="Bạn có chắc chắn?" />
+                    <DockPanel Margin="0,40,30,0" HorizontalAlignment="Right">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+
+                            <Border
+                                Width="113"
+                                Height="43"
+                                HorizontalAlignment="Center"
+                                Background="#4C5BD4"
+                                BorderThickness="1"
+                                CornerRadius="15"
+                                MouseLeftButtonUp="Border_MouseLeftButtonUp_1">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="DemiBold"
+                                    Foreground="#FFFFFF"
+                                    Text="OK" />
+                            </Border>
+                            <Border
+                                Width="113"
+                                Height="43"
+                                Margin="30,0,0,0"
+                                HorizontalAlignment="Center"
+                                BorderBrush="#a9a9a9"
+                                BorderThickness="1"
+                                CornerRadius="15"
+                                MouseLeftButtonUp="Border_MouseLeftButtonUp">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="DemiBold"
+                                    Foreground="#4C5BD4"
+                                    Text="Cancel" />
+                            </Border>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

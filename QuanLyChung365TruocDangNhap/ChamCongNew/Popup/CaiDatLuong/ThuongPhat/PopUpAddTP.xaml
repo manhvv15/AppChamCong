@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.Popup.CaiDatLuong.ThuongPhat.PopUpAddTP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.CaiDatLuong.ThuongPhat"
+             xmlns:tool="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resource.tool"
+             xmlns:comon="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.Comon"
+             mc:Ignorable="d" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="0">
+    <Grid>
+        <Rectangle Fill="Black" Opacity="0.5" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"></Rectangle>
+        <Border CornerRadius="10" Height="{Binding ElementName=st, Path=ActualHeight}" Width="560" Background="#ffffff">
+            <StackPanel>
+                <StackPanel x:Name="st">
+                <Border CornerRadius="10 10 0 0" Background="#4c5bd4" Height="55">
+                    <DockPanel>
+                        <TextBlock x:Name="textTieuDe" Margin="190 0 0 0" Text="Thêm mới thưởng phạt" Grid.Column="1" FontSize="20" Foreground="#ffffff" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <Border x:Name="btnClose" Background="#4c5bd4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="20" Height="20" MouseLeftButtonUp="btnClose_MouseLeftButtonUp">
+                            <Path Data="{DynamicResource iconClose}" Stroke="#ffffff" StrokeThickness="2" Stretch="Uniform"></Path>
+                        </Border>
+                    </DockPanel>
+                </Border>
+                <StackPanel Margin="20 20 20 20">
+                    <TextBlock  FontSize="16" Foreground="#474747" FontWeight="Regular">
+                                <Run Text="Nhân viên"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                    </TextBlock>
+                    <Border Margin="0 5 0 0" BorderThickness="1" BorderBrush="#666666" CornerRadius="5">
+                            <tool:SearchBar Margin="1.5" DisplayMemberPath="userName" SelectionChanged="Staff_SelectionChange" PlaceHolder="Chọn nhân viên" PlaceHolderForground="#ACACAC" FontSize="16" BorderThickness="0" BorderBrush="#aaa" x:Name="cboNV"/>
+                    </Border>
+                    <TextBlock x:Name="tb_validateChonNhanVien" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                </StackPanel>
+                <StackPanel Margin="20 0 20 20">
+                    <TextBlock FontSize="16" Foreground="#474747">
+                                <Run Text="Loại thưởng phạt"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                    </TextBlock>
+                    <Border Margin="0 5 0 0" BorderThickness="1" BorderBrush="#666666" CornerRadius="5">
+                            <ComboBox Margin="1.5"  Style="{DynamicResource Combobox1}"  BorderThickness="0" BorderBrush="#aaa" x:Name="cboTP" FontSize="16">
+                            <ComboBoxItem Content="Thưởng" FontSize="16"></ComboBoxItem>
+                            <ComboBoxItem Content="Phạt" FontSize="16"></ComboBoxItem>
+                        </ComboBox>
+                    </Border>
+                    <TextBlock x:Name="tb_validateLoaiThuongPhat" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                </StackPanel>
+                <StackPanel Margin="20 0 20 20">
+                    <DockPanel>
+                        <TextBlock  FontSize="16" Foreground="#474747">
+                            <Run Text="Số tiền"/>
+                            <Run Text="*" Foreground="#ff3333"/>
+                        </TextBlock>
+                    </DockPanel>
+                    <Border CornerRadius="5" Margin="0 5 0 0 " Height="34" BorderThickness="1" BorderBrush="{DynamicResource #666666}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*"/>
+                                <ColumnDefinition Width="312*"/>
+                                <ColumnDefinition Width="0*"/>
+                            </Grid.ColumnDefinitions>
+                                <TextBox Background="Transparent" Margin="10 5 0 -5" PreviewTextInput="textTienTP_PreviewTextInput" Height="34" VerticalAlignment="Center" x:Name="textTienTP" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="15" Margin="10 0 0 0" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="Nhập số tiền" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textTienTP, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <TextBlock x:Name="tb_validateSoTien" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                </StackPanel>
+                <StackPanel Margin="20 0 20 20">
+                    <TextBlock  FontSize="16" Foreground="#474747">
+                                <Run Text="Thời gian"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                    </TextBlock>
+                    <Border x:Name="borTGBatDau" Margin="0 5 0 0" CornerRadius="5" Background="#ffffff" BorderThickness="1" BorderBrush="{DynamicResource #666666}" Height="34">
+                        <comon:DatePicker x:Name="dp_ThoiGianThuongPhat" FontSize="16" Foreground="#474747" BorderThickness="0" Margin="1.5"/>
+                        <!--<DatePicker x:Name="dtpThoiGian" FontSize="16" Style="{DynamicResource DatePicker1}"></DatePicker>-->
+                    </Border>
+                    <TextBlock x:Name="tb_validateThoiGianThuongPhat" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                </StackPanel>
+                <StackPanel Margin="20 0 20 20">
+                    <TextBlock  FontSize="16" Foreground="#474747">
+                                <Run Text="Lý do"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                    </TextBlock>
+                    <Border CornerRadius="5" Margin="0 5 0 0" BorderThickness="1" BorderBrush="{DynamicResource #666666}">
+                        <Grid Height="104">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*"/>
+                                <ColumnDefinition Width="312*"/>
+                                <ColumnDefinition Width="0*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Background="Transparent" MaxWidth="500" TextAlignment="Justify" TextWrapping="Wrap" Height="107" VerticalAlignment="Center" x:Name="textLyDo" FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="1,2,-3,-2" Padding="3,5,0,0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="15" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="Nhập lý do" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,5,-10,11" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textLyDo, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <TextBlock x:Name="tb_validateLyDo" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                </StackPanel>
+                <DockPanel Margin="0 0 0 20" HorizontalAlignment="Center">
+                    <Border x:Name="btn_HuyBo" MouseLeftButtonDown="btn_HuyBo_MouseLeftButtonDown" CornerRadius="10" Width="132" Height="34" Background="#ffffff" Margin="0,0,20,0" BorderThickness="1" BorderBrush="#4c5bd4" Cursor="Hand">
+                        <TextBlock Text="Huỷ bỏ" FontSize="18" FontWeight="DemiBold" Foreground="#4c5bd4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Border x:Name="btnThemMoi" CornerRadius="10" Width="132" Height="34" Background="#4c5bd4" Cursor="Hand" MouseLeftButtonUp="btnThemMoi_MouseLeftButtonUp">
+                        <TextBlock Text="Thêm mới" FontSize="18" FontWeight="DemiBold" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                </DockPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

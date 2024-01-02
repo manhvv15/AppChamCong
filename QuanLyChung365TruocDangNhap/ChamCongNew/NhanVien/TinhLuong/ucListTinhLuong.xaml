@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.TinhLuong.ucListTinhLuong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.TinhLuong"
+             mc:Ignorable="d">
+    <StackPanel x:Name="stpListTimeKeeping">
+        <Grid x:Name="grFunctionTimeKeeping">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="6*" />
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0" Margin="20">
+                <Border Margin="0,0,5,0">
+                    <TextBlock
+                        x:Name="txbLoadNameFuction"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        FontWeight="Medium"
+                        Foreground="#474747"
+                        Text="7. Tính lương" />
+                </Border>
+                <Border>
+                    <TextBlock
+                        x:Name="txbFunctionChamCong"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="30"
+                        FontWeight="DemiBold"
+                        Foreground="#474747" />
+                </Border>
+            </WrapPanel>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid
+                    x:Name="btnXemBangCong"
+                    MouseLeftButtonUp="btnXemBangCong_MouseLeftButtonUp"
+                    Grid.Row="0"
+                    Margin="0,0,0,20"
+                    Cursor="Hand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44" />
+                        <ColumnDefinition Width="6*" />
+                        
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Height="44"
+                        HorizontalAlignment="left">
+                        <Image VerticalAlignment="Stretch" Source="{StaticResource icon1DrawingImage}" />
+                    </Border>
+                    <Border x:Name="bdFunction1" Grid.Column="1">
+                        <TextBlock
+                            x:Name="txbFunction1"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Xem bảng công" />
+                    </Border>
+                </Grid>
+
+                <Grid
+                    x:Name="btnXemBangLuong"
+                    MouseLeftButtonUp="btnXemBangLuong_MouseLeftButtonUp"
+                    Grid.Row="1"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Cursor="Hand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        Height="44"
+                        HorizontalAlignment="Left">
+                        <Image Source="{StaticResource icon2DrawingImage}" />
+                    </Border>
+                    <Border Grid.Column="1">
+                        <TextBlock
+                            x:Name="txbFunction2"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Xem bảng lương" />
+                    </Border>
+                </Grid>
+
+                <Grid
+                    x:Name="btnXemLichLamViec"
+                    MouseLeftButtonUp="btnXemLichLamViec_MouseLeftButtonUp"
+                    Grid.Row="2"
+                    Margin="0,0,0,20"
+                    Cursor="Hand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="44" />
+                        <ColumnDefinition Width="11*" />
+                        <ColumnDefinition Width="10*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Height="44">
+                        <Image Source="{StaticResource icon3DrawingImage}" />
+                    </Border>
+                    <Border Grid.Column="1" HorizontalAlignment="Left">
+                        <TextBlock
+                            x:Name="txbFunction3"
+                            Style="{StaticResource ListFunctionChamCong}"
+                            Text="Xem Lịch làm việc" />
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </StackPanel>
+</UserControl>

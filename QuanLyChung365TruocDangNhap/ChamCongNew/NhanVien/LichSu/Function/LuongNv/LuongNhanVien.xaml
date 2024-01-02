@@ -1,0 +1,247 @@
+﻿<Window x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.LichSu.Function.LuongNhanVien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.LichSu.Function"
+        mc:Ignorable="d"
+        Title="LuongDieuChinh" Background="WhiteSmoke">
+    <StackPanel Margin="20">
+        <Border>
+            <TextBlock FontSize="20" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Left">
+                <Run Text="Xin chào: "/>
+                <Run x:Name="tb_NameAccount"/>
+            </TextBlock>
+        </Border>
+        <Grid MinHeight="80" MaxHeight="120" Margin="0 20 0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border x:Name="luongCoBanAn" MouseLeftButtonUp="luongCoBanAn_MouseLeftButtonUp" Grid.Column="0" MinWidth="220" Cursor="Hand" CornerRadius="15"  Background="#FFFFFF" >
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <DockPanel HorizontalAlignment="Left" Margin="5">
+                    <Border x:Name="bod_LuongCoBan"  Width="60" Height="60" BorderThickness="5" BorderBrush="#4C5BD4" CornerRadius="30">
+                        <Path x:Name="icon_LuongCB" Data="{DynamicResource iconTien}" Stroke="#4C5BD4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="tb_LuongCB" Text="Lương" TextWrapping="Wrap" Foreground="#4C5BD4" FontSize="20" FontWeight="Medium"/>
+                        <TextBlock x:Name="tb_LuongCB1" Text="Lương cơ bản" TextWrapping="Wrap" FontSize="16" FontWeight="Regular" Foreground="#474747"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Border x:Name="LuongHienTai" MouseLeftButtonUp="LuongHienTai_MouseLeftButtonUp" Grid.Column="1" MinWidth="220" Margin="10 0 10 0" Cursor="Hand" CornerRadius="15"  Background="#FFFFFF">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <DockPanel HorizontalAlignment="Left" Margin="5">
+                    <Border x:Name="bod_LuongHienTai" Width="60" Height="60" BorderThickness="5" CornerRadius="30">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#4AA7FF" Offset="1"/>
+                                <GradientStop Color="#FF42D778" Offset="0.7"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Path x:Name="icon_LuongHienTai" Data="{DynamicResource iconLuongHienTai}" Stroke="#4AA7FF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="tb_LuongHT" Text="Lương hiện tại" TextWrapping="Wrap" Foreground="#4C5BD4" FontSize="20" FontWeight="Medium"/>
+                        <TextBlock x:Name="tb_LuongHT1" Text="Lương cập nhật mới nhất" TextWrapping="Wrap" FontSize="16" FontWeight="Regular" Foreground="#474747"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Border x:Name="ThongTinHopDong" MouseLeftButtonUp="ThongTinHopDong_MouseLeftButtonUp" Grid.Column="2" MinWidth="220" Margin="0 0 10 0" Cursor="Hand" CornerRadius="15"  Background="#FFFFFF">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <DockPanel HorizontalAlignment="Left" Margin="5">
+                    <Border x:Name="bod_ThongTinHopDong" Width="60" Height="60" BorderThickness="5"  CornerRadius="30">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#FE5C4B" Offset="0.8"/>
+                                <GradientStop Color="#FEBA01" Offset="0.6"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Path x:Name="icon_TongTinHopDong" Data="{DynamicResource iconTien}" Stroke="#FE5C4B" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="tb_ThongTinHD" Text="Thông tin hợp đồng" TextWrapping="Wrap" Foreground="#4C5BD4" FontSize="20" FontWeight="Medium"/>
+                        <TextBlock x:Name="tb_ThongTinHD1" Text="Thông tin hợp đồng" TextWrapping="Wrap" FontSize="16" FontWeight="Regular" Foreground="#474747"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <Border x:Name="LichSuDieuChinhLuong" MouseLeftButtonUp="LichSuDieuChinhLuong_MouseLeftButtonUp" Grid.Column="3" MinWidth="220" Cursor="Hand" CornerRadius="15"  Background="#FFFFFF">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"  BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                </Border.Effect>
+                <DockPanel HorizontalAlignment="Left" Margin="5">
+                    <Border x:Name="bod_LichSuDieuChinhLuong" Width="60" Height="60" BorderThickness="5" CornerRadius="30">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#FE5C4B" Offset="0.8"/>
+                                <GradientStop Color="#FEBA01" Offset="0.6"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Path x:Name="icon_LichSuDC" Data="{DynamicResource iconTien}" Stroke="#FE5C4B" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock x:Name="tb_LichSuDC" Text="Lịch sử điều chỉnh lương" TextWrapping="Wrap" Foreground="#4C5BD4" FontSize="20" FontWeight="Medium"/>
+                        <TextBlock x:Name="tb_LichSuDC1" Text="Lịch sử điều chỉnh mức lương" TextWrapping="Wrap" FontSize="16" FontWeight="Regular" Foreground="#474747"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+        </Grid>
+        <DataGrid Name="dgvLuongCoBan" Visibility="Visible" Style="{DynamicResource DataGrid1}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <DataGrid.OpacityMask>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </DataGrid.OpacityMask>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" Header="Lương cơ bản">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="16"  Foreground="#FF5B4D" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Run Text="{Binding LuongFormatted}"/>
+                                <Run Text="VNĐ"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Ngày áp dụng">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16" Text="{Binding DateApply}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="Vị trí">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16" Text="{Binding pos_name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="dgvLuongHienTai" Visibility="Collapsed" Style="{DynamicResource DataGrid1}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <DataGrid.OpacityMask>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </DataGrid.OpacityMask>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" Header="Lương hiện tại">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="16"  Foreground="#FF5B4D" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Run Text="{Binding LuongFormatted}"/>
+                                <Run Text="VNĐ"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="Ngày áp dụng">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16" Text="{Binding DateApply}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="Vị trí">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16" Text="{Binding pos_name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="dgvThongTinHopDong" Visibility="Collapsed" Style="{DynamicResource DataGrid1}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <DataGrid.OpacityMask>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </DataGrid.OpacityMask>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" Header="Tên hợp đồng">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="16" Text="{Binding con_name}" Foreground="#FF5B4D" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="Phần trăm hợp đồng">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" >
+                                <Run Text="{Binding con_salary_persent}"/>
+                                <Run Text="%"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="Ngày áp dụng">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16" Text="{Binding DateApplyHD}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="dgvLichSuDieuChinh" Visibility="Collapsed" Style="{DynamicResource DataGrid1}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <DataGrid.OpacityMask>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </DataGrid.OpacityMask>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" Header="Lương điều chỉnh">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="16"  Foreground="#FF5B4D" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Run Text="{Binding Luong_cb_Format}"/>
+                                <Run Text="VNĐ"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="Ngày điều chỉnh">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16" Text="{Binding ngay_apdung}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="Vị trí">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="textNgay" FontSize="16" Text="{Binding vitri}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#474747" Cursor="Hand" ></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </StackPanel>
+</Window>

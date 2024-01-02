@@ -1,0 +1,231 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ThietLapCongTy.Popups.PopupSoDoToChuc.ucXemChiTiet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ThietLapCongTy.Popups.PopupSoDoToChuc"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tool="clr-namespace:QuanLyChung365TruocDangNhap.GioiHanIpVaPhanMem.Tools"
+    mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden" x:Name="scroll">
+        
+    <Grid>
+        <Rectangle
+            Fill="#000000"
+            MouseDown="Rectangle_MouseDown"
+            Opacity="0.5" />
+        <Grid
+            MinWidth="500"
+            MaxWidth="700"
+            HorizontalAlignment="Right"
+            Background="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Margin="20">
+                <TextBlock x:Name="tb_TenToChuc" Style="{DynamicResource TextBlockButonNV}" />
+                <Border
+                    x:Name="btnThoatChiTiet"
+                    Width="30"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    Background="#6666"
+                    CornerRadius="20"
+                    Cursor="Hand"
+                    MouseEnter="btnThoatChiTiet_MouseEnter"
+                    MouseLeave="btnThoatChiTiet_MouseLeave"
+                    MouseLeftButtonDown="btnThoatChiTiet_MouseLeftButtonDown">
+                    <TextBlock
+                        Margin="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#FFFFFF"
+                        Style="{DynamicResource TextBlockButonNV}"
+                        Text="X" />
+                </Border>
+            </DockPanel>
+            <Border
+                x:Name="bodDSNV"
+                Grid.Row="1"
+                Margin="20 0 20 20"
+                Background="#FFFFFF"
+                BorderThickness="0"
+                Style="{DynamicResource BorderSelectedNV}">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="10"
+                        Opacity="0.4"
+                        ShadowDepth="0" />
+                </Border.Effect>
+                <StackPanel Margin="5">
+                    <TextBlock
+                        Margin="0,10,0,10"
+                        Style="{DynamicResource TextBlocLableNV}"
+                        Text="Thông tin chi tiết" />
+                    <Border
+                        MinHeight="150"
+                        MaxHeight="200"
+                        BorderBrush="#6666"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <ScrollViewer VerticalScrollBarVisibility="Visible">
+
+                            <ListView Name="lsvListContent">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+
+                                            <TextBlock
+                                                Margin="5"
+                                                FontSize="16"
+                                                FontWeight="Regular"
+                                                Foreground="#474747">
+                                                <Run Foreground="#474747" Text="{Binding key}" />
+                                                : <TextBlock  Text="{Binding value}">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding image}" Value="1">
+                                                                    <Setter Property="Visibility" Value="Collapsed" />
+
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+
+                                            </TextBlock>
+                                            <Image
+                                                Width="300"
+                                                HorizontalAlignment="Center"
+                                                Source="{Binding value}">
+                                                <Image.Style>
+                                                    <Style TargetType="Image">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding image}" Value="1">
+                                                                <Setter Property="Visibility" Value="Visible" />
+
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Image.Style>
+                                            </Image>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </ScrollViewer>
+                    </Border>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        Foreground="#474747"
+                        Style="{DynamicResource TextBlockButonNV}"
+                        Text="DANH SÁCH TRỰC THUỘC ĐƠN VỊ" />
+                    <StackPanel>
+                        <Border
+                            Height="43"
+                            Background="#4C5BD4"
+                            CornerRadius="10 10 0 0">
+                            <DockPanel VerticalAlignment="Center">
+
+                                <Border Width="200">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        Foreground="#FFFFFF"
+                                        Style="{DynamicResource TextBlockBlue}"
+                                        Text="Họ và tên" />
+                                </Border>
+                                <Border Width="200">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        Foreground="#FFFFFF"
+                                        Style="{DynamicResource TextBlockBlue}"
+                                        Text="ID" />
+                                </Border>
+                                <Border Width="200">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        Foreground="#FFFFFF"
+                                        Style="{DynamicResource TextBlockBlue}"
+                                        Text="Chức vụ" />
+                                </Border>
+                            </DockPanel>
+                        </Border>
+                        <ListView PreviewMouseWheel="lsvDanhSachNhanVienChiTiet_PreviewMouseWheel"
+                            x:Name="lsvDanhSachNhanVienChiTiet"
+                            MaxHeight="400"
+                            BorderBrush="#474747"
+                            BorderThickness="1"
+                            ItemsSource="{Binding}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListViewItem">
+                                                <StackPanel Height="65" Margin="0,10,0,0">
+                                                    <DockPanel>
+                                                        <Border Width="200" Height="40">
+                                                            <TextBlock
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                FontSize="16"
+                                                                Foreground="#474747"
+                                                                Text="{Binding userName}"
+                                                                TextAlignment="Center"
+                                                                TextWrapping="Wrap" />
+                                                        </Border>
+                                                        <Border Width="200" Height="40">
+                                                            <TextBlock
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                FontSize="16"
+                                                                Foreground="#474747"
+                                                                Text="{Binding ep_id}" />
+                                                        </Border>
+                                                        <Border Width="200" Height="40">
+                                                            <TextBlock
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                FontSize="16"
+                                                                Foreground="#474747"
+                                                                Text="{Binding positionName}"
+                                                                TextAlignment="Center"
+                                                                TextWrapping="Wrap" />
+                                                        </Border>
+                                                    </DockPanel>
+                                                    <Rectangle
+                                                        Width="{Binding ElementName=ListView, Path=lsvDanhSachNhanVienChiTiet}"
+                                                        Height="1"
+                                                        VerticalAlignment="Bottom"
+                                                        Opacity="0.5"
+                                                        Stroke="#666666"
+                                                        StrokeDashArray="3 1 2 3" />
+                                                </StackPanel>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </StackPanel>
+                    <tool:Paginator
+                        x:Name="paginNV"
+                        Margin="0,0"
+                        HorizontalAlignment="Right"
+                        DisplayNumber="5"
+                        SelectionChange="paginNV_SelectionChange" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</UserControl>

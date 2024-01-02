@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.ucAddLocation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew"
+              xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        mc:Ignorable="d"
+>
+    <Grid>
+        <Rectangle Fill="Black" Opacity="0.1" MouseDown="Rectangle_MouseDown"></Rectangle>
+        <Border
+       
+          Width="auto"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          Background="White"
+          BorderBrush="LightGray"
+          BorderThickness="2"
+          CornerRadius="10"
+          Visibility="Visible">
+            <Border.Effect>
+                <DropShadowEffect
+                  BlurRadius="10"
+                  Opacity="0.4"
+                  ShadowDepth="0" />
+            </Border.Effect>
+            <StackPanel Height="auto" >
+                <TextBlock Margin="20" HorizontalAlignment="Center" FontSize="18" Foreground="#474747" FontWeight="Bold">Thêm vị trí mới</TextBlock>
+                <TextBlock Margin="0 0 0 60" HorizontalAlignment="Center" FontSize="16" Foreground="#474747" >Nhập vị trí hoặc chọn trên bản đồ</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderBrush="#ccc" Background="White" CornerRadius="6" Height="auto">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="16" ShadowDepth="0"></DropShadowEffect>
+                        </Border.Effect>
+                        <Grid Margin="20" Width="800" Height="600">
+                            <m:Map x:Name="MainMap" CredentialsProvider="C3OmWtJbGaUQT7vF8qKX~4DkIaQRhigyTcZiMI8Fkhg~AkWTDsz3PUa_eD4ca72ykDkd3QczE8qJFMGssoIWWpYUca5HTUtCoV3GLCA3zfhw" MouseLeftButtonUp="Map_MouseClick" >
+                                <m:Map.Center>
+                                    <m:Location Latitude="20.992345" Longitude="105.824574"></m:Location>
+                                </m:Map.Center>
+                                <m:Map.ZoomLevel>
+                                    11.1
+                                </m:Map.ZoomLevel>
+                            </m:Map>
+
+                        </Grid>
+                    </Border>
+                    <Grid Margin="20">
+                        <Border Visibility="Collapsed" x:Name="borChooseLocaion" VerticalAlignment="Top" BorderBrush="#ccc" Background="White" CornerRadius="6" Width="280" MinHeight="300">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="16" ShadowDepth="0"></DropShadowEffect>
+                            </Border.Effect>
+                            <StackPanel>
+                                <TextBlock FontSize="16" HorizontalAlignment="Center" Foreground="#474747" FontWeight="DemiBold">Vị trí chọn</TextBlock>
+
+                                <TextBlock Margin="10 20 0 0" FontSize="16" FontWeight="DemiBold">Địa chỉ:</TextBlock>
+                                <TextBox Cursor="Pen" Height="auto" BorderThickness="0" TextWrapping="Wrap" x:Name="cor_location_name" Margin="10 0 10 0" FontSize="16" Text=""/>
+
+
+                                <TextBlock Margin="10 20 0 0" FontSize="16" FontWeight="DemiBold">Bán kính:</TextBlock>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Cursor="Pen" MinWidth="20" BorderThickness="0" x:Name="cor_radius" Margin="10 0 0 0" FontSize="16" Text="0"/>
+                                    <TextBlock FontSize="16" >m</TextBlock>
+                                </StackPanel>
+
+
+                                <TextBlock Margin="10 20 0 0" FontSize="16" FontWeight="DemiBold">Tọa độ:</TextBlock>
+                                <DockPanel>
+                                    <TextBlock  Margin="10 0 10 0" FontSize="16">X:</TextBlock>
+                                    <TextBox Cursor="Pen" Height="auto" BorderThickness="0" x:Name="cor_lat" Margin="0" FontSize="16"></TextBox>
+
+                                </DockPanel>
+                                <DockPanel>
+                                    <TextBlock Margin="10 0 10 0" FontSize="16">Y:</TextBlock>
+                                    <TextBox Cursor="Pen" Height="auto" BorderThickness="0"  x:Name="cor_long" Margin="0" FontSize="16"></TextBox>
+
+                                </DockPanel>
+
+                                <Border MouseLeftButtonUp="AddLoctaion" Margin="20" Height="30" Padding="10 0" Style="{StaticResource BorderButonLimitIPnApp}" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{StaticResource #1677ff}">
+                                    <DockPanel>
+                                        <Path VerticalAlignment="Center" Margin="0 0 10 0" Data="{StaticResource icon_plus}" Fill="White"></Path>
+                                        <TextBlock VerticalAlignment="Center" FontSize="16" Foreground="White">Thêm mới</TextBlock>
+                                    </DockPanel>
+                                </Border>
+
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <Popup
+            x:Name="popupPosition"
+            Margin="0,0,0,10"
+            AllowsTransparency="True"
+            IsOpen="False"
+            Placement="MousePoint">
+
+            <Border Background="Transparent"
+                Padding="10">
+                <Path Data="{StaticResource icon_location}" Fill="red">
+                    <Path.LayoutTransform>
+                        <ScaleTransform ScaleX="0.05" ScaleY="0.05"></ScaleTransform>
+                    </Path.LayoutTransform>
+                </Path>
+            </Border>
+        </Popup>
+    </Grid>
+
+</UserControl>

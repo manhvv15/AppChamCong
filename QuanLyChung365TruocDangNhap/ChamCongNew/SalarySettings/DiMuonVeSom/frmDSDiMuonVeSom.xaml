@@ -1,0 +1,187 @@
+﻿<Page x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings.DiMuonVeSom.frmDSDiMuonVeSom"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings.DiMuonVeSom"
+      xmlns:tool="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resource.tool"
+      xmlns:tool1="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resouce.tool"
+      mc:Ignorable="d"
+      Title="frmDSDiMuonVeSom" VerticalAlignment="Top">
+
+    <Grid x:Name="pnlHienThi" VerticalAlignment="Top">
+        <Grid Margin="10,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,20,10,0" Background="Transparent" PreviewMouseWheel="WrapPanel_PreviewMouseWheel" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" x:Name="borHienThiPhongBan" Background="Transparent"  BorderBrush="#474747" BorderThickness="1" Width="{Binding RelativeSource={RelativeSource AncestorType=Page},Path=ActualWidth}"  Height="34" CornerRadius="5" Margin="0,10,15,0">
+                    <tool:SearchBar x:Name="textHienThiPhongBan" CornerRadius="5" PlaceHolder="Tổ chức (tất cả)" SelectionChanged="Organize_SelectionChange" FontSize="16" DisplayMemberPath="organizeDetailName" PlaceHolderForground="#ACACAC"/>
+                </Border>
+                <Border  Grid.Column="1"  x:Name="borHienThiNhanVien" Background="Transparent" BorderBrush="#474747" BorderThickness="1" Width="{Binding RelativeSource={RelativeSource AncestorType=Page},Path=ActualWidth}" Height="34" CornerRadius="5" Margin="0,10,15,0">
+                    <tool:SearchBar x:Name="lsvNhanVien" CornerRadius="5" PlaceHolder="Nhân viên (tất cả)" SelectionChanged="Staff_SelectionChange" FontSize="16" PlaceHolderForground="#ACACAC" DisplayMemberPath="display_userName"/>
+                </Border>
+                <Border  Grid.Column="2"  x:Name="borHienThiThang" Background="Transparent" BorderBrush="#474747" BorderThickness="1" Width="{Binding RelativeSource={RelativeSource AncestorType=Page},Path=ActualWidth}"  Height="34" CornerRadius="5,5,5,5" Margin="0,10,15,0">
+                    <tool:SearchBar x:Name="lsvThang" CornerRadius="5" SelectionChanged="Staff_SelectionChange" FontSize="16" PlaceHolderForground="#474747" DisplayMemberPath="value"/>
+                </Border>
+
+                <Border Grid.Column="3" x:Name="borHienThiNam" Background="Transparent" BorderBrush="#474747" BorderThickness="1" Width="{Binding RelativeSource={RelativeSource AncestorType=Page},Path=ActualWidth}"  Height="34" CornerRadius="5" Margin="0,10,15,0">
+                     <tool:SearchBar x:Name="lsvNam" CornerRadius="5" SelectionChanged="Staff_SelectionChange" FontSize="16" PlaceHolderForground="#474747" DisplayMemberPath="value"/>
+                 </Border>
+
+                <Border Grid.Column="4" x:Name="btnThongKe" Background="#4c5bd4" Width="{Binding RelativeSource={RelativeSource AncestorType=Page},Path=ActualWidth}"  Height="34" CornerRadius="5" Margin="0,10,0,0" Cursor="Hand" MouseLeftButtonUp="btnThongKe_MouseLeftButtonUp">
+                    <TextBlock x:Name="test" Text="Thống kê" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center"></TextBlock>
+                </Border>
+            </Grid>
+            <DockPanel Grid.Row="1" Margin="0,20,10,0" Background="Transparent" PreviewMouseWheel="DockPanel_PreviewMouseWheel">
+                <Border x:Name="btnXuatExcel" DockPanel.Dock="Right" Background="#4c5bd4" Width="198" Height="34" CornerRadius="5" Cursor="Hand" HorizontalAlignment="Left" Margin="574,10,0,0" MouseLeftButtonUp="btnXuatExcel_MouseLeftButtonUp">
+                    <DockPanel HorizontalAlignment="Center">
+                        <Path Data="{DynamicResource iconExcel}" Fill="#ffffff" VerticalAlignment="Center"></Path>
+                        <TextBlock Text="Xuất file thống kê" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center" Margin="20,0,0,0"></TextBlock>
+                    </DockPanel>
+                </Border>
+                <StackPanel>
+                    <TextBlock Text="Theo dõi đi muộn về sớm" FontSize="18" FontWeight="DemiBold" Foreground="#474747"></TextBlock>
+                    <TextBlock Text="Quản lý nhân viên ra về" FontSize="16" FontWeight="DemiBold" Foreground="#474747" Margin="0,3,0,0"></TextBlock>
+                </StackPanel>
+            </DockPanel>
+            <DataGrid Grid.Row="2" Style="{DynamicResource DataGrid1}" Name="dgv" Margin="0,10,10,20" RowHeight="75" PreviewMouseWheel="dgv_PreviewMouseWheel" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <DataGrid.OpacityMask>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </DataGrid.OpacityMask>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="4*" Header="Họ và tên (ID)">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel Margin="35,0,0,0" VerticalAlignment="Center">
+                                    <Border Width="45" Height="45" CornerRadius="1000">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding avatarUser}"></ImageBrush>
+                                        </Border.Background>
+                                    </Border>
+                                    <StackPanel HorizontalAlignment="Left" Margin="5,0,0,0">
+                                        <TextBlock FontSize="16" Text="{Binding user.userName}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#4c5bd4" TextWrapping="Wrap"></TextBlock>
+                                        <DockPanel>
+                                            <TextBlock Text="ID: " FontSize="16"></TextBlock>
+                                            <TextBlock Text="{Binding ep_id}" FontSize="16"></TextBlock>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Tổ chức" Width="3.5*">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding organizeDetailName}" HorizontalAlignment="Left" Margin="10 0 0 0" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Left"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="2.5*" Header="Thời gian">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding date_format,Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="2.6*" Header="Ca">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" Text="{Binding shift_name}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="2.5*" Header="Muộn/sớm">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Border Background="#FFEBEB" CornerRadius="20" Height="30" Width="200">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Visibility" Value="Visible"></Setter>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding addition.early}" Value="0">
+                                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding addition.early_second_string}" FontSize="16" Foreground="#FF5B4D" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold"></TextBlock>
+                                    </Border>
+                                    <Border Background="#FFEBEB" CornerRadius="20" Margin="0,5,0,0" Height="30" Width="200">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Visibility" Value="Visible"></Setter>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding addition.late}" Value="0">
+                                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <TextBlock Text="{Binding addition.late_second_string}" FontSize="16" Foreground="#FF5B4D" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold"></TextBlock>
+                                    </Border>
+                                    
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="2*" Header="Phạt">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Run  Text="{Binding pm_monney_formatted}"/>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--Number Page-->
+            <DockPanel Grid.Row="3" Margin="0,10,0,10" HorizontalAlignment="Center" Name="DpPhanTRang" Visibility="Collapsed">
+                <Border x:Name="borPageDau" Width="45" Height="29" CornerRadius="5" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borPageDau_MouseLeftButtonUp">
+                    <TextBlock Text="Đầu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                </Border>
+                <Border x:Name="borLui1" Width="29" Height="29" CornerRadius="5" Margin="5,0,0,0" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borLui1_MouseLeftButtonUp">
+                    <Path Data="{DynamicResource iconArrowLeft}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                </Border>
+                <Border x:Name="borPage1" MinWidth="29" Height="29" CornerRadius="5" Background="#4c5bd4" Margin="5,0,0,0" MouseLeftButtonUp="borPage1_MouseLeftButtonUp" BorderThickness="1" BorderBrush="#474747">
+                    <TextBlock x:Name="textPage1" Margin="3 0 3 0" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#ffffff"></TextBlock>
+                </Border>
+                <Border x:Name="borPage2" MinWidth="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage2_MouseLeftButtonUp">
+                    <TextBlock x:Name="textPage2" Margin="3 0 3 0" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                </Border>
+                <Border x:Name="borPage3" MinWidth="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage3_MouseLeftButtonUp">
+                    <TextBlock x:Name="textPage3" Margin="3 0 3 0" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                </Border>
+                <Border x:Name="borLen1" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borLen1_MouseLeftButtonUp">
+                    <Path Data="{DynamicResource iconArrowRight}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                </Border>
+                <Border x:Name="borPageCuoi" Width="45" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPageCuoi_MouseLeftButtonUp">
+                    <TextBlock Text="Cuối" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                </Border>
+            </DockPanel>
+        </Grid>
+        <tool1:LoadingSpinner x:Name="loading" Visibility="Collapsed" Background="#4444"/>
+    </Grid>
+</Page>

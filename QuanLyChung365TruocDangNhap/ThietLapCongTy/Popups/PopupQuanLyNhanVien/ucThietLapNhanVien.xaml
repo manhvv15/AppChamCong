@@ -1,0 +1,172 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ThietLapCongTy.Them_Xoa_NhanVien.ucThietLapNhanVien"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Popup="clr-namespace:QuanLyChung365TruocDangNhap.ThietLapCongTy.Comons"
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ThietLapCongTy.Them_Xoa_NhanVien"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Rectangle
+            x:Name="CreateWifi"
+            Fill="#000000"
+            MouseDown="Rectangel_MouseDown"
+            Opacity="0.5" />
+        <!--  3. Create Wifi  -->
+        <Border VerticalAlignment="Top"
+            x:Name="bodThietLapNhanVien"
+            Margin="0 100 0 0"
+            Width="600"
+            Height="auto"
+            Background="#FFFFFF"
+            BorderBrush="#474747"
+            CornerRadius="10"
+     >
+            <StackPanel>
+                <Border
+                    Width="600"
+                    Height="54"
+                    Background="#4C5BD4"
+                    CornerRadius="10 10 0 0"
+                    TextBlock.FontSize="20"
+                    TextBlock.FontWeight="SemiBold"
+                    TextBlock.Foreground="#FFFFFF">
+                    <TextBlock Margin="20 0 0 0 "
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Text="Thiết Lập" />
+                </Border>
+                <Border
+                    x:Name="bodExitCreateWifi"
+                    Grid.Row="1"
+                    Width="18"
+                    Height="17"
+                    Background="#4C5BD4"
+                    Margin="0,-55,10,0"
+                    HorizontalAlignment="Right"
+                    MouseUp="bodExitCreateWifi_MouseUp">
+                    <Path
+                        Data="{DynamicResource iconExit}"
+                        Stroke="#FFFFFF"
+                        StrokeThickness="2" />
+                </Border>
+                <StackPanel Height="auto" Margin="20">
+                    <TextBlock
+                        Height="22"
+                        Margin="5"
+                        FontSize="16"
+                        FontWeight="Regular"
+                        Foreground="#474747"><Run Text="Ngày nghỉ việc "/><Run Foreground="#FFFF5B4D" Text=" *"/></TextBlock>
+                    <Border
+                        Padding="2"
+                        Margin="0,5,0,0"
+                        BorderBrush="{DynamicResource #aaa}"
+                        BorderThickness="1"
+                        CornerRadius="5">
+                        <Grid Height="37">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*" />
+                                <ColumnDefinition Width="312*" />
+                                <ColumnDefinition Width="0*" />
+                            </Grid.ColumnDefinitions>
+                            <Popup:DatePicker FontSize="14" Grid.ColumnSpan="3" x:Name="QuitJobDate"></Popup:DatePicker>
+                        </Grid>
+                    </Border>
+                    <TextBlock
+                        x:Name="txtValidateQuitJobDate"
+                        Height="22"
+                        HorizontalAlignment="Left"
+                        FontSize="16"
+                        FontWeight="Regular"
+                        Foreground="#FF5B4D"
+                        Visibility="Collapsed" />
+                </StackPanel>
+                <StackPanel Height="auto" Margin="20,0,20,20">
+                    <TextBlock
+                        Height="22"
+                        Margin="5"
+                        FontSize="16"
+                        FontWeight="Regular"
+                        Foreground="#474747"><Run Text="Loại nghỉ việc "/><Run Text=" "/><Run Foreground="#FFFF5B4D" Text="*"/></TextBlock>
+                    <Border
+                        Margin="0,5,0,0"
+                        BorderBrush="{DynamicResource #aaa}"
+                        BorderThickness="1"
+                        CornerRadius="5">
+                        <Grid Height="37">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*" />
+                                <ColumnDefinition Width="312*" />
+                                <ColumnDefinition Width="0*" />
+                            </Grid.ColumnDefinitions>
+                            <ComboBox x:Name="cbxQuitJobType" FontSize="16" Style="{StaticResource Combobox1}" Grid.ColumnSpan="3">
+                                <ComboBoxItem>Giảm biên chế</ComboBoxItem>
+                                <ComboBoxItem>Nghỉ việc</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                    </Border>
+                    <TextBlock
+                        x:Name="txtvalidateQuitJobType"
+                        Height="22"
+                        HorizontalAlignment="Left"
+                        FontSize="16"
+                        FontWeight="Regular"
+                        Foreground="#FF5B4D"
+                        Visibility="Collapsed" />
+                </StackPanel>
+                <StackPanel Height="auto" Margin="20,0,20,20">
+                    <TextBlock
+                        x:Name="txtvalidateLocation"
+                        Height="22"
+                        HorizontalAlignment="Left"
+                        FontSize="16"
+                        FontWeight="Regular"
+                        Foreground="#FF5B4D"
+                        Visibility="Collapsed">
+                        aa
+                    </TextBlock>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Cursor="Hand" MouseLeftButtonUp="bodExitCreateWifi_MouseUp"
+                    x:Name="bodHuy"
+                    Width="142"
+                    Height="44"
+                    Margin="0,0,0,20"
+                    BorderThickness="1" BorderBrush="#474747"
+                    CornerRadius="15"
+                    Style="{StaticResource BorderButonLimitIPnApp}"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="Medium"
+                    TextBlock.Foreground="#474747">
+                        <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Hủy" />
+                    </Border>
+                    <Border Grid.Column="1" Cursor="Hand"
+                    x:Name="bodThietLapXoaNhanVien"
+                    Width="142"
+                    Height="44"
+                    Margin="0,0,0,20"
+                    Background="#1677ff"
+                    CornerRadius="15"
+                    Style="{StaticResource BorderButonLimitIPnApp}"
+                    TextBlock.FontSize="18"
+                    TextBlock.FontWeight="Medium"
+                    TextBlock.Foreground="#FFFFFF"
+                            MouseLeftButtonUp="bodThietLapXoaNhanVien_MouseLeftButtonUp">
+                        <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Tiếp tục" />
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

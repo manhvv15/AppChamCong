@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.CacChucNangTaiKhoan.ThongTinTaiKhoan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.CacChucNangTaiKhoan"
+             mc:Ignorable="d">
+    <Grid Background="#FFF" Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <DockPanel HorizontalAlignment="Center">
+                <Border x:Name="btn_AnhDaiDien"  BorderBrush="#4c5bd4" BorderThickness="1" CornerRadius="100" Width="200" Height="200">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding inforCom.com_logo}"/>
+                    </Border.Background>
+                    <Image x:Name="img_Logo" Source="icon_avt.png"/>
+                </Border>
+                <Border x:Name="btn_CapNhatAnh" MouseLeftButtonUp="btn_CapNhatAnh_MouseLeftButtonUp" VerticalAlignment="Bottom" Cursor="Hand" Background="WhiteSmoke" Margin="-60 0 0 10" Width="35" Height="35" CornerRadius="20" BorderThickness="1" BorderBrush="#4c5bd4">
+                    <Grid>
+                        <Path Data="{DynamicResource iconCameraNV}" HorizontalAlignment="Center" VerticalAlignment="Center" StrokeThickness="2" Stroke="#4c5bd4"/>
+                        <Path Data="{DynamicResource iconCamera1NV}" HorizontalAlignment="Center" VerticalAlignment="Center" StrokeThickness="2" Stroke="#4c5bd4"/>
+                    </Grid>
+                </Border>
+            </DockPanel>
+            <TextBlock HorizontalAlignment="Center" Margin="0 10 0 20" FontSize="16"  FontWeight="Medium" Foreground="#474747">
+                <Run Text="ID:"/>
+                <Run x:Name="tb_IdSaff" Foreground="#4c5bd4"/>
+            </TextBlock>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="stp_LabelHeader" Grid.Row="0">
+                <TextBlock FontSize="16" FontWeight="Medium" Foreground="#474747">
+                    <Run Text="Họ và tên: " />
+                    <Run x:Name="tb_LabelHeader1" FontWeight="Regular" Foreground="#4c5bd4"/>
+                </TextBlock>
+                <TextBlock FontSize="16" Margin="0 10 0 10"  FontWeight="Medium" Foreground="#474747">
+                    <Run Text="Công ty: " />
+                    <Run x:Name="tb_LabelHeader2" FontWeight="Regular" Foreground="#4c5bd4"/>
+                </TextBlock>
+                <TextBlock FontSize="16"  FontWeight="Medium" Foreground="#474747">
+                    <Run Text="Chức vụ: " />
+                    <Run x:Name="tb_LabelHeader3" FontWeight="Regular" Foreground="#4c5bd4"/>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" >
+                        <TextBlock FontSize="16" x:Name="tb_Label1" Margin="0 10 0 10" Text="Địa chỉ Email:" FontWeight="Medium" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label2"  Text="Số điện thoại:" FontWeight="Medium"  Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label3" Margin="0 10 0 10" Text="Địa chỉ:" FontWeight="Medium" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label4"  Text="Tổ chức:" FontWeight="Medium" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label5" Margin="0 10 0 10" Text="Nhân Sự:" FontWeight="Medium" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label9" Text="Nhân Sự:" FontWeight="Medium" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label6" Margin="0 10 0 10" Text="Nhân Sự:" FontWeight="Medium" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label7" Text="Nhân Sự:" FontWeight="Medium" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_Label8" Margin="0 10 0 10" Text="Nhân Sự:" FontWeight="Medium" Foreground="#474747"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor1" Margin="0 10 0 10" Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor2"  Text="0123456" FontWeight="Regular"  Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor3" Margin="0 10 0 10" Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor4"   Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor5" Margin="0 10 0 10" Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor9"  Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor6" Margin="0 10 0 10" Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor7"  Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                        <TextBlock FontSize="16" x:Name="tb_TexInfor8" Margin="0 10 0 0" Text="0123456" FontWeight="Regular" Foreground="#474747"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <WrapPanel Grid.Row="2" VerticalAlignment="Center">
+                <Border x:Name="btn_ChinhSuaThongTin" MouseLeftButtonUp="btn_ChinhSuaThongTin_MouseLeftButtonUp" Cursor="Hand" Margin="0 0 10 0" Background="#FFFFFF" CornerRadius="5" BorderThickness="1" BorderBrush="#4c5bd4">
+                    <TextBlock Text="Chỉnh sửa thông tin" Margin="15 6 15 6" FontSize="16" FontWeight="Medium" Foreground="#4c5bd4"/>
+                </Border>
+                <Border x:Name="btn_DoiMatKhau" MouseLeftButtonUp="btn_DoiMatKhau_MouseLeftButtonUp" Cursor="Hand" Background="#4c5bd4" CornerRadius="5" BorderThickness="1" BorderBrush="#4c5bd4">
+                    <TextBlock Text="Đổi mật khẩu" Margin="35 5 35 5" FontSize="16" FontWeight="Medium" Foreground="#FFFFFF"/>
+                </Border>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</UserControl>

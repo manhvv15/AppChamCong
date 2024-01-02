@@ -1,0 +1,600 @@
+<Window
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:load="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popups"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="MainWindows"
+    Title="ChamCong"
+    MinWidth="1150"
+    MinHeight="700"
+    MaxWidth="1920"
+    HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch"
+    Background="WhiteSmoke"
+    Closing="MainWindows_Closing"
+    KeyDown="ucSalary_KeyDown"
+    KeyUp="ucSalary_KeyUp"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Grid x:Name="fullMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid
+            Grid.Row="0"
+            Height="30"
+            Background=" #FFFFFF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0"
+                Background="{DynamicResource #FFFFFF}"
+                Visibility="Collapsed">
+                <Path
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center"
+                    Data="{DynamicResource logoTimViec}"
+                    Fill="{DynamicResource #4C5BD4}" />
+            </Grid>
+            <DockPanel
+                x:Name="pnlTieuDe1"
+                Grid.Column="0"
+                Background="Transparent"
+                MouseLeftButtonDown="pnlTieuDe1_MouseLeftButtonDown">
+                <DockPanel
+                    Width="90"
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Left">
+                    <Path
+                        Width="21"
+                        Height="20"
+                        Data="{DynamicResource iconDongHo1}"
+                        RenderTransformOrigin="0.206,0.992"
+                        Stretch="Fill"
+                        Stroke="#4C5BD4"
+                        StrokeThickness="2.5" />
+                    <TextBlock
+                        Name="dynamicTextBlock"
+                        Grid.Column="0"
+                        Margin="0,5,0,0"
+                        VerticalAlignment="Center"
+                        FontFamily="Harlow Solid Italic"
+                        FontSize="20"
+                        FontWeight="Medium"
+                        Foreground="#4C5BD4" />
+                </DockPanel>
+
+            </DockPanel>
+            <DockPanel
+                Grid.Column="1"
+                Margin="0,0,5,0"
+                HorizontalAlignment="Right"
+                Background="Transparent"
+                Cursor="Hand">
+                <Border
+                    x:Name="btnMinimize"
+                    Width="30"
+                    Background="{DynamicResource #FFFFFF}"
+                    MouseEnter="btnMinimize_MouseEnter"
+                    MouseLeave="btnMinimize_MouseLeave"
+                    MouseLeftButtonUp="btnMinimize_MouseLeftButtonUp">
+                    <Path
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource iconMiniMize}"
+                        Stroke="{DynamicResource #666666}" />
+                </Border>
+                <Border
+                    x:Name="btnMaximize"
+                    Width="30"
+                    Margin="0,0,5,0"
+                    Background="{DynamicResource #FFFFFF}"
+                    MouseEnter="btnMaximize_MouseEnter"
+                    MouseLeave="btnMaximize_MouseLeave"
+                    MouseLeftButtonUp="btnMaximize_MouseLeftButtonUp">
+                    <Path
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource iconMaximize}"
+                        Stroke="{DynamicResource #666666}" />
+                </Border>
+                <Border
+                    x:Name="btnNomal"
+                    Width="30"
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource #FFFFFF}"
+                    MouseEnter="btnNomal_MouseEnter"
+                    MouseLeave="btnNomal_MouseLeave"
+                    MouseLeftButtonUp="btnNomal_MouseLeftButtonUp"
+                    Visibility="Collapsed">
+                    <Path Data="{DynamicResource iconMaximize1}" Fill="{DynamicResource #666666}" />
+                </Border>
+                <Border
+                    x:Name="btnClose"
+                    Width="30"
+                    Margin="0,0,5,0"
+                    Background="{DynamicResource #FFFFFF}"
+                    MouseEnter="btnClose_MouseEnter"
+                    MouseLeave="btnClose_MouseLeave"
+                    MouseLeftButtonUp="btnClose_MouseLeftButtonUp">
+                    <Path
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Data="{DynamicResource iconCloseProject}"
+                        Fill="{DynamicResource #666666}" />
+                </Border>
+            </DockPanel>
+        </Grid>
+
+        <Grid x:Name="grShowPopup" Grid.Row="1">
+
+            <Grid Panel.ZIndex="-1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="135" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!--  controBar  -->
+                <!--  Header and Back  -->
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="69" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <!--  Header  -->
+                    <StackPanel Grid.Row="0">
+                        <!--  hearder Colesspa  -->
+                        <Grid
+                            x:Name="HearderColesspa"
+                            Height="69"
+                            Background="#4C5BD4"
+                            Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <!--  SlineBar  -->
+                            <Grid Grid.Column="0">
+                                <Border
+                                    x:Name="SlineBar"
+                                    Width="30"
+                                    Height="30"
+                                    Margin="20,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    MouseUp="SlineBar_MouseUp">
+                                    <Image Source="{StaticResource SlineBarDrawingImage}" />
+                                </Border>
+                            </Grid>
+                            <!--  Logo  -->
+                            <Grid Grid.Column="1">
+                                <Border
+                                    Width="129"
+                                    Height="39"
+                                    HorizontalAlignment="Center">
+                                    <Path Data="{DynamicResource Logo}" Fill="White" />
+                                </Border>
+                            </Grid>
+                            <!--  Notication  -->
+                            <Grid Grid.Column="2">
+                                <DockPanel
+                                    x:Name="IChat"
+                                    Width="72"
+                                    Height="28"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center">
+                                    <DockPanel>
+                                        <Border Width="30" Height="30">
+                                            <Image Source="{StaticResource iconChatDrawingImage}" />
+                                        </Border>
+                                        <Border Width="50">
+                                            <Image
+                                                Width="24"
+                                                Height="24"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Source="{StaticResource iconNotycationDrawingImage}" />
+                                        </Border>
+                                    </DockPanel>
+                                </DockPanel>
+                            </Grid>
+                        </Grid>
+                        <!--  hearder Visnity  -->
+                        <Grid
+                            x:Name="HearderVisibility"
+                            Grid.Row="0"
+                            Height="69"
+                            Background="#4C5BD4"
+                            Visibility="Visible">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <!--  Logo  -->
+                            <Grid Grid.Column="0">
+                                <Border Cursor="Hand" Background="Transparent"
+                                   x:Name="BackToQLC" MouseLeftButtonUp="BackToQLC_MouseLeftButtonUp"
+                                    Width="129"
+                                    Margin="20,0,15,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+                                    <Image Source="/Resource/image/Group 632585.png" />
+                                </Border>
+                            </Grid>
+                            <!--  Menu  -->
+                            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                                <DockPanel>
+                                    <DockPanel
+                                        x:Name="LinkText"
+                                        Width="281"
+                                        Height="39"
+                                        HorizontalAlignment="Left">
+                                        <Border x:Name="Home" Width="92">
+                                            <TextBlock Style="{StaticResource TextBlockMenuHeader}" Text="Trang chủ" />
+                                        </Border>
+                                        <Border
+                                            x:Name="Interests"
+                                            Width="74"
+                                            Height="39">
+                                            <TextBlock Style="{StaticResource TextBlockMenuHeader}" Text="Tin tức" />
+                                        </Border>
+                                        <Border
+                                            x:Name="Instruct"
+                                            Width="99"
+                                            Height="39">
+                                            <TextBlock Style="{StaticResource TextBlockMenuHeader}" Text=" Hướng dẫn" />
+                                        </Border>
+                                    </DockPanel>
+                                    <DockPanel
+                                        Width="100"
+                                        Height="28"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center">
+                                        <Grid Width="35">
+                                            <Image Source="{StaticResource iconChatDrawingImage}" />
+                                        </Grid>
+                                        <Border>
+                                            <TextBlock Style="{StaticResource TextBlockMenuHeader}" Text="Chat" />
+                                        </Border>
+                                        <Border>
+                                            <Image
+                                                Width="18"
+                                                Height="20"
+                                                Source="{StaticResource iconNotycationDrawingImage}" />
+                                        </Border>
+                                    </DockPanel>
+                                    <DockPanel
+                                        Margin="0 0 20 0"
+                                        x:Name="Search"
+                                        MinWidth="337"
+                                        MinHeight="35">
+                                        <Border
+                                            x:Name="borThongTin"
+                                            VerticalAlignment="Center"
+                                            Background="#4C5BD4"
+                                            BorderBrush="Silver"
+                                            BorderThickness="0"
+                                            CornerRadius="15,15,15,15"
+                                            MouseLeftButtonUp="borThongTin_MouseLeftButtonUp">
+                                            <DockPanel>
+                                                <Border MinWidth="280" MinHeight="35">
+                                                    <DockPanel MinHeight="35">
+                                                        <Border BorderThickness="1" BorderBrush="#666"
+                                                            Width="30"
+                                                            Height="30"
+                                                            Margin="10,0,0,0"
+                                                            CornerRadius="20">
+                                                            <Border.Background>
+                                                                <ImageBrush x:Name="Avatar" ImageSource="icon_avt.png" />
+                                                            </Border.Background>
+                                                        </Border>
+                                                        <StackPanel>
+                                                            <TextBlock
+                                                                x:Name="txbNameAccount"
+                                                                Margin="10,0,0,2"
+                                                                VerticalAlignment="Center"
+                                                                HorizontalAlignment="Center"
+                                                                FontSize="16"
+                                                                FontWeight="Medium"
+                                                                Foreground="#FFFFFF"/>
+                                                            <TextBlock
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                FontSize="16"
+                                                                FontWeight="Medium"
+                                                                Foreground="#FFFFFF">
+                                                                <Run Text="ID:"/>
+                                                                <Run x:Name="txbIDAccount"/>
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </DockPanel>
+                                                </Border>
+                                                <!--<Border>
+                                                    <Image Margin="10 0 0 0" Width="13" Height="10" Source="{StaticResource iconPolygonDrawingImage}" />
+                                                </Border>-->
+                                            </DockPanel>
+                                        </Border>
+                                    </DockPanel>
+                                </DockPanel>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                    <!--  Back  -->
+                    <Grid Grid.Row="1">
+                        <Border
+                            x:Name="bodBackto"
+                            Margin="10"
+                            HorizontalAlignment="Left"
+                            MouseEnter="bodBackto_MouseEnter"
+                            MouseLeave="bodBackto_MouseLeave"
+                            MouseUp="bodBackto_MouseUp">
+                            <DockPanel Margin="0,3,0,-3">
+                                <Border
+                                    Width="15"
+                                    Height="9"
+                                    Margin="0,0,10,0">
+                                    <Image Margin="0,-1,-1,-2" Source="{StaticResource BackToBackDrawingImage}" />
+                                </Border>
+                                <Border>
+                                    <TextBlock
+                                        x:Name="txbBackToBack"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Foreground="#474747"
+                                        Text="Quay lại" />
+                                </Border>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                    <!--  lable  -->
+                    <Grid
+                        x:Name="LableFunction"
+                        Grid.Row="2"
+                        Margin="100,0,0,0"
+                        HorizontalAlignment="Left"
+                        Visibility="Collapsed">
+                        <DockPanel>
+                            <Border>
+                                <TextBlock
+                                    x:Name="txbLoadChamCong"
+                                    FontSize="16"
+                                    Foreground="#474747" />
+                            </Border>
+
+                        </DockPanel>
+                    </Grid>
+                </Grid>
+                <!--  Body  -->
+                <ScrollViewer
+                    x:Name="scrollMain"
+                    Grid.Row="1"
+                    Margin="40,20,40,20">
+                    <Grid x:Name="dopBody" />
+
+                </ScrollViewer>
+                <!--  Menu coslesspal  -->
+                <Border
+                    x:Name="MenuCollapsed"
+                    Width="92"
+                    Margin="2,67,0,0"
+                    HorizontalAlignment="Left"
+                    Background="White"
+                    BorderBrush="#4C5BD4"
+                    BorderThickness="1"
+                    CornerRadius="0 0 5 5"
+                    Visibility="Collapsed">
+                    <StackPanel>
+                        <Border>
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                Foreground="#474747"
+                                Style="{StaticResource TextBlockMenuHeader}"
+                                Text="Trang chủ" />
+                        </Border>
+                        <Border x:Name="Interests2">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                Foreground="#474747"
+                                Style="{StaticResource TextBlockMenuHeader}"
+                                Text="Tin tức" />
+                        </Border>
+                        <Border x:Name="Instruct3">
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                Foreground="#474747"
+                                Style="{StaticResource TextBlockMenuHeader}"
+                                Text=" Hướng dẫn" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+            <Grid
+                x:Name="clearPopUp"
+                Background="Transparent"
+                MouseLeftButtonUp="clearPopUp_MouseLeftButtonUp"
+                Opacity="0.5"
+                Visibility="{Binding ElementName=popup, Path=Visibility}" />
+            <Grid x:Name="popup" Visibility="Collapsed" />
+            <Grid
+                x:Name="borThongTinChiTiet"
+                Width="230"
+                Margin="0,55,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Visibility="Collapsed">
+                <Border
+                    x:Name="popupMoreMessageConversation"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="#ffffff"
+                    CornerRadius="10">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Opacity="0.4"
+                            ShadowDepth="0" />
+                    </Border.Effect>
+                    <StackPanel>
+                        <Border
+                            x:Name="btnThongTinTK"
+                            Width="230"
+                            Height="40"
+                            Background="Transparent"
+                            CornerRadius="15,15,0,0"
+                            Cursor="Hand"
+                            MouseLeftButtonUp="btnThongTinTK_MouseLeftButtonUp">
+
+                            <Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="Background" Value="#0000" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource colorMoveMouseItem}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>
+                            <DockPanel Margin="12,0,0,0">
+                                <Border Width="17" Height="17">
+                                    <Path
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Data="{DynamicResource iconAccount2}"
+                                        Fill="#474747"
+                                        Stretch="Fill" />
+
+                                </Border>
+                                <TextBlock
+                                    Margin="16,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Foreground="#474747"
+                                    Text="Thông tin tài khoản" />
+
+                            </DockPanel>
+                        </Border>
+                        <Border
+                            x:Name="btnDanhGia"
+                            Width="230"
+                            Height="40"
+                            Cursor="Hand">
+                            <Border.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="Background" Value="#0000" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{DynamicResource colorMoveMouseItem}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Resources>
+                            <DockPanel Margin="10,0,0,0">
+                                <DockPanel>
+                                    <Path
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Data="{DynamicResource iconChinhSua}"
+                                        Fill="#474747" />
+                                </DockPanel>
+                                <TextBlock
+                                    Margin="16,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Foreground="#474747"
+                                    Text="Đánh giá" />
+
+                            </DockPanel>
+                        </Border>
+                        <Border
+                            x:Name="btnBaoLoi"
+                            Width="230"
+                            Height="40"
+                            Cursor="Hand">
+                            <DockPanel Margin="10,0,0,0">
+                                <Border Width="17" Height="17">
+                                    <Path
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Data="{DynamicResource iconWarning}"
+                                        Stretch="Fill"
+                                        Stroke="#474747" />
+
+                                </Border>
+                                <TextBlock
+                                    Margin="16,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Foreground="#474747"
+                                    Text="Báo lỗi" />
+
+                            </DockPanel>
+                        </Border>
+                        <Border
+                            x:Name="LogOut"
+                            Width="230"
+                            Height="40"
+                            Background="Transparent"
+                            Cursor="Hand"
+                            MouseLeftButtonUp="LogOut_MouseLeftButtonUp">
+                            <DockPanel Margin="12,0,0,0">
+                                <Border Width="17" Height="17">
+                                    <Path
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Data="{DynamicResource iconLogout}"
+                                        Stretch="Fill"
+                                        Stroke="#474747"
+                                        StrokeThickness="2" />
+
+                                </Border>
+                                <TextBlock
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    Foreground="#474747"
+                                    Text="Đăng xuất" />
+
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid PreviewMouseUp="gridPopup_PreviewMouseUp"
+       x:Name="gridPopup"
+       Grid.RowSpan="10"
+       Visibility="Collapsed">
+                <Border Background="{StaticResource #000000}" Opacity="0.24" />
+                <ScrollViewer
+           x:Name="scPopup"
+           Margin="0,-300,0,300"
+           HorizontalScrollBarVisibility="Disabled"
+           Opacity="0"
+           VerticalScrollBarVisibility="Hidden">
+                    <Grid x:Name="svPopup">
+                        <Border Background="Transparent" MouseLeftButtonDown="gridPopup_MouseLeftButtonDown" />
+                    </Grid>
+                </ScrollViewer>
+                <load:LoadingSpinner x:Name="Loadding" Visibility="Collapsed" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

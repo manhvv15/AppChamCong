@@ -1,0 +1,93 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.ThietLapCongTy.Them_Xoa_NhanVien.ucQuanLyNhanVien"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.ThietLapCongTy.Them_Xoa_NhanVien"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="WhiteSmoke"
+    mc:Ignorable="d">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="0*" />
+        </Grid.RowDefinitions>
+        <Border
+            Grid.Row="0"
+            BorderBrush="#6666"
+            BorderThickness="0,0,0,1">
+            <DockPanel Margin="0,20">
+                <Border
+                    x:Name="bod_TatCaNhanVien"
+                    MinWidth="200"
+                    MinHeight="40"
+                    Background="#D9EAFF"
+                    BorderBrush="#6666"
+                    BorderThickness="1"
+                    CornerRadius="15"
+                    Cursor="Hand"
+                    MouseLeftButtonUp="TatCaNhanVien">
+                    <TextBlock
+                        x:Name="tb_TatCaNhanVien"
+                        Margin="10,15,10,15"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Regular"
+                        Foreground="#4C5DB4">
+                        <Run Text="Toàn bộ nhân viên" />
+                        <Run x:Name="tb_CountAll" Text="" />
+                    </TextBlock>
+                </Border>
+                <Border
+                    x:Name="bod_NhanVienChoDuyet"
+                    MinWidth="200"
+                    MinHeight="40"
+                    Margin="20,0,20,0"
+                    HorizontalAlignment="Left"
+                    Background="#D9EAFF"
+                    BorderBrush="#6666"
+                    BorderThickness="1"
+                    CornerRadius="15"
+                    Cursor="Hand"
+                    MouseLeftButtonUp="NhanVienChoDuyet">
+                    <TextBlock
+                        x:Name="tb_NhanVienChoDuyet"
+                        Margin="10,15,10,15"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Regular"
+                        Foreground="#4C5DB4">
+                        <Run Text="Nhân viên chờ duyệt" />
+                        <Run x:Name="tb_CountStack" Text="" />
+                    </TextBlock>
+                </Border>
+                <Border
+                    x:Name="bod_NhanVienNghiViec"
+                    MinWidth="200"
+                    MinHeight="40"
+                    HorizontalAlignment="Left"
+                    Background="#D9EAFF"
+                    BorderBrush="#6666"
+                    BorderThickness="1"
+                    CornerRadius="15"
+                    Cursor="Hand"
+                    MouseLeftButtonUp="NhanVienNghiViec">
+                    <TextBlock
+                        x:Name="tb_NhanVienNghiViec"
+                        Margin="10,15,10,15"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Regular"
+                        Foreground="#4C5DB4">
+                        <Run Text="Nhân viên nghỉ việc" />
+                        <Run x:Name="tb_CountSaftdow" Text="" />
+                    </TextBlock>
+                </Border>
+            </DockPanel>
+        </Border>
+        <Grid x:Name="grHienThiNhanVien" Grid.Row="1" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.RecommendSetting.Popup.ucThemMoi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.RecommendSetting.Popup"
+             mc:Ignorable="d" 
+             >
+    <Grid>
+        <Rectangle Fill="#000000" Opacity="0.5" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp" ></Rectangle>
+        <Border Background="WhiteSmoke" CornerRadius="10" Height="650" Width="600">
+            <StackPanel>
+                <DockPanel Background="#4C5DB4" Height="60">
+                    <TextBlock Text="Thêm mới" FontSize="16" Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                    <Border Cursor="Hand" x:Name="iconClose" MouseLeftButtonUp="iconClose_MouseLeftButtonUp" >
+                        <Path Data="{DynamicResource iconClose}"  HorizontalAlignment="Right" VerticalAlignment="Center" Fill="#ffffff" Margin="0 0 30 0" ></Path>
+                    </Border>
+                </DockPanel>
+                <StackPanel Margin="20 0 20 0">
+
+                    <Grid Margin="0 20 0 0">
+                        <DockPanel Margin="80 0 0 0">
+
+                            <Image
+                            Width="32"
+                            Height="32"
+                            Source="{StaticResource CircleCheckGreenDrawingImage1}" />
+
+                            <TextBlock Text="Thêm nhân viên" FontSize="16" FontWeight="Regular" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </DockPanel>
+                        <Border BorderBrush="#1677FF" Height="1" Width="70" BorderThickness="1"></Border>
+
+                        <DockPanel Margin="0 0 80 0" HorizontalAlignment="Right">
+                            <Border Width="32" Height="32" CornerRadius="100" Background="#1677FF">
+                                <TextBlock Text="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFFFFF" FontWeight="DemiBold" FontSize="14"/>
+                            </Border>
+                            <TextBlock Text="Số cấp duyệt" FontSize="16"  FontWeight="Regular" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                        </DockPanel>
+                    </Grid>
+                    <Border Margin="0 10 0 0" BorderThickness="1" Height="40" BorderBrush="#a9a9a9" CornerRadius="10">
+                        <Grid>
+                            <TextBox x:Name="textNhap" Background="Transparent" Height="40" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 10 0 0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Nhập cấp độ duyệt"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textNhap, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Text="Danh sách đề xuất" FontSize="14" FontWeight="Regular" Margin="0 30 0 0"/>
+                    <CheckBox Content="Chọn tất cả" Background="#1677FF" Margin="0 10 0 0"></CheckBox>
+                    <Border
+                 
+                    Margin="0 20 0 0"
+                    BorderBrush="#a9a9a9"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                        <Grid>
+                            <ListView x:Name="lsvListDon" Width="560" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="10 10 0 0" Visibility="Visible"   >
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel >
+
+                                        </WrapPanel>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+
+                                                    <WrapPanel Orientation="Horizontal" >
+                                                        <DockPanel Background="#a9a9a9" Height="30" VerticalAlignment="Center" Margin="10 0 0 10">
+
+
+                                                            <TextBlock Margin="5 0 0 0"  Text="{Binding name_cate_dx}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                            <Border x:Name="xoaAnh"  Cursor="Hand"  Width="40" VerticalAlignment="Center" Margin="0 0 0 0" MouseLeftButtonUp="xoaAnh_MouseLeftButtonUp">
+                                                                <Path Data="{DynamicResource iconClose}" Fill="#FFFFFF"  Width="15"  />
+                                                            </Border>
+
+                                                        </DockPanel>
+                                                    </WrapPanel>
+
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+
+                            </ListView>
+                            <Border Height="39">
+                                
+                            
+                            <Image
+                            Width="14"
+                            Height="14"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center" Cursor="Hand"
+                            
+                            Source="{StaticResource iconDropDownDrawingImage}" MouseLeftButtonUp="Image_MouseLeftButtonUp" />
+                            </Border>
+
+                        </Grid>
+                    </Border>
+
+                    <DockPanel  Margin="0 20 0 0" x:Name="huyVaLuu">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Border Cursor="Hand" BorderBrush="#a9a9a9a9" Height="40" Width="140" CornerRadius="15" BorderThickness="1" Background="#FFFFFF" HorizontalAlignment="Center" MouseLeftButtonUp="Border_MouseLeftButtonUp" >
+                                <TextBlock Text="Trở lại" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  FontWeight="Regular"></TextBlock>
+                            </Border>
+                            <Border Cursor="Hand" Margin="30 0 0 0" Height="40" Width="140" CornerRadius="15" BorderThickness="1" Background="#1677FF" HorizontalAlignment="Center" MouseLeftButtonUp="Border_MouseLeftButtonUp_1" >
+                                <TextBlock Text="Áp dụng" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFFFFF" FontWeight="DemiBold"></TextBlock>
+                            </Border>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
+        <Border Visibility="Collapsed" x:Name="borlistDOn" BorderBrush="#a9a9a9" BorderThickness="1" Background="#FFFFFF" CornerRadius="10" Width="560" Height="200" Margin="0 145 0 00" HorizontalAlignment="Center">
+            <ListView x:Name="lsvListDonAdd" SelectionChanged="lsvListDonAdd_SelectionChanged" >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border HorizontalAlignment="Stretch" x:Name="borChonDon" >
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Background" Value="Transparent"></Setter>
+                                                <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                        <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+
+                                        <TextBlock FontSize="14" Text="{Binding name_cate_dx}" Margin="5,5,0,5">
+                                        </TextBlock>
+
+
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Border>
+
+    </Grid>
+</UserControl>

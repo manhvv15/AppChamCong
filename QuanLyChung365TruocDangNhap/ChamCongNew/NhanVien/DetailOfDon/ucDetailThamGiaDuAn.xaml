@@ -1,0 +1,81 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.DetailOfDon.ucDetailThamGiaDuAn"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.DetailOfDon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="1. Họ và tên : " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txb1"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="2. Chức vụ người cần tham gia dự án: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txb2"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="3. Cơ cấu tổ chức của người cần tham gia dự án: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txb3"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="4. Tên dự án muốn tham gia: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txb4"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="5. Lý do đề xuất tham gia dự án: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txb5"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="File đính kèm: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbFile"
+                Cursor="Hand"
+                FontSize="16"
+                Foreground="Blue"
+                MouseUp="LinkToFile"
+                Text="File" />
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

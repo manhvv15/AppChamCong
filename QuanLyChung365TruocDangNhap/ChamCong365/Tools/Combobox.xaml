@@ -1,0 +1,339 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCong365.Tools.Combobox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCong365.Tools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="#FFFFFF" Color="#FFFFFF" />
+        <SolidColorBrush x:Key="#EEEEEE" Color="#EEEEEE" />
+        <SolidColorBrush x:Key="#666666" Color="#666666" />
+        <PathGeometry x:Key="iconDownArrow" Figures="M7.07947 6.923L12.7602 1.37319C13.0799 1.0595 13.0799 0.549572 12.7602 0.235875C12.4404 -0.0786249 11.9209 -0.0786249 11.6011 0.235875L6.5 5.21946L1.39885 0.235874C1.07906 -0.0786254 0.559635 -0.0786254 0.239843 0.235874C-0.0799475 0.550374 -0.0799475 1.0595 0.239843 1.37319L5.92053 6.9222C6.22804 7.2254 6.77101 7.2262 7.07947 6.923Z" />
+        <Style x:Key="ShadowBorder1" TargetType="Border">
+            <Setter Property="Background" Value="{DynamicResource #FFFFFF}" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect
+                        BlurRadius="10"
+                        Opacity=".08"
+                        RenderingBias="Quality"
+                        ShadowDepth="0" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ComboBoxTextBox1" TargetType="{x:Type TextBox}">
+            <Border
+                x:Name="PART_ContentHost"
+                Background="{TemplateBinding Background}"
+                Focusable="False" />
+        </ControlTemplate>
+    </UserControl.Resources>
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <Border
+                Width="{TemplateBinding Width}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding CornerRadius}"
+                Focusable="False"
+                ForceCursor="False"
+                Loaded="Border_Loaded"
+                SnapsToDevicePixels="True">
+                <ContentPresenter />
+            </Border>
+        </ControlTemplate>
+    </UserControl.Template>
+    <Grid>
+        <Border Background="{Binding Background, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" CornerRadius="{Binding CornerRadius}">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Opacity="0"
+                    RenderingBias="Quality"
+                    ShadowDepth="0" />
+            </Border.Effect>
+        </Border>
+        <ComboBox
+            Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=ActualWidth}"
+            Margin="0"
+            HorizontalAlignment="Left"
+            Cursor="Arrow"
+            Focusable="False"
+            ForceCursor="False"
+            Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+            IsEditable="False"
+            IsTabStop="False"
+            OverridesDefaultStyle="True"
+            SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource AncestorType=UserControl}}"
+            SnapsToDevicePixels="True">
+            <ComboBox.Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="IsDropDownOpen" Value="{Binding IsDropDownOpen}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ComboBox}">
+                                <Grid>
+                                    <Border Style="{StaticResource ShadowBorder1}" Visibility="Collapsed" />
+                                    <ToggleButton
+                                        Name="ToggleButton"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=BorderThickness}"
+                                        Click="ToggleButton_Click"
+                                        ClickMode="Press"
+                                        Focusable="false"
+                                        Foreground="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Foreground}"
+                                        IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <ToggleButton.Template>
+                                            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                <Border
+                                                    Background="Transparent"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="{Binding CornerRadius}">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition Width="30" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Border
+                                                            x:Name="Border"
+                                                            Grid.ColumnSpan="2"
+                                                            Background="Transparent"
+                                                            BorderThickness="0"
+                                                            CornerRadius="{Binding CornerRadius}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock
+                                                                    Margin="10"
+                                                                    VerticalAlignment="Center"
+                                                                    FontSize="{TemplateBinding FontSize}"
+                                                                    FontWeight="SemiBold"
+                                                                    Foreground="{TemplateBinding Foreground}"
+                                                                    TextTrimming="WordEllipsis">
+                                                                    <TextBlock.Style>
+                                                                        <Style TargetType="TextBlock">
+                                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                                            <Style.Triggers>
+                                                                                <DataTrigger Binding="{Binding StayOpenPlaceHolder}" Value="True">
+                                                                                    <Setter Property="Visibility" Value="Visible" />
+                                                                                </DataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </TextBlock.Style>
+                                                                    <Run Text="{Binding PlaceHolder}" />
+                                                                    <Run Text=":" />
+                                                                </TextBlock>
+                                                                <TextBlock
+                                                                    Margin="10"
+                                                                    VerticalAlignment="Center"
+                                                                    FontSize="{TemplateBinding FontSize}"
+                                                                    Foreground="{TemplateBinding Foreground}"
+                                                                    TextTrimming="WordEllipsis">
+                                                                    <TextBlock.Style>
+                                                                        <Style TargetType="TextBlock">
+                                                                            <Setter Property="Text" Value="{Binding Text}" />
+                                                                            <Style.Triggers>
+                                                                                <MultiDataTrigger>
+                                                                                    <MultiDataTrigger.Conditions>
+                                                                                        <Condition Binding="{Binding Text}" Value="" />
+                                                                                        <Condition Binding="{Binding StayOpenPlaceHolder}" Value="false" />
+                                                                                    </MultiDataTrigger.Conditions>
+                                                                                    <Setter Property="Text" Value="{Binding PlaceHolder}" />
+                                                                                </MultiDataTrigger>
+                                                                                <MultiDataTrigger>
+                                                                                    <MultiDataTrigger.Conditions>
+                                                                                        <Condition Binding="{Binding Text}" Value="{x:Null}" />
+                                                                                        <Condition Binding="{Binding StayOpenPlaceHolder}" Value="false" />
+                                                                                    </MultiDataTrigger.Conditions>
+                                                                                    <Setter Property="Text" Value="{Binding PlaceHolder}" />
+                                                                                </MultiDataTrigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </TextBlock.Style>
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Border>
+                                                        <Border
+                                                            Grid.Column="1"
+                                                            Width="10"
+                                                            Background="Transparent"
+                                                            CornerRadius="{Binding CornerRadius}">
+                                                            <Path
+                                                                Margin="0"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Data="{StaticResource iconMore}"
+                                                                Fill="{TemplateBinding Foreground}"
+                                                                Stretch="Uniform" />
+                                                        </Border>
+                                                    </Grid>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </ToggleButton.Template>
+                                    </ToggleButton>
+                                    <ContentPresenter
+                                        Name="ContentSite"
+                                        Margin="15,3,54,3"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding SelectionBoxItem}"
+                                        ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                        ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                        IsHitTestVisible="False" />
+                                    <TextBox
+                                        x:Name="PART_EditableTextBox"
+                                        Margin="15,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        FontSize="15"
+                                        Foreground="{DynamicResource #474747}"
+                                        IsReadOnly="{TemplateBinding IsReadOnly}"
+                                        Style="{x:Null}"
+                                        Template="{StaticResource ComboBoxTextBox1}"
+                                        Visibility="Hidden">
+                                        <!--<TextBox.Style>
+                                            <Style TargetType="TextBox">
+                                                <Setter Property ="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="TextBox">
+                                                            <TextBlock Text="{TemplateBinding Text}" TextTrimming="WordEllipsis"/>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </TextBox.Style>-->
+                                    </TextBox>
+                                    <Popup
+                                        Name="Popup"
+                                        MinWidth="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=ActualWidth}"
+                                        MinHeight="95"
+                                        MaxWidth="{Binding PopupMaxWith}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                        AllowsTransparency="True"
+                                        Focusable="False"
+                                        IsOpen="{TemplateBinding IsDropDownOpen}"
+                                        Placement="Bottom"
+                                        PopupAnimation="Slide">
+                                        <Grid Name="DropDown" SnapsToDevicePixels="True">
+                                            <Grid Margin="2,8">
+                                                <Border Background="White" CornerRadius="{Binding CornerRadius}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect
+                                                            BlurRadius="10"
+                                                            Opacity=".2"
+                                                            ShadowDepth="0"
+                                                            Color="Black" />
+                                                    </Border.Effect>
+                                                </Border>
+                                                <Border
+                                                    Background="{DynamicResource #FFFFFF}"
+                                                    BorderBrush="{DynamicResource #EEEEEE}"
+                                                    BorderThickness="1"
+                                                    CornerRadius="{Binding CornerRadius}">
+                                                    <DockPanel Margin="10">
+                                                        <Border
+                                                            BorderThickness="0,0,0,1"
+                                                            DockPanel.Dock="Top"
+                                                            Loaded="SearchbarLoaded">
+                                                            <Border.Style>
+                                                                <Style TargetType="Border">
+                                                                    <Setter Property="BorderBrush" Value="{DynamicResource #666666}" />
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding ElementName=txtSearch, Path=IsFocused}" Value="true">
+                                                                            <Setter Property="BorderBrush" Value="{DynamicResource #4C5BD4}" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Border.Style>
+                                                            <TextBox
+                                                                x:Name="txtSearch"
+                                                                Margin="5"
+                                                                BorderThickness="0"
+                                                                FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                                                FontSize="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontSize}"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                TextChanged="TextBox_TextChanged" />
+                                                        </Border>
+                                                        <Grid>
+                                                            <ListView
+                                                                Background="{DynamicResource #FFFFFF}"
+                                                                BorderThickness="0"
+                                                                DisplayMemberPath="{Binding DisplayMemberPath}"
+                                                                ItemsSource="{Binding Test, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                ScrollViewer.ScrollChanged="ListView_ScrollChanged"
+                                                                SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                SelectionChanged="ListView_SelectionChanged">
+                                                                <ListView.ItemContainerStyle>
+                                                                    <Style TargetType="ListViewItem">
+                                                                        <Setter Property="Cursor" Value="Hand" />
+                                                                        <Setter Property="Template">
+                                                                            <Setter.Value>
+                                                                                <ControlTemplate TargetType="ListViewItem">
+                                                                                    <Border
+                                                                                        x:Name="BD"
+                                                                                        Padding="0"
+                                                                                        Background="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Background}"
+                                                                                        BorderThickness="0"
+                                                                                        CornerRadius="0"
+                                                                                        SnapsToDevicePixels="True">
+                                                                                        <TextBlock
+                                                                                            Margin="5"
+                                                                                            FontSize="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontSize}"
+                                                                                            Foreground="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=Foreground}"
+                                                                                            Text="{Binding}" />
+                                                                                    </Border>
+                                                                                    <ControlTemplate.Triggers>
+                                                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                                                            <Setter TargetName="BD" Property="Background" Value="{DynamicResource #EEEEEE}" />
+                                                                                        </Trigger>
+                                                                                        <Trigger Property="IsSelected" Value="True">
+                                                                                            <Setter TargetName="BD" Property="Background" Value="{DynamicResource #EEEEEE}" />
+                                                                                        </Trigger>
+                                                                                    </ControlTemplate.Triggers>
+                                                                                </ControlTemplate>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                    </Style>
+                                                                </ListView.ItemContainerStyle>
+                                                            </ListView>
+                                                            <TextBlock
+                                                                Margin="5"
+                                                                FontSize="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontSize}"
+                                                                Foreground="red"
+                                                                Text="không tìm thấy kết quả">
+                                                                <TextBlock.Style>
+                                                                    <Style TargetType="TextBlock">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger Binding="{Binding Test.Count, RelativeSource={RelativeSource AncestorType=UserControl}}" Value="0">
+                                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </TextBlock.Style>
+                                                            </TextBlock>
+                                                        </Grid>
+                                                    </DockPanel>
+                                                </Border>
+                                            </Grid>
+                                        </Grid>
+                                    </Popup>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Foreground" Value="{DynamicResource #666666}" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ComboBox.Style>
+        </ComboBox>
+    </Grid>
+</UserControl>

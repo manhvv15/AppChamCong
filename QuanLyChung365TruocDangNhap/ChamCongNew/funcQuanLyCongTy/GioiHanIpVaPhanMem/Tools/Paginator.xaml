@@ -1,0 +1,147 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.GioiHanIpVaPhanMem.Tools.Paginator"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="{DynamicResource #474747}" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="12,5" />
+            <Style.Triggers>
+                <Trigger Property="Tag" Value="1">
+                    <Setter Property="Foreground" Value="{DynamicResource #1677ff}" />
+                </Trigger>
+                <Trigger Property="Tag" Value="-1">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Visibility" Value="Visible" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Style.Triggers>
+                <Trigger Property="Tag" Value="1">
+                    <Setter Property="Background" Value="{DynamicResource #FFFFFF}" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="{StaticResource #1677ff}" />
+                </Trigger>
+                <Trigger Property="Tag" Value="-1">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListView
+            x:Name="lv"
+            ItemsSource="{Binding Items}"
+            SelectedItem="{Binding SelectedPage, UpdateSourceTrigger=PropertyChanged}"
+            SelectionChanged="lv_SelectionChanged"
+            Visibility="Collapsed" />
+        <Border
+            x:Name="borderFirst"
+            MouseLeftButtonDown="FirstPage"
+            Tag="-1">
+            <Path
+                Margin="5,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Data="{StaticResource iconMore}"
+                Fill="{DynamicResource #474747}">
+                <Path.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Path.LayoutTransform>
+            </Path>
+        </Border>
+        <Border
+            x:Name="borderPre"
+            Grid.Column="1"
+            MouseLeftButtonDown="PrePage"
+            Tag="-1">
+            <TextBlock Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=Border, Mode=FindAncestor}}" Text="Trước" />
+        </Border>
+        <Border
+            x:Name="border1"
+            Grid.Column="2"
+            MouseLeftButtonDown="border_Click"
+            Tag="-1">
+            <TextBlock Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=Border, Mode=FindAncestor}}" Text="{Binding Slots[0]}" />
+        </Border>
+        <Border
+            x:Name="border2"
+            Grid.Column="3"
+            MouseLeftButtonDown="border_Click"
+            Tag="-1">
+            <TextBlock Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=Border, Mode=FindAncestor}}" Text="{Binding Slots[1]}" />
+        </Border>
+        <Border
+            x:Name="border3"
+            Grid.Column="4"
+            MouseLeftButtonDown="border_Click"
+            Tag="-1">
+            <TextBlock Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=Border, Mode=FindAncestor}}" Text="{Binding Slots[2]}" />
+        </Border>
+        <Border
+            x:Name="border4"
+            Grid.Column="5"
+            MouseLeftButtonDown="border_Click"
+            Tag="-1">
+            <TextBlock Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=Border, Mode=FindAncestor}}" Text="{Binding Slots[3]}" />
+        </Border>
+        <Border
+            x:Name="border5"
+            Grid.Column="6"
+            MouseLeftButtonDown="border_Click"
+            Tag="-1">
+            <TextBlock Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=Border, Mode=FindAncestor}}" Text="{Binding Slots[4]}" />
+        </Border>
+        <Border
+            x:Name="borderNext"
+            Grid.Column="7"
+            MouseLeftButtonDown="NextPage"
+            Tag="-1">
+            <TextBlock Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=Border, Mode=FindAncestor}}" Text="Tiếp" />
+        </Border>
+        <Border
+            x:Name="borderLast"
+            Grid.Column="8"
+            MouseLeftButtonDown="LastPage"
+            Tag="-1">
+            <Path
+                Margin="5,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Data="{StaticResource iconMore}"
+                Fill="{DynamicResource #474747}">
+                <Path.LayoutTransform>
+                    <RotateTransform Angle="-90" />
+                </Path.LayoutTransform>
+            </Path>
+        </Border>
+    </Grid>
+</UserControl>

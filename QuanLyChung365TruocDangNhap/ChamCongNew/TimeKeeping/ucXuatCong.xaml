@@ -1,0 +1,267 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.TimeKeeping.ucXuatCong"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:comon="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.Comon"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.TimeKeeping"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    MaxWidth="1920"
+    mc:Ignorable="d">
+
+    <Border
+        Background="#FFFFFF"
+        BorderBrush="#FFFFFF"
+        CornerRadius="10">
+        <Grid Margin="20">
+            <StackPanel>
+                <Border Height="47">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontWeight="DemiBold"
+                        Style="{StaticResource TextBlockLable}"
+                        Text="Bảng công nhân viên" />
+                </Border>
+                <WrapPanel>
+                    <ComboBox
+                        x:Name="cboChonCongTy"
+                        Width="330"
+                        Height="34"
+                        Margin="0,10,0,10"
+                        BorderBrush="#474747"
+                        BorderThickness="1"
+                        DisplayMemberPath="com_name"
+                        ItemContainerStyle="{StaticResource ComboboxItem1}"
+                        ItemsSource="{Binding listCom}"
+                        SelectedValuePath="com_id"
+                        SelectionChanged="cboChonCongTy_SelectionChanged"
+                        Style="{DynamicResource cbSearch}" />
+                    <ComboBox
+                        x:Name="cboChonPhongBan"
+                        Width="330"
+                        Height="34"
+                        Margin="20,10,20,10"
+                        Background="Transparent"
+                        BorderBrush="#474747"
+                        BorderThickness="1"
+                        DisplayMemberPath="dep_name"
+                        FontSize="16"
+                        ItemContainerStyle="{StaticResource ComboboxItem1}"
+                        ItemsSource="{Binding listDep}"
+                        SelectedValuePath="dep_id"
+                        SelectionChanged="cboChonPhongBan_SelectionChanged"
+                        Style="{DynamicResource cbSearch}" />
+                    <ComboBox
+                        x:Name="cboLoaiNhanVien"
+                        Width="330"
+                        Height="34"
+                        Margin="0,10,20,10"
+                        BorderBrush="#474747"
+                        BorderThickness="1"
+                        ItemsSource="{Binding listCheck}"
+                        SelectedIndex="0"
+                        Style="{StaticResource cbSearch}" />
+                    <comon:Combobox
+                        x:Name="cboNhanVien"
+                        Grid.Row="1"
+                        Width="330"
+                        Height="34"
+                        Margin="0,10,0,10"
+                        Background="Transparent"
+                        BorderBrush="#474747"
+                        BorderThickness="1"
+                        CornerRadius="5"
+                        DisplayChar="-"
+                        DisplayMemberPath="ep_id,ep_name"
+                        FontSize="16"
+                        Foreground="{DynamicResource #474747}"
+                        ItemsSource="{Binding listEp, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                        Loaded="cboNhanVien_Loaded"
+                        ScrollToEnd="cboEP_ScrollToEnd"
+                        SearchIsNull="cboEP_SearchIsNull" />
+                </WrapPanel>
+                <WrapPanel>
+                    <WrapPanel Margin="0,0,0,10">
+                        <Border Width="40" Height="44">
+                            <TextBlock
+                                Margin="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource TextBlockLable}"
+                                Text="Từ" />
+                        </Border>
+                        <Border
+                            Width="290"
+                            Height="34"
+                            Style="{StaticResource BorderSelected}">
+                            <comon:DatePicker
+                                x:Name="dpStart"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource #FFFFFF}"
+                                BorderThickness="0"
+                                CornerRadius="5"
+                                FontSize="14"
+                                Foreground="{DynamicResource #474747}"
+                                TabIndex="1000" />
+                        </Border>
+                        <Border
+                            Width="40"
+                            Height="38"
+                            Margin="20,0,0,0">
+                            <TextBlock
+                                Margin="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource TextBlockLable}"
+                                Text="Đến" />
+                        </Border>
+                        <Border
+                            Width="290"
+                            Height="34"
+                            Margin="0,0,20,0"
+                            Style="{StaticResource BorderSelected}">
+                            <comon:DatePicker
+                                x:Name="dpEnd"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource #FFFFFF}"
+                                BorderThickness="0"
+                                CornerRadius="5"
+                                FontSize="14"
+                                Foreground="{DynamicResource #474747}"
+                                TabIndex="1000" />
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel Height="34" Margin="0,0,0,10">
+                        <Border
+                            x:Name="btnLoc"
+                            Width="177"
+                            Height="38"
+                            MouseLeftButtonUp="LocNhanVienChamCong"
+                            Style="{StaticResource BorderButon}">
+                            <TextBlock Style="{StaticResource TextBlockMenuHeader}" Text="Lọc" />
+                        </Border>
+                        <Border
+                            x:Name="ExportExcel1"
+                            Width="177"
+                            Height="34"
+                            Margin="20,0,0,0"
+                            Background="#34B171"
+                            MouseLeftButtonUp="ExportExcel"
+                            Style="{StaticResource BorderButonGreen}">
+                            <TextBlock Style="{StaticResource TextBlockMenuHeader}" Text="Xuất Excel" />
+                        </Border>
+                    </WrapPanel>
+                </WrapPanel>
+                <DataGrid
+                    Name="dgvXuatCong"
+                    RowHeight="86"
+                    Style="{DynamicResource DataGrid2}">
+                    <DataGrid.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border
+                                    Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=ActualWidth}"
+                                    Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=ActualHeight}"
+                                    Background="#FFFFFF"
+                                    CornerRadius="15" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </DataGrid.OpacityMask>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="1.6*" Header="Ảnh">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Margin="20,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Style="{StaticResource BorderImage}">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding avatarUser}" />
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="3*" Header="Họ và tên (ID)">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel
+                                        Width="207"
+                                        Margin="10,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            Height="23"
+                                            Margin="0,0,0,5"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding userName}"
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap" />
+                                        <TextBlock
+                                            Height="23"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Bottom"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding idQLC}"
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="3*" Header="Phòng ban">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding lastActivedDate}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="3*" Header="Ngày tháng">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding lastActivedDate}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="3*" Header="Thời gian">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding lastActivedTime}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <comon:ucPhanTrang
+                    x:Name="pagin"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Center"
+                    DisplayNumber="20"
+                    SelectionChange="pagin_SelectionChange" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,416 @@
+﻿<Page x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings.frmThuongPhat"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings" 
+      xmlns:tool="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resource.tool" 
+      xmlns:tool1="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resouce.tool"
+      xmlns:effects="clr-namespace:System.Windows.Media.Effects;assembly=PresentationCore"
+      xmlns:media="clr-namespace:System.Windows.Media;assembly=PresentationCore"
+      mc:Ignorable="d"
+      Title="frmThuongPhat">
+
+    <Border CornerRadius="10" Background="#ffffff">
+        <Grid>
+            <StackPanel >
+                <StackPanel>
+                    <DockPanel>
+                        <TextBlock Text="Danh sách thưởng phạt nhân viên tháng" FontSize="18" FontWeight="DemiBold" Foreground="#474747" Margin="15,15,0,0"></TextBlock>
+                        <TextBlock x:Name="textThangTP" FontSize="18" FontWeight="DemiBold" Foreground="#474747" Margin="15,15,0,0"></TextBlock>
+                        <TextBlock x:Name="textNamTP" FontSize="18" FontWeight="DemiBold" Foreground="#474747" Margin="15,15,0,0"></TextBlock>
+                    </DockPanel>
+                    <TextBlock Text="Quản lý theo dõi thưởng, phạt nhân viên" Foreground="#9F9F9F" TextWrapping="Wrap" FontSize="16" Margin="15,15,0,0"></TextBlock>
+                </StackPanel>
+                <Grid Margin="15,20,15,0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" x:Name="borHienThiPhongBan" Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=ActualWidth}" Background="Transparent"  BorderBrush="#474747" BorderThickness="1"  Height="34" CornerRadius="5" Margin="0,10,15,0">
+                        <tool:SearchBar x:Name="searchBarToChuc" PlaceHolder="Chọn tổ chức" CornerRadius="5" SelectionChanged="Organize_SelectionChange"  PlaceHolderForground="#ACACAC" FontSize="16" DisplayMemberPath="organizeDetailName"/>
+                    </Border>
+                    <Border Grid.Column="1" x:Name="borHienThiNhanVien" Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=ActualWidth}" Background="Transparent" BorderBrush="#474747" BorderThickness="1"  Height="34" CornerRadius="5" Margin="0,10,15,0">
+                        <tool:SearchBar x:Name="searchBarNhanVien" PlaceHolder="Nhập tên nhân viên cần tìm" CornerRadius="5" SelectionChanged="Staff_SelectionChange" PlaceHolderForground="#ACACAC" FontSize="16" DisplayMemberPath="display_userName"/>
+                    </Border>
+                    <Border Grid.Column="2" x:Name="borHienThiThang" Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=ActualWidth}" Background="Transparent" BorderBrush="#474747" BorderThickness="1"  Height="34" CornerRadius="5,5,5,5" Margin="0,10,15,0">
+                        <tool:SearchBar x:Name="cbo_ChonThang" Margin="5 0 5 0" PlaceHolder="Chọn tháng"  CornerRadius="5" SelectionChanged="ChonThang_SelectionChange" PlaceHolderForground="#ACACAC" FontSize="16" DisplayMemberPath="thang"/>
+                    </Border>
+                    <Border Grid.Column="3" x:Name="borHienThiNam" Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=ActualWidth}" Background="Transparent" BorderBrush="#474747" BorderThickness="1" Height="34" CornerRadius="5" Margin="0,10,15,0">
+                        <tool:SearchBar x:Name="cbo_ChonNam" Margin="5 0 5 0" PlaceHolder="Chọn năm"  CornerRadius="5" SelectionChanged="ChonNam_SelectionChange" PlaceHolderForground="#ACACAC" FontSize="16" DisplayMemberPath="nam"/>
+                    </Border>
+                    <Border Grid.Column="4" x:Name="btnThongKe" Background="#4c5bd4"  Height="34" CornerRadius="5" Margin="0,10,5,0" Cursor="Hand" MouseLeftButtonUp="btnThongKe_MouseLeftButtonUp">
+                        <TextBlock x:Name="test" Text="Thống kê" Margin="20 0 20 0" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+                </Grid>
+                <Grid HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Border  Background="#4c5bd4" Width="198" Height="34" CornerRadius="5" Margin="0,15,10,0" Cursor="Hand" HorizontalAlignment="Right" x:Name="btnThemMoiTP" MouseLeftButtonUp="btnThemMoiTP_MouseLeftButtonUp" MouseEnter="btnThemMoiTP_MouseEnter" MouseLeave="btnThemMoiTP_MouseLeave">
+                            <DockPanel HorizontalAlignment="Center">
+                                <TextBlock Text="Thêm mới thưởng phạt" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center"></TextBlock>
+                            </DockPanel>
+                        </Border>
+                    </Grid>
+                    <Border Grid.Column="1" Background="#34B171" Width="198" Height="34" CornerRadius="5" Margin="0,15,10,0" Cursor="Hand" HorizontalAlignment="Right" x:Name="btnExPortExcel" MouseLeftButtonUp="btnExPortExcel_MouseLeftButtonUp">
+                        <DockPanel HorizontalAlignment="Center">
+                            <Path Data="{DynamicResource iconXuatFile}" Fill="#ffffff" VerticalAlignment="Center"></Path>
+                            <TextBlock Text="Xuất file thống kê" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center" Margin="20,0,0,0"></TextBlock>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+                <StackPanel Margin="15,0,15,0">
+                    <DataGrid Grid.Row="2" Style="{DynamicResource DataGrid1}" Name="lsvThuongPhat" Margin="0,10,10,20" MinRowHeight="75" PreviewMouseWheel="lsvDSNSChuaTL_PreviewMouseWheel" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <DataGrid.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </DataGrid.OpacityMask>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="3*" Header="Họ và tên (ID)">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel Margin="35,0,0,0" VerticalAlignment="Center">
+                                            <Border Width="45" Height="45" CornerRadius="30">
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="{Binding inforUser.avatarUser_format}"></ImageBrush>
+                                                </Border.Background>
+                                            </Border>
+                                            <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                                                <TextBlock Text="{Binding inforUser.userName}" HorizontalAlignment="Left" FontSize="16" Foreground="#4c5bd4"></TextBlock>
+                                                <WrapPanel  HorizontalAlignment="Left">
+                                                    <TextBlock Text="ID: " FontSize="16" Foreground="#474747"></TextBlock>
+                                                    <TextBlock Text="{Binding inforUser.idQLC}" FontSize="16" Foreground="#474747"></TextBlock>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Tiền thưởng" Width="2*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Grid.Column="2" x:Name="borThuong" Background="#C3FFD9" Width="142" Height="29" CornerRadius="15" Margin="0,10,10,0" HorizontalAlignment="Center" Cursor="Hand" VerticalAlignment="Center" MouseLeftButtonDown="borThuong_MouseLeftButtonDown">
+                                            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <Path Data="{DynamicResource iconThuongPhat}" Fill="#42D778" VerticalAlignment="Center" Margin="0,0,5,0"></Path>
+                                                    <Border BorderThickness="2" BorderBrush="#42D778" Width="8" Height="8" CornerRadius="1000" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,3,2.5,0"></Border>
+                                                </Grid>
+                                                <TextBlock FontSize="16" Text="{Binding tt_thuong.tong_thuong_formatted}"></TextBlock>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="2*" Header="Tiền phạt">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Grid.Column="3" x:Name="borPhat" Background="#FFE7E4" Width="142" Height="29" CornerRadius="15" Margin="0,10,10,0" HorizontalAlignment="Center" Cursor="Hand" VerticalAlignment="Center" MouseLeftButtonDown="borPhat_MouseLeftButtonDown">
+                                            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Grid>
+                                                    <Path Data="{DynamicResource iconThuongPhat}" Fill="#FF5B4D" VerticalAlignment="Center" Margin="0,0,5,0"></Path>
+                                                    <Border BorderThickness="2" BorderBrush="#FF5B4D" Width="8" Height="8" CornerRadius="1000" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,3,3,0"></Border>
+                                                </Grid>
+                                                <TextBlock FontSize="16" Text="{Binding tt_phat.tong_phat_formatted}"></TextBlock>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="2*" Header="Công phạt">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Grid.Column="4" x:Name="borPhatCong" Background="#FFE7E4" Width="142" Height="29" CornerRadius="15" Margin="0,10,10,0" HorizontalAlignment="Center" Cursor="Hand" VerticalAlignment="Center" MouseLeftButtonDown="borPhatCong_MouseLeftButtonDown">
+                                            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Grid>
+                                                    <Path Data="{DynamicResource iconThuongPhat}" Fill="#FF5B4D" VerticalAlignment="Center" Margin="0,0,5,0"></Path>
+                                                    <Border BorderThickness="2" BorderBrush="#FF5B4D" Width="8" Height="8" CornerRadius="1000" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,3,3,0"></Border>
+                                                </Grid>
+                                                <TextBlock FontSize="16" Text="{Binding tt_phat_cong.tong_phat_cong}"></TextBlock>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="2.5*" Header="Cài đặt">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Border x:Name="btnThemTPTien" Grid.Column="5" Background="#BADDFF" MinWidth="180"  CornerRadius="10" Margin="0,10,0,0" Cursor="Hand" HorizontalAlignment="Center" MouseLeftButtonUp="btnThemTPTien_MouseLeftButtonUp">
+                                                    <TextBlock  FontSize="16" VerticalAlignment="Center" Foreground="#666666" HorizontalAlignment="Center" Margin="10,5,10,5">
+                                                        <Run Text="+" FontWeight="Medium"/>
+                                                        <Run Text="Thưởng phạt tiền" />
+                                                    </TextBlock>
+                                            </Border>
+                                            <Border x:Name="btnThemTPCong" Grid.Column="5" Background="#BADDFF" MinWidth="180" CornerRadius="10" Margin="0,10,0,10" Cursor="Hand" HorizontalAlignment="Center" MouseLeftButtonUp="btnThemTPCong_MouseLeftButtonUp">
+                                                    <TextBlock  FontSize="16" VerticalAlignment="Center" Foreground="#666666" HorizontalAlignment="Center" Margin="10,5,10,5">
+                                                        <Run  Text="+" FontWeight="Medium"/>
+                                                        <Run  Text="Thưởng phạt công"/>
+                                                    </TextBlock>
+                                            </Border>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Grid>
+                        <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center" x:Name="docPhanTrang">
+                            <Border x:Name="borPageDau" Width="45" Height="29" CornerRadius="5" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borPageDau_MouseLeftButtonUp">
+                                <TextBlock Text="Đầu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                            <Border x:Name="borLui1" Width="29" Height="29" CornerRadius="5" Margin="5,0,0,0" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borLui1_MouseLeftButtonUp">
+                                <Path Data="{DynamicResource iconArrowLeft}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                            </Border>
+                            <Border x:Name="borPage1" Width="29" Height="29" CornerRadius="5" Background="#4c5bd4" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage1_MouseLeftButtonUp">
+                                <TextBlock x:Name="textPage1" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#ffffff"></TextBlock>
+                            </Border>
+                            <Border x:Name="borPage2" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage2_MouseLeftButtonUp">
+                                <TextBlock x:Name="textPage2" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                            <Border x:Name="borPage3" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage3_MouseLeftButtonUp">
+                                <TextBlock x:Name="textPage3" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                            <Border x:Name="borLen1" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borLen1_MouseLeftButtonUp">
+                                <Path Data="{DynamicResource iconArrowRight}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                            </Border>
+                            <Border x:Name="borPageCuoi" Width="45" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPageCuoi_MouseLeftButtonUp">
+                                <TextBlock Text="Cuối" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                        </DockPanel>
+                        <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center" x:Name="docPhanTrangS" Visibility="Collapsed">
+                            <Border x:Name="borPageDauS" Width="45" Height="29" CornerRadius="5" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" Background="Transparent" MouseLeftButtonUp="borPageDauS_MouseLeftButtonUp">
+                                <TextBlock Text="Đầu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                            <Border x:Name="borLui1S" Width="29" Height="29" CornerRadius="5" Margin="5,0,0,0" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borLui1S_MouseLeftButtonUp">
+                                <Path Data="{DynamicResource iconArrowLeft}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                            </Border>
+                            <Border x:Name="borPage1S" Width="29" Height="29" CornerRadius="5" Background="#4c5bd4" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage1S_MouseLeftButtonUp">
+                                <TextBlock x:Name="textPage1S" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#ffffff"></TextBlock>
+                            </Border>
+                            <Border x:Name="borPage2S" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage2S_MouseLeftButtonUp">
+                                <TextBlock x:Name="textPage2S" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                            <Border x:Name="borPage3S" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage3S_MouseLeftButtonUp">
+                                <TextBlock x:Name="textPage3S" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                            <Border x:Name="borLen1S" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borLen1S_MouseLeftButtonUp">
+                                <Path Data="{DynamicResource iconArrowRight}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                            </Border>
+                            <Border x:Name="borPageCuoiS" Width="45" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPageCuoiS_MouseLeftButtonUp">
+                                <TextBlock Text="Cuối" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                            </Border>
+                        </DockPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Height="60"></StackPanel>
+            </StackPanel>
+            <Grid x:Name="popup" Visibility="Collapsed" Background="Transparent"/>
+            <Grid x:Name="popupTP" Visibility="Collapsed" MouseLeftButtonUp="popupTP_MouseLeftButtonUp" Background="Transparent"/>
+            <Border x:Name="borChiTietPhatNV"  Margin="30" Background="#ffffff" CornerRadius="10" MinWidth="600" MinHeight="107" Visibility="Collapsed">
+                <Border.Effect>
+                    <effects:DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></effects:DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <DataGrid Style="{DynamicResource DataGrid1}" ScrollViewer.CanContentScroll="False" MinRowHeight="100" Height="{Binding ElementName=tb_btnLyDo, Path=ActualHeight}" Margin="15" x:Name="dgvPhatNV">
+                        <DataGrid.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </DataGrid.OpacityMask>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Tiền phạt" Width="1.5*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747">
+                                            <Run Text="{Binding pay_price_formatted}"/>
+                                            <Run Text="VNĐ"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Ngày AD" Width="1.5*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding pay_day}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Lý do" Width="2*" x:Name="btnLyDo" MinWidth="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding pay_case}" x:Name="tb_btnLyDo" Height="auto" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Điều chỉnh" Width="1.5*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Border Cursor="Hand" Background="Transparent" x:Name="bod_ChinhSuaPhat" MouseLeftButtonUp="bod_ChinhSuaPhat_MouseLeftButtonUp" >
+                                                <Path x:Name="icoChinhSua" Data="{DynamicResource iconEdit2}" VerticalAlignment="Center" Stroke="#4c5bd4" ></Path>
+                                            </Border>
+                                            <Path Data="{DynamicResource iconDuongDoc}" Margin="5 0 5 0" Stroke="#aaa" ></Path>
+                                            <Border  Background="Transparent"  Cursor="Hand"  x:Name="btnXoaPhat" MouseLeftButtonUp="btnXoaPhat_MouseLeftButtonUp">
+                                                <Path Data="{DynamicResource iconDeleteNV}" Fill="#ff3333" VerticalAlignment="Center" ></Path>
+                                            </Border>
+                                        </WrapPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Border x:Name="bod_ThoatChiTietPhatNV" Cursor="Hand" MouseLeftButtonUp="bod_ThoatChiTietPhatNV_MouseLeftButtonUp" Width="18" Height="18" CornerRadius="1000" Background="#FF5B4D" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0">
+                        <Path Data="{DynamicResource iconClose}" Stroke="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center" Width="11.11" Height="11" Margin="3,3,3.5,3.25" Stretch="Fill"></Path>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border x:Name="borChiTietThuongNV" Margin="15" Background="#ffffff" CornerRadius="10" Width="600" MinHeight="107" Visibility="Collapsed">
+                <Border.Effect>
+                    <effects:DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></effects:DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <DataGrid Style="{DynamicResource DataGrid1}" ScrollViewer.CanContentScroll="False" MinRowHeight="100" Margin="15" x:Name="dgvThuongNV">
+                        <DataGrid.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </DataGrid.OpacityMask>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Tiền thưởng" Width="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747">
+                                            <Run Text="{Binding pay_price_formatted}"/>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Ngày áp dụng" Width="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding pay_day}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Lý do" Width="*" MinWidth="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding pay_case}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Điều chỉnh" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Border x:Name="bod_ChinhSuaThuong" MouseLeftButtonUp="bod_ChinhSuaThuong_MouseLeftButtonUp" Cursor="Hand" Background="Transparent" Margin="0,7,12,0">
+                                                <Path x:Name="icoChinhSua" Data="{DynamicResource iconEdit2}" StrokeThickness="2" Stroke="#4c5bd4" ></Path>
+                                            </Border>
+                                            <Path Data="{DynamicResource iconDuongDoc}" Stroke="#aaa" Margin="10,3,0,0"></Path>
+                                            <Border Background="Transparent" Margin="10,3,0,0" Cursor="Hand" x:Name="btnXoaThuong" MouseLeftButtonUp="btnXoaThuong_MouseLeftButtonUp">
+                                                <Path Data="{DynamicResource iconDeleteNV}" Fill="#ff3333" Margin="10,3,0,0"></Path>
+                                            </Border>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Border x:Name="bod_ThoatChiTietThuongNV" MouseLeftButtonUp="bod_ThoatChiTietThuongNV_MouseLeftButtonUp" Cursor="Hand" Width="18" Height="18" CornerRadius="1000" Background="#FF5B4D" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0">
+                        <Path Data="{DynamicResource iconClose}" Stroke="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center" Width="11.11" Height="11" Margin="3,3,3.5,3.25" Stretch="Fill"></Path>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border x:Name="borChiTietPhatCong" Margin="0" Background="#ffffff" CornerRadius="10" Width="600" MinHeight="107" Visibility="Collapsed">
+                <Border.Effect>
+                    <effects:DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></effects:DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <DataGrid Style="{DynamicResource DataGrid1}" ScrollViewer.CanContentScroll="False" MinRowHeight="107" Margin="15" x:Name="dgvPhatCongNV">
+                        <DataGrid.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </DataGrid.OpacityMask>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Công phạt" Width="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747">
+                                            <Run Text="{Binding shifts.shift_name}"/>
+                                            <!--<Run Text="VNĐ"/>-->
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Ngày áp dụng" Width="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding phatcong_time}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Lý do" Width="*" MinWidth="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ly_do}" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Điều chỉnh" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Border x:Name="bod_ChinhSuaPhatCong" MouseLeftButtonUp="bod_ChinhSuaPhatCong_MouseLeftButtonUp"  Cursor="Hand" Background="Transparent" Margin="0,7,12,0">
+                                                <Path x:Name="icoChinhSua" Data="{DynamicResource iconEdit2}" StrokeThickness="2" Stroke="#4c5bd4" ></Path>
+                                            </Border>
+                                            <Path Data="{DynamicResource iconDuongDoc}" Stroke="#aaa" Margin="10,3,0,0"></Path>
+                                            <Border Background="Transparent" Margin="10,3,0,0" Cursor="Hand" x:Name="btnXoaPhatCong" MouseLeftButtonUp="btnXoaPhatCong_MouseLeftButtonUp">
+                                                <Path Data="{DynamicResource iconDeleteNV}" Fill="#ff3333" Margin="10,3,0,0"></Path>
+                                            </Border>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Border x:Name="bod_ThoatChiTietPhatCongNV" MouseLeftButtonDown="bod_ThoatChiTietPhatCongNV_MouseLeftButtonDown"  Cursor="Hand" Width="18" Height="18" CornerRadius="1000" Background="#FF5B4D" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0">
+                        <Path Data="{DynamicResource iconClose}" Stroke="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center" Width="11.11" Height="11" Margin="3,3,3.5,3.25" Stretch="Fill"></Path>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border Margin="0 90 215 0" Background="#FFFFFF" Height="60" BorderThickness="1" BorderBrush="#4c5bd4" MinWidth="198"  CornerRadius="5"  Cursor="Hand" HorizontalAlignment="Right" VerticalAlignment="Top" x:Name="btnThemMoiLoaiTP" MouseEnter="btnThemMoiLoaiTP_MouseEnter" MouseLeave="btnThemMoiLoaiTP_MouseLeave" Visibility="Collapsed">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="60">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Cursor="Hand"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Cursor="Hand"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0"  Cursor="Hand" Background="Transparent" x:Name="btn_ThemMoiTP" MouseEnter="btn_ThemMoiTP_MouseEnter" MouseLeave="btn_ThemMoiTP_MouseLeave" MouseLeftButtonUp="btn_ThemMoiTP_MouseLeftButtonUp">
+                        <TextBlock Text="Thưởng phạt tiền" x:Name="tb_ThemThuongPhat" FontSize="16" VerticalAlignment="Center" Foreground="#474747" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+                    <Rectangle Grid.Row="1" Fill="#666" Height="1" Width="200"/>
+                    <Border Grid.Row="2" Cursor="Hand" Background="Transparent" x:Name="btn_ThemPhatCong" MouseEnter="btn_ThemPhatCong_MouseEnter" MouseLeave="btn_ThemPhatCong_MouseLeave">
+                        <TextBlock Text="Phạt công" x:Name="tb_ThemphatCong" FontSize="16" VerticalAlignment="Center" Foreground="#474747" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+                </Grid>
+            </Border>
+            <tool1:LoadingSpinner x:Name="loading" Visibility="Collapsed" />
+        </Grid>
+    </Border>
+</Page>

@@ -1,0 +1,1418 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.Propose.listTess"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.Propose"
+             mc:Ignorable="d" 
+             Background="WhiteSmoke" MaxWidth="1200"
+             >
+    <Grid>
+        <StackPanel>
+            <Grid Width="1200" Height="43" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border HorizontalAlignment="Left" Width="227" Height="43" BorderThickness="0 0 2 0" 
+                   >
+                    <TextBlock Text="Danh sách đề xuất (24)" FontSize="20" Foreground="#4C5BD4" ></TextBlock>
+                </Border>
+                <Border Grid.Row="1" Margin="0 5 0 0">
+                    <Canvas>
+                        <Line X1="0" Y1="0" X2="205" Y2="0"  Stroke="Blue" StrokeThickness="1"  />
+                    </Canvas>
+                </Border>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="620"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="1">
+
+                    <StackPanel Margin="0 0 30 0">
+                        <Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp" >
+                            <Border VerticalAlignment="Top" BorderThickness="1" BorderBrush="#4C5BD4" Margin="0 0 0 0" CornerRadius="20" x:Name="timkiemdexuat0" Visibility="Visible"  >
+                                <DockPanel Height="44" HorizontalAlignment="Left" >
+                                    <TextBlock x:Name="textHienThiDL" Margin="20 0 0 0" Width="374" Text="Tìm kiếm đề xuất" FontSize="18" VerticalAlignment="Center" Foreground="#4C5BD4"></TextBlock>
+                                    <Border  HorizontalAlignment="Right" Width="30" >
+                                        <Path  Data="{DynamicResource muiTenXuong}" Fill="#4C5BD4"  VerticalAlignment="Center" ></Path>
+                                    </Border>
+                                </DockPanel>
+                            </Border>
+                            <Border Margin="0 50 0 0" x:Name="timKiemDeXuat" Width="400" BorderThickness="1" BorderBrush="#474747" CornerRadius="0,0,5,5" Background="#ffffff" Visibility="Collapsed" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="45"></RowDefinition>
+                                        <RowDefinition Height="210"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBox BorderThickness="1" BorderBrush="#000000" x:Name="textSearchDeXuat" Grid.Row="0" Background="#ffffff" FontSize="16" Margin="3" TextChanged="textSearchDeXuat_TextChanged_1"  >
+                                    </TextBox>
+                                    <ScrollViewer x:Name="scrollDeXuat" Grid.Row="1" Height="180" >
+                                        <ListView x:Name="lsvDeXuat" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="lsvDeXuat_PreviewMouseWheel" SelectionChanged="lsvDeXuat_SelectionChanged">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListViewItem">
+                                                                <Border HorizontalAlignment="Stretch" x:Name="borDeXuat"  MouseLeftButtonDown="borDeXuat_MouseLeftButtonDown" >
+                                                                    <Border.Style>
+                                                                        <Style TargetType="Border">
+                                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Border.Style>
+                                                                    <DockPanel>
+                                                                        <Image Source="{Binding Anh}" Height="24"></Image>
+                                                                        <TextBlock FontSize="16" Text="{Binding TenDL}" Margin="5,5,0,5"/>
+                                                                    </DockPanel>
+
+
+                                                                </Border>
+
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+
+                                    </ScrollViewer>
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+                    </StackPanel>
+                    <Border Height="44" VerticalAlignment="Top" Width="149" HorizontalAlignment="Right" CornerRadius="20" >
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#4C5BD4" ></GradientStop>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid Background="Transparent" MouseLeftButtonUp="Grid_MouseLeftButtonUp_1">
+                            <Border Padding="15 0 0 0">
+                                <Image Source="{StaticResource SearchDrawingImageKey}" Height="24" HorizontalAlignment="Left"></Image>
+                            </Border>
+                            <Border>
+                                <TextBlock Text="Tìm kiếm" FontSize="18" Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0 0 15 0"></TextBlock>
+                            </Border>
+                        </Grid>
+
+
+                    </Border>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Margin="0 15 0 0" x:Name="bodyDeXuat">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--don nghi phep-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_1" MouseLeave="Grid_MouseLeave"  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đơn xin nghỉ phép" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Mẫu đề xuất xin nghỉ phép" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash11">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe11">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat11" MouseUp="TaoDeXuat11_MouseUp_1"  >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--don đổi ca-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_2" MouseLeave="Grid_MouseLeave_1"  >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đơn xin đổi ca" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Mẫu đề xuất xin đổi ca" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash12">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe12">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat12" MouseUp="TaoDeXuat12_MouseUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--don tạm ứng-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_3" MouseLeave="Grid_MouseLeave_2"  >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đơn tạm ứng" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Mẫu đề xuất xin tạm ứng" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash13">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe13">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat13" MouseUp="TaoDeXuat13_MouseUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--don cấp phát tài sản-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_4" MouseLeave="Grid_MouseLeave_3"  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đơn xin cấp phát tài sản" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Mẫu đơn xin cấp phát tài sản" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash21">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe21">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat21" MouseUp="TaoDeXuat21_MouseUp" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--don xin thôi việc-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_5" MouseLeave="Grid_MouseLeave_4"  >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đơn xin thôi việc" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đơn xin thôi việc" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash22">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe22">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat22" MouseUp="TaoDeXuat22_MouseUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--đề xuất tăng lương-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_6" MouseLeave="Grid_MouseLeave_5"  >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất tăng lương" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất tăng lương" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash23">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe23">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat23" MouseLeftButtonUp="TaoDeXuat23_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--đề xuất bổ nhiệm-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_7" MouseLeave="Grid_MouseLeave_6"   >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đề xuất bổ nhiệm" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Đề xuất bổ nhiệm" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash31">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe31">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat31" MouseLeftButtonUp="TaoDeXuat31_MouseLeftButtonUp" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--đề xuất luân chuyển công tác-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_8" MouseLeave="Grid_MouseLeave_7"  >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất luân chuyển công tác" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất luân chuyển công tác" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash32">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe32">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat32" MouseUp="TaoDeXuat32_MouseUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--đề xuất tham gia dự án-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_9" MouseLeave="Grid_MouseLeave_8"   >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất tham gia dự án" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất tham gia dự án" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash33">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe33">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat33" MouseUp="TaoDeXuat33_MouseUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--đề xuất xin tăng ca-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_10" MouseLeave="Grid_MouseLeave_9"   >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đề xuất xin tăng ca" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Đề xuất xin tăng ca" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash41">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe41">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat41" MouseUp="TaoDeXuat41_MouseUp" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--đề xuất xin chế độ thai sản-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_11" MouseLeave="Grid_MouseLeave_10"   >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất xin chế độ thai sản" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất xin chế độ thai sản" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash42">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe42">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat42" MouseUp="TaoDeXuat42_MouseUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--đề xuất đăng kí sử dụng phòng họp-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_12" MouseLeave="Grid_MouseLeave_11"    >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="300">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất đăng kí phòng họp" FontWeight="DemiBold" TextWrapping="Wrap" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất đăng kí sử dụng phòng họp" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash43">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe43">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat43" MouseLeftButtonUp="TaoDeXuat43_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="4" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--dang kí sử dụng xe công-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_13" MouseLeave="Grid_MouseLeave_12"   >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đề xuất đăng ký sử dụng xe công" FontWeight="DemiBold" FontSize="17.5" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Đề xuất đăng ký sử dụng xe công" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash51">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe51">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat51" MouseLeftButtonUp="TaoDeXuat51_MouseLeftButtonUp" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--de xuat sua chua co so vat chat-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_14" MouseLeave="Grid_MouseLeave_13"  >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất sủa chữa tài sản cấp phát" FontWeight="DemiBold" FontSize="17.8" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất sủa chữa tài sản cấp phát" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash52">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe52">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat52" MouseLeftButtonUp="TaoDeXuat52_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--de xuat thanh toan-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_15" MouseLeave="Grid_MouseLeave_14"   >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất thanh toán" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất thanh toán" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash53">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe53">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat53" MouseLeftButtonUp="TaoDeXuat53_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="5" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--de xuat khieu nai-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_16" MouseLeave="Grid_MouseLeave_15"   >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đề xuất khiếu nại" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Đề xuất khiếu nại" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash61">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe61">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat61" MouseLeftButtonUp="TaoDeXuat61_MouseLeftButtonUp" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--de xuat cong cong-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_17" MouseLeave="Grid_MouseLeave_16"  >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất cộng công" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất cộng công" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash62">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe62">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat62" MouseLeftButtonUp="TaoDeXuat62_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--đề xuất cong tien/ tru tien-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_18" MouseLeave="Grid_MouseLeave_17"   >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất thưởng phạt" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất thưởng phạt" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash63">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe63">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat63" MouseLeftButtonUp="TaoDeXuat63_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="6" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--đề xuất hoa hong doanh thu-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_19" MouseLeave="Grid_MouseLeave_18"    >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đề xuất hoa hồng doanh thu" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Đề xuất hoa hồng doanh thu" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash71">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe71">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat71" MouseLeftButtonUp="TaoDeXuat71_MouseLeftButtonUp" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--đề xuất lich lam viec-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_20" MouseLeave="Grid_MouseLeave_19"   >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất lịch làm việc" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất lịch làm việc" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash72">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe72">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat72" MouseLeftButtonUp="TaoDeXuat72_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--don xin nghi phep ra ngoai-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_21" MouseLeave="Grid_MouseLeave_20"    >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đơn xin nghỉ phép ra ngoài" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đơn xin nghỉ phép ra ngoài" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash73">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe73">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat73" MouseLeftButtonUp="TaoDeXuat73_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="7" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--đề xuất xin di muon ve som-->
+                        <Grid Grid.Column="0" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_22" MouseLeave="Grid_MouseLeave_21"    >
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="44"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid >
+                                    <Border Padding="0 0 0 5">
+                                        <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                    </Border>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Border Padding="5 5 0 0">
+                                        <DockPanel Width="270">
+                                            <StackPanel >
+                                                <Grid>
+                                                    <TextBlock Text="Đề xuất xin đi muộn về sớm" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                </Grid>
+                                                <TextBlock Text="Đề xuất xin đi muộn về sớm" FontSize="16" Foreground="#474747" />
+                                            </StackPanel>
+
+                                        </DockPanel>
+
+
+                                    </Border>
+
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash81">
+                                    <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe81">
+                                <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat81" MouseLeftButtonUp="TaoDeXuat81_MouseLeftButtonUp" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                    </Image>
+                                    <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <!--đề xuất xin tải tài liệu-->
+                        <Grid Grid.Column="1" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_23" MouseLeave="Grid_MouseLeave_22"   >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="270">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất xin tải tài liệu" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất xin tải tài liệu" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash82">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe82">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" Name="TaoDeXuat82" MouseLeftButtonUp="TaoDeXuat82_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                        <!--đề xuất nhap ngya nhan luong-->
+                        <Grid Grid.Column="2" Background="#FFFFFF" Cursor="Hand" Margin="10 10 10 10" MouseEnter="Grid_MouseEnter_24" MouseLeave="Grid_MouseLeave_23"    >
+                            <StackPanel>
+
+                                <Grid Grid.Row="0" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="44"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid >
+                                        <Border Padding="0 0 0 5">
+                                            <Image Source="{StaticResource List_ClipboardDrawingImageKey}" Height="24"></Image>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Border Padding="5 5 0 0">
+                                            <DockPanel Width="300">
+                                                <StackPanel >
+                                                    <Grid>
+                                                        <TextBlock Text="Đề xuất nhập ngày nhận lương" FontWeight="DemiBold" FontSize="18" Foreground="#474747" />
+
+                                                    </Grid>
+                                                    <TextBlock Text="Đề xuất nhập ngày nhận lương" FontSize="16" Foreground="#474747" />
+                                                </StackPanel>
+
+                                            </DockPanel>
+
+
+                                        </Border>
+
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="Flash83">
+                                        <Image Source="{StaticResource Flag_finish_lightDrawingImageKey}" Height="24" HorizontalAlignment="Right" Width="24"></Image>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Row="1" Margin="0 10 0 0" Visibility="Collapsed" x:Name="DongKe83">
+                                    <Rectangle RadiusX="10" RadiusY="10 " Stroke="Black" StrokeThickness="1" StrokeDashArray="1"></Rectangle>
+                                </Grid>
+                                <Grid Grid.Row="2" Margin="0 10 0 0" Visibility="Collapsed" x:Name="TaoDeXuat83" MouseLeftButtonUp="TaoDeXuat83_MouseLeftButtonUp" >
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Image Source="{StaticResource Add_round_duotone_lineDrawingImageKey}" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                        </Image>
+                                        <TextBlock Text="Tạo đề xuất" FontSize="18" Foreground="#4C5BD4" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>

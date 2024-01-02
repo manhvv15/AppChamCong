@@ -1,0 +1,274 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.Popups.ChamCong.ViTri.ucViTri"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popups.ChamCong.ViTri"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid>
+        <Border CornerRadius="10">
+            <Border.Background>
+                <ImageBrush ImageSource="\ChamCongNew\Resource\image\BackgroundViTri.png" />
+            </Border.Background>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Grid.Column="0"
+                    MaxWidth="420"
+                    MaxHeight="238"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top">
+                    <Border Margin="0,0,0,50">
+                        <TextBlock
+                            FontSize="25"
+                            FontWeight="Bold"
+                            Foreground="#FFFFFF"
+                            Text="BƯỚC 1: Tải app chấm công 365 tại đây"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Border>
+                    <Border MaxWidth="120" MaxHeight="120">
+                        <Image Source="/Resource/image/QRTaiQuanLyChung365TruocDangNhap.ChamCongNew.png" />
+
+
+                    </Border>
+                </StackPanel>
+                <Grid Grid.Column="1" HorizontalAlignment="Stretch">
+                    <Border
+                        x:Name="bodSPhone01"
+                        MaxWidth="370"
+                        MaxHeight="720"
+                        Margin="20,0,20,0">
+                        <Image Source="/Resource/image/SPhone01.png" />
+                    </Border>
+                    <Border
+                        x:Name="bodSPhone02"
+                        MaxWidth="370"
+                        MaxHeight="720"
+                        Margin="20,0,20,0"
+                        Visibility="Collapsed">
+                        <Image Source="/Resource/image/SPhone02.png" />
+                    </Border>
+                    <Border
+                        x:Name="bodSPhone03"
+                        MaxWidth="370"
+                        MaxHeight="720"
+                        Margin="20,0,20,0"
+                        Visibility="Collapsed">
+                        <Image Source="/Resource/image/SPhone03.png" />
+                    </Border>
+                    <Border
+                        x:Name="bodSPhone04"
+                        MaxWidth="370"
+                        MaxHeight="720"
+                        Margin="20,0,20,0"
+                        Visibility="Collapsed">
+                        <Image Source="/Resource/image/SPhone04.png" />
+                    </Border>
+                    <Border
+                        x:Name="bodSPhone05"
+                        MaxWidth="370"
+                        MaxHeight="720"
+                        Margin="20,0,20,0"
+                        Visibility="Collapsed">
+                        <Image Source="/Resource/image/SPhone05.png" />
+                    </Border>
+                </Grid>
+                <Grid
+                    Grid.Column="2"
+                    MaxWidth="500"
+                    HorizontalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="90" />
+                        <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBlock
+                            FontSize="25"
+                            FontWeight="Bold"
+                            Foreground="#FFFFFF"
+                            Text="BƯỚC 2: ĐĂNG NHẬP APP VÀ THỰC HIỆN CÁC BƯỚC"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                    <Grid
+                        x:Name="grBuoc1"
+                        Grid.Row="1"
+                        Cursor="Hand"
+                        MouseLeftButtonUp="grBuoc1_MouseLeftButtonUp">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="288*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            x:Name="bodBuoc1"
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Background="#ffffff"
+                            CornerRadius="30">
+                            <Path
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{DynamicResource iconCheck1}"
+                                Fill="#FFFFFF" />
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock
+                                x:Name="txtBuoc1"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="Regular"
+                                Foreground="#FFFFFF"
+                                Text="1 : Tại Trang chủ, chọn “ Cấu hình”"
+                                TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
+                    <Grid
+                        x:Name="grBuoc2"
+                        Grid.Row="2"
+                        Cursor="Hand"
+                        MouseLeftButtonUp="grBuoc2_MouseLeftButtonUp">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="288*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            x:Name="bodBuoc2"
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Background="#ffffff"
+                            CornerRadius="30">
+                            <Path
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{DynamicResource iconCheck1}"
+                                Fill="#FFFFFF" />
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock
+                                x:Name="txtBuoc2"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="Regular"
+                                Foreground="#FFFFFF"
+                                Text="2 : Chọn “Cài đặt”"
+                                TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
+                    <Grid
+                        x:Name="grBuoc3"
+                        Grid.Row="3"
+                        Cursor="Hand"
+                        MouseLeftButtonUp="grBuoc3_MouseLeftButtonUp">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="288*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            x:Name="bodBuoc3"
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Background="#ffffff"
+                            CornerRadius="30">
+                            <Path
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{DynamicResource iconCheck1}"
+                                Fill="#FFFFFF" />
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock
+                                x:Name="txtBuoc3"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="Regular"
+                                Foreground="#FFFFFF"
+                                Text="3 : Chọn “Danh sách vị trí”"
+                                TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
+                    <Grid
+                        x:Name="grBuoc4"
+                        Grid.Row="4"
+                        Cursor="Hand"
+                        MouseLeftButtonUp="grBuoc4_MouseLeftButtonUp">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="288*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            x:Name="bodBuoc4"
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Background="#ffffff"
+                            CornerRadius="30">
+                            <Path
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{DynamicResource iconCheck1}"
+                                Fill="#FFFFFF" />
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock
+                                x:Name="txtBuoc4"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="Regular"
+                                Foreground="#FFFFFF"
+                                Text="4 : Chọn biểu tượng dấu “+” để thêm vị trí"
+                                TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
+                    <Grid
+                        x:Name="grBuoc5"
+                        Grid.Row="5"
+                        Cursor="Hand"
+                        MouseLeftButtonUp="grBuoc5_MouseLeftButtonUp">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="288*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            x:Name="bodBuoc5"
+                            Grid.Column="0"
+                            Width="30"
+                            Height="30"
+                            Background="#ffffff"
+                            CornerRadius="30">
+                            <Path
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{DynamicResource iconCheck1}"
+                                Fill="#FFFFFF" />
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock
+                                x:Name="txtBuoc5"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="Regular"
+                                Foreground="#FFFFFF"
+                                Text="5 : Chọn vị trí muốn cài đặt, điều chỉnh bán kính chấm công, nhấn “Ghim lại” để lưu vị trí"
+                                TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

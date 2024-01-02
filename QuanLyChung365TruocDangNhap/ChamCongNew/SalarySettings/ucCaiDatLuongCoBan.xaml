@@ -1,0 +1,727 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings.ucCaiDatLuongCoBan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:tool="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resouce.tool"
+             xmlns:comons="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.Comon"
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings"
+             xmlns:tool_1="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resource.tool"
+             mc:Ignorable="d" x:Name="ucSalary" KeyDown="ucSalary_KeyDown" KeyUp="ucSalary_KeyUp">
+    <Grid>
+        <Border Background="#FFFFFF"
+            CornerRadius="10">
+            <StackPanel Margin="20">
+                <DockPanel>
+                    <Border HorizontalAlignment="Left">
+                        <TextBlock Text="Danh sách nhân viên"
+                               Foreground="#474747"
+                        Style="{DynamicResource TextBlockCalendar}"/>
+                    </Border>
+                </DockPanel>
+                <StackPanel>
+                    <Grid x:Name="wapFormSelected" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--Chọn ngày-->
+                        <Border Grid.Column="0" Cursor="Hand" Height="34"   VerticalAlignment="Center"   Style="{StaticResource BorderSelected}" >
+                            <Border BorderThickness="0" BorderBrush="{DynamicResource #aaa}" Height="37">
+                                <comons:DatePicker x:Name="dtp_NgayBatDau" SelectedDateChange="ChonNgayBatDau" Margin="5 0 5 5"/>
+                            </Border>
+                        </Border>
+                        <Border Grid.Column="1" Margin="10 0 10 0" Cursor="Hand" Height="34" MinWidth="130" VerticalAlignment="Center"  Style="{StaticResource BorderSelected}" >
+                            <Border BorderThickness="0" BorderBrush="{DynamicResource #aaa}" Height="37">
+                                <comons:DatePicker x:Name="dtp_NgayHienTai" SelectedDateChange="ChonNgayHienTai" Margin="5 0 5 5"/>
+                            </Border>
+                        </Border>
+                        <!--<Border Grid.Column="0" Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=ActualWidth}" Background="Transparent" VerticalAlignment="Center" x:Name="borHienThiThang" BorderBrush="#474747" BorderThickness="1"  Height="34" CornerRadius="5" >
+                            <tool_1:SearchBar x:Name="lsvThang" CornerRadius="5" FontSize="16" PlaceHolderForground="#474747" DisplayMemberPath="value"/>
+                        </Border>
+                        <Border Grid.Column="1" Margin="10 0 10 0" Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=ActualWidth}" x:Name="borHienThiNam" VerticalAlignment="Center" Background="Transparent" BorderBrush="#474747" BorderThickness="1"  Height="34" CornerRadius="5"  >
+                            <tool_1:SearchBar x:Name="lsvNam"  CornerRadius="5" FontSize="16" PlaceHolderForground="#474747" DisplayMemberPath="value"/>
+                        </Border>-->
+                        <!--Chọn phong ban-->
+                        <Border Grid.Column="2"  x:Name="borHienThiPhongBan" Background="Transparent"  BorderBrush="#474747" BorderThickness="1" Height="34" CornerRadius="5" >
+                            <tool_1:SearchBar x:Name="searchBarToChuc" PlaceHolder="Chọn tổ chức" CornerRadius="5" SelectionChanged="Organize_SelectionChange" PlaceHolderForground="#ACACAC" FontSize="16" DisplayMemberPath="organizeDetailName"/>
+                        </Border>
+                        <!--Chon Nhân vien-->
+                        <Border Grid.Column="3" Margin="10 0 10 0"   Grid.Row="1"  Name="borHienThiNhanVien" Height="34" CornerRadius="5" BorderBrush="#474747" BorderThickness="1" >
+                            <tool_1:SearchBar x:Name="searchBarNhanVien"  PlaceHolder="Nhập tên nhân viên cần tìm"  CornerRadius="5" SelectionChanged="Staff_SelectionChange" PlaceHolderForground="#ACACAC" FontSize="16" DisplayMemberPath="display_userName"/>
+                        </Border>
+                        <Border Grid.Column="4"  x:Name="btnThongKe" MouseEnter="btnThongKe_MouseEnter" MouseLeave="btnThongKe_MouseLeave" Background="#4c5bd4" Height="34"  CornerRadius="10" Cursor="Hand"  MouseLeftButtonDown="btnThongKe_MouseLeftButtonUp">
+                            <TextBlock Text="Thống kê" FontSize="16" VerticalAlignment="Center" Foreground="#ffffff" HorizontalAlignment="Center"></TextBlock>
+                        </Border>
+                    </Grid>
+                    <TextBlock x:Name="tb_ValidateChonNgay" Margin="10 10 0 10" Visibility="Collapsed" FontSize="16" Foreground="Red" FontWeight="Regular" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Height="44">
+                        <TextBlock FontSize="20" VerticalAlignment="Center" FontWeight="Medium" Foreground="#4C5BD4">
+                            <Run Text="Tổng Lương công ty: " Foreground="#474747"/>
+                            <Run x:Name="tb_TongLuongCongTy"/>
+                            <Run Text="VNĐ" Foreground="#474747"/>
+                        </TextBlock>
+                    </Border>
+                    <WrapPanel Grid.Column="1" Margin="0 20 0 20" Grid.Row="2" HorizontalAlignment="Right">
+                        <Border Cursor="Hand" Style="{DynamicResource BorderButon}"
+                                x:Name="bodImportExeclSalary"
+                                PreviewMouseLeftButtonDown="bodImportExeclSalary_MouseLeftButtonDown"
+                                MouseEnter="bodImportExeclSalary_MouseEnter"
+                                MouseLeave="bodImportExeclSalary_MouseLeave"
+                                Width="209"
+                                Height="44">
+                            <WrapPanel VerticalAlignment="Center"
+                                   HorizontalAlignment="Center">
+                                <Image Margin="0 0 20 0" Height="24" Width="24"  Source="{DynamicResource iconSortDownLightDrawingImage}"/>
+                                <TextBlock Style="{DynamicResource TextBlockMenuHeader}" Text="Nhập lương cơ bản"/>
+                            </WrapPanel>
+                        </Border>
+                        <Border Style="{DynamicResource BorderButonGreen}"
+                                 x:Name="ExportExcelSalary"
+                                Cursor="Hand"
+                                MouseLeftButtonDown="ExportExcelSalary_MouseLeftButtonDown"
+                                MouseEnter="ExportExcelSalary_MouseEnter"
+                                MouseLeave="ExportExcelSalary_MouseLeave"
+                                Margin="20 0 0 0"
+                                Width="209"
+                                Height="44">
+                            <WrapPanel VerticalAlignment="Center"
+                                   HorizontalAlignment="Center">
+                                <Image Margin="0 0 20 0" Height="24" Width="24"  Source="{DynamicResource iconLayersLightDrawingImage}"/>
+                                <TextBlock Style="{DynamicResource TextBlockMenuHeader}" Text="Xuất lương cơ bản"/>
+                            </WrapPanel>
+                        </Border>
+                    </WrapPanel>
+                </Grid>
+                <!--List nhân viên-->
+                <DataGrid ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled"  Style="{DynamicResource DataGridNew3}" Name="dgvListSalaryBasic" PreviewMouseWheel="dgvListSalaryBasic_PreviewMouseWheel" MinRowHeight="76">
+                    <DataGrid.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="#FFFFFF" CornerRadius="15" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualWidth}" Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid},Path=ActualHeight}"></Border>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </DataGrid.OpacityMask>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Ảnh">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <Grid>
+                                            <Border Style="{DynamicResource BorderImage}" HorizontalAlignment="Center" Background="LightGray"/>
+                                            <Border Style="{DynamicResource BorderImage}" HorizontalAlignment="Center">
+                                                <Border.Background>
+                                                    <ImageBrush 
+                                                    ImageSource="{Binding avatarUser}">
+                                                    </ImageBrush>
+                                                </Border.Background>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Họ và tên (ID)">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                <Border x:Name="gr_ThongTinNhanVien" Cursor="Hand" Background="Transparent" MouseLeave="gr_ThongTinNhanVien_MouseLeave" MouseEnter="gr_ThongTinNhanVien_MouseEnter" Margin="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
+                                            <TextBlock
+                                                Text="{Binding userName}"
+                                                TextWrapping="Wrap"
+                                                TextAlignment="Center"
+                                                VerticalAlignment="Bottom"
+                                                FontSize="16" FontWeight="Medium"
+                                                Foreground="#4C5BD4"/>
+                                            <Border x:Name="bodThongTinNhanVien" Visibility="Collapsed" MouseLeftButtonUp="bodThongTinNhanVien_MouseLeftButtonUp" Margin="5 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" Cursor="Hand">
+                                                <Path Data="{DynamicResource iconChinhSua1}" Stroke="#4C5BD4"/>
+                                            </Border>
+                                        </WrapPanel>
+                                        <DockPanel Grid.Row="1" VerticalAlignment="Top"
+                                            HorizontalAlignment="Center">
+                                            <TextBlock
+                                                Text="ID: "
+                                                FontSize="16"/>
+                                            <TextBlock
+                                                Text="{Binding ep_id}"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Center"
+                                                FontSize="16"/>
+                                        </DockPanel>
+                                    </Grid>
+                                </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Lương cơ bản">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                <Border Margin="5">
+                                        <TextBlock 
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        TextWrapping="Wrap"
+                                        TextAlignment="Center"
+                                        FontSize="16">
+                                            <Run Text="{Binding luong_co_ban_Format}"/>
+                                            <Run Text="VND"/>
+                                        </TextBlock>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Hợp đồng áp dụng">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            FontSize="16">
+                                            <Run Text="{Binding phan_tram_hop_dong}"/>
+                                            <Run Text=" % Lương cơ bản"/>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn  Header="Tổ chức">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            FontSize="16">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="{Binding organizeDetailName}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding organizeDetailName}" Value="{x:Null}">
+                                                            <Setter Property="Text" Value="Chưa cập nhật"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding organizeDetailName}" Value="">
+                                                            <Setter Property="Text" Value="Chưa cập nhật"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Chức vụ">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Text" Value="{Binding positionName}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding positionName}" Value="{x:Null}">
+                                                            <Setter Property="Text" Value="Chưa cập nhật"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding positionName}" Value="">
+                                                            <Setter Property="Text" Value="Chưa cập nhật"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Công chuẩn">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding cong_chuan_display}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Công thực">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding cong_thuc}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Công sau phạt">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding cong_sau_phat}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Công theo tiền">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding cong_theo_tien}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Công được ghi nhận">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding cong_ghi_nhan}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Công nghỉ phép">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding cong_nghi_phep}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Tổng công nhận">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tong_cong_nhan}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Lương thực">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding luong_thuc_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Lương theo giờ">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tongTienTheoGio_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Lương đóng bảo hiểm">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding luong_bao_hiem_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Phạt đi muộn/về sớm theo công">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding cong_phat_di_muon_ve_som}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Phạt đi muộn/về sớm theo tiền">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tien_phat_muon_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Hoa hồng">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tong_hoa_hong_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Tạm ứng">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tien_tam_ung_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Thưởng">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding thuong_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Thưởng nghỉ lễ">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding luong_nghi_le_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Phạt">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding phat_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Nghỉ sai quy định">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding phat_nghi_sai_quy_dinh_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Phúc lợi">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tien_phuc_loi_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Phụ cấp">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tien_phu_cap_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Phụ cấp theo ca">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding phu_cap_theo_ca_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Bảo hiểm">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tong_bao_hiem_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Tiền khác">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tien_khac_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Tổng lương">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tong_luong_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Thuế">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding thue_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Tổng lương thực nhận">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding tien_thuc_nhan_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Tổng lương đã trả">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Margin="5">
+                                        <TextBlock 
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding luong_da_tra_display,Mode=OneWay}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                <!--Number Page-->
+                <DockPanel Margin="0,10,0,10" HorizontalAlignment="Center" Name="DpPhanTRang" Visibility="Collapsed">
+
+                    <Border x:Name="borPageDau" Width="45" Height="29" CornerRadius="5" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borPageDau_MouseLeftButtonUp">
+                        <TextBlock Text="Đầu" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                    </Border>
+                    <Border x:Name="borLui1" Width="29" Height="29" CornerRadius="5" Margin="5,0,0,0" Background="#ffffff" BorderThickness="1" BorderBrush="#474747" Visibility="Collapsed" MouseLeftButtonUp="borLui1_MouseLeftButtonUp">
+                        <Path Data="{DynamicResource iconArrowLeft}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                    </Border>
+                    <Border x:Name="borPage1" MinWidth="29" Height="29" CornerRadius="5" Background="#4c5bd4" Margin="5,0,0,0" MouseLeftButtonUp="borPage1_MouseLeftButtonUp" BorderThickness="1" BorderBrush="#474747">
+                        <TextBlock x:Name="textPage1" Margin="3 0 3 0" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#ffffff"></TextBlock>
+                    </Border>
+                    <Border x:Name="borPage2" MinWidth="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage2_MouseLeftButtonUp">
+                        <TextBlock x:Name="textPage2" Margin="3 0 3 0" Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                    </Border>
+                    <Border x:Name="borPage3" MinWidth="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPage3_MouseLeftButtonUp">
+                        <TextBlock x:Name="textPage3" Margin="3 0 3 0" Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                    </Border>
+                    <Border x:Name="borLen1" Width="29" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borLen1_MouseLeftButtonUp">
+                        <Path Data="{DynamicResource iconArrowRight}" Fill="#474747" HorizontalAlignment="Center" VerticalAlignment="Center"></Path>
+                    </Border>
+
+                    <Border x:Name="borPageCuoi" Width="45" Height="29" CornerRadius="5" Background="#ffffff" Margin="5,0,0,0" BorderThickness="1" BorderBrush="#474747" MouseLeftButtonUp="borPageCuoi_MouseLeftButtonUp">
+                        <TextBlock Text="Cuối" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#474747"></TextBlock>
+                    </Border>
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <!--Chọn nhan vien-->
+        <tool:LoadingSpinner x:Name="loading" Visibility="Collapsed" />
+
+    </Grid>
+</UserControl>

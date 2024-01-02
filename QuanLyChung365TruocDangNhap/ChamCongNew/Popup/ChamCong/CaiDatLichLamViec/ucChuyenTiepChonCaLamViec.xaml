@@ -1,0 +1,140 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.CaiDatLichLamViec.ucChuyenTiepChonCaLamViec"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.CaiDatLichLamViec"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid>
+        <Rectangle
+            Fill="#000000"
+            MouseDown="Rectangle_MouseDown"
+            Opacity="0.5" />
+        <!--  Form tiếp thêm mới lịch làm việc  -->
+        <Border
+            x:Name="bodContinue"
+            Width="600"
+            MaxHeight="550"
+            Background="#FFFFFF"
+            Style="{DynamicResource Boder}">
+            <StackPanel>
+                <Border
+                    Height="43"
+                    Background="#4C5BD4"
+                    CornerRadius="10 10 0 0">
+                    <DockPanel>
+                        <TextBlock
+                            Margin="260,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="20"
+                            FontWeight="Medium"
+                            Foreground="#FFFFFF"
+                            Text="Ca làm việc" />
+                        <Path
+                            Width="20"
+                            Margin="0,11,10,14"
+                            HorizontalAlignment="Right"
+                            Data="{StaticResource iconExit}"
+                            MouseUp="Image_MouseUp"
+                            Stretch="Fill"
+                            Stroke="#FFFFFF"
+                            StrokeThickness="2" />
+                    </DockPanel>
+                </Border>
+                <StackPanel Margin="20">
+                    <TextBlock
+                        Width="122"
+                        Height="22"
+                        Margin="0,5"
+                        HorizontalAlignment="Left"
+                        FontSize="16"
+                        FontWeight="DemiBold"
+                        Foreground="#666666"
+                        Text="Chọn ca làm việc" />
+                    <ScrollViewer MaxHeight="400" VerticalScrollBarVisibility="Visible">
+
+                        <ItemsControl
+                            x:Name="lsvCaLamViec"
+                            BorderThickness="0"
+                            ItemsSource="{Binding caComon}"
+                            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                            ScrollViewer.VerticalScrollBarVisibility="Visible">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}, Path=ActualWidth}" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="0,15" Orientation="Horizontal">
+                                        <CheckBox
+                                            Margin="5,0,0,0"
+                                            Checked="ChonCaLamViec"
+                                            Style="{DynamicResource checkBox1}"
+                                            Unchecked="HuyChon" />
+                                        <TextBlock
+                                            FontSize="15"
+                                            FontWeight="Medium"
+                                            Foreground="#474747"
+                                            Text="{Binding shift_name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                    <DockPanel Height="34" Margin="0,0,0,20">
+                        <Border
+                            x:Name="bodBackCalendar"
+                            Width="128"
+                            Height="34"
+                            Margin="50,0,15,0"
+                            HorizontalAlignment="Left"
+                            BorderBrush="#4C5BD4"
+                            BorderThickness="1"
+                            MouseUp="bodBackCalendar_MouseUp"
+                            Style="{StaticResource Boder}">
+                            <DockPanel>
+                                <Image
+                                    Width="20"
+                                    Margin="20,0,0,0"
+                                    Source="{StaticResource iconLeftArrowDrawingImage}" />
+                                <TextBlock
+                                    Margin="0,0,20,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="DemiBold"
+                                    Foreground="#4C5BD4"
+                                    Text="Quay lại" />
+                            </DockPanel>
+                        </Border>
+                        <Border
+                            x:Name="bodNextCalendarWork"
+                            Width="138"
+                            Height="34"
+                            Margin="15,0,50,0"
+                            HorizontalAlignment="Right"
+                            Background="#4C5BD4"
+                            BorderThickness="0"
+                            MouseUp="bodNextCalendarWork_MouseUp"
+                            Style="{StaticResource Boder}">
+                            <DockPanel>
+                                <TextBlock
+                                    Margin="0,0,10,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="DemiBold"
+                                    Foreground="White"
+                                    Text="Tiếp tục" />
+                            </DockPanel>
+                        </Border>
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,66 @@
+﻿<Page x:Class="QuanLyChung365TruocDangNhap.PageDangKyVip.DangKyVipPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.PageDangKyVip"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DangKyVipPage">
+
+    <Grid>
+        <Image Source="/Resource/image/exp_banner_vip_1024.jpg" />
+        <Border Background="White" Width="574" Height="480" Padding="40">
+            <Border>
+                <StackPanel>
+                    <Image Height="142" Source="/Resource/image/bgd_ncapv.png" />
+                    <TextBlock Width="474"  HorizontalAlignment="Center" Margin="10" FontSize="18" FontWeight="DemiBold" TextAlignment="Center" TextWrapping="Wrap">Để đăng ký thêm người sử dụng lớn hơn 5 nhân viên
+<LineBreak></LineBreak> Vui lòng liên hệ với chúng tôi để được hỗ trợ tốt nhất.</TextBlock>
+                    <Grid Margin="0 40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border MouseUp="Border_MouseUp" Width="228" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" Height="62" Background="#FF993A" CornerRadius="30">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="24"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Width="24" Source="/Resource/image/exp_holine_vip.png" />
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="14" FontWeight="DemiBold" Grid.Column="1" >Hỗ trợ 24/24:<LineBreak></LineBreak> 0982.079.209
+
+
+                                </TextBlock>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="14" FontWeight="DemiBold" Grid.Column="2" >
+(Call/Zalo)
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                        <Border Height="47" Grid.Column="1" Width="228" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="22">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF039DFC" Offset="1"/>
+                                    <GradientStop Color="#FF4051C4" Offset="100"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <DockPanel>
+
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="14" FontWeight="DemiBold" Grid.Column="1" >Chat365
+
+
+                                </TextBlock>
+                            </DockPanel>
+
+
+                        </Border>
+
+                    </Grid>
+                    <TextBlock FontSize="16" Margin="0 20" TextAlignment="Center">Nâng cấp Vip để đăng ký không giới hạn các tài khoản cho công ty.</TextBlock>
+                </StackPanel>
+            </Border>
+        </Border>
+    </Grid>
+
+</Page>

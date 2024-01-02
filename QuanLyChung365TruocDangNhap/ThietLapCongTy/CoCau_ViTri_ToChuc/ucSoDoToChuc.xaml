@@ -1,0 +1,373 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ThietLapCongTy.CoCau_ViTri_ToChuc.ucSoDoToChuc"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:QuanLyChung365TruocDangNhap.Hr.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ThietLapCongTy.CoCau_ViTri_ToChuc"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:other="clr-namespace:QuanLyChung365TruocDangNhap.ThietLapCongTy.Entities"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <core:MathConvert x:Key="math" />
+    </UserControl.Resources>
+    <Grid
+        Width="auto"
+        Height="2000"
+        Margin="20"
+        VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border
+            x:Name="bod_ThemMoiToChuc"
+            Grid.Row="0"
+            MinWidth="150"
+            MaxWidth="200"
+            HorizontalAlignment="Left"
+            Background="#4C5DB4"
+            MouseEnter="bod_ThemMoiToChuc_MouseEnter"
+            MouseLeave="bod_ThemMoiToChuc_MouseLeave"
+            MouseLeftButtonUp="bod_ThemMoiToChuc_MouseLeftButtonUp"
+            Style="{DynamicResource BorderButonNV}">
+            <TextBlock
+                Foreground="#FFFFFF"
+                Style="{DynamicResource TextBlockButonNV}"
+                Text="+ Thêm tổ chức" />
+        </Border>
+
+
+        <ScrollViewer
+            x:Name="scroll"
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalScrollBarVisibility="Auto"
+            PreviewMouseWheel="icListChill_PreviewMouseWheel"
+            VerticalScrollBarVisibility="Visible">
+            <ScrollViewer.Style>
+                <Style TargetType="ScrollViewer">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ScrollViewer.Style>
+            <StackPanel>
+                <ListView
+                    x:Name="lsvSoDoToChuc"
+                    Margin="0,-2,0,0"
+                    HorizontalAlignment="Center"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    ItemsSource="{Binding children}"
+                    PreviewMouseDown="lsvSoDoToChuc_PreviewMouseDown"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.IsDeferredScrollingEnabled="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+
+                            <Setter Property="IsTabStop" Value="False" />
+                            <Setter Property="Focusable" Value="False" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <StackPanel
+                                            x:Name="grid"
+                                            HorizontalAlignment="Center"
+                                            Loaded="grid_Loaded"
+                                            PreviewMouseDown="grid_PreviewMouseDown">
+
+
+                                            <Border
+                                                x:Name="bod_SoDoChiTiet"
+                                                MinWidth="250"
+                                                MaxWidth="350"
+                                                Margin="2"
+                                                HorizontalAlignment="Center"
+                                                BorderBrush="#474747"
+                                                BorderThickness="1"
+                                                CornerRadius="5">
+                                                <Grid Margin="10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackPanel
+                                                        Grid.Row="1"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center">
+                                                        <TextBlock
+                                                            x:Name="tb_TenToChuc"
+                                                            Margin="0,0,0,10"
+                                                            HorizontalAlignment="Center"
+                                                            FontSize="14"
+                                                            FontWeight="Regular"
+                                                            Foreground="#474747"
+                                                            Text="{Binding name}"
+                                                            TextAlignment="Center"
+                                                            TextWrapping="Wrap" />
+
+                                                    </StackPanel>
+                                                    <Rectangle
+                                                        Grid.Row="2"
+                                                        Height="1"
+                                                        Margin="20,5,20,5"
+                                                        Opacity="0.5"
+                                                        Stroke="#666666"
+                                                        StrokeDashArray="3 1 2 3" />
+
+                                                </Grid>
+                                            </Border>
+                                            <Line
+                                                Margin="0,0,0,0"
+                                                HorizontalAlignment="Center"
+                                                Stroke="#474747"
+                                                StrokeThickness="2"
+                                                X1="0">
+                                                <Line.Style>
+                                                    <Style TargetType="{x:Type Line}">
+                                                        <Setter Property="Y1" Value="0" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding typeBottom}" Value="LineBottom">
+                                                                <Setter Property="Y1" Value="25" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Line.Style>
+                                            </Line>
+                                            <!--  ListView lồng chèn vào đây  -->
+
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </StackPanel>
+
+        </ScrollViewer>
+        <Canvas
+            Name="canvas"
+            Background="Transparent"
+            DataContextChanged="canvas_DataContextChanged"
+            IsVisibleChanged="canvas_IsVisibleChanged"
+            Visibility="Collapsed">
+            <Border
+                Name="BorderMoveable"
+                Canvas.Left="220"
+                Canvas.Top="220"
+                MinWidth="250"
+                MaxWidth="350"
+                Margin="0,0,10,0"
+                HorizontalAlignment="Center"
+                Background="White"
+                BorderBrush="#474747"
+                BorderThickness="1"
+                CornerRadius="5"
+                MouseLeftButtonUp="OnMouseLeftButtonUp"
+                MouseMove="OnMouseMove"
+                Opacity="0.6">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <WrapPanel
+                        Grid.Row="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+                        <Border
+                            x:Name="btn_SuaToChuc"
+                            Width="20"
+                            Height="20"
+                            Background="Transparent"
+                            Cursor="Hand">
+                            <Path
+                                x:Name="icon_SuaToChuc"
+                                Width="13"
+                                Height="14"
+                                Data="{DynamicResource iconChinhSua2}"
+                                Fill="#474747"
+                                Stretch="Fill"
+                                StrokeThickness="1.5" />
+                        </Border>
+                        <Border
+                            x:Name="btn_XoaToChuc"
+                            Width="20"
+                            Height="20"
+                            Background="Transparent"
+                            Cursor="Hand">
+                            <Path
+                                x:Name="icon_XoaToChuc"
+                                Margin="4,5,3,3"
+                                Data="{DynamicResource iconExit}"
+                                RenderTransformOrigin="0.307,0.533"
+                                Stretch="Fill"
+                                Stroke="#474747"
+                                StrokeThickness="1.5" />
+                        </Border>
+                    </WrapPanel>
+                    <StackPanel
+                        Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            x:Name="tb_TenToChuc"
+                            Margin="0,0,0,10"
+                            HorizontalAlignment="Center"
+                            FontSize="14"
+                            FontWeight="Regular"
+                            Foreground="#474747"
+                            Text="{Binding name}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                        <WrapPanel
+                            x:Name="wap_InputTenToChuc"
+                            HorizontalAlignment="Center"
+                            Visibility="Collapsed">
+                            <Border
+                                x:Name="bod_InputTenToChuc"
+                                Width="210"
+                                Height="34"
+                                Style="{DynamicResource BorderSelectedNV}">
+                                <TextBox
+                                    x:Name="tb_InputTenToChuc"
+                                    Margin="5,0,5,0"
+                                    VerticalAlignment="Center"
+                                    BorderThickness="0"
+                                    FontSize="12"
+                                    Text="{Binding name}" />
+                            </Border>
+                            <Border
+                                x:Name="btn_LuuTenToChuc"
+                                Width="30"
+                                Height="30"
+                                Margin="10,0,0,0"
+                                Background="Transparent"
+                                Cursor="Hand"
+                                DataContext="{Binding id}">
+                                <Path
+                                    x:Name="icon_LuuTenToChuc"
+                                    Margin="7,5,7,6"
+                                    Data="{DynamicResource icon_tich}"
+                                    Stretch="Fill"
+                                    Stroke="#474747"
+                                    StrokeThickness="1.5" />
+                            </Border>
+                        </WrapPanel>
+                    </StackPanel>
+                    <Rectangle
+                        Grid.Row="2"
+                        Height="1"
+                        Margin="20,5,20,5"
+                        Opacity="0.5"
+                        Stroke="#666666"
+                        StrokeDashArray="3 1 2 3" />
+                    <Border Grid.Row="3" HorizontalAlignment="Center">
+                        <TextBlock
+                            FontSize="12"
+                            Style="{DynamicResource TextBlocLableNV}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap">
+                            <Run Text="Lãnh đạo: " />
+                            <Run x:Name="tb_TenLanhDao" Text="{Binding manager}" />
+                        </TextBlock>
+                    </Border>
+                    <Border
+                        Grid.Row="4"
+                        Margin="0,5,0,5"
+                        HorizontalAlignment="Center">
+                        <TextBlock FontSize="12" Style="{DynamicResource TextBlocLableNV}">
+                            <Run Text="Số Thành viên: " />
+                            <Run x:Name="tb_SoLuongThanhVien" Text="{Binding ep_num}" />
+                        </TextBlock>
+                    </Border>
+                    <Border
+                        x:Name="borEmpTimeKeep"
+                        Grid.Row="5"
+                        Margin="0,5,0,5"
+                        HorizontalAlignment="Center"
+                        BorderBrush="#616FE1"
+                        BorderThickness="0,0,0,1"
+                        Cursor="Hand">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="#616FE1"
+                            Style="{DynamicResource TextBlocLableNV}">
+                            <Run Text="Nhân viên đi làm: " />
+                            <Run x:Name="tb_SoLuongThanhVienDiLam" Text="{Binding nv_di_lam}" />
+                        </TextBlock>
+                    </Border>
+                    <Border
+                        x:Name="borEmpNoTimeKeep"
+                        Grid.Row="6"
+                        Margin="0,5,0,5"
+                        HorizontalAlignment="Center"
+                        BorderBrush="#616FE1"
+                        BorderThickness="0,0,0,1"
+                        Cursor="Hand">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="#616FE1"
+                            Style="{DynamicResource TextBlocLableNV}">
+                            <Run Text="Nhân viên không đi làm: " />
+                            <Run x:Name="tb_SoLuongThanhVienKhongDiLam" Text="{Binding nv_nghi}" />
+                        </TextBlock>
+                    </Border>
+                    <DockPanel Grid.Row="7">
+                        <Border
+                            x:Name="btn_XemChiTiet"
+                            Background="Transparent"
+                            Cursor="Hand">
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="#4C5BD4"
+                                Style="{DynamicResource TextBlocLableNV}">
+                                <Run Text="Xem chi tiết" />
+                                <Run Text="--&gt;" />
+                            </TextBlock>
+                        </Border>
+                        <Border
+                            x:Name="expanseTree"
+                            HorizontalAlignment="Right"
+                            Background="Transparent"
+                            Cursor="Hand">
+                            <Path
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{DynamicResource dropdown}"
+                                Fill="#474747" />
+                        </Border>
+                    </DockPanel>
+                </Grid>
+            </Border>
+        </Canvas>
+    </Grid>
+</UserControl>

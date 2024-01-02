@@ -1,0 +1,253 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ThietLapCongTy.Popups.PopupSoDoViTri.ucNestedListViewViTriNhanVien"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ThietLapCongTy.Popups.PopupSoDoViTri"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <core:MathConvert x:Key="math" />
+    </UserControl.Resources>
+    <ListView MinWidth="300"
+        x:Name="lsvSoDoToChuc"
+        Margin="0,0,0,0"
+        Padding="0,-2,0,0"
+        HorizontalAlignment="Center"
+        Background="Transparent"
+        BorderThickness="0"
+        ItemsSource="{Binding children}"
+        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+        ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <ListView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </ListView.ItemsPanel>
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListViewItem">
+                            <StackPanel
+                                x:Name="grid"
+                                HorizontalAlignment="Center"
+                                Loaded="grid_Loaded">
+                                <Line
+                                    Width="Auto"
+                                    Stroke="#474747"
+                                    StrokeThickness="2">
+                                    <Line.Style>
+                                        <Style TargetType="{x:Type Line}">
+                                            <Setter Property="X1" Value="0" />
+                                            <Setter Property="X2" Value="{Binding ElementName=grid, Path=ActualWidth}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding type}" Value="Head">
+                                                    <Setter Property="X1" Value="{Binding ElementName=grid, Path=ActualWidth, Converter={StaticResource math}, ConverterParameter=@VALUE/2-1.5}" />
+                                                    <Setter Property="X2" Value="{Binding ElementName=grid, Path=ActualWidth}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding type}" Value="Tail">
+                                                    <Setter Property="X1" Value="{Binding ElementName=grid, Path=ActualWidth, Converter={StaticResource math}, ConverterParameter=@VALUE/2+1}" />
+                                                    <Setter Property="X2" Value="0" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding type}" Value="Center">
+                                                    <Setter Property="X1" Value="{Binding ElementName=grid, Path=ActualWidth, Converter={StaticResource math}, ConverterParameter=@VALUE/2-1.5}" />
+                                                    <Setter Property="X2" Value="{Binding ElementName=grid, Path=ActualWidth, Converter={StaticResource math}, ConverterParameter=@VALUE/2-1.5}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Line.Style>
+                                </Line>
+                                <Line
+                                    HorizontalAlignment="Center"
+                                    Stroke="#474747"
+                                    StrokeThickness="2"
+                                    X1="0"
+                                    Y1="25" />
+                                <StackPanel>
+                                    <Border
+                                        x:Name="bod_SoDoChiTiet"
+                                        MinWidth="100"
+                                        MaxWidth="360"
+                                        Margin="1"
+                                        Padding="1"
+                                        Style="{DynamicResource BorderSelectedNV}">
+                                        <Grid Margin="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+                                            <Border
+                                                Grid.Row="0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                                                <TextBlock
+                                                    x:Name="tb_TenToChuc"
+                                                    Margin="0,0,0,10"
+                                                    HorizontalAlignment="Center"
+                                                    FontSize="14"
+                                                    FontWeight="Regular"
+                                                    Foreground="{StaticResource #4C5BD4}"
+                                                    Text="{Binding name}"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    TextWrapping="WrapWithOverflow" />
+                                            </Border>
+
+                                            <Rectangle
+                                                Grid.Row="2"
+                                                Height="1"
+                                                Margin="20,10,20,10"
+                                                Opacity="0.5"
+                                                Stroke="#666666"
+                                                StrokeDashArray="3 1 2 3" />
+                                            <Grid
+                                                x:Name="grLoadSoDoViTri"
+                                                Grid.Row="3"
+                                                Margin="20,0,20,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                                                <Grid Visibility="Collapsed">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="100" />
+                                                        <ColumnDefinition Width="100" />
+                                                        <ColumnDefinition Width="100" />
+
+                                                    </Grid.ColumnDefinitions>
+                                                    <DockPanel
+                                                        x:Name="wp_ThemCap"
+                                                        Grid.Column="0"
+                                                        HorizontalAlignment="Center"
+                                                        Cursor="Hand"
+                                                        MouseEnter="wp_ThemCap_MouseEnter"
+                                                        MouseLeave="wp_ThemCap_MouseLeave"
+                                                        MouseLeftButtonUp="wp_ThemCap_MouseLeftButtonUp">
+                                                        <Border
+                                                            x:Name="btn_ThemCap"
+                                                            Width="20"
+                                                            Height="20"
+                                                            Background="#666666"
+                                                            CornerRadius="16">
+                                                            <TextBlock
+                                                                x:Name="path_ThemCap"
+                                                                Margin="0,-7,0,0"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                FontSize="30"
+                                                                FontWeight="DemiBold"
+                                                                Foreground="#FFFFFF"
+                                                                Text="+" />
+                                                        </Border>
+                                                        <TextBlock
+                                                            x:Name="tb_ThemCap"
+                                                            Margin="5,0,0,0"
+                                                            FontSize="12"
+                                                            Style="{DynamicResource TextBlocLableNV}"
+                                                            Text="Thêm cấp"
+                                                            TextAlignment="Left"
+                                                            TextWrapping="Wrap" />
+                                                    </DockPanel>
+                                                    <DockPanel 
+                                                        x:Name="wp_ThayThe"
+                                                        Grid.Column="1"
+                                                        HorizontalAlignment="Center"
+                                                        Cursor="Hand"
+                                                        MouseEnter="wp_ThayThe_MouseEnter"
+                                                        MouseLeave="wp_ThayThe_MouseLeave"
+                                                        MouseLeftButtonUp="wp_ThayThe_MouseLeftButtonUp">
+                                                        <Border
+                                                            x:Name="btn_ThayThe"
+                                                            Width="20"
+                                                            Height="20"
+                                                            Background="#666666"
+                                                            CornerRadius="16">
+                                                            <Path
+                                                                x:Name="path_ThayThe"
+                                                                Width="17"
+                                                                Height="16"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Data="{DynamicResource iconLuanChuyenNV}"
+                                                                Fill="#FFFFFF"
+                                                                Stretch="Fill" />
+                                                        </Border>
+                                                        <TextBlock
+                                                            x:Name="tb_ThayThe"
+                                                            Margin="5,0,0,0"
+                                                            FontSize="12"
+                                                            Style="{DynamicResource TextBlocLableNV}"
+                                                            Text="Thay Thế"
+                                                            TextAlignment="Left"
+                                                            TextWrapping="Wrap" />
+                                                    </DockPanel>
+                                                    <DockPanel
+                                                        x:Name="wp_Xoa"
+                                                        Grid.Column="2"
+                                                        HorizontalAlignment="Center"
+                                                        Cursor="Hand"
+                                                        MouseEnter="wp_Xoa_MouseEnter"
+                                                        MouseLeave="wp_Xoa_MouseLeave"
+                                                        MouseLeftButtonUp="wp_Xoa_MouseLeftButtonUp">
+                                                        <Border
+                                                            x:Name="btn_Xoa"
+                                                            Width="20"
+                                                            Height="20"
+                                                            Background="#666666"
+                                                            CornerRadius="16">
+                                                            <Path
+                                                                x:Name="path_Xoa"
+                                                                Width="13"
+                                                                Height="16"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Data="{DynamicResource iconDeleteNV}"
+                                                                Fill="#FFFFFF"
+                                                                Stretch="Fill" />
+                                                        </Border>
+                                                        <TextBlock
+                                                            x:Name="tb_Xoa"
+                                                            Margin="5,0,0,0"
+                                                            FontSize="12"
+                                                            Style="{DynamicResource TextBlocLableNV}"
+                                                            Text="Xóa"
+                                                            TextAlignment="Left"
+                                                            TextWrapping="Wrap" />
+                                                    </DockPanel>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                    <Line
+                                        Margin="0,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        Stroke="#474747"
+                                        StrokeThickness="2"
+                                        X1="0">
+                                        <Line.Style>
+                                            <Style TargetType="{x:Type Line}">
+                                                <Setter Property="Y1" Value="0" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding typeBottom}" Value="LineBottom">
+                                                        <Setter Property="Y1" Value="25" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Line.Style>
+                                    </Line>
+
+                                </StackPanel>
+
+                                <!--  Thêm list view nồng nhau vào đây  -->
+
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ListView.ItemContainerStyle>
+    </ListView>
+</UserControl>

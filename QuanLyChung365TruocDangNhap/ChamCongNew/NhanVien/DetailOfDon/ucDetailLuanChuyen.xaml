@@ -1,0 +1,92 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.DetailOfDon.ucDetailLuanChuyen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.DetailOfDon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="1. Họ và tên : " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbHoVaTen"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="2. Chức vụ người cần luân chuyển: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbChucVu"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="3. Phòng ban người cần luân chuyển: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbPhongBan"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="4. Nơi đang công tác: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbNoiDangCong"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="5. Nơi cần chuyển đến: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbNoiCanChuyenDen"
+                FontSize="16"
+                Foreground="#4C5BD4"
+                Text="" />
+        </WrapPanel>
+
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="6. Lý do bổ nhiệm: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbLyDo"
+                FontSize="16"
+                Foreground="#666666" />
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock TextWrapping="Wrap"
+                FontSize="16"
+                Foreground="#666666"
+                Text="File đính kèm: " />
+            <TextBlock TextWrapping="Wrap"
+                x:Name="txbFile"
+                Cursor="Hand"
+                FontSize="16"
+                Foreground="Blue"
+                MouseUp="LinkToFile"
+                Text="File" />
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

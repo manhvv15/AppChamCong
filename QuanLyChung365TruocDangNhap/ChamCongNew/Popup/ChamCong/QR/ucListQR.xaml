@@ -1,0 +1,282 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.QR.ucListQR"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:comon="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.ThietLapCongTy.Comons"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.QR"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+        </Grid.Resources>
+        <StackPanel>
+            <Border
+                Height="56"
+                Background="White"
+                CornerRadius="5 5 0 0">
+                <Grid>
+                    <TextBlock
+                        Margin="20"
+                        VerticalAlignment="Center"
+                        FontWeight="DemiBold"
+                        Foreground="#474747"
+                        Text="Danh sách QR" />
+                    <Border
+                        Width="128"
+                        Height="40"
+                        Margin="20,0"
+                        HorizontalAlignment="Right"
+                        Background="{StaticResource #1677ff}"
+                        CornerRadius="10"
+                        Cursor="Hand"
+                        MouseUp="NavigateToAddQR">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Opacity" Value="0.8" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Cursor="Hand"
+                            FontSize="16"
+                            FontWeight="DemiBold"
+                            Foreground="White"
+                            Text="Thêm mã QR" />
+                    </Border>
+                </Grid>
+            </Border>
+            <Grid Background="White">
+
+                <Grid Margin="10" Background="White">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="gridWidthToBinding" Margin="10,0" />
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+            <ScrollViewer>
+
+                <DataGrid PreviewMouseWheel="dgvListQR_PreviewMouseWheel" x:Name="dgvListQR" Margin="20,0">
+                    <DataGrid.Style>
+                        <Style BasedOn="{StaticResource DataGrid3}" TargetType="DataGrid">
+                            <Setter Property="RowHeight" Value="320" />
+                            <Setter Property="ColumnHeaderStyle">
+                                <Setter.Value>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="Background" Value="white" />
+
+                                        <Setter Property="Foreground" Value="#474747" />
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                        <Setter Property="FontSize" Value="16" />
+                                        <Setter Property="MinHeight" Value="50" />
+                                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        <Setter Property="BorderThickness" Value="0,0,1,0" />
+                                        <Setter Property="BorderBrush" Value="{DynamicResource #FFFFFF}" />
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <TextBlock
+                                                        Margin="20,5"
+                                                        Text="{Binding}"
+                                                        TextWrapping="NoWrap" />
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </DataGrid.Style>
+                    <DataGrid.Columns>
+
+
+                        <DataGridTemplateColumn Width="auto" Header="STT">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <TextBlock
+                                            Height="23"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"
+                                            FontSize="16"
+                                            Foreground="#474747"
+                                            Text="{Binding STT}"
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap" />
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="*" Header="Tên QR">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="{Binding QRCodeName}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn
+                            Width="1.5*"
+                            MinWidth="320"
+                            Header="Hình ảnh">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image
+                                        Width="300"
+                                        Height="300"
+                                        Margin="10"
+                                        Source="{Binding QRCodeUrl}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="auto" Header="Trạng thái">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Text="Đang hoạt động"
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding QRstatus}" Value="1">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Text="Đã tắt"
+                                            TextAlignment="Center"
+                                            TextWrapping="Wrap">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding QRstatus}" Value="2">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="auto" Header="Hành động">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Cursor="Hand"
+                                            FontSize="16"
+                                            Foreground="{StaticResource #4C5BD4}"
+                                            MouseUp="TurnOffQR">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding QRstatus}" Value="1">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                            Tắt hoạt động
+                                        </TextBlock>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Cursor="Hand"
+                                            FontSize="16"
+                                            Foreground="{StaticResource #4C5BD4}"
+                                            MouseUp="TurnOnQR">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding QRstatus}" Value="2">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                            Bật hoạt động
+                                        </TextBlock>
+                                        <TextBlock
+                                            Margin="0,5"
+                                            HorizontalAlignment="Center"
+                                            Cursor="Hand"
+                                            FontSize="16"
+                                            Foreground="{StaticResource #4C5BD4}"
+                                            MouseUp="NavigateToUpdateQR">
+                                            Chỉnh sửa
+                                        </TextBlock>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            Cursor="Hand"
+                                            FontSize="16"
+                                            Foreground="{StaticResource #4C5BD4}"
+                                            MouseUp="DeleteQR_MouseUp">
+                                            Xóa
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+            <comon:ucPhanTrangNV
+                x:Name="pagin"
+                Margin="0,20,0,20"
+                HorizontalAlignment="Center"
+                DisplayNumber="10"
+                SelectionChange="pagin_SelectionChange" />
+        </StackPanel>
+    </Grid>
+</UserControl>

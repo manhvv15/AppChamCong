@@ -1,0 +1,720 @@
+﻿<Page
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.funcQuanLyCongTy.ListOfCandidatesPages.CandidateDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Page"
+    Title="ProfilePage"
+    d:DesignHeight="1300"
+    d:DesignWidth="988"
+    SizeChanged="Page_SizeChanged"
+    mc:Ignorable="d">
+
+    <Grid Margin="0,0,0,0" HorizontalAlignment="Center">
+        <Grid Margin="0,0,0,0">
+            <Grid
+                Margin="0,24,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Cursor="Hand"
+                MouseLeftButtonDown="NavigateBack">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Path
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="{StaticResource icon_arrow_back}"
+                    Stroke="{StaticResource #474747}"
+                    StrokeThickness="2" />
+                <TextBlock
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="{StaticResource #474747}"
+                    Text="Danh sách ứng viên" />
+            </Grid>
+            <Grid Margin="0,64,0,0">
+                <ScrollViewer
+                    x:Name="scrollviewerContainer"
+                    HorizontalScrollBarVisibility="Disabled"
+                    VerticalScrollBarVisibility="Disabled">
+                    <StackPanel
+                        x:Name="stackPanelContainer"
+                        Margin="0,0,0,50"
+                        Orientation="Horizontal">
+                        <Grid
+                            x:Name="gridLeft"
+                            MinWidth="569"
+                            Margin="0,0,20,15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="44" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.RowSpan="2">
+                                <Border
+                                    BorderBrush="{StaticResource #474747}"
+                                    BorderThickness="1"
+                                    CornerRadius="4"
+                                    Opacity="0.24" />
+                            </Grid>
+                            <Grid Grid.Row="0">
+                                <Border Background="{StaticResource #4C5BD4}" CornerRadius="4,4,0,0" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        Margin="15,0,0,0"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Foreground="{StaticResource #FFFFFF}"
+                                        Text="Chi tiết hồ sơ ứng viên " />
+                                    <TextBlock
+                                        x:Name="tbNameTitle"
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Foreground="{StaticResource #FFFFFF}" />
+                                </Grid>
+                                <Grid
+                                    x:Name="gtBtnEdit"
+                                    Margin="0,0,35,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center">
+                                    <Path Data="{StaticResource icon_edit}" Fill="{StaticResource #FFFFFF}" />
+                                    <Grid
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        MouseLeftButtonDown="ShowPopupEdit" />
+                                </Grid>
+                            </Grid>
+                            <Grid x:Name="content" Grid.Row="1">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <Grid Margin="0,0,0,50" VerticalAlignment="Top">
+                                        <StackPanel>
+                                            <StackPanel>
+                                                <TextBlock
+                                                    Margin="15,20,0,0"
+                                                    FontSize="16"
+                                                    Foreground="{StaticResource #4C5BD4}"
+                                                    Text="Thông tin ứng viên" />
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Mã ứng viên: " />
+                                                    <TextBlock
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="UV" />
+                                                    <TextBlock
+                                                        x:Name="tbID"
+                                                        Grid.Column="2"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Tên ứng viên: " />
+                                                    <TextBlock
+                                                        x:Name="tbName"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Email: " />
+                                                    <TextBlock
+                                                        x:Name="tbEmail"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Số điện thoại: " />
+                                                    <TextBlock
+                                                        x:Name="tbPhone"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Giới tính: " />
+                                                    <TextBlock
+                                                        x:Name="tbSex"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Ngày tháng năm sinh: " />
+                                                    <TextBlock
+                                                        x:Name="tbDateOfBirth"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Quê quán: " />
+                                                    <TextBlock
+                                                        x:Name="tbHometown"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Trình độ học vấn: " />
+                                                    <TextBlock
+                                                        x:Name="tbEducation"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Trường học: " />
+                                                    <TextBlock
+                                                        x:Name="tbSchool"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Kinh nghiệm làm việc: " />
+                                                    <TextBlock
+                                                        x:Name="tbExp"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Tình trạng hôn nhân: " />
+                                                    <TextBlock
+                                                        x:Name="tbMarried"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Địa chỉ: " />
+                                                    <TextBlock
+                                                        x:Name="tbAddress"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid
+                                                    Height="1"
+                                                    Margin="0,15,0,0"
+                                                    Background="{StaticResource #474747}"
+                                                    Opacity="0.24" />
+                                            </StackPanel>
+                                            <StackPanel>
+                                                <TextBlock
+                                                    Margin="15,15,0,0"
+                                                    FontSize="16"
+                                                    Foreground="{StaticResource #4C5BD4}"
+                                                    Text="Thông tin tuyển dụng" />
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Nguồn ứng viên: " />
+                                                    <TextBlock
+                                                        x:Name="tbCvFrom"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Vị trí ứng tuyển: " />
+                                                    <TextBlock
+                                                        x:Name="tbTitle"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,15,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Nhân viên tuyển dụng: " />
+                                                    <TextBlock
+                                                        x:Name="tbHR"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid
+                                                    Height="1"
+                                                    Margin="0,15,0,0"
+                                                    Background="{StaticResource #474747}"
+                                                    Opacity="0.24" />
+                                            </StackPanel>
+                                            <StackPanel>
+                                                <TextBlock
+                                                    Margin="15,15,0,0"
+                                                    FontSize="16"
+                                                    Foreground="{StaticResource #4C5BD4}"
+                                                    Text="Quá trình tuyển dụng" />
+
+                                                <Grid Margin="15,20,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Thời gian nhận hồ sơ: " />
+                                                    <TextBlock
+                                                        x:Name="tbTimeSendCV"
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="" />
+                                                </Grid>
+                                                <Grid Margin="15,20,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Giai đoạn: " />
+                                                    <TextBlock
+                                                        Grid.Column="1"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Nhận hồ sơ" />
+                                                </Grid>
+                                                <Grid Margin="15,20,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock
+                                                        Grid.Column="0"
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        Foreground="{StaticResource #474747}"
+                                                        Text="Đánh giá hồ sơ: " />
+                                                    <Grid x:Name="gridStar" Grid.Column="1">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Path
+                                                            Grid.Column="0"
+                                                            Margin="5,0,0,0"
+                                                            Data="{StaticResource icon_star_large}"
+                                                            Stroke="{StaticResource #FDBE1E}">
+                                                            <Path.Style>
+                                                                <Style TargetType="Path">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding star1}" Value="true">
+                                                                            <Setter Property="Fill" Value="#FDBE1E" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding star1}" Value="false">
+                                                                            <Setter Property="Fill" Value="Transparent" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Path.Style>
+                                                        </Path>
+                                                        <Path
+                                                            Grid.Column="1"
+                                                            Margin="5,0,0,0"
+                                                            Data="{StaticResource icon_star_large}"
+                                                            Stroke="{StaticResource #FDBE1E}">
+                                                            <Path.Style>
+                                                                <Style TargetType="Path">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding star2}" Value="true">
+                                                                            <Setter Property="Fill" Value="#FDBE1E" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding star2}" Value="false">
+                                                                            <Setter Property="Fill" Value="Transparent" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Path.Style>
+                                                        </Path>
+                                                        <Path
+                                                            Grid.Column="2"
+                                                            Margin="5,0,0,0"
+                                                            Data="{StaticResource icon_star_large}"
+                                                            Stroke="{StaticResource #FDBE1E}">
+                                                            <Path.Style>
+                                                                <Style TargetType="Path">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding star3}" Value="true">
+                                                                            <Setter Property="Fill" Value="#FDBE1E" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding star3}" Value="false">
+                                                                            <Setter Property="Fill" Value="Transparent" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Path.Style>
+                                                        </Path>
+                                                        <Path
+                                                            Grid.Column="3"
+                                                            Margin="5,0,0,0"
+                                                            Data="{StaticResource icon_star_large}"
+                                                            Stroke="{StaticResource #FDBE1E}">
+                                                            <Path.Style>
+                                                                <Style TargetType="Path">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding star4}" Value="true">
+                                                                            <Setter Property="Fill" Value="#FDBE1E" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding star4}" Value="false">
+                                                                            <Setter Property="Fill" Value="Transparent" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Path.Style>
+                                                        </Path>
+                                                        <Path
+                                                            Grid.Column="4"
+                                                            Margin="5,0,0,0"
+                                                            Data="{StaticResource icon_star_large}"
+                                                            Stroke="{StaticResource #FDBE1E}">
+                                                            <Path.Style>
+                                                                <Style TargetType="Path">
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding star5}" Value="true">
+                                                                            <Setter Property="Fill" Value="#FDBE1E" />
+                                                                        </DataTrigger>
+                                                                        <DataTrigger Binding="{Binding star5}" Value="false">
+                                                                            <Setter Property="Fill" Value="Transparent" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </Path.Style>
+                                                        </Path>
+                                                    </Grid>
+                                                </Grid>
+                                                <Grid Margin="15,0,0,0">
+                                                    <StackPanel Margin="122,0,0,0">
+                                                        <ItemsControl x:Name="icSkillVote">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Grid Margin="0,20,0,0">
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition Width="210" />
+                                                                            <ColumnDefinition Width="*" />
+                                                                        </Grid.ColumnDefinitions>
+                                                                        <Grid Grid.Column="0">
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="Auto" />
+                                                                                <ColumnDefinition Width="Auto" />
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <TextBlock
+                                                                                Grid.Column="0"
+                                                                                VerticalAlignment="Center"
+                                                                                FontSize="16"
+                                                                                Foreground="{StaticResource #474747}"
+                                                                                Text="{Binding skill_name}" />
+                                                                            <TextBlock
+                                                                                Grid.Column="1"
+                                                                                VerticalAlignment="Center"
+                                                                                FontSize="16"
+                                                                                Foreground="{StaticResource #474747}"
+                                                                                Text=":" />
+                                                                        </Grid>
+                                                                        <Grid Grid.Column="1">
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition />
+                                                                                <ColumnDefinition />
+                                                                                <ColumnDefinition />
+                                                                                <ColumnDefinition />
+                                                                                <ColumnDefinition />
+                                                                            </Grid.ColumnDefinitions>
+                                                                            <Path
+                                                                                Grid.Column="0"
+                                                                                Margin="5,0,0,0"
+                                                                                Data="{StaticResource icon_star_medium}"
+                                                                                Stroke="{StaticResource #FDBE1E}">
+                                                                                <Path.Style>
+                                                                                    <Style TargetType="Path">
+                                                                                        <Style.Triggers>
+                                                                                            <DataTrigger Binding="{Binding star1}" Value="true">
+                                                                                                <Setter Property="Fill" Value="#FDBE1E" />
+                                                                                            </DataTrigger>
+                                                                                            <DataTrigger Binding="{Binding star1}" Value="false">
+                                                                                                <Setter Property="Fill" Value="Transparent" />
+                                                                                            </DataTrigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </Path.Style>
+                                                                            </Path>
+                                                                            <Path
+                                                                                Grid.Column="1"
+                                                                                Margin="5,0,0,0"
+                                                                                Data="{StaticResource icon_star_medium}"
+                                                                                Stroke="{StaticResource #FDBE1E}">
+                                                                                <Path.Style>
+                                                                                    <Style TargetType="Path">
+                                                                                        <Style.Triggers>
+                                                                                            <DataTrigger Binding="{Binding star2}" Value="true">
+                                                                                                <Setter Property="Fill" Value="#FDBE1E" />
+                                                                                            </DataTrigger>
+                                                                                            <DataTrigger Binding="{Binding star2}" Value="false">
+                                                                                                <Setter Property="Fill" Value="Transparent" />
+                                                                                            </DataTrigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </Path.Style>
+                                                                            </Path>
+                                                                            <Path
+                                                                                Grid.Column="2"
+                                                                                Margin="5,0,0,0"
+                                                                                Data="{StaticResource icon_star_medium}"
+                                                                                Stroke="{StaticResource #FDBE1E}">
+                                                                                <Path.Style>
+                                                                                    <Style TargetType="Path">
+                                                                                        <Style.Triggers>
+                                                                                            <DataTrigger Binding="{Binding star3}" Value="true">
+                                                                                                <Setter Property="Fill" Value="#FDBE1E" />
+                                                                                            </DataTrigger>
+                                                                                            <DataTrigger Binding="{Binding star3}" Value="false">
+                                                                                                <Setter Property="Fill" Value="Transparent" />
+                                                                                            </DataTrigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </Path.Style>
+                                                                            </Path>
+                                                                            <Path
+                                                                                Grid.Column="3"
+                                                                                Margin="5,0,0,0"
+                                                                                Data="{StaticResource icon_star_medium}"
+                                                                                Stroke="{StaticResource #FDBE1E}">
+                                                                                <Path.Style>
+                                                                                    <Style TargetType="Path">
+                                                                                        <Style.Triggers>
+                                                                                            <DataTrigger Binding="{Binding star4}" Value="true">
+                                                                                                <Setter Property="Fill" Value="#FDBE1E" />
+                                                                                            </DataTrigger>
+                                                                                            <DataTrigger Binding="{Binding star4}" Value="false">
+                                                                                                <Setter Property="Fill" Value="Transparent" />
+                                                                                            </DataTrigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </Path.Style>
+                                                                            </Path>
+                                                                            <Path
+                                                                                Grid.Column="4"
+                                                                                Margin="5,0,0,0"
+                                                                                Data="{StaticResource icon_star_medium}"
+                                                                                Stroke="{StaticResource #FDBE1E}">
+                                                                                <Path.Style>
+                                                                                    <Style TargetType="Path">
+                                                                                        <Style.Triggers>
+                                                                                            <DataTrigger Binding="{Binding star5}" Value="true">
+                                                                                                <Setter Property="Fill" Value="#FDBE1E" />
+                                                                                            </DataTrigger>
+                                                                                            <DataTrigger Binding="{Binding star5}" Value="false">
+                                                                                                <Setter Property="Fill" Value="Transparent" />
+                                                                                            </DataTrigger>
+                                                                                        </Style.Triggers>
+                                                                                    </Style>
+                                                                                </Path.Style>
+                                                                            </Path>
+                                                                        </Grid>
+                                                                    </Grid>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </StackPanel>
+                                                </Grid>
+                                                <Grid Margin="15,20,15,0">
+                                                    <Rectangle
+                                                        Height="0.5"
+                                                        HorizontalAlignment="Stretch"
+                                                        Stroke="{StaticResource #474747}"
+                                                        StrokeDashArray="2,4"
+                                                        StrokeThickness="1" />
+                                                </Grid>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                        <Grid
+                            x:Name="gridRight"
+                            Height="696"
+                            MinWidth="390"
+                            VerticalAlignment="Top">
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                                <Grid Background="Transparent">
+                                    <TextBlock
+                                        x:Name="tbViewFile"
+                                        Margin="0,20,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Cursor="Hand"
+                                        FontSize="18"
+                                        Foreground="{StaticResource #4C5BD4}"
+                                        MouseLeftButtonDown="ViewFileCandidate"
+                                        Text="Xem CV ứng viên"
+                                        TextDecorations="Underline"
+                                        Visibility="Collapsed" />
+                                    <TextBlock
+                                        x:Name="tbNoFile"
+                                        Margin="0,20,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        FontSize="18"
+                                        Foreground="{StaticResource #474747}"
+                                        Text="Chưa cập nhật hồ sơ ứng viên" />
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

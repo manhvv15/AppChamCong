@@ -1,0 +1,223 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.LoaiHinhChamCong.ucLoaiHinhChamCong"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.LoaiHinhChamCong"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid x:Name="gridLoaiHinhChamCong">
+        <StackPanel Margin="20">
+            <TextBlock
+                Margin="0,5"
+                FontSize="16"
+                FontWeight="DemiBold">
+                Cài đặt loại hình chấm công :
+            </TextBlock>
+            <TextBlock Margin="0,5" FontSize="16">
+                - Chấm công có lịch làm việc, ca làm việc (Bạn cần tạo lịch làm việc, ca làm việc để được phép chấm công)
+            </TextBlock>
+            <TextBlock Margin="0,5" FontSize="16">
+                - Chấm công không có lịch làm vệc, ca làm việc (Bạn không cần thiết tạo lịch làm việc, ca làm việc để được phép chấm công)
+            </TextBlock>
+            <TextBlock
+                Margin="0,5"
+                FontSize="16"
+                FontWeight="DemiBold">
+                Yêu cầu phải chọn 1 trong 2 loại hoặc cũng có thể chọn cả 2
+            </TextBlock>
+
+            <StackPanel Margin="20,15">
+                <DockPanel
+                    x:Name="dopOffTimeKeepWithoutCanlendar_Shift"
+                    Height="44"
+                    Background="Transparent"
+                    Cursor="Hand">
+                    <DockPanel.Style>
+                        <Style TargetType="DockPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding}" Value="1">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding}" Value="3">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DockPanel.Style>
+                    <Border
+                        x:Name="bodBackOffTimeKeepWithoutCanlendar_Shift"
+                        Width="40"
+                        Height="21"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="{StaticResource #1677ff}"
+                        CornerRadius="9"
+                        MouseLeftButtonUp="BackOffTimeKeepWithoutCanlendar_Shift">
+                        <DockPanel>
+                            <Border
+                                x:Name="btnOffTimeKeepWithoutCanlendar_Shift"
+                                Width="18"
+                                Height="18"
+                                Margin="2,0,2,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Background="#FFFFFF"
+                                CornerRadius="16" />
+                        </DockPanel>
+                    </Border>
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Chấm công không cần lịch làm việc, ca làm việc"
+                        TextAlignment="Justify"
+                        TextWrapping="Wrap" />
+                </DockPanel>
+                <DockPanel
+                    x:Name="dopOnTimeKeepWithoutCanlendar_Shift"
+                    Height="44"
+                    Background="Transparent"
+                    Cursor="Hand">
+                    <DockPanel.Style>
+                        <Style TargetType="DockPanel">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=dopOffTimeKeepWithoutCanlendar_Shift, Path=Visibility}" Value="Visible">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DockPanel.Style>
+                    <Border
+                        x:Name="bodBackOnTimeKeepWithoutCanlendar_Shift"
+                        Width="40"
+                        Height="21"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="#ccc"
+                        CornerRadius="9"
+                        MouseLeftButtonUp="BackOnTimeKeepWithoutCanlendar_Shift">
+                        <DockPanel>
+                            <Border
+                                x:Name="btnOnTimeKeepWithoutCanlendar_Shift"
+                                Width="18"
+                                Height="18"
+                                Margin="2,0,2,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="#FFFFFF"
+                                CornerRadius="16" />
+                        </DockPanel>
+                    </Border>
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Chấm công không cần lịch làm việc, ca làm việc"
+                        TextAlignment="Justify"
+                        TextWrapping="Wrap" />
+                </DockPanel>
+                <DockPanel
+                    x:Name="dopOffTimeKeepWithCanlendar_Shift"
+                    Height="44"
+                    Background="Transparent"
+                    Cursor="Hand">
+                    <DockPanel.Style>
+                        <Style TargetType="DockPanel">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding}" Value="2">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding}" Value="3">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DockPanel.Style>
+                    <Border
+                        x:Name="bodBackOffTimeKeepWithCanlendar_Shift"
+                        Width="40"
+                        Height="21"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="{StaticResource #1677ff}"
+                        CornerRadius="9"
+                        MouseLeftButtonUp="BackOffTimeKeepWithCanlendar_Shift">
+                        <DockPanel>
+                            <Border
+                                x:Name="btnOffTimeKeepWithCanlendar_Shift"
+                                Width="18"
+                                Height="18"
+                                Margin="2,0,2,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Background="#FFFFFF"
+                                CornerRadius="16" />
+                        </DockPanel>
+                    </Border>
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Chấm công theo lịch làm việc, ca làm việc"
+                        TextAlignment="Justify"
+                        TextWrapping="Wrap" />
+                </DockPanel>
+                <DockPanel
+                    x:Name="dopOnTimeKeepWithCanlendar_Shift"
+                    Height="44"
+                    Background="Transparent"
+                    Cursor="Hand">
+                    <DockPanel.Style>
+                        <Style TargetType="DockPanel">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=dopOffTimeKeepWithCanlendar_Shift, Path=Visibility}" Value="Visible">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DockPanel.Style>
+                    <Border
+                        x:Name="bodBackOnTimeKeepWithCanlendar_Shift"
+                        Width="40"
+                        Height="21"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Background="#ccc"
+                        CornerRadius="9"
+                        MouseLeftButtonUp="BackOnTimeKeepWithCanlendar_Shift">
+                        <DockPanel>
+                            <Border
+                                x:Name="btnOnTimeKeepWithCanlendar_Shift"
+                                Width="18"
+                                Height="18"
+                                Margin="2,0,2,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="#FFFFFF"
+                                CornerRadius="16" />
+                        </DockPanel>
+                    </Border>
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Foreground="#474747"
+                        Text="Chấm công theo lịch làm việc, ca làm việc"
+                        TextAlignment="Justify"
+                        TextWrapping="Wrap" />
+                </DockPanel>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

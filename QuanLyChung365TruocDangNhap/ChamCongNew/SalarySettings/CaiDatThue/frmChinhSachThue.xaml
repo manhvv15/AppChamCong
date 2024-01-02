@@ -1,0 +1,448 @@
+﻿<Page x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings.CaiDatThue.frmChinhSachThue"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings.CaiDatThue"
+      xmlns:tool="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Resouce.tool"
+      mc:Ignorable="d"
+      Title="frmChinhSachThue">
+
+    <Grid>
+        <StackPanel>
+            <Border x:Name="btnThemChinhSachThue" Grid.Column="1" Background="#42D778" Width="134" Height="43" CornerRadius="5" Margin="0,10,10,0" HorizontalAlignment="Right" Cursor="Hand" MouseLeftButtonUp="btnThemChinhSachThue_MouseLeftButtonUp">
+                <DockPanel HorizontalAlignment="Center" Margin="0,0,7,0">
+                    <TextBlock Text="+" FontSize="25" Margin="0 -5 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Foreground="#ffffff" ></TextBlock>
+                    <TextBlock Text="Thêm mới" FontSize="16" HorizontalAlignment="Left" FontWeight="Medium" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#ffffff"></TextBlock>
+                </DockPanel>
+            </Border>
+            <WrapPanel Margin="0,15,0,20">
+                <ListView x:Name="lsvChinhSachThue"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Margin="5,0,0,0" PreviewMouseWheel="lsvChinhSachThue_PreviewMouseWheel">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Grid>
+                                            <Border CornerRadius="10" Width="440"  Margin="20 0 20 20"  Background="#ffffff" >
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding cl_id}" Value="1">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <Border.Effect>
+                                                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                                </Border.Effect>
+                                                <Grid Margin="10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="55"></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Border Grid.Row="0" Background="#043379" CornerRadius="10 10 0 0" VerticalAlignment="Top" Margin="-10 -10 -10 0">
+                                                        <DockPanel >
+                                                            <TextBlock Text="Thuế theo hệ số cố định" FontSize="16" VerticalAlignment="Center" FontWeight="Medium" Foreground="#FFFFFF" Margin="10,0,0,0"></TextBlock>
+                                                            <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+                                                                <Grid>
+                                                                    <Menu Margin="0 0 0 0"  Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                                        <MenuItem  Style="{DynamicResource MenuItemThue}" FontSize="15">
+                                                                            <MenuItem  Height="40" Click="dopAddSaff_Click" x:Name="btnThemNV" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="Medium">
+                                                                                <MenuItem.Icon >
+                                                                                    <Grid Margin="0 0 -5 -15">
+                                                                                        <Ellipse x:Name="iconAccount1cd" Margin="0 0 0 15" Width="6.72" Height="7" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                                        <Path Width="24" Height="24" x:Name="iconAccount2cd" VerticalAlignment="Top" Margin="0 0 0 0" Data="{StaticResource iconAccount}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                                    </Grid>
+                                                                                </MenuItem.Icon>
+                                                                            </MenuItem>
+                                                                            <MenuItem Height="35" x:Name="dopListSaffSmall"  Click="dopListSaffSmall_Click" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                                <MenuItem.Icon>
+                                                                                    <Grid Margin="2 -5 -2 -10">
+                                                                                        <Border x:Name="iconDanhSach1cd" HorizontalAlignment="Left" Width="16" Height="19"  BorderBrush="#474747" CornerRadius="3" BorderThickness="1.5">
+                                                                                            <Path x:Name="iconDanhSach2cd" Margin="-5 -10 0 0"  VerticalAlignment="Center" Data="{StaticResource iconDanhSach}" Stroke="#474747" />
+                                                                                        </Border>
+                                                                                    </Grid>
+                                                                                </MenuItem.Icon>
+                                                                            </MenuItem>
+                                                                        </MenuItem>
+                                                                    </Menu>
+                                                                </Grid>
+                                                            </Border>
+                                                        </DockPanel>
+                                                    </Border>
+                                                    <StackPanel Grid.Row="1">
+                                                        <DockPanel Margin="10,10,0,10">
+                                                            <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                                            <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                        </DockPanel>
+                                                        <TextBlock Text="Thuế thu nhập cá nhân áp dụng với người lao động không ký hợp đồng hoặc ký hợp đồng dưới 3 tháng và có từng lần chi trả thu nhập >2 triệu đồng." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="2">
+                                                        <DockPanel Margin="10,10,0,10">
+                                                            <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                                            <TextBlock Text="Cách tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                        </DockPanel>
+                                                        <TextBlock Text="Theo hệ số cố định dựa trên quy định mới nhất về cách tính thuế thu nhập cá nhân của Nhà nước năm 2021." TextWrapping="Wrap" Margin="10,0,10,10" FontSize="16" Foreground="#474747"></TextBlock>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Border>
+                                            <Border CornerRadius="10" Width="440" Margin="15 0 20 20"  Background="#ffffff" >
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding cl_id}" Value="2">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <Border.Effect>
+                                                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                                </Border.Effect>
+                                                <Grid Margin="10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="55"></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Border Grid.Row="0" Background="#043379" CornerRadius="10 10 0 0" VerticalAlignment="Top" Margin="-10 -10 -10 0">
+                                                        <DockPanel >
+                                                            <TextBlock Text="Thuế theo luỹ tiền" FontSize="16" VerticalAlignment="Center" FontWeight="Medium" Foreground="#FFFFFF" Margin="10,0,0,0"></TextBlock>
+                                                            <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+                                                                <Grid>
+                                                                    <Menu Margin="0 0 0 0"  Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                                        <MenuItem  Style="{DynamicResource MenuItemThue}" FontSize="15">
+                                                                            <MenuItem  Height="40" Click="dopAddSaff_Click" x:Name="btnThemNV1" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="Medium">
+                                                                                <MenuItem.Icon >
+                                                                                    <Grid Margin="0 0 -5 -15">
+                                                                                        <Ellipse x:Name="iconAccount1lt" Margin="0 0 0 15" Width="6.72" Height="7" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                                        <Path Width="24" Height="24" x:Name="iconAccount2lt" VerticalAlignment="Top" Margin="0 0 0 0" Data="{StaticResource iconAccount}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                                    </Grid>
+                                                                                </MenuItem.Icon>
+                                                                            </MenuItem>
+                                                                            <MenuItem Height="35" x:Name="dopListSaffSmall0" Click="dopListSaffSmall0_Click"  Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                                <MenuItem.Icon>
+                                                                                    <Grid Margin="2 -5 -2 -10">
+                                                                                        <Border x:Name="iconDanhSach1lt"  HorizontalAlignment="Left" Width="16" Height="19"  BorderBrush="#474747" CornerRadius="3" BorderThickness="1.5">
+                                                                                            <Path x:Name="iconDanhSach2lt" Margin="-5 -10 0 0"  VerticalAlignment="Center" Data="{StaticResource iconDanhSach}" Stroke="#474747" />
+                                                                                        </Border>
+                                                                                    </Grid>
+                                                                                </MenuItem.Icon>
+                                                                            </MenuItem>
+                                                                        </MenuItem>
+                                                                    </Menu>
+                                                                </Grid>
+                                                            </Border>
+                                                        </DockPanel>
+                                                    </Border>
+                                                    <StackPanel Grid.Row="1">
+                                                        <DockPanel Margin="10,0,0,0">
+                                                            <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                                            <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                        </DockPanel>
+                                                        <TextBlock Text="Thuế thu nhập cá nhân áp dụng với các cá nhân cư trú và ký hợp đồng lao động từ 3 tháng trở lên." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="2">
+                                                        <DockPanel Margin="10,0,0,0">
+                                                            <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                                            <TextBlock Text="Cách tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                        </DockPanel>
+                                                        <TextBlock Text="Tính theo từng bậc thu nhập, mỗi bậc thu nhập sẽ có một mức thuế suất dựa trên quy định mới nhất về cách tính thuế thu nhập cá nhân của Nhà nước năm 2021." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Border>
+                                            <Border Width="440" Margin="15 0 20 20" Background="#ffffff" CornerRadius="10">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Visible"></Setter>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding cl_id}" Value="2">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding cl_id}" Value="1">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <Border.Effect>
+                                                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                                </Border.Effect>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="55"></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Border Grid.Row="0" Background="#043379" CornerRadius="10 10 0 0" VerticalAlignment="Top" Margin="0 0 0 0">
+                                                        <DockPanel>
+                                                            <TextBlock Text="{Binding cl_name}" FontSize="16" FontWeight="Medium" Foreground="#FFFFFF" Margin="10,8,0,8" TextWrapping="Wrap" Width="300"></TextBlock>
+                                                            <Menu Margin="0 0 20 0"  Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                                <MenuItem  Style="{DynamicResource MenuItemThue}" FontSize="15">
+                                                                    <MenuItem  x:Name="btnThemNVLst" Click="btnThemNVLst_Click"  Height="40" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="Medium">
+                                                                        <MenuItem.Icon >
+                                                                            <Grid Margin="0 0 -5 -15">
+                                                                                <Ellipse x:Name="iconAccount1list" Margin="0 0 0 15" Width="6.72" Height="7" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                                <Path Width="24" Height="24" x:Name="iconAccount2list" VerticalAlignment="Top" Margin="0 0 0 0" Data="{StaticResource iconAccount}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                    <MenuItem Height="35" x:Name="btnDanhSachNVLst" Click="btnDanhSachNVLst_Click" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                        <MenuItem.Icon>
+                                                                            <Grid Margin="2 -5 -2 -10">
+                                                                                <Border x:Name="iconDanhSach1list"  HorizontalAlignment="Left" Width="16" Height="19"  BorderBrush="#474747" CornerRadius="3" BorderThickness="1.5">
+                                                                                    <Path x:Name="iconDanhSach2list" Margin="-5 -10 0 0"  VerticalAlignment="Center" Data="{StaticResource iconDanhSach}" Stroke="#474747" />
+                                                                                </Border>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                    <MenuItem Height="35" x:Name="btnSua" Click="btnSua_Click" Header="Chỉnh sửa" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                        <MenuItem.Icon>
+                                                                            <Grid Margin="0 0 -10 -10">
+                                                                                <Path x:Name="iconChinhSua"  Data="{StaticResource iconChinhSua1}" StrokeThickness="1.5" Stroke="#474747"/>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                    <MenuItem Height="35" Margin="0 5 0 5" x:Name="btnXoa" Click="btnXoa_Click"  Header="Xóa chính sách thuế" FontSize="15" Background="#FFFFFF" BorderThickness="0 1 0 0" BorderBrush="#666666" FontWeight="DemiBold" Foreground="#474747">
+                                                                        <MenuItem.Icon>
+                                                                            <Grid Margin="-3 -5 -5 -10">
+                                                                                <Border BorderBrush="#666666">
+                                                                                    <Path x:Name="iconXoa"  Data="{StaticResource iconDeletePathRed}" StrokeThickness="1.5" Fill="#474747"  />
+                                                                                </Border>
+                                                                            </Grid>
+                                                                        </MenuItem.Icon>
+                                                                    </MenuItem>
+                                                                </MenuItem>
+                                                            </Menu>
+                                                        </DockPanel>
+                                                    </Border>
+                                                    <StackPanel Grid.Row="1" Margin="0,5,0,5">
+                                                        <DockPanel Margin="10,0,0,0">
+                                                            <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                                            <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                        </DockPanel>
+                                                        <TextBlock Text="{Binding cl_note}" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Row="2" Margin="0,5,0,5">
+                                                        <DockPanel Margin="10,0,0,0">
+                                                            <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                                            <TextBlock Text="Cách tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                                        </DockPanel>
+                                                        <TextBlock Text="{Binding TinhLuongf}" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <!--<ListView.Resources>
+                        <DataTemplate x:Key="LastItemTemplate">
+                            <WrapPanel VerticalAlignment="Center">
+                                <Border CornerRadius="10" Width="440" Height="336" Margin="20 20 10 0"  Background="#ffffff" >
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                    </Border.Effect>
+                                    <Grid Margin="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="55"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Row="0" Background="#043379" CornerRadius="10 10 0 0" VerticalAlignment="Top" Margin="-10 -10 -10 0">
+                                            <DockPanel >
+                                                <TextBlock Text="Thuế theo hệ số cố định" FontSize="16" VerticalAlignment="Center" FontWeight="Medium" Foreground="#FFFFFF" Margin="10,0,0,0"></TextBlock>
+                                                <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+                                                    <Grid>
+                                                        <Menu Margin="0 0 0 0"  Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                            <MenuItem  Style="{DynamicResource MenuItemThue}" FontSize="15">
+                                                                <MenuItem  Height="40" Click="dopAddSaff_Click" x:Name="btnThemNV" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="Medium">
+                                                                    <MenuItem.Icon >
+                                                                        <Grid Margin="0 0 -5 -15">
+                                                                            <Ellipse x:Name="iconAccount1" Margin="0 0 0 15" Width="6.72" Height="7" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                            <Path Width="24" Height="24" x:Name="iconAccount2" VerticalAlignment="Top" Margin="0 0 0 0" Data="{StaticResource iconAccount}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                        </Grid>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                                <MenuItem Height="35" x:Name="dopListSaffSmall"  Click="dopListSaffSmall_Click" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                    <MenuItem.Icon>
+                                                                        <Grid Margin="2 -5 -2 -10">
+                                                                            <Border x:Name="iconDanhSach1" HorizontalAlignment="Left" Width="16" Height="19"  BorderBrush="#474747" CornerRadius="3" BorderThickness="1.5">
+                                                                                <Path x:Name="iconDanhSach2" Margin="-5 -10 0 0"  VerticalAlignment="Center" Data="{StaticResource iconDanhSach}" Stroke="#474747" />
+                                                                            </Border>
+                                                                        </Grid>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </MenuItem>
+                                                        </Menu>
+                                                    </Grid>
+                                                </Border>
+                                            </DockPanel>
+                                        </Border>
+                                        <StackPanel Grid.Row="1">
+                                            <DockPanel Margin="10,0,0,0">
+                                                <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                                <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                            </DockPanel>
+                                            <TextBlock Text="Thuế thu nhập cá nhân áp dụng với người lao động không ký hợp đồng hoặc ký hợp đồng dưới 3 tháng và có từng lần chi trả thu nhập >2 triệu đồng." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="2">
+                                            <DockPanel Margin="10,0,0,0">
+                                                <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                                <TextBlock Text="Cách tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                            </DockPanel>
+                                            <TextBlock Text="Theo hệ số cố định dựa trên quy định mới nhất về cách tính thuế thu nhập cá nhân của Nhà nước năm 2021." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                                <Border CornerRadius="10" Width="440" Height="336" Margin="20 20 0 0"  Background="#ffffff" >
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                    </Border.Effect>
+                                    <Grid Margin="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="55"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Row="0" Background="#043379" CornerRadius="10 10 0 0" VerticalAlignment="Top" Margin="-10 -10 -10 0">
+                                            <DockPanel >
+                                                <TextBlock Text="Thuế theo luỹ tiền" FontSize="16" VerticalAlignment="Center" FontWeight="Medium" Foreground="#FFFFFF" Margin="10,0,0,0"></TextBlock>
+                                                <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+                                                    <Grid>
+                                                        <Menu Margin="0 0 0 0"  Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                            <MenuItem  Style="{DynamicResource MenuItemThue}" FontSize="15">
+                                                                <MenuItem  Height="40" Click="dopAddSaff_Click" x:Name="btnThemNV1" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="Medium">
+                                                                    <MenuItem.Icon >
+                                                                        <Grid Margin="0 0 -5 -15">
+                                                                            <Ellipse x:Name="iconAccount0" Margin="0 0 0 15" Width="6.72" Height="7" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                            <Path Width="24" Height="24" x:Name="iconAccount" VerticalAlignment="Top" Margin="0 0 0 0" Data="{StaticResource iconAccount}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                        </Grid>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                                <MenuItem Height="35" x:Name="dopListSaffSmall0" Click="dopListSaffSmall0_Click"  Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                                    <MenuItem.Icon>
+                                                                        <Grid Margin="2 -5 -2 -10">
+                                                                            <Border x:Name="iconDanhSach0"  HorizontalAlignment="Left" Width="16" Height="19"  BorderBrush="#474747" CornerRadius="3" BorderThickness="1.5">
+                                                                                <Path x:Name="iconDanhSach" Margin="-5 -10 0 0"  VerticalAlignment="Center" Data="{StaticResource iconDanhSach}" Stroke="#474747" />
+                                                                            </Border>
+                                                                        </Grid>
+                                                                    </MenuItem.Icon>
+                                                                </MenuItem>
+                                                            </MenuItem>
+                                                        </Menu>
+                                                    </Grid>
+                                                </Border>
+                                            </DockPanel>
+                                        </Border>
+                                        <StackPanel Grid.Row="1">
+                                            <DockPanel Margin="10,0,0,0">
+                                                <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                                <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                            </DockPanel>
+                                            <TextBlock Text="Thuế thu nhập cá nhân áp dụng với các cá nhân cư trú và ký hợp đồng lao động từ 3 tháng trở lên." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="2">
+                                            <DockPanel Margin="10,0,0,0">
+                                                <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                                <TextBlock Text="Cách tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                            </DockPanel>
+                                            <TextBlock Text="Tính theo từng bậc thu nhập, mỗi bậc thu nhập sẽ có một mức thuế suất dựa trên quy định mới nhất về cách tính thuế thu nhập cá nhân của Nhà nước năm 2021." TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.Resources>-->
+                    <!--<ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="440" Margin="10 20 0 0">
+                                <Border Background="#ffffff" CornerRadius="10">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.4"></DropShadowEffect>
+                                    </Border.Effect>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="55"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Row="0" Background="#043379" CornerRadius="10 10 0 0" VerticalAlignment="Top" Margin="0 0 0 0">
+                                            <DockPanel>
+                                                <TextBlock Text="{Binding cl_name}" FontSize="16" FontWeight="Medium" Foreground="#FFFFFF" Margin="10,8,0,8" TextWrapping="Wrap" Width="300"></TextBlock>
+                                                <Menu Margin="0 0 20 0"  Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                                    <MenuItem  Style="{DynamicResource MenuItemThue}" FontSize="15">
+                                                        <MenuItem  x:Name="btnThemNVLst" Click="btnThemNVLst_Click"  Height="40" Header="Thêm nhân viên" FontSize="15" Background="{DynamicResource #FFFFFF}" BorderThickness="0"  Foreground="#474747" FontWeight="Medium">
+                                                            <MenuItem.Icon >
+                                                                <Grid Margin="0 0 -5 -15">
+                                                                    <Ellipse x:Name="iconAccount1" Margin="0 0 0 15" Width="6.72" Height="7" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                    <Path Width="24" Height="24" x:Name="iconAccount2" VerticalAlignment="Top" Margin="0 0 0 0" Data="{StaticResource iconAccount}" Stroke="#474747" StrokeThickness="1.5"/>
+                                                                </Grid>
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                        <MenuItem Height="35" x:Name="btnDanhSachNVLst" Click="btnDanhSachNVLst_Click" Header="Danh sách nhân viên" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                            <MenuItem.Icon>
+                                                                <Grid Margin="2 -5 -2 -10">
+                                                                    <Border x:Name="iconDanhSach1"  HorizontalAlignment="Left" Width="16" Height="19"  BorderBrush="#474747" CornerRadius="3" BorderThickness="1.5">
+                                                                        <Path x:Name="iconDanhSach2" Margin="-5 -10 0 0"  VerticalAlignment="Center" Data="{StaticResource iconDanhSach}" Stroke="#474747" />
+                                                                    </Border>
+                                                                </Grid>
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                        <MenuItem Height="35" x:Name="btnSua" Click="btnSua_Click" Header="Chỉnh sửa" FontSize="15" Background="#FFFFFF" BorderThickness="0"  FontWeight="DemiBold" Foreground="#474747">
+                                                            <MenuItem.Icon>
+                                                                <Grid Margin="0 0 -10 -10">
+                                                                    <Path x:Name="iconChinhSua"  Data="{StaticResource iconChinhSua1}" StrokeThickness="1.5" Stroke="#474747"/>
+                                                                </Grid>
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                        <MenuItem Height="35" Margin="0 5 0 5" x:Name="btnXoa" Click="btnXoa_Click"  Header="Xóa chính sách thuế" FontSize="15" Background="#FFFFFF" BorderThickness="0 1 0 0" BorderBrush="#666666" FontWeight="DemiBold" Foreground="#474747">
+                                                            <MenuItem.Icon>
+                                                                <Grid Margin="-3 -5 -5 -10">
+                                                                    <Border BorderBrush="#666666">
+                                                                        <Path x:Name="iconXoa"  Data="{StaticResource iconDeletePathRed}" StrokeThickness="1.5" Fill="#474747"  />
+                                                                    </Border>
+                                                                </Grid>
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                    </MenuItem>
+                                                </Menu>
+                                            </DockPanel>
+                                        </Border>
+                                        <StackPanel Grid.Row="1" Margin="0,5,0,5">
+                                            <DockPanel Margin="10,0,0,0">
+                                                <Path Data="{DynamicResource iconMieuTa}" Stroke="#474747"></Path>
+                                                <TextBlock Text="Miêu tả" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                            </DockPanel>
+                                            <TextBlock Text="{Binding cl_note}" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="2" Margin="0,5,0,5">
+                                            <DockPanel Margin="10,0,0,0">
+                                                <Path Data="{DynamicResource iconCachTinh}" Stroke="#474747"></Path>
+                                                <TextBlock Text="Cách tính" FontSize="16" Margin="10,0,0,0" Foreground="#474747"></TextBlock>
+                                            </DockPanel>
+                                            <TextBlock Text="{Binding TinhLuongf}" TextWrapping="Wrap" Margin="10,5,10,0" FontSize="16" Foreground="#474747"></TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>-->
+                </ListView>
+            </WrapPanel>
+        </StackPanel>
+        <tool:LoadingSpinner x:Name="loading" Visibility="Collapsed" />
+    </Grid>
+</Page>

@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.Popup.HoaHong.CaiDatHoaHong.ucThemMoiCacLoaiHoaHong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.Popup.HoaHong.CaiDatHoaHong"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Fill="#000000" Opacity="0.5" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp"></Rectangle>
+        <Border CornerRadius="10" Height="{Binding ElementName=st, Path=ActualHeight}" Width="600" Background="#ffffff">
+            <StackPanel>
+                <StackPanel x:Name="st">
+                    <Border CornerRadius="10 10 0 0" Background="#4c5bd4" Height="55">
+                        <DockPanel>
+                            <TextBlock x:Name="textTieuDe" Margin="170 0 0 0" Text="Thêm mới hoa hồng doanh thu" Grid.Column="1" FontSize="20" Foreground="#ffffff" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <Border x:Name="btnClose" Background="#4c5bd4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="20" Height="20" MouseLeftButtonUp="btnClose_MouseLeftButtonUp">
+                                <Path Data="{DynamicResource iconClose}" Stroke="#ffffff" StrokeThickness="2" Stretch="Uniform"></Path>
+                            </Border>
+                        </DockPanel>
+                    </Border>
+                    <StackPanel Margin="20">
+                        <DockPanel>
+                            <TextBlock  FontSize="16" Foreground="#474747">
+                                <Run x:Name="tb_Ten" Text="Tên sản phẩm"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                            </TextBlock>
+                        </DockPanel>
+                        <Border CornerRadius="5" Margin="0 5 0 0 " MinHeight="34" BorderThickness="1" BorderBrush="{DynamicResource #666666}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="37*"/>
+                                    <ColumnDefinition Width="312*"/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="tb_NhapTen" Background="Transparent" Margin="10 5 0 -5" MinHeight="34" VerticalAlignment="Center"  FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Grid.ColumnSpan="3"/>
+                                <TextBlock x:Name="tb_ChuAn" FontSize="15" Margin="10 0 0 0" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="Nhập tên sản phẩm" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.ColumnSpan="3">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=tb_NhapTen, Path=Text}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                        <TextBlock x:Name="tb_validateTen" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                    </StackPanel>
+                    <StackPanel x:Name="stp_NhapTien1" Margin="20 0 20 0">
+                        <DockPanel>
+                            <TextBlock  FontSize="16" Foreground="#474747">
+                                <Run x:Name="tb_Tien1" Text="Doanh thu nhỏ nhất"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                            </TextBlock>
+                        </DockPanel>
+                        <Border CornerRadius="5" Margin="0 5 0 0 " Height="34" BorderThickness="1" BorderBrush="{DynamicResource #666666}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="37*"/>
+                                    <ColumnDefinition Width="312*"/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="tb_NhapTien1"  Background="Transparent" Margin="10 5 0 -5" PreviewTextInput="tb_NhapTien1_PreviewTextInput" Height="34" VerticalAlignment="Center"  FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Grid.ColumnSpan="3"/>
+                                <TextBlock x:Name="tb_ChuAnTien1" FontSize="15" Margin="10 0 0 0" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="0" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.ColumnSpan="3">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=tb_NhapTien1, Path=Text}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                        <TextBlock x:Name="tb_validateTien1" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                    </StackPanel>
+                    <StackPanel x:Name="stp_NhapTien2" Margin="20">
+                        <DockPanel>
+                            <TextBlock FontSize="16" Foreground="#474747">
+                                <Run x:Name="tb_Tien2" Text="Doanh thu lớn nhất"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                            </TextBlock>
+                        </DockPanel>
+                        <Border CornerRadius="5" Margin="0 5 0 0 " Height="34" BorderThickness="1" BorderBrush="{DynamicResource #666666}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="37*"/>
+                                    <ColumnDefinition Width="312*"/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="tb_NhapTien2" Background="Transparent" Margin="10 5 0 -5" PreviewTextInput="tb_NhapTien2_PreviewTextInput" Height="34" VerticalAlignment="Center"  FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Grid.ColumnSpan="3"/>
+                                <TextBlock x:Name="tb_ChuAnTien2" FontSize="15" Margin="10 0 0 0" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="0" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.ColumnSpan="3">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=tb_NhapTien2, Path=Text}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                        <TextBlock x:Name="tb_validateTien2" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                    </StackPanel>
+                    <StackPanel x:Name="stp_NhapTien3" Margin="20 0 20 20">
+                        <DockPanel>
+                            <TextBlock FontSize="16" Foreground="#474747">
+                                <Run x:Name="tb_Tien3" Text="Phần trăm hoa hồng (%)"/>
+                                <Run Text="*" Foreground="#ff3333"/>
+                            </TextBlock>
+                        </DockPanel>
+                        <Border CornerRadius="5" Margin="0 5 0 0 " Height="34" BorderThickness="1" BorderBrush="{DynamicResource #666666}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="37*"/>
+                                    <ColumnDefinition Width="312*"/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="tb_NhapTien3" Background="Transparent" Margin="10 5 0 -5" PreviewTextInput="tb_NhapTien3_PreviewTextInput" Height="34" VerticalAlignment="Center"  FontSize="15" Foreground="{DynamicResource #474747}" BorderThickness="0" Grid.ColumnSpan="3"/>
+                                <TextBlock x:Name="tb_ChuAnTien3" FontSize="15" Margin="10 0 0 0" Foreground="{DynamicResource #aaa}" TextWrapping="Wrap" Text="0" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.ColumnSpan="3">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=tb_NhapTien3, Path=Text}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                        <TextBlock x:Name="tb_validateTien3" Visibility="Collapsed" FontSize="16" Foreground="#ff3333" FontWeight="Regular"/>
+                    </StackPanel>
+                    <TextBlock x:Name="tb_validateTienTong" TextWrapping="Wrap" VerticalAlignment="Center" Visibility="Collapsed" FontSize="16" HorizontalAlignment="Center" Margin="0 10 0 10" Foreground="#ff3333" FontWeight="Regular"/>
+                    <Border x:Name="btnButton" Margin="0 0 0 20" CornerRadius="10" Width="132" Height="34" Background="#4c5bd4" Cursor="Hand" MouseLeftButtonUp="btnThemMoi_MouseLeftButtonUp">
+                        <TextBlock x:Name="tb_textButton" Text="Lưu" FontSize="18" FontWeight="Medium" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

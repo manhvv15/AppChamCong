@@ -1,0 +1,192 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.DetailOfDon.ucPopupChiTietLich"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.NhanVien.DetailOfDon"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <Rectangle
+            Fill="Black"
+            MouseUp="Rectangle_MouseUp"
+            Opacity="0.3" />
+        <Border
+            BorderBrush="#DDDDDD"
+            BorderThickness="1"
+            CornerRadius="10 10 0 0">
+            <StackPanel>
+                <Border
+                    Height="45"
+                    Background="{DynamicResource #4C5BD4}"
+                    CornerRadius="10 10 0 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource #FFFFFF}"
+                                Text="CN" />
+                        </Border>
+                        <Border Grid.Column="1">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource #FFFFFF}"
+                                Text="Thứ 2" />
+                        </Border>
+                        <Border Grid.Column="2">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource #FFFFFF}"
+                                Text="Thứ 3" />
+                        </Border>
+                        <Border Grid.Column="3">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource #FFFFFF}"
+                                Text="Thứ 4" />
+                        </Border>
+                        <Border Grid.Column="4">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource #FFFFFF}"
+                                Text="Thứ 5" />
+                        </Border>
+                        <Border Grid.Column="5">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource #FFFFFF}"
+                                Text="Thứ 6" />
+                        </Border>
+                        <Border Grid.Column="6">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource #FFFFFF}"
+                                Text="Thứ 7" />
+                        </Border>
+                    </Grid>
+                </Border>
+                <ListView ItemsSource="{Binding listLich}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Grid Width="65" Height="55">
+                                            <Border
+                                                Width="35"
+                                                Height="35"
+                                                BorderBrush="#DDDDDD"
+                                                CornerRadius="30"
+                                                MouseLeftButtonDown="selectNgay">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="BorderThickness" Value="0" />
+                                                        <Setter Property="Background" Value="Transparent" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding status}" Value="1">
+                                                                <Setter Property="BorderThickness" Value="1" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding status}" Value="2">
+                                                                <Setter Property="Background" Value="{DynamicResource #4C5BD4}" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <TextBlock
+                                                    Name="tbDay1"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="15"
+                                                    FontWeight="DemiBold"
+                                                    Text="{Binding ngay}">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Foreground" Value="#E9E9E9" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding status}" Value="1">
+                                                                    <Setter Property="Foreground" Value="#777777" />
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding status}" Value="2">
+                                                                    <Setter Property="Foreground" Value="#FFFFFF" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Border>
+                                            <Border
+                                                Width="20"
+                                                Height="20"
+                                                Margin="0,0,12,5"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                CornerRadius="15">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                        <Setter Property="Background" Value="{DynamicResource #4C5BD4}" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding ca}" Value="0">
+                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding status}" Value="2">
+                                                                <Setter Property="Background" Value="#F46A6A" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <TextBlock
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="10"
+                                                    Foreground="{DynamicResource #FFFFFF}"
+                                                    Text="{Binding ca}" />
+                                            </Border>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding RelativeSource={RelativeSource AncestorType=ListView, Mode=FindAncestor}, Path=ActualWidth}" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

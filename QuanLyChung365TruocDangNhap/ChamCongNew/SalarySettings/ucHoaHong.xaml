@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings.ucHoaHong"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.SalarySettings"
+             mc:Ignorable="d">
+    <Grid>
+        <Border x:Name="borHienThi" CornerRadius="10" Background="#ffffff" >
+            <StackPanel x:Name="st">
+                <Border BorderBrush="#aaa" BorderThickness="0 0 0 1">
+                    <WrapPanel Margin="10">
+                        <Border x:Name="btn_BorderHeader1" Margin="0 0 0 -10" MouseLeftButtonUp="btn_BorderHeader1_MouseLeftButtonUp" Cursor="Hand" Background="Transparent">
+                            <TextBlock x:Name="tb_textHeader1" Text="Cài đặt hoa hồng" Margin="10 5 10 10" FontSize="18" FontWeight="Medium" Foreground="#474747"/>
+                        </Border>
+                        <Border x:Name="btn_BorderHeader2" Visibility="Collapsed" Margin="0 0 0 -10" MouseLeftButtonUp="btn_BorderHeader2_MouseLeftButtonUp" Cursor="Hand" Background="Transparent">
+                            <TextBlock x:Name="tb_textHeader2" Text="Hoa hồng nhóm" Margin="10 5 10 10" FontSize="18" FontWeight="Medium" Foreground="#474747"/>
+                        </Border>
+                        <Border x:Name="btn_BorderHeader3" Margin="0 0 0 -10" MouseLeftButtonUp="btn_BorderHeader3_MouseLeftButtonUp" Cursor="Hand" Background="Transparent">
+                            <TextBlock x:Name="tb_textHeader3" Text="Hoa hồng nhận được" Margin="10 5 10 10" FontSize="18" FontWeight="Medium" Foreground="#474747"/>
+                        </Border>
+                        <Border x:Name="btn_BorderHeader4" Margin="0 0 0 -10" MouseLeftButtonUp="btn_BorderHeader4_MouseLeftButtonUp" Cursor="Hand" Background="Transparent">
+                            <TextBlock x:Name="tb_textHeader4" Text="Hướng dẫn" Margin="10 5 10 10" FontSize="18" FontWeight="Medium" Foreground="#474747"/>
+                        </Border>
+                    </WrapPanel>
+                </Border>
+                <StackPanel x:Name="stp_ShowPopup">
+                    
+                </StackPanel>
+            </StackPanel>
+        </Border>   
+    </Grid>
+</UserControl>

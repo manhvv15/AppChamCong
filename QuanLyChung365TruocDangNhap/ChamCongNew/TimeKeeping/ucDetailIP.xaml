@@ -1,0 +1,1784 @@
+﻿<UserControl x:Name="useControl" x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.TimeKeeping.ucDetailIP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ChamCongNew.TimeKeeping"
+             mc:Ignorable="d" Width="1200"
+             
+             >
+    <UserControl.Resources>
+        <Style x:Key="MyTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#474747" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="FontSize" Value="18" />
+            <!-- Các thuộc tính khác có thể được thêm vào đây -->
+        </Style>
+        <Style x:Key="MyBorderStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="#a9a9a9" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="7" />
+            <Setter Property="CornerRadius" Value="10" />
+            <!-- Các thuộc tính khác có thể được thêm vào đây -->
+        </Style>
+        <Style x:Key="BorList" TargetType="Border">
+            <Setter Property="BorderBrush" Value="#a9a9a9" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Height" Value="190" />
+
+            <Setter Property="CornerRadius" Value="10" />
+            <!-- Các thuộc tính khác có thể được thêm vào đây -->
+        </Style>
+    </UserControl.Resources>
+
+    <Grid >
+        <Popup
+     x:Name="popUpViewDetailPhongBan"
+     Margin="0,0,0,10"
+     AllowsTransparency="True"
+     IsOpen="False"
+     Placement="MousePoint">
+
+            <Border
+         MinWidth="100"
+         MinHeight="40"
+         MaxWidth="800"
+         MaxHeight="400"
+         Margin="3"
+         Padding="10"
+         Panel.ZIndex="2"
+         Background="White"
+         CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="5" />
+                </Border.Effect>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+                    <ListView
+                 x:Name="lsvShowDetaiPhongBan"
+                 BorderThickness="0"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding organizeDetailName}" FontSize="16"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        <Popup
+x:Name="popUpViewDetailChucVu"
+Margin="0,0,0,10"
+AllowsTransparency="True"
+IsOpen="False"
+Placement="MousePoint">
+
+            <Border
+    MinWidth="100"
+    MinHeight="40"
+    MaxWidth="800"
+    MaxHeight="400"
+    Margin="3"
+    Padding="10"
+    Panel.ZIndex="2"
+    Background="White"
+    CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="5" />
+                </Border.Effect>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+                    <ListView
+            x:Name="lsvShowDetaiChucVu"
+            BorderThickness="0"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding positionName}" FontSize="16"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        <Popup
+x:Name="popUpViewDetailName"
+Margin="0,0,0,10"
+AllowsTransparency="True"
+IsOpen="False"
+Placement="MousePoint">
+
+            <Border
+    MinWidth="100"
+    MinHeight="40"
+    MaxWidth="800"
+    MaxHeight="400"
+    Margin="3"
+    Padding="10"
+    Panel.ZIndex="2"
+    Background="White"
+    CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="5" />
+                </Border.Effect>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+                    <ListView
+            x:Name="lsvShowDetaiName" 
+            BorderThickness="0"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <TextBlock Text="{Binding userName}" FontSize="16"/>
+                                    <TextBlock Text=" - " FontSize="16"/>
+                                    <TextBlock Text="{Binding _id}" FontSize="16"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        <Popup
+x:Name="popUpViewDetailCaLv"
+Margin="0,0,0,10"
+AllowsTransparency="True"
+IsOpen="False"
+Placement="MousePoint">
+
+            <Border
+    MinWidth="100"
+    MinHeight="40"
+    MaxWidth="800"
+    MaxHeight="400"
+    Margin="3"
+    Padding="10"
+    Panel.ZIndex="2"
+    Background="White"
+    CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="5" />
+                </Border.Effect>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+                    <ListView
+            x:Name="lsvShowDetaiCaLV"
+            BorderThickness="0"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <TextBlock Text="{Binding shift_name}" FontSize="16"/>
+                                    <TextBlock Text=" - " FontSize="16"/>
+                                    <TextBlock Text="{Binding type_name}" FontSize="16"/>
+                                </DockPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        <Popup
+x:Name="popUpViewDetailLocation"
+Margin="0,0,0,10"
+AllowsTransparency="True"
+IsOpen="False"
+Placement="MousePoint">
+
+            <Border
+    MinWidth="100"
+    MinHeight="40"
+    MaxWidth="800"
+    MaxHeight="400"
+    Margin="3"
+    Padding="10"
+    Panel.ZIndex="2"
+    Background="White"
+    CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="5" />
+                </Border.Effect>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+                    <ListView
+            x:Name="lsvShowDetaiLocation"
+            BorderThickness="0"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <TextBlock Text="{Binding cor_location_name}" FontSize="16"/>
+
+                                </DockPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        <Popup
+x:Name="popUpViewDetailWifi"
+Margin="0,0,0,10"
+AllowsTransparency="True"
+IsOpen="False"
+Placement="MousePoint">
+
+            <Border
+    MinWidth="100"
+    MinHeight="40"
+    MaxWidth="800"
+    MaxHeight="400"
+    Margin="3"
+    Padding="10"
+    Panel.ZIndex="2"
+    Background="White"
+    CornerRadius="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="5" />
+                </Border.Effect>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+                    <ListView
+            x:Name="lsvShowDetaiWifi"
+            BorderThickness="0"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <TextBlock Text="{Binding name_wifi}" FontSize="16"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        <StackPanel Background="WhiteSmoke" >
+            <Grid x:Name="gridApDungRow0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10 0 0 0">
+                    <TextBlock Text="Tên cài đặt" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Border Style="{StaticResource MyBorderStyle}">
+                        <Grid>
+                            <TextBox x:Name="textNhapTenCaiDat" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tên cài đặt"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textNhapTenCaiDat, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                    <TextBlock Text="Tổ chức" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Border Background="Transparent" x:Name="borToChuc1" Style="{StaticResource MyBorderStyle}"  MouseLeftButtonUp="borToChuc1_MouseLeftButtonUp">
+                        <Grid Cursor="Hand" Background="Transparent"  >
+                            <TextBox x:Name="textNhapTenToChuc" Background="Transparent" TextChanged="textNhapTenToChuc_TextChanged" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="16" Foreground="{DynamicResource #666666}" x:Name="textNhapTenToChuc1" TextWrapping="Wrap" Text="Tìm theo tổ chức"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textNhapTenToChuc, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="10 0 0 0">
+                    <TextBlock Text="Chức vụ" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp" Cursor="Hand" Background="Transparent">
+                        <Border  Style="{StaticResource MyBorderStyle}" >
+                            <WrapPanel VerticalAlignment="Center" >
+                                <ListView HorizontalAlignment="Left"  x:Name="lsvChucVuAdd" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Background="#dcdcdc" >
+                                                <DockPanel>
+                                                    <TextBlock   Text="{Binding positionName}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <Border x:Name="xoaChucVu" Background="#dcdcdc" Cursor="Hand" MouseEnter="xoaChucVu_MouseEnter" MouseLeave="xoaChucVu_MouseLeave" PreviewMouseLeftButtonUp="xoaChucVu_PreviewMouseLeftButtonUp" >
+                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                    </Border>
+
+                                                </DockPanel>
+                                            </WrapPanel>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListView>
+                                <Grid x:Name="TimchucVu" >
+                                    <TextBox x:Name="textNhapViTri" Background="Transparent" TextChanged="textNhapViTri_TextChanged" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                    <TextBlock FontSize="16" x:Name="textNhapViTri1" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo vị trí"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=textNhapViTri, Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                        <Image  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" RenderTransformOrigin="0.5,0.848"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="3" Margin="10 0 0 0">
+                    <TextBlock Text="Họ và tên" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Grid Cursor="Hand" MouseLeftButtonUp="Border_MouseLeftButtonUp_1" Background="Transparent" >
+                        <Border Style="{StaticResource MyBorderStyle}" >
+                            <WrapPanel VerticalAlignment="Center" >
+                                <ListView HorizontalAlignment="Left"  x:Name="lsvNameAdd" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Background="#dcdcdc" >
+                                                <DockPanel>
+                                                    <TextBlock   Text="{Binding userName}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <TextBlock   Text=" - " FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <TextBlock   Text="{Binding idQLC}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <Border x:Name="xoaName" Background="#dcdcdc" Cursor="Hand" MouseEnter="xoaName_MouseEnter" MouseLeave="xoaName_MouseLeave" PreviewMouseLeftButtonUp="xoaName_PreviewMouseLeftButtonUp" >
+                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                    </Border>
+
+                                                </DockPanel>
+                                            </WrapPanel>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListView>
+
+                                <Grid x:Name="gridName">
+                                    <TextBox x:Name="textNhapHoVaTen" TextChanged="textNhapHoVaTen_TextChanged" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                    <TextBlock x:Name="textNhapHoVaTen1" FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo id nhân viên"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=textNhapHoVaTen, Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="gridApDungRow1" Margin="0 20 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10 0 0 0">
+                    <TextBlock Text="Thời gian bắt đầu" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Border CornerRadius="10"   BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Height="40"   Visibility="Visible" Grid.ColumnSpan="2">
+
+                        <DatePicker x:Name="NgayBatDau" Style="{StaticResource DatePicker11}" FontSize="15" />
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                    <TextBlock Text="Thời gian kết thúc" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Height="40"  Visibility="Visible" Grid.ColumnSpan="2">
+
+                        <DatePicker x:Name="NgayKetThuc" Style="{StaticResource DatePicker11}" FontSize="15" />
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="10 0 0 0">
+                    <TextBlock Text="Ca làm việc" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Grid Background="Transparent" Cursor="Hand" MouseDown="Grid_MouseLeftButtonUp_1">
+                        <Border Style="{StaticResource MyBorderStyle}">
+                            <WrapPanel VerticalAlignment="Center" >
+                                <ListView HorizontalAlignment="Left"  x:Name="lsvCaAdd" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Background="#dcdcdc" >
+                                                <DockPanel>
+                                                    <TextBlock   Text="{Binding shift_name}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <TextBlock   Text=" - " FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <TextBlock   Text="{Binding type_name}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <Border x:Name="xoaCa" Background="#dcdcdc" Cursor="Hand" MouseEnter="Ca_MouseEnter" MouseLeave="Ca_MouseLeave" PreviewMouseLeftButtonUp="Ca_PreviewMouseLeftButtonUp" >
+                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                    </Border>
+
+                                                </DockPanel>
+                                            </WrapPanel>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListView>
+
+                                <Grid x:Name="gridca">
+                                    <TextBox x:Name="textNhapCa" TextChanged="textNhapCa_TextChanged" Background="Transparent"  VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                    <TextBlock FontSize="16" x:Name="textNhapCa1" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo ca làm việc"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=textNhapCa, Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="3" Margin="10 0 0 0">
+                    <TextBlock Text="Vị trí" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Grid Cursor="Hand" Background="Transparent" MouseDown="Grid_OpenPopupLoc_MouseLeftButtonUp">
+                        <Border Style="{StaticResource MyBorderStyle}">
+
+                            <WrapPanel VerticalAlignment="Center" >
+                                <ListView HorizontalAlignment="Left"  x:Name="lsvLocAdd" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Width="180" Background="#dcdcdc" >
+                                                <DockPanel Width="180"  Margin="0 0 0 0">
+                                                    <TextBlock Width="150" Margin="0 0 0 0" TextTrimming="CharacterEllipsis"   Text="{Binding cor_location_name}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <Border x:Name="xoaLoc" Background="#dcdcdc" Cursor="Hand" MouseEnter="Loc_MouseEnter" MouseLeave="Loc_MouseLeave" PreviewMouseLeftButtonUp="Loc_PreviewMouseLeftButtonUp" >
+                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="5 0 0 0" Width="8"  />
+                                                    </Border>
+
+                                                </DockPanel>
+                                            </WrapPanel>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListView>
+
+                                <Grid x:Name="gridLoc">
+                                    <TextBox x:Name="textNhapLoc" TextChanged="textNhapLoc_TextChanged" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                    <TextBlock FontSize="16" x:Name="textNhapLoc1" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo vị trí"  IsHitTestVisible="False" VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left" Width="196">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=textNhapLoc, Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+
+                            </WrapPanel>
+                        </Border>
+                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="0 20 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10 0 0 0" Visibility="Collapsed">
+                    <TextBlock Text="Vị trí" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Border Style="{StaticResource MyBorderStyle}">
+
+                        <Grid>
+                            <TextBox x:Name="textViTri" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo vị trí"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textViTri, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+
+                        </Grid>
+
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10 0 0 0" Visibility="Collapsed">
+                    <TextBlock Text="IP" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Border Style="{StaticResource MyBorderStyle}">
+                        <Grid>
+                            <TextBox x:Name="textNhapIP" Background="Transparent"  VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                            <TextBlock FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo IP"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=textNhapIP, Path=Text}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Margin="10 0 0 0">
+                    <TextBlock Text="Wifi" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Grid Cursor="Hand" Background="Transparent" MouseDown="Grid_OpenPopupWifi_MouseLeftButtonUp">
+                        <Border Style="{StaticResource MyBorderStyle}">
+
+                            <WrapPanel VerticalAlignment="Center" >
+                                <ListView HorizontalAlignment="Left"  x:Name="lsvWifiAdd" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Background="#dcdcdc" >
+                                                <DockPanel>
+                                                    <TextBlock   Text="{Binding name_wifi}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <Border x:Name="xoaWifi" Background="#dcdcdc" Cursor="Hand" MouseEnter="Wifi_MouseEnter" MouseLeave="Wifi_MouseLeave" PreviewMouseLeftButtonUp="Wifi_PreviewMouseLeftButtonUp" >
+                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                    </Border>
+
+                                                </DockPanel>
+                                            </WrapPanel>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListView>
+
+                                <Grid x:Name="gridWifi">
+                                    <TextBox x:Name="textNhapWifi" TextChanged="textNhapWifi_TextChanged" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                    <TextBlock FontSize="16" x:Name="textNhapWifi1" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo Wifi"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=textNhapWifi, Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+
+                            </WrapPanel>
+                        </Border>
+                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10 0 0 0">
+                    <TextBlock Text="Thiết bị" Style="{StaticResource MyTextBlockStyle}"/>
+                    <Grid Cursor="Hand" MouseLeftButtonUp="Grid_MouseLeftButtonUp_3" Visibility="Collapsed">
+
+
+                        <Border Style="{StaticResource MyBorderStyle}">
+                            <WrapPanel VerticalAlignment="Center" >
+                                <ListView HorizontalAlignment="Left"  x:Name="lsvThietBiAdd" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Background="#dcdcdc" >
+                                                <DockPanel>
+                                                    <TextBlock   Text="{Binding cor_location_name}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                    <Border x:Name="xoaThietBi" Background="#dcdcdc" Cursor="Hand" MouseEnter="ThietBi_MouseEnter" MouseLeave="ThietBi_MouseLeave" PreviewMouseLeftButtonUp="ThietBi_PreviewMouseLeftButtonUp" >
+                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                    </Border>
+
+                                                </DockPanel>
+                                            </WrapPanel>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListView>
+
+                                <Grid x:Name="gridThietBi">
+                                    <TextBox x:Name="textNhapThietBi" TextChanged="textNhapThietBi_TextChanged" Background="Transparent"  VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                    <TextBlock x:Name="textNhapThietBi1" FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo thiết bị"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=textNhapThietBi, Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </WrapPanel>
+                        </Border>
+                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                    <Grid>
+                        <Border Padding="2" Height="37" Style="{StaticResource MyBorderStyle}">
+
+                            <ComboBox  BorderThickness="0" x:Name="ComboBox" FontSize="16" Style="{StaticResource Combobox1}" ItemContainerStyle="{DynamicResource ComboboxItem2}">
+                                <ComboBoxItem IsSelected="True">Tất cả thiết bị</ComboBoxItem>
+                                <ComboBoxItem>CameraAI365</ComboBoxItem>
+                                <ComboBoxItem>Appchat365</ComboBoxItem>
+                                <ComboBoxItem>QRchat365</ComboBoxItem>
+                            </ComboBox>
+                        </Border>
+
+
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="10 0 0 0">
+                    <Border Cursor="Hand" Width="110" HorizontalAlignment="Left" Background="#4C5DB4" CornerRadius="10" Height="40" Margin="0 25 0 0" MouseDown="Border_MouseLeftButtonUp_2">
+                        <TextBlock Text="Áp dụng" FontSize="16" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+            <DataGrid PreviewMouseWheel="dgv_PreviewMouseWheel" Visibility="Visible" Style="{DynamicResource DataGrid3}" Name="dgv" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="0,20,0,0"  >
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn  Width="auto" Header="STT">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Center" >
+                                    <TextBlock x:Name="txtCount" Text="{Binding stt}" FontSize="14" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Tên cài đặt" Width="auto">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid DataContext="{Binding detail}"  Background="Transparent"  Margin="0 0 0 0">
+                                        <Border>
+                                            <StackPanel>
+
+                                            </StackPanel>
+                                        </Border>
+
+                                    </Grid>
+                                    <TextBlock FontSize="16" Text="{Binding detail.setting_name}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Phòng ban">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+
+                                <Grid>
+
+
+                                    <TextBlock FontSize="16"  Text="{Binding displayDp}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <Grid Background="Transparent" DataContext="{Binding list_org}"  MouseEnter="PhongBan_MouseEnter" MouseLeave="PhongBan_MouseLeave">
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Chức vụ">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock FontSize="16" Text="{Binding displayDp1}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <Grid DataContext="{Binding list_pos}" MouseEnter="ChucVu_MouseEnter" MouseLeave="ChucVu_mouseLeft" Background="Transparent"  Margin="0 0 0 0">
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Thời gian áp dụng">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid DataContext="{Binding start}"  Background="Transparent"  Margin="0 0 0 0">
+                                        <Border>
+                                            <StackPanel>
+
+                                            </StackPanel>
+                                        </Border>
+
+                                    </Grid>
+                                    <TextBlock FontSize="16" Text="{Binding start}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Thời gian kết thúc">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid DataContext="{Binding end}"  Background="Transparent"  Margin="0 0 0 0">
+                                        <Border>
+                                            <StackPanel>
+
+                                            </StackPanel>
+                                        </Border>
+
+                                    </Grid>
+                                    <TextBlock FontSize="16" Text="{Binding end}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Họ và tên">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+
+                                    <TextBlock FontSize="16" Text="{Binding displayDp2}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <Grid DataContext="{Binding list_emps}" MouseEnter="Name_enter" MouseLeave="Name_left" Background="Transparent"  Margin="0 0 0 0">
+
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Ca làm việc">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+
+                                    <TextBlock FontSize="16" Text="{Binding displayDp6}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <Grid DataContext="{Binding list_shifts}" MouseEnter="CaLv_MouseEnter" MouseLeave="CaLv_Mouselef" Background="Transparent"  Margin="0 0 0 0">
+
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Vị trí">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+
+                                    <TextBlock FontSize="16" Text="{Binding displayDp3}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <Grid DataContext="{Binding list_loc}" MouseEnter="Location_MouseEnter" MouseLeave="Location_Mouselef" Background="Transparent"  Margin="0 0 0 0">
+
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Wifi">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+
+                                    <TextBlock FontSize="16" Text="{Binding displayDp7}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <Grid DataContext="{Binding list_wifi}" MouseEnter="wifi_enter" MouseLeave="wifi_left" Background="Transparent"  Margin="0 0 0 0">
+
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Thiết bị">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+
+                                    <TextBlock FontSize="16" Text="{Binding displayDp6}" Foreground="#474747" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                                    <Grid DataContext="{Binding list_shifts}" MouseEnter="CaLv_MouseEnter" MouseLeave="CaLv_Mouselef" Background="Transparent"  Margin="0 0 0 0">
+
+
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="auto" Header="Hành động">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp_4" Cursor="Hand" Background="Transparent">
+                                            <Path Data="{DynamicResource but1}" Fill="#666666"></Path>
+                                            <Path Data="{DynamicResource but2}" Fill="#666666"></Path>
+                                            <Path Data="{DynamicResource but3}" Fill="#666666"></Path>
+                                        </Grid>
+                                        <Border Cursor="Hand" Margin="10 0 10 0" MouseLeftButtonUp="Border_MouseLeftButtonUp">
+
+
+                                            <Path  Data="{DynamicResource xoaa1}" Fill="#666666" ></Path>
+                                        </Border>
+                                    </StackPanel>
+                                </DockPanel>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <Grid x:Name="borToChuc" Visibility="Collapsed" Margin="10 0 0 0">
+            <Rectangle Fill="Transparent" Margin="-2000" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp_2"></Rectangle>
+            <Border  Width="{Binding Path=ActualWidth,ElementName=borToChuc1}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Left"  >
+                <ListView MaxHeight="200" x:Name="lsvToChuc" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvToChuc_SelectionChanged" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch" MouseLeftButtonDown="Border_MouseLeftButtonDown"   >
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Border >
+                                                <TextBlock FontSize="16" Text="{Binding organizeDetailName}" Margin="5,5,0,5"/>
+                                            </Border>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+        </Grid>
+        <Grid x:Name="borChucVu" Visibility="Collapsed" Margin="0 0 0 0">
+            <Rectangle MouseLeftButtonUp="Rectangle_MouseLeftButtonUp" Fill="Transparent" Margin="-2000"></Rectangle>
+            <Border MaxHeight="200" Width="{Binding Path=ActualWidth,ElementName=borToChuc1}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 0 0" >
+                <ListView x:Name="lsvChucVu" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvChucVua1">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch"    >
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <Border >
+                                                <TextBlock FontSize="16" Text="{Binding positionName}" Margin="5,5,0,5"/>
+                                            </Border>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+
+        </Grid>
+        <Grid x:Name="borTen" Visibility="Collapsed">
+
+            <Rectangle Margin="-2000" Fill="Transparent" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp_1"></Rectangle>
+            <Border   Width="{Binding Path=ActualWidth,ElementName=borToChuc1}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right"  >
+                <ListView x:Name="lsvTen" MaxHeight="200" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvTen_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch"   >
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <DockPanel >
+                                                <TextBlock FontSize="16" Text="{Binding userName}" Margin="5,5,0,5"/>
+                                                <TextBlock FontSize="16" Text="-" Margin="5,5,0,5"/>
+                                                <TextBlock FontSize="16" Text="{Binding idQLC}" Margin="5,5,0,5"/>
+                                            </DockPanel>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+        </Grid>
+        <Grid x:Name="borCa" Visibility="Collapsed">
+            <Rectangle Fill="Transparent" Margin="-2000" MouseDown="Rectangle_MouseLeftButtonUp_3"></Rectangle>
+            <Border  Width="{Binding Path=ActualWidth,ElementName=borToChuc1}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 0 0" >
+                <ListView x:Name="lsvCa" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvCa_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch"   >
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <DockPanel >
+                                                <TextBlock FontSize="16" Text="{Binding shift_name}" Margin="5,5,0,5"/>
+                                                <TextBlock FontSize="16" Text=" - " Margin="5,5,0,5"/>
+                                                <TextBlock FontSize="16" Text="{Binding type_name}" Margin="5,5,0,5"/>
+                                            </DockPanel>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+
+        </Grid>
+        <Grid x:Name="borLoc"  Visibility="Collapsed">
+
+            <Rectangle Fill="Transparent" Margin="-2000" MouseDown="Rectangle_ClosePopupLoc_MouseLeftButtonUp"></Rectangle>
+            <Border   Width="{Binding Path=ActualWidth,ElementName=borToChuc1}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <ListView x:Name="lsvLoc" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvLoc_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch"   >
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <DockPanel >
+                                                <TextBlock FontSize="16" Text="{Binding cor_location_name}" Margin="5,5,0,5"/>
+
+                                            </DockPanel>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+        </Grid>
+        <Grid x:Name="borWifi"  Visibility="Collapsed">
+
+            <Rectangle Fill="Transparent" Margin="-2000" MouseDown="Rectangle_ClosePopupWifi_MouseLeftButtonUp"></Rectangle>
+            <Border   Width="{Binding Path=ActualWidth,ElementName=borToChuc1}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <ListView x:Name="lsvWifi" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvWifi_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch"   >
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <DockPanel >
+                                                <TextBlock FontSize="16" Text="{Binding name_wifi}" Margin="5,5,0,5"/>
+
+                                            </DockPanel>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+        </Grid>
+        <Grid x:Name="borThietBi" Margin="0 235 0 0" Visibility="Collapsed">
+            <Rectangle Fill="Transparent" Margin="-2000" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp_5"></Rectangle>
+            <Border   Width="{Binding Path=ActualWidth,ElementName=borToChuc1}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                <ListView x:Name="lsvThietBi" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvThietBi_SelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+
+                                        <Border HorizontalAlignment="Stretch"   >
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Background" Value="Transparent"></Setter>
+                                                    <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                            <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <DockPanel >
+                                                <TextBlock FontSize="16" Text="{Binding cor_location_name}" Margin="5,5,0,5"/>
+
+                                            </DockPanel>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Border>
+        </Grid>
+        <Grid  x:Name="grChinhSua" Visibility="Collapsed" >
+            <Rectangle Opacity="0.5" Fill="#474747" MouseLeftButtonUp="Rectangle_MouseLeftButtonUp_6"></Rectangle>
+            <Border Background="WhiteSmoke" Width="800" VerticalAlignment="Center"  CornerRadius="10">
+                <StackPanel Margin="20">
+                    <Border Margin="0 0 0 10" HorizontalAlignment="Right" MouseLeftButtonUp="Border_MouseLeftButtonUp_3">
+                        <Image Source="{StaticResource tabler_plusDrawingImageKey1}" HorizontalAlignment="Left" Margin="20 0 0 0" Height="24"></Image>
+                    </Border>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel >
+                            <TextBlock  Text="Tên cài đặt" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Border Margin="0 10 0 0" Style="{StaticResource MyBorderStyle}" x:Name="borTenCaiDat">
+                                <Grid>
+                                    <TextBox x:Name="textNhapTenCaiDat51" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                    <TextBlock FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tên cài đặt"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ElementName=textNhapTenCaiDat51, Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                            <TextBlock Margin="0 10 0 0" Text="Chức vụ" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Grid Margin="0 10 0 0" MouseLeftButtonUp="Grid_Mouse11LeftButtonUp" Cursor="Hand" Background="Transparent">
+                                <StackPanel>
+
+                                    <Grid>
+
+                                        <Border  Style="{StaticResource MyBorderStyle}" >
+                                            <WrapPanel VerticalAlignment="Center" >
+                                                <ListView HorizontalAlignment="Left"  x:Name="lsvChucVuAdd51" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <WrapPanel Background="#dcdcdc" >
+                                                                <DockPanel>
+                                                                    <TextBlock   Text="{Binding positionName}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <Border x:Name="xoaChucVu" Background="#dcdcdc" Cursor="Hand" MouseEnter="ChucVu_MouseEnter1" MouseLeave="x11oaChucVu_MouseLeave" PreviewMouseLeftButtonUp="xoaC11hucVu_PreviewMouseLeftButtonUp" >
+                                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                                    </Border>
+
+                                                                </DockPanel>
+                                                            </WrapPanel>
+
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
+                                                </ListView>
+                                                <Grid x:Name="TimchucVu51" Background="WhiteSmoke">
+                                                    <TextBox x:Name="textNhapViTri51" Background="Transparent" TextChanged="textNhapViT11_TextChanged" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                                    <TextBlock FontSize="16" x:Name="textNhapViTri151" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo vị trí"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=textNhapViTri51, Path=Text}" Value="">
+                                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Grid>
+                                            </WrapPanel>
+                                        </Border>
+                                        <Image  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" RenderTransformOrigin="0.5,0.848"/>
+
+                                    </Grid>
+                                    <Border Visibility="Collapsed" Width="{Binding Path=ActualWidth,ElementName=borTenCaiDat}" x:Name="borChucVu51" MaxHeight="200"  Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 0 0" >
+                                        <ListView x:Name="lsvChucVu1" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvC1hucVu1">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListViewItem">
+
+                                                                <Border HorizontalAlignment="Stretch"    >
+                                                                    <Border.Style>
+                                                                        <Style TargetType="Border">
+                                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Border.Style>
+                                                                    <Border >
+                                                                        <TextBlock FontSize="16" Text="{Binding positionName}" Margin="5,5,0,5"/>
+                                                                    </Border>
+
+                                                                </Border>
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                            <TextBlock Margin="0 10 0 0" Text="Thời gian bắt đầu" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Border Margin="0 10 0 0" CornerRadius="10"   BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Height="40"  Visibility="Visible" Grid.ColumnSpan="2">
+
+                                <DatePicker x:Name="NgayBatDau51" Style="{StaticResource DatePicker11}" FontSize="15" />
+                            </Border>
+                            <TextBlock Margin="0 10 0 0" Text="Ca làm việc" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Grid Margin="0 10 0 0" Background="Transparent" Cursor="Hand" MouseLeftButtonUp="Grid_Mouse11LeftButtonUp_1">
+                                <StackPanel>
+                                    <Grid >
+                                        <Border Style="{StaticResource MyBorderStyle}">
+                                            <WrapPanel VerticalAlignment="Center" >
+                                                <ListView HorizontalAlignment="Left"  x:Name="lsvCaAdd51" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <WrapPanel Background="#dcdcdc" >
+                                                                <DockPanel>
+                                                                    <TextBlock   Text="{Binding shift_name}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <TextBlock   Text=" - " FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <TextBlock   Text="{Binding type_name}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <Border x:Name="xoaCa" Background="#dcdcdc" Cursor="Hand" MouseEnter="Ca_MouseEqnter" MouseLeave="Ca_MdouseLeave" PreviewMouseLeftButtonUp="Ca_PreviewMou11seLeftButtonUp" >
+                                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                                    </Border>
+
+                                                                </DockPanel>
+                                                            </WrapPanel>
+
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
+                                                </ListView>
+
+                                                <Grid x:Name="gridca51">
+                                                    <TextBox x:Name="textNhapCa51" TextChanged="textNhapCaq_TextChanged" Background="Transparent"  VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                                    <TextBlock FontSize="16" x:Name="textNhapCa151" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo ca làm việc"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=textNhapCa51, Path=Text}" Value="">
+                                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Grid>
+                                            </WrapPanel>
+                                        </Border>
+                                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+                                    </Grid>
+                                    <Border x:Name="borca21" Visibility="Collapsed" Width="{Binding Path=ActualWidth,ElementName=borTenCaiDat}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0" >
+                                        <ListView x:Name="lsvCa21" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvCa21_SelectionChanged">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListViewItem">
+
+                                                                <Border HorizontalAlignment="Stretch"   >
+                                                                    <Border.Style>
+                                                                        <Style TargetType="Border">
+                                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Border.Style>
+                                                                    <DockPanel >
+                                                                        <TextBlock FontSize="16" Text="{Binding shift_name}" Margin="5,5,0,5"/>
+                                                                        <TextBlock FontSize="16" Text=" - " Margin="5,5,0,5"/>
+                                                                        <TextBlock FontSize="16" Text="{Binding type_name}" Margin="5,5,0,5"/>
+                                                                    </DockPanel>
+
+                                                                </Border>
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                            <TextBlock Margin="0 10 0 0" Text="Thiết bị" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Grid Visibility="Collapsed" Margin="0 10 0 0" Cursor="Hand" MouseLeftButtonUp="Grid_MouseeLeftButtonUp_3">
+
+
+                                <Border Style="{StaticResource MyBorderStyle}">
+                                    <WrapPanel VerticalAlignment="Center" >
+                                        <ListView HorizontalAlignment="Left"  x:Name="lsvThietBiAdd51" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <WrapPanel Background="#dcdcdc" >
+                                                        <DockPanel>
+                                                            <TextBlock   Text="{Binding cor_location_name}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                            <Border x:Name="xoaThietBi51" Background="#dcdcdc" Cursor="Hand" MouseEnter="ThietBi_1MouseEnter" MouseLeave="ThietBi_dMouseLeave" PreviewMouseLeftButtonUp="ThietBi_Previe11wMouseLeftButtonUp" >
+                                                                <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                            </Border>
+
+                                                        </DockPanel>
+                                                    </WrapPanel>
+
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                        </ListView>
+
+                                        <Grid x:Name="gridThietBi51">
+                                            <TextBox x:Name="textNhapThietBi51" TextChanged="textNhapThietqBi_TextChanged" Background="Transparent"  VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                            <TextBlock x:Name="textNhapThietBi151" FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo thiết bị"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding ElementName=textNhapThietBi, Path=Text}" Value="">
+                                                                <Setter Property="Visibility" Value="Visible"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+                                        </Grid>
+                                    </WrapPanel>
+                                </Border>
+                                <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+
+                            </Grid>
+                            <Grid>
+                                <ComboBox x:Name="ComboBox21" FontSize="16"  Margin="0 5 0 0" Style="{DynamicResource Combobox2}" ItemContainerStyle="{DynamicResource ComboboxItem2}">
+                                    <ComboBoxItem IsSelected="True">Tất cả thiết bị</ComboBoxItem>
+                                    <ComboBoxItem>CameraAI365</ComboBoxItem>
+                                    <ComboBoxItem>Appchat365</ComboBoxItem>
+                                    <ComboBoxItem>QRchat365</ComboBoxItem>
+                                </ComboBox>
+                                <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"></Image>
+
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="20 0 0 0">
+                            <TextBlock  Text="Tổ chức" Style="{StaticResource MyTextBlockStyle}"/>
+                            <StackPanel MouseLeftButtonUp="borToChuwc1_MouseLeftButtonUp" Background="Transparent">
+
+
+                                <Border Margin="0 10 0 0"  x:Name="borToChuc151" Style="{StaticResource MyBorderStyle}"  >
+                                    <Grid Cursor="Hand" Background="Transparent"  >
+                                        <TextBox x:Name="textNhapTenToChuc51" Background="Transparent" TextChanged="textNhapTenToChauc_TextChanged" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                        <TextBlock FontSize="16" Foreground="{DynamicResource #666666}" x:Name="textNhapTenToChuc151" TextWrapping="Wrap" Text="Tìm theo tổ chức"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ElementName=textNhapTenToChuc51, Path=Text}" Value="">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+                                    </Grid>
+                                </Border>
+                                <Border Visibility="Collapsed" x:Name="borToChuc51" Width="{Binding Path=ActualWidth,ElementName=borTenCaiDat}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Left"  >
+                                    <ListView MaxHeight="200" x:Name="lsvToChuc21" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvToChuc_SelectionChanged" >
+                                        <ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ListViewItem">
+
+                                                            <Border HorizontalAlignment="Stretch" MouseLeftButtonDown="Border_MouseLdeftButtonDown"   >
+                                                                <Border.Style>
+                                                                    <Style TargetType="Border">
+                                                                        <Setter Property="Background" Value="Transparent"></Setter>
+                                                                        <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                                        <Style.Triggers>
+                                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                                <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                                <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                            </Trigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Border.Style>
+                                                                <Border >
+                                                                    <TextBlock FontSize="16" Text="{Binding organizeDetailName}" Margin="5,5,0,5"/>
+                                                                </Border>
+
+                                                            </Border>
+
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+                                    </ListView>
+
+                                </Border>
+
+                            </StackPanel>
+                            <TextBlock Margin="0 10 0 0" Text="Họ và tên" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Grid Margin="0 10 0 0" x:Name="b123" Cursor="Hand" MouseLeftButtonUp="Border_21MouseLeftButtonUp_1" Background="Transparent">
+                                <StackPanel>
+                                    <Grid  >
+                                        <Border Style="{StaticResource MyBorderStyle}" >
+                                            <WrapPanel VerticalAlignment="Center" >
+                                                <ListView HorizontalAlignment="Left"  x:Name="lsvNameAdd51" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <WrapPanel Background="#dcdcdc" >
+                                                                <DockPanel>
+                                                                    <TextBlock   Text="{Binding userName}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <TextBlock   Text=" - " FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <TextBlock   Text="{Binding idQLC}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <Border x:Name="xoaName" Background="#dcdcdc" Cursor="Hand" MouseEnter="xoaName12_MouseEnter" MouseLeave="xoaNa11me_MouseLeave" PreviewMouseLeftButtonUp="xoaName_PrqeviewMouseLeftButtonUp" >
+                                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                                    </Border>
+
+                                                                </DockPanel>
+                                                            </WrapPanel>
+
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
+                                                </ListView>
+
+                                                <Grid x:Name="gridName51">
+                                                    <TextBox x:Name="textNhapHoVaTen51" TextChanged="textNhaadpHoVaTen_TextChanged" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                                    <TextBlock x:Name="textNhapHoVaTen151" FontSize="16" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo id nhân viên"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=textNhapHoVaTen51, Path=Text}" Value="">
+                                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Grid>
+                                            </WrapPanel>
+                                        </Border>
+                                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+                                    </Grid>
+
+                                    <Border x:Name="borTen21" Visibility="Collapsed" MaxHeight="200"  Width="{Binding Path=ActualWidth,ElementName=b123}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 0 0" >
+                                        <ListView x:Name="lsvTen21"  BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvTen21_SelectionChanged">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListViewItem">
+
+                                                                <Border HorizontalAlignment="Stretch"   >
+                                                                    <Border.Style>
+                                                                        <Style TargetType="Border">
+                                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Border.Style>
+                                                                    <DockPanel >
+                                                                        <TextBlock FontSize="16" Text="{Binding userName}" Margin="5,5,0,5"/>
+                                                                        <TextBlock FontSize="16" Text="-" Margin="5,5,0,5"/>
+                                                                        <TextBlock FontSize="16" Text="{Binding idQLC}" Margin="5,5,0,5"/>
+                                                                    </DockPanel>
+
+                                                                </Border>
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+
+                                    </Border>
+
+                                </StackPanel>
+                            </Grid>
+                            <TextBlock Margin="0 10 0 0" Text="Thời gian kết thúc" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Border Margin="0 10 0 0" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource #aaa}" Height="40"  Visibility="Visible" Grid.ColumnSpan="2">
+
+                                <DatePicker x:Name="NgayKetThuc51" Style="{StaticResource DatePicker11}" FontSize="15" />
+                            </Border>
+                            <TextBlock Margin="0 10 0 0" Text="Wifi" Style="{StaticResource MyTextBlockStyle}"/>
+                            <Grid Margin="0 10 0 0" Cursor="Hand" Background="Transparent" MouseLeftButtonUp="Grid_MouseLweftButtonUp_2">
+                                <StackPanel>
+                                    <Grid >
+                                        <Border Style="{StaticResource MyBorderStyle}">
+
+                                            <WrapPanel VerticalAlignment="Center" >
+                                                <ListView HorizontalAlignment="Left"  x:Name="lsvWifiAdd51" VerticalAlignment="Center" Background="WhiteSmoke" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  BorderThickness="0" ItemsSource="{Binding ListXet}"  Margin="10 0 0 0" Visibility="Collapsed"   >
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <WrapPanel Background="#dcdcdc" >
+                                                                <DockPanel>
+                                                                    <TextBlock   Text="{Binding name_wifi}" FontSize="16" Foreground="#474747" VerticalAlignment="Center"/>
+                                                                    <Border x:Name="xoaWifi" Background="#dcdcdc" Cursor="Hand" MouseEnter="Wifi_Mo2useEnter" MouseLeave="Wifi_MaouseLeave" PreviewMouseLeftButtonUp="Wifi_PrevieawMouseLeftButtonUp" >
+                                                                        <Image  Source="{StaticResource Group_1000007307DrawingImageKey}"  Margin="10 0 0 0" Width="8"  />
+                                                                    </Border>
+
+                                                                </DockPanel>
+                                                            </WrapPanel>
+
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListBox.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel  x:Name="listwith" Orientation="Horizontal" ></WrapPanel>
+                                                        </ItemsPanelTemplate>
+                                                    </ListBox.ItemsPanel>
+                                                </ListView>
+
+                                                <Grid x:Name="gridWifi51">
+                                                    <TextBox x:Name="textNhapWifi51" TextChanged="textNhapWifi51_TextChanged" Background="Transparent" VerticalAlignment="Center" FontSize="15"  Foreground="{DynamicResource #474747}" BorderThickness="0" Margin="10 0 0 0" Grid.ColumnSpan="3"/>
+                                                    <TextBlock FontSize="16" x:Name="textNhapWifi151" Foreground="{DynamicResource #666666}" TextWrapping="Wrap" Text="Tìm theo Wifi"  IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Grid.ColumnSpan="3">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=textNhapWifi51, Path=Text}" Value="">
+                                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Grid>
+
+                                            </WrapPanel>
+                                        </Border>
+                                        <Image Margin="0 0 10 0" Source="{StaticResource Frame_635607DrawingImageKey}" Width="10" HorizontalAlignment="Right"/>
+
+                                    </Grid>
+                                    <Border x:Name="borWifi21" Visibility="Collapsed" Width="{Binding Path=ActualWidth,ElementName=b123}" Style="{StaticResource BorList}" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                                        <ListView x:Name="lsvWifi21" BorderThickness="0" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsvWifi21_SelectionChanged">
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Width="{Binding RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor},Path=ActualWidth}"></StackPanel>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListViewItem">
+
+                                                                <Border HorizontalAlignment="Stretch"   >
+                                                                    <Border.Style>
+                                                                        <Style TargetType="Border">
+                                                                            <Setter Property="Background" Value="Transparent"></Setter>
+                                                                            <Setter Property="TextBlock.Foreground" Value="#000000"></Setter>
+                                                                            <Style.Triggers>
+                                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                                    <Setter Property="Background" Value="#4c5bd4"></Setter>
+                                                                                    <Setter Property="TextBlock.Foreground" Value="#ffffff"></Setter>
+                                                                                </Trigger>
+                                                                            </Style.Triggers>
+                                                                        </Style>
+                                                                    </Border.Style>
+                                                                    <DockPanel >
+                                                                        <TextBlock FontSize="16" Text="{Binding name_wifi}" Margin="5,5,0,5"/>
+
+                                                                    </DockPanel>
+
+                                                                </Border>
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                            <Border Cursor="Hand"  Width="110" HorizontalAlignment="Left" Background="#4C5DB4" CornerRadius="10" Height="40" Margin="0 45 0 0" MouseLeftButtonUp="Border_MouseLeftBuattonUp_2">
+                                <TextBlock Text="Áp dụng" FontSize="16" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+
+        </Grid>
+    </Grid>
+
+</UserControl>

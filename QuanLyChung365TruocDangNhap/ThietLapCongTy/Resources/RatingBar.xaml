@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="QuanLyChung365TruocDangNhap.ThietLapCongTy.Resources.RatingBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyChung365TruocDangNhap.ThietLapCongTy.Resources"
+             mc:Ignorable="d">
+     <StackPanel Orientation="Horizontal" x:Name="st" Height="80">
+        <Button x:Name="Star1" Content="✯" VerticalAlignment="Center" FontSize="50" Click="Star_Click" Background="Transparent" BorderThickness="0" Foreground="#aaa" Height="80">
+            <Button.RenderTransform>
+                <RotateTransform x:Name="Star1RotateTransform" />
+            </Button.RenderTransform>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Star1RotateTransform"
+                                             Storyboard.TargetProperty="Angle"
+                                             To="360" Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button x:Name="Star2" Content="✯" VerticalAlignment="Center" FontSize="50" Click="Star_Click" Background="Transparent" BorderThickness="0" Foreground="#aaa"  Height="80">
+            <Button.RenderTransform>
+                <RotateTransform x:Name="Star1RotateTransform1" />
+            </Button.RenderTransform>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Star1RotateTransform1"
+                                             Storyboard.TargetProperty="Angle"
+                                             To="360" Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button x:Name="Star3" Content="✯" VerticalAlignment="Center" FontSize="50" Click="Star_Click" Background="Transparent" BorderThickness="0" Foreground="#aaa"  Height="80">
+            <Button.RenderTransform>
+                <RotateTransform x:Name="Star1RotateTransform2" />
+            </Button.RenderTransform>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Star1RotateTransform2"
+                                             Storyboard.TargetProperty="Angle"
+                                             To="360" Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button x:Name="Star4" Content="✯" VerticalAlignment="Center" FontSize="50" Click="Star_Click" Background="Transparent" BorderThickness="0" Foreground="#aaa"  Height="80">
+            <Button.RenderTransform>
+                <RotateTransform x:Name="Star1RotateTransform3" />
+            </Button.RenderTransform>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Star1RotateTransform3"
+                                             Storyboard.TargetProperty="Angle"
+                                             To="360" Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button x:Name="Star5" Content="✯" VerticalAlignment="Center" FontSize="50" Click="Star_Click" Background="Transparent" BorderThickness="0" Foreground="#aaa"  Height="80">
+            <Button.RenderTransform>
+                <RotateTransform x:Name="Star1RotateTransform4" />
+            </Button.RenderTransform>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="Star1RotateTransform4"
+                                             Storyboard.TargetProperty="Angle"
+                                             To="360" Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+    </StackPanel>
+</UserControl>

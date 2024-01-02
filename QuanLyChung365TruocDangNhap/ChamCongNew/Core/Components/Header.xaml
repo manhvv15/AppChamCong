@@ -1,0 +1,190 @@
+﻿<UserControl
+    x:Class="QuanLyChung365TruocDangNhap.ChamCongNew.Components.Header"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="header"
+    d:DesignHeight="76"
+    d:DesignWidth="1366"
+    mc:Ignorable="d">
+    <!--SizeChanged="HeaderSizeChanged"-->
+    <!--<UserControl.Resources>
+        <DropShadowEffect
+            x:Key="z-depth1"
+            BlurRadius="6"
+            Direction="270"
+            Opacity="0.5"
+            ShadowDepth="1"
+            Color="#CCCCCC" />
+    </UserControl.Resources>
+    <Grid Effect="{DynamicResource z-depth1}">
+        <Grid
+            Grid.Row="0"
+            Height="56"
+            Margin="20,0,20,0"
+            VerticalAlignment="Bottom">
+            <Border Background="#FFFFFF" CornerRadius="12" />
+            --><!--<Grid x:Name="iconShowSideBar" Cursor="Hand" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="12,0,0,0">
+                <Path Data="{StaticResource icon_three_horizon}" Fill="{StaticResource #474747}" VerticalAlignment="Center" HorizontalAlignment="Left"></Path>
+            </Grid>--><!--
+            <TextBlock
+                x:Name="tbID"
+                Margin="60,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Foreground="#4C5BD4"
+                Text="ID-" />
+            <Line
+                Stroke="#474747"
+                StrokeThickness="2"
+                X1="141"
+                X2="141"
+                Y1="11"
+                Y2="44" />
+            <TextBlock
+                x:Name="tbName"
+                Margin="156,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Text="Công ty Cổ phần Thanh toán Hưng Hà" />
+            <Grid Margin="0,0,50,0" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid
+                    Grid.Column="0"
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,43,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+                    <Path Data="{StaticResource icon_message}" Fill="#666666" />
+                    <Path
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Data="{StaticResource icon_red_circle}"
+                        Fill="#FF3333" />
+                    <Border
+                        Background="Transparent"
+                        Cursor="Hand"
+                        MouseLeftButtonDown="MessageIconClick"
+                        Opacity="0" />
+                    <Grid
+                        x:Name="gridMessagePopup"
+                        Width="340"
+                        Height="468"
+                        Margin="-170,15,-170,-513"
+                        HorizontalAlignment="Center"
+                        Visibility="Collapsed" />
+                </Grid>
+                <Grid
+                    Grid.Column="1"
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,43,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+                    <Path Data="{StaticResource icon_warning_home}" Fill="#666666" />
+                    <Path
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Data="{StaticResource icon_red_circle}"
+                        Fill="#FF3333" />
+                    <Border
+                        Background="Transparent"
+                        Cursor="Hand"
+                        MouseLeftButtonDown="RemindIconClick"
+                        Opacity="0" />
+                    <Grid
+                        x:Name="gridRemindPopup"
+                        Width="448"
+                        Height="300"
+                        Margin="-224,15,-224,-315"
+                        HorizontalAlignment="Center"
+                        Visibility="Collapsed" />
+                </Grid>
+                <Grid
+                    Grid.Column="2"
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,43,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+                    <Path Data="{StaticResource icon_notify_home}" Fill="#666666" />
+                    <Path
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Data="{StaticResource icon_red_circle}"
+                        Fill="#FF3333" />
+                    <Border
+                        Background="Transparent"
+                        Cursor="Hand"
+                        MouseLeftButtonDown="NotifyIconClick"
+                        Opacity="0" />
+                    <Grid
+                        x:Name="gridNotifyPopup"
+                        Width="448"
+                        Height="300"
+                        Margin="-224,15,-224,-315"
+                        HorizontalAlignment="Center"
+                        Visibility="Collapsed" />
+                </Grid>
+                --><!--<Grid
+                    Grid.Column="3"
+                    Width="32"
+                    Height="32"
+                    Margin="0,0,11,0"
+                    VerticalAlignment="Center"
+                    MouseLeftButtonDown="MenuClick">
+                    <Ellipse Cursor="Hand">
+                        <Ellipse.Fill>
+                            <ImageBrush
+                                x:Name="imageAvatar"
+                                ImageSource="../Images/avatar_default.png"
+                                Stretch="UniformToFill" />
+                            --><!--  ImageSource="../Images/avatar_default.png"  --><!--
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>--><!--
+                <TextBlock
+                    x:Name="tbxName"
+                    Grid.Column="4"
+                    Margin="0,0,22,0"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    FontWeight="SemiBold"
+                    Foreground="{StaticResource #666666}"
+                    MouseLeftButtonDown="MenuClick"
+                    Text="Phạm Văn Minh" />
+                <Grid
+                    Grid.Column="5"
+                    Width="10"
+                    Height="5"
+                    VerticalAlignment="Center">
+                    <Path
+                        Cursor="Hand"
+                        Data="{StaticResource icon_explandmore}"
+                        Fill="#666666"
+                        MouseLeftButtonDown="MenuClick" />
+                    --><!--<Grid
+                        x:Name="gridMenuPopup"
+                        Width="360"
+                        Height="456"
+                        Margin="-448,25,0,-481"
+                        HorizontalAlignment="Right"
+                        Visibility="Collapsed" />
+                </Grid>--><!--
+            </Grid>
+        </Grid>
+    </Grid>-->
+</UserControl>

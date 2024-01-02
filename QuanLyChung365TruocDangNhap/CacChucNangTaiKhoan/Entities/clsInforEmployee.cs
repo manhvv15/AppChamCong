@@ -1,0 +1,210 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QuanLyChung365TruocDangNhap.CacChucNangTaiKhoan.Entities
+{
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    public class Account
+    {
+        public int? birthday { get; set; }
+        public int? gender { get; set; }
+        public int? married { get; set; }
+        public int? experience { get; set; }
+        public int? education { get; set; }
+        public string _id { get; set; }
+    }
+
+    public class Candidate
+    {
+        public int use_type { get; set; }
+        public int user_reset_time { get; set; }
+        public int use_view { get; set; }
+        public int use_noti { get; set; }
+        public int use_show { get; set; }
+        public int use_show_cv { get; set; }
+        public int use_active { get; set; }
+        public int use_td { get; set; }
+        public int use_check { get; set; }
+        public int use_test { get; set; }
+        public int use_badge { get; set; }
+        public int point_time_active { get; set; }
+        public string cv_title { get; set; }
+        public object cv_muctieu { get; set; }
+        public object cv_kynang { get; set; }
+        public object cv_giai_thuong { get; set; }
+        public object cv_hoat_dong { get; set; }
+        public object cv_so_thich { get; set; }
+        public List<object> cv_city_id { get; set; }
+        public List<object> cv_cate_id { get; set; }
+        public int cv_capbac_id { get; set; }
+        public int cv_money_id { get; set; }
+        public int cv_loaihinh_id { get; set; }
+        public int cv_time { get; set; }
+        public int cv_time_dl { get; set; }
+        public int um_type { get; set; }
+        public object um_min_value { get; set; }
+        public object um_max_value { get; set; }
+        public int um_unit { get; set; }
+        public object cv_tc_name { get; set; }
+        public object cv_tc_cv { get; set; }
+        public object cv_tc_dc { get; set; }
+        public object cv_tc_phone { get; set; }
+        public object cv_tc_email { get; set; }
+        public object cv_tc_company { get; set; }
+        public object cv_video { get; set; }
+        public int cv_video_type { get; set; }
+        public int cv_video_active { get; set; }
+        public object use_ip { get; set; }
+        public int percents { get; set; }
+        public int vip { get; set; }
+        public int check_create_usc { get; set; }
+        public int emp_id { get; set; }
+        public string _id { get; set; }
+        public List<object> profileDegree { get; set; }
+        public List<object> profileNgoaiNgu { get; set; }
+        public List<object> profileExperience { get; set; }
+    }
+
+    public class CompanyName
+    {
+        public int _id { get; set; }
+        public string userName { get; set; }
+    }
+
+    public class Data_InforSaft
+    {
+        public bool result { get; set; }
+        public string message { get; set; }
+        public Data_InforSaft data { get; set; }
+        public int _id { get; set; }
+        public InForPerson inForPerson { get; set; }
+        public string userName { get; set; }
+        public int dep_id { get; set; }
+        public int com_id { get; set; }
+        public int position_id { get; set; }
+        public string start_working_time { get; set; }
+        public string display_start_working_time
+        {
+            get
+            {
+                try
+                {
+                    DateTime date = new DateTime(1970, 1, 1, 0, 0, 0);
+                    date = date.AddSeconds(long.Parse(start_working_time));
+                    if (start_working_time == "0")
+                    {
+                        return "Chưa cập nhật";
+                    }
+                    return date.ToString("dd/MM/yyyy");
+                }
+                catch
+                {
+                    return start_working_time;
+                }
+            }
+        }
+        public int idQLC { get; set; }
+        public string phoneTK { get; set; }
+        public string phone { get; set; }
+        public string address { get; set; }
+        public string avatarUser { get; set; }
+        public int authentic { get; set; }
+        public string birthday { get; set; }
+        public string display_birthday
+        {
+            get
+            {
+                try
+                {
+                    DateTime date = new DateTime(1970, 1, 1, 0, 0, 0);
+                    date = date.AddSeconds(long.Parse(birthday));
+                    if (birthday == "0")
+                    {
+                        return "Chưa cập nhật";
+                    }
+                    return date.ToString("dd-MM-yyyy");
+                }
+                catch
+                {
+                    if (birthday == "0")
+                    {
+                        return "Chưa cập nhật";
+                    }
+                    return birthday;
+                }
+            }
+        }
+        public int gender { get; set; }
+        public int married { get; set; }
+        public int experience { get; set; }
+        public int education { get; set; }
+        public object emailContact { get; set; }
+        public string nameDeparment { get; set; }
+        public string positionName { get; set; }
+        public List<ListOrganizeDetailId> listOrganizeDetailId { get; set; }
+        public CompanyName companyName { get; set; }
+    }
+
+    public class Employee
+    {
+        public int com_id { get; set; }
+        public int organizeDetailId { get; set; }
+        public int dep_id { get; set; }
+        public string start_working_time { get; set; }
+        public string display_start_working_time
+        {
+            get
+            {
+                try
+                {
+                    DateTime date = new DateTime(1970, 1, 1, 0, 0, 0);
+                    date = date.AddSeconds(long.Parse(start_working_time));
+                    return date.ToString("dd/MM/yyyy");
+                }
+                catch
+                {
+                    return start_working_time;
+                }
+            }
+        }
+        public int position_id { get; set; }
+        public int? team_id { get; set; }
+        public int? group_id { get; set; }
+        public int? time_quit_job { get; set; }
+        public object ep_description { get; set; }
+        public object ep_featured_recognition { get; set; }
+        public string ep_status { get; set; }
+        public int? ep_signature { get; set; }
+        public int allow_update_face { get; set; }
+        public int version_in_use { get; set; }
+        public int role_id { get; set; }
+        public string _id { get; set; }
+        public List<ListOrganizeDetailId> listOrganizeDetailId { get; set; }
+    }
+
+    public class InForPerson
+    {
+        public int scan { get; set; }
+        public Account account { get; set; }
+        public Employee employee { get; set; }
+        public Candidate candidate { get; set; }
+        public string _id { get; set; }
+    }
+
+    public class ListOrganizeDetailId
+    {
+        public int level { get; set; }
+        public int organizeDetailId { get; set; }
+    }
+
+    public class Root_InforSaft
+    {
+        public Data_InforSaft data { get; set; }
+        public object error { get; set; }
+    }
+
+
+}

@@ -1,0 +1,312 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Linq;
+using System.Net.Http;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
+using System.Windows.Media;
+using QuanLyChung365TruocDangNhap.ChamCongNew.OOP.ChamCong;
+using QuanLyChung365TruocDangNhap.ChamCongNew.OOP.ChamCong.CaiDatLichLamViec;
+using QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.CaiDatLichLamViec;
+using QuanLyChung365TruocDangNhap.ChamCongNew.Popup.PopupTimeKeeping;
+using QuanLyChung365TruocDangNhap.ChamCongNew.TimeKeeping;
+using Newtonsoft.Json;
+
+namespace QuanLyChung365TruocDangNhap.ChamCongNew.Popup.ChamCong.CaiDatLichLamViec
+{
+
+    /// <summary>
+    /// Interaction logic for ucListSaff.xaml
+    /// </summary>
+    public partial class ucDanhSachNhanVien : UserControl, INotifyCollectionChanged
+    {
+        MainWindow Main;
+        public int cy_id;
+        public string Apply_Month;
+        CollectionViewSource view = new CollectionViewSource();
+        
+        private List<ListSaff> _listStaff;
+        public List<ListSaff> ListStaff
+        {
+            get { return _listStaff; }
+            set { _listStaff = value; }
+        }
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+        int currentPageIndex = 0;
+        int itemPerPage = 5;
+        int totalPage = 0;
+        BrushConverter br = new BrushConverter();
+        public ucDanhSachNhanVien(MainWindow main, int ID, string apply_month)
+        {
+
+            InitializeComponent();
+            this.DataContext = this;
+            this.cy_id = ID;
+            this.Apply_Month = apply_month;
+            Main = main;
+            LoadListSaffInCalendarWork();
+
+        }
+        #region CallAPI
+
+        public async void LoadListSaffInCalendarWork(int pageNumber = 1)
+        {
+            try
+            {
+                var client = new HttpClient();
+                var request = new HttpRequestMessage(HttpMethod.Post, APIs.API.list_saff_in_Calendar_Work_api);
+                request.Headers.Add("Authorization", "Bearer " + Properties.Settings.Default.Token);
+                var content = new MultipartFormDataContent();
+                content.Add(new StringContent(cy_id.ToString()), "cy_id");
+                request.Content = content;
+                var response = await client.SendAsync(request);
+                response.EnsureSuccessStatusCode();
+                var responseContent = await response.Content.ReadAsStringAsync();
+                RootSaff result = JsonConvert.DeserializeObject<RootSaff>(responseContent);
+                if (result != null)
+                {
+                    DateTime aDay;
+                    DateTime.TryParse(Apply_Month, out aDay);
+                    Apply_Month = aDay.ToString("MM/yyyy");
+                    txbHeaderListSaff.Text = Apply_Month;
+                    ListStaff = result.data.list;
+                    
+                }
+                foreach (ListSaff item in ListStaff)
+                {
+                    if (item.avatarUser == "" || item.avatarUser == null)
+                    {
+                        item.avatarUser = "https://chamcong.timviec365.vn/images/ep_logo.png";
+                    }
+                    else
+                    {
+                        item.avatarUser = "https://chamcong.24hpay.vn/upload/employee/" + item.avatarUser;
+                    }
+                }
+                foreach (ListSaff item in ListStaff)
+                {
+                    if (item.phone == "" || item.phone == null)
+                    {
+                        item.phone = "Chưa cập nhật!";
+                    }
+                    else
+                    {
+                        item.phone = item.phone;
+                    }
+                }
+                foreach (ListSaff item in ListStaff)
+                {
+                    if (item.email == "" || item.email == null)
+                    {
+                        item.email = "Chưa cập nhật!";
+                    }
+                    else
+                    {
+                        item.email = item.email;
+                    }
+                }
+                if(textSearch.Text!="") ListStaff = ListStaff.Where(x => x.ep_name.ToLower().RemoveUnicode().Contains(textSearch.Text.ToLower().RemoveUnicode())).ToList();
+                if (paginNV.SelectedPage == 0|| paginNV.SelectedPage == 1) paginNV.TotalRecords = ListStaff.Count;
+                lsvListSaffSmall.ItemsSource = ListStaff.Skip((pageNumber - 1) * 5).Take(5);
+
+
+            }
+            catch (System.Exception)
+            {
+            }
+        }
+        #endregion
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+            ucCaiDatLichLamViec ucC = new ucCaiDatLichLamViec(Main, 0);
+
+        }
+
+        private void bodDeleteSaffOnList_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Border p = sender as Border;
+            ListSaff data = (ListSaff)p.DataContext;
+            Main.grShowPopup.Children.Add(new ucXoaNhanVien(this, Main, cy_id, data.ep_id, Apply_Month));
+        }
+
+        //#region Phân Trang
+        //private void view_Filter(object sender, FilterEventArgs e)
+        //{
+        //    int index = listsaff.IndexOf((ListSaff)e.Item);
+        //    if (index >= itemPerPage * currentPageIndex && index < itemPerPage * (currentPageIndex + 1))
+        //    {
+        //        e.Accepted = true;
+        //    }
+        //    else
+        //    {
+        //        e.Accepted = false;
+        //    }
+        //}
+        //private void ShowCurrentPageIndex()
+        //{
+        //    this.tbCurrentPage.Text = (currentPageIndex + 1).ToString();
+        //}
+        //private void btnFirst_Click(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (currentPageIndex != 0)
+        //    {
+        //        currentPageIndex = 0;
+        //        view.View.Refresh();
+        //    }
+        //    ShowCurrentPageIndex();
+        //}
+        //private void btnBackPage_Click(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (currentPageIndex > 0)
+        //    {
+        //        currentPageIndex--;
+        //        view.View.Refresh();
+        //    }
+        //    ShowCurrentPageIndex();
+        //}
+        //private void btnNextPage_Click(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (currentPageIndex < totalPage - 1)
+        //    {
+        //        currentPageIndex++;
+        //        view.View.Refresh();
+        //    }
+        //    ShowCurrentPageIndex();
+        //}
+        //private void btnTrangCuoi_Click(object sender, MouseButtonEventArgs e)
+        //{
+        //    if (currentPageIndex != totalPage - 1)
+        //    {
+        //        currentPageIndex = totalPage - 1;
+        //        view.View.Refresh();
+        //    }
+        //    ShowCurrentPageIndex();
+        //}
+
+        //#endregion
+
+        //private void btnTrangDau_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    btnTrangDau.Background = (Brush)br.ConvertFrom("#4C5BD4");
+        //    tbTrangDau.Foreground = (Brush)br.ConvertFrom("#FFFFFF");
+        //}
+
+        //private void btnTrangDau_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    btnTrangDau.Background = (Brush)br.ConvertFrom("#FFFFFF");
+        //    tbTrangDau.Foreground = (Brush)br.ConvertFrom("#474747");
+        //}
+
+        //private void btnBackPage_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    btnBackPage.Background = (Brush)br.ConvertFrom("#4C5BD4");
+        //    tbBackPage.Fill = (Brush)br.ConvertFrom("#FFFFFF");
+        //}
+
+        //private void btnBackPage_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    btnBackPage.Background = (Brush)br.ConvertFrom("#FFFFFF");
+        //    tbBackPage.Fill = (Brush)br.ConvertFrom("#474747");
+        //}
+
+        //private void btnNextPage_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    btnNextPage.Background = (Brush)br.ConvertFrom("#4C5BD4");
+        //    tbNextPage.Fill = (Brush)br.ConvertFrom("#FFFFFF");
+        //}
+
+        //private void btnNextPage_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    btnNextPage.Background = (Brush)br.ConvertFrom("#FFFFFF");
+        //    tbNextPage.Fill = (Brush)br.ConvertFrom("#474747");
+        //}
+
+        //private void btnTrangCuoi_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    btnTrangCuoi.Background = (Brush)br.ConvertFrom("#4C5BD4");
+        //    tbTrangCuoi.Foreground = (Brush)br.ConvertFrom("#FFFFFF");
+        //}
+
+        //private void btnTrangCuoi_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    btnTrangCuoi.Background = (Brush)br.ConvertFrom("#FFFFFF");
+        //    tbTrangCuoi.Foreground = (Brush)br.ConvertFrom("#474747");
+        //}
+
+        private void lsvListSaffSmall_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            try
+            {
+
+
+                var scrollViewer = FindVisualChild<ScrollViewer>(lsvListSaffSmall);
+                if (scrollViewer != null)
+                {
+                    scrollViewer.ScrollToHorizontalOffset(scrollViewer.HorizontalOffset - e.Delta);
+
+                }
+
+            }
+            catch { }
+        }
+
+        private T FindVisualChild<T>(DependencyObject visual) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(visual); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(visual, i);
+                if (child != null && child is T)
+                {
+                    return (T)child;
+                }
+                else
+                {
+                    T childItem = FindVisualChild<T>(child);
+                    if (childItem != null)
+                        return childItem;
+                }
+            }
+            return null;
+        }
+
+        private void SearchNhanVien_TextChange(object sender, TextChangedEventArgs e)
+        {
+            paginNV.SelectedPage = 1;   
+            LoadListSaffInCalendarWork();
+            //try
+            //{
+            //    totalPage = 0;
+            //    if (textSearch.Text == "")
+            //    {
+            //        listsaff = new ObservableCollection<ListSaff>();
+            //        LoadListSaffInCalendarWork();
+            //    }
+            //    else
+            //    {
+
+            //        List<ListSaff> listSearchSaff = new List<ListSaff>();
+                    
+            //        listSearchSaff = ListStaff.Where(x => x.ep_name.ToLower().RemoveUnicode().Contains(textSearch.Text.ToLower().RemoveUnicode())).ToList();
+
+            //    }
+            //}
+            //catch {
+            
+            //}
+
+            
+           
+        }
+        public void paginNV_SelectionChange(object sender, SelectionChangedEventArgs e)
+        {
+            LoadListSaffInCalendarWork(paginNV.SelectedPage);
+        }
+    }
+}
